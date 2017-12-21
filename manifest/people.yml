@@ -1,0 +1,18 @@
+alain:
+  position: 1
+  name: Trevor
+  title: Creator
+  programming_since: 1999
+  description: >-
+    Software engineer with nearly two decades experience crafting quality web apps. Very interested in making your life easier. I care deeply about wielding technology to build great products and experiences and have worked on doing exactly that at every layer of the stack:
+phil:
+  position: 2
+  name: Vic
+  title: Clojure monkey
+  description: Vic has been programming for the web since 2004.
+  programming_since: 2004
+  technologies:
+    perl: 2014
+    clojure: 2016
+anon:
+  name: Anon

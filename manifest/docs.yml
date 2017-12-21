@@ -1,0 +1,52 @@
+yetibot-usage:
+  name: Yetibot usage examples
+  url: https://github.com/yetibot/yetibot/blob/master/doc/EXAMPLES.md
+  opensourced: 
+  priority: 90
+#  technologies:
+#    - 
+  people:
+    - vic
+  description: >-
+    Cool and fun examples!
+
+yetibot-docker:
+  name: Yetibot on Docker
+  url: https://github.com/yetibot/yetibot/blob/master/doc/DOCKER.md
+  image: "/img/docker.png"
+  opensourced:
+  priority: 60
+  technologies:
+    - clojure
+    - docker
+  people:
+    - trevor
+  description: >-
+    The official Yetibot image is devth/yetibot. It's built on the official Clojure image.
+
+getting-started:
+  name: Yetibot Getting Started
+  url: https://github.com/yetibot/yetibot/blob/master/doc/GETTING_STARTED.md
+  priority: 20
+  image: "/img/getting-started.png"
+#  category: Education
+  people:
+    - vic
+  technologies:
+    - clojure
+  description: >-
+    To get a Yetibot running you need: some config, a database, and a way to run it.
+
+contibuting:
+  name: Yetibot <3 PRs
+  url: https://github.com/yetibot/yetibot/blob/master/CONTRIBUTING.md
+  priority: 1
+  image: "/img/contributing.png"
+#  category: Education
+  people:
+    - vic
+  technologies:
+    - clojure
+    - cljs
+  description: >-
+    Before adding to Yetibot you might want to check with the author first to see if: the feature makes sense for Yetibot, whether it should be in yetibot or yetibot.core, and no one is working on it already
