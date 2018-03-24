@@ -9,6 +9,9 @@ cache:
   directories:
     - $HOME/.m2
 
+before_install:
+- gem install sass
+
 script:
 - lein run
 - mv resources/public docs/
