@@ -14,12 +14,13 @@ before_install:
 
 script:
 - lein run
-- mv resources/public docs/
 
 deploy:
   provider: pages
   skip-cleanup: true
   github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
   keep-history: true
+  target-branch: master
+  local-dir: resources/public
   on:
-    branch: master
+    branch: source
