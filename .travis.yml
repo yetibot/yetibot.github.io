@@ -1,5 +1,9 @@
 language: clojure
 
+branches:
+  only:
+  - source
+
 jdk:
   - oraclejdk8
 
