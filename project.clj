@@ -6,6 +6,7 @@
             :dependencies [[org.clojure/clojure "1.8.0"]
                            [ring/ring-devel "1.6.3"]
                            [compojure "1.6.0"]
+                           [org.webjars.npm/bulma "0.6.2"]
                            [ring-server "0.5.0"]
                            [cryogen-markdown "0.1.7"]
                            [cryogen-core "0.1.61"]]
