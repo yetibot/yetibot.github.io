@@ -6431,11 +6431,14 @@ label.panel-block {
 #foo {
   display: none; }
 
+body {
+  display: relative; }
+
 .is-horizontal-center {
   justify-content: center; }
 
 .logo {
-  max-width: 600px;
+  max-width: 100%;
   max-height: 600px;
   margin-top: 160px; }
 
@@ -6447,13 +6450,16 @@ h2.tagline {
 
 footer {
   width: 100%;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  margin-top: 60px;
   padding: 1rem;
   background-color: #efefef;
   text-align: center; }
+  @media screen and (min-width: 1024px) {
+    footer {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0; } }
   footer a {
     font-weight: bold; }
 
