@@ -8,31 +8,72 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
     <link href="/css/main.css" rel="stylesheet" type="text/css" />
   </head>
-  <body>
+  <body class="">
 
+
+    <div class="container main-content">
+      <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="/">
+            <img class="nav-logo" src="/img/yetibot_lambda_blue.svg"
+              alt="Yetibot: A powerful, expressive chatops platform written in Clojure."
+            />
+          </a>
+
+          
+          <a href="/about/"
+             class="navbar-item is-active">
+            About
+          </a>
+          
+          <a href="/docs/"
+             class="navbar-item ">
+            Docs
+          </a>
+          
+          <a href="/media/"
+             class="navbar-item ">
+            Media
+          </a>
+          
+          <a class="navbar-item " href="/archives/">Blog</a>
+
+          <div class="navbar-burger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </nav>
+
+      <div class="container">
+        
+
+<section class="content" id="custom-page">
+
+  <div id="page-header">
+    <h2 class="title">About</h2>
+  </div>
+
+  
+
+  <p>Yetibot was started in 2011 by <a href='https://github.com/devth'>@devth</a> as a fun way to learn Clojure.</p><p>It has since evolved into a powerful expressive chat bot used by teams for automation and for fun.</p><p>Join the party on <a href='http://slack.yetibot.com'>Yetibot Slack</a>.</p>
+
+  <div id="prev-next">
     
-
-      <div class="contain">
-        
-<div id="custom-page">
-    <div id="page-header">
-        <h2>About</h2>
-    </div>
     
-    <p>Yetibot was started in 2011 by <a href='https://github.com/devth'>@devth</a> as a fun way to learn Clojure.</p><p>It has since evolved into a powerful expressive chat bot used by teams for automation and for fun.</p><p>Join the party on <a href='http://slack.yetibot.com'>Yetibot Slack</a>.</p>
+    
+    <a class="button is-info" href="/docs/">Docs &raquo;</a>
+    
+  </div>
 
-    <div id="prev-next">
-        
-        
-        
-        <a href="/docs/">Docs &raquo;</a>
-        
-    </div>
-</div>
+</section>
+
 
       </div>
 
-    
+    </div>
+
 
     <footer class="footer">
       <div class="content has-text-centered">
@@ -47,6 +88,11 @@
           Artwork by
           <a href="http://www.freeformdesign.co/">Freeform Design Co.</a>
           in <strong>Montana</strong>.
+          <br />
+
+          This site is continously delivered from
+          <a href="https://github.com/yetibot/yetibot.github.io">
+             source</a>.
         </p>
       </div>
     </footer>

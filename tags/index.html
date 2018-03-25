@@ -8,11 +8,45 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
     <link href="/css/main.css" rel="stylesheet" type="text/css" />
   </head>
-  <body>
+  <body class="">
 
-    
 
-      <div class="contain">
+    <div class="container main-content">
+      <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="/">
+            <img class="nav-logo" src="/img/yetibot_lambda_blue.svg"
+              alt="Yetibot: A powerful, expressive chatops platform written in Clojure."
+            />
+          </a>
+
+          
+          <a href="/about/"
+             class="navbar-item ">
+            About
+          </a>
+          
+          <a href="/docs/"
+             class="navbar-item ">
+            Docs
+          </a>
+          
+          <a href="/media/"
+             class="navbar-item ">
+            Media
+          </a>
+          
+          <a class="navbar-item " href="/archives/">Blog</a>
+
+          <div class="navbar-burger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </nav>
+
+      <div class="container">
         
 <div id="tags-page">
     <div id="page-header">
@@ -23,16 +57,13 @@
         
         <li><a href="/tags/news/">news</a></li>
         
-        <li><a href="/tags/very fetch/">very fetch</a></li>
-        
-        <li><a href="/tags/not fetch/">not fetch</a></li>
-        
     </ul>
 </div>
 
       </div>
 
-    
+    </div>
+
 
     <footer class="footer">
       <div class="content has-text-centered">
@@ -47,6 +78,11 @@
           Artwork by
           <a href="http://www.freeformdesign.co/">Freeform Design Co.</a>
           in <strong>Montana</strong>.
+          <br />
+
+          This site is continously delivered from
+          <a href="https://github.com/yetibot/yetibot.github.io">
+             source</a>.
         </p>
       </div>
     </footer>

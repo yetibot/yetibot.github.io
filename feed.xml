@@ -12,17 +12,17 @@ http://yetibot.com
 Docs and blog posts for Yetibot
 </description>
 <lastBuildDate>
-Sun, 25 Mar 2018 19:41:46 +0000
+Sun, 25 Mar 2018 21:51:12 +0000
 </lastBuildDate>
 <generator>
 clj-rss
 </generator>
 <item>
 <guid>
-http://yetibot.com/posts/2018-03-24-launch/
+http://yetibot.com/blog/2018-03-24-launch/
 </guid>
 <link>
-http://yetibot.com/posts/2018-03-24-launch/
+http://yetibot.com/blog/2018-03-24-launch/
 </link>
 <title>
 Yetibot.com Launch
@@ -32,40 +32,6 @@ Yetibot.com Launch
 </description>
 <pubDate>
 Sat, 24 Mar 2018 00:00:00 +0000
-</pubDate>
-</item>
-<item>
-<guid>
-http://yetibot.com/posts/2014-11-04-second-post/
-</guid>
-<link>
-http://yetibot.com/posts/2014-11-04-second-post/
-</link>
-<title>
-Yet Another Post
-</title>
-<description>
-&lt;h3 id=&quot;this&amp;#95;post&amp;#95;so&amp;#95;fetch&quot;&gt;This Post So Fetch&lt;/h3&gt;&lt;p&gt;some more stuff happened&lt;/p&gt;
-</description>
-<pubDate>
-Tue, 04 Nov 2014 00:00:00 +0000
-</pubDate>
-</item>
-<item>
-<guid>
-http://yetibot.com/posts/2014-03-10-first-post/
-</guid>
-<link>
-http://yetibot.com/posts/2014-03-10-first-post/
-</link>
-<title>
-A Post
-</title>
-<description>
-&lt;h3 id=&quot;this&amp;#95;post&amp;#95;not&amp;#95;fetch&amp;#95;enough&quot;&gt;This Post Not Fetch Enough&lt;/h3&gt;&lt;p&gt;some stuff happened&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt; Stop trying to make fetch happen. &lt;/p&gt;&lt;footer&gt; Regina&lt;/footer&gt;&lt;/blockquote&gt;
-</description>
-<pubDate>
-Mon, 10 Mar 2014 00:00:00 +0000
 </pubDate>
 </item>
 </channel>

@@ -8,11 +8,45 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
     <link href="/css/main.css" rel="stylesheet" type="text/css" />
   </head>
-  <body>
+  <body class="">
 
-    
 
-      <div class="contain">
+    <div class="container main-content">
+      <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="/">
+            <img class="nav-logo" src="/img/yetibot_lambda_blue.svg"
+              alt="Yetibot: A powerful, expressive chatops platform written in Clojure."
+            />
+          </a>
+
+          
+          <a href="/about/"
+             class="navbar-item ">
+            About
+          </a>
+          
+          <a href="/docs/"
+             class="navbar-item ">
+            Docs
+          </a>
+          
+          <a href="/media/"
+             class="navbar-item ">
+            Media
+          </a>
+          
+          <a class="navbar-item " href="/archives/">Blog</a>
+
+          <div class="navbar-burger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </nav>
+
+      <div class="container">
         
 <div id="posts">
   <div id="page-header" class="post-header">
@@ -23,25 +57,7 @@
   <ul>
     
     <li>
-      Mar 24 - <a href="/posts/2018-03-24-launch/">Yetibot.com Launch</a>
-    </li>
-    
-  </ul>
-  
-  <h4>2014 November</h4>
-  <ul>
-    
-    <li>
-      Nov 04 - <a href="/posts/2014-11-04-second-post/">Yet Another Post</a>
-    </li>
-    
-  </ul>
-  
-  <h4>2014 March</h4>
-  <ul>
-    
-    <li>
-      Mar 10 - <a href="/posts/2014-03-10-first-post/">A Post</a>
+      Mar 24 - <a href="/blog/2018-03-24-launch/">Yetibot.com Launch</a>
     </li>
     
   </ul>
@@ -50,7 +66,8 @@
 
       </div>
 
-    
+    </div>
+
 
     <footer class="footer">
       <div class="content has-text-centered">
@@ -65,6 +82,11 @@
           Artwork by
           <a href="http://www.freeformdesign.co/">Freeform Design Co.</a>
           in <strong>Montana</strong>.
+          <br />
+
+          This site is continously delivered from
+          <a href="https://github.com/yetibot/yetibot.github.io">
+             source</a>.
         </p>
       </div>
     </footer>

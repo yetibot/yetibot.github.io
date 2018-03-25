@@ -8,35 +8,78 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
     <link href="/css/main.css" rel="stylesheet" type="text/css" />
   </head>
-  <body>
+  <body class="">
 
+
+    <div class="container main-content">
+      <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="/">
+            <img class="nav-logo" src="/img/yetibot_lambda_blue.svg"
+              alt="Yetibot: A powerful, expressive chatops platform written in Clojure."
+            />
+          </a>
+
+          
+          <a href="/about/"
+             class="navbar-item ">
+            About
+          </a>
+          
+          <a href="/docs/"
+             class="navbar-item is-active">
+            Docs
+          </a>
+          
+          <a href="/media/"
+             class="navbar-item ">
+            Media
+          </a>
+          
+          <a class="navbar-item " href="/archives/">Blog</a>
+
+          <div class="navbar-burger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </nav>
+
+      <div class="container">
+        
+
+<section class="content" id="custom-page">
+
+  <div id="page-header">
+    <h2 class="title">Docs</h2>
+  </div>
+
+  <ol class="content"><li><a href="#yetibot_documentation">Yetibot Documentation</a></li><ol><li><a href="#basics">Basics</a></li><li><a href="#types">Types</a></li><li><a href="#pipes">Pipes</a></li><li><a href="#subexpressions">Subexpressions</a></li><li><a href="#xargs">Xargs</a></li><li><a href="#collection_utilities">Collection utilities</a></li><li><a href="#aliases">Aliases</a></li><li><a href="#observers">Observers</a></li><li><a href="#cron">Cron</a></li></ol></ol>
+
+  <h2 id="yetibot&#95;documentation">Yetibot Documentation</h2><p>Welcome to Yetibot docs. Let's walk through a few of the ways in which a user can interact with Yetibot.</p><h3 id="basics">Basics</h3><pre><code>!echo hi
+</code></pre><p>This is what a simple command looks like. Yetibot should reply <code>hi</code>.</p><h3 id="types">Types</h3><p>Yetibot responses are either:</p><ol><li>A single value</li><li>A collection of values</li></ol><p>There is no concept of types beyond this. Everything can be treated as a String conceptually.</p><p>To view the raw data structure type of a response in Yetibot, use <code>raw</code>. For example:</p><pre><code>!list 1 2 3 | raw
+</code></pre><h3 id="pipes">Pipes</h3><p>Pipes allow chaining together more complex expressions using the output of one command as the input of another command.</p><h3 id="subexpressions">Subexpressions</h3><p>Subexpressions let you build up more complex expressions by nesting one expression in another.</p><h3 id="xargs">Xargs</h3><p>Xargs allows us to operate over a collection, evaluating an expression for each value, in parallel.</p><h3 id="collection&#95;utilities">Collection utilities</h3><p>Since Yetibot can return a collection as a response, it needs basic operations to manipulate collections.</p><h3 id="aliases">Aliases</h3><p>Aliases are similar to <code>alias</code> in bash allowing us to give a name for a command.</p><h3 id="observers">Observers</h3><p>An observer listens for patterns and automatically runs commands when triggered.</p><h3 id="cron">Cron</h3><p>Cron is, as you'd expect, a way to run a command on an interval given a cron expression.</p>
+
+  <div id="prev-next">
+    
+    <a class="button is-info" href="/about/">&laquo; About</a>
+    
     
 
-      <div class="contain">
-        
-<div id="custom-page">
-    <div id="page-header">
-        <h2>Docs</h2>
-    </div>
-    <ol class="content"><li><a href="#yetibot_documentation">Yetibot Documentation</a></li><ol><li><a href="#user_guide">User Guide</a></li><li><a href="#examples">Examples</a></li></ol></ol>
-    <h2 id="yetibot&#95;documentation">Yetibot Documentation</h2><p>Welcome to Yetibot docs.</p><h3 id="user&#95;guide">User Guide</h3><h3 id="examples">Examples</h3>
+    
+    
+    <a class="button is-info" href="/media/">Media &raquo;</a>
+    
+  </div>
 
-    <div id="prev-next">
-        
-        <a href="/about/">&laquo; About</a>
-        
-        
-        ||
-        
-        
-        <a href="/media/">Media &raquo;</a>
-        
-    </div>
-</div>
+</section>
+
 
       </div>
 
-    
+    </div>
+
 
     <footer class="footer">
       <div class="content has-text-centered">
@@ -51,6 +94,11 @@
           Artwork by
           <a href="http://www.freeformdesign.co/">Freeform Design Co.</a>
           in <strong>Montana</strong>.
+          <br />
+
+          This site is continously delivered from
+          <a href="https://github.com/yetibot/yetibot.github.io">
+             source</a>.
         </p>
       </div>
     </footer>
