@@ -7,17 +7,36 @@ $cyan: #55C4D4;
 #foo { display: none; }
 
 body {
-  display: relative;
+  // position: relative;
+  // min-height: 100%;
+}
+
+.main-content {
+  // make room for the fixed footer
+  @include desktop {
+  // padding-bottom: 300px;
+  }
 }
 
 .is-horizontal-center {
   justify-content: center;
 }
 
+// Nav
+
+nav {
+  .nav-logo {
+    max-height: 28px;
+  }
+  margin-bottom: 60px;
+}
+
+// Home
+
 .logo {
   max-width: 100%;
   max-height: 600px;
-  margin-top: 160px;
+  margin-top: 60px;
 }
 
 h2.tagline {
@@ -32,18 +51,19 @@ h2.tagline {
   }
 }
 
-footer {
+// Media page
+.media-boxes {
+  .box {
+    padding: 80px;
+  }
+}
+
+// Footer
+
+footer.footer {
+  background: white;
   width: 100%;
   margin-top: 60px;
-
-  @include desktop {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
-  padding: 1rem;
-  background-color: #efefef;
   text-align: center;
   a {
     font-weight: bold;

@@ -1,25 +1,68 @@
 {% extends "/html/base.html" %}
 
-
 {% block content %}
-<div id="post">
+<div class="container has-text-centered">
+  <div class="is-flex is-horizontal-center">
+    <img class="logo" src="/img/yetibot_logo.svg" class="is-horizontal-center" />
+  </div>
 
-  hi this is the home pag
+  <h2 class="tagline title has-text-centered">
+    A powerful, expressive chatops platform written in Clojure.
+  </h2>
 
-    {% include "/html/post-content.html" %}
-    {% if disqus? %}
-    <div id="comments">
-        <a href="{{post.uri}}#disqus_thread">View Comments</a>
+</div>
+
+<div class="container">
+  <div class="home-tiles tile is-ancestor">
+
+    <div class="tile is-parent">
+      <article class="tile is-child hero is-info is-bold">
+        <a href="/docs">
+          <div class="hero-body">
+            <h1 class="title">
+              Read the docs
+            </h1>
+          </div>
+        </a>
+      </article>
     </div>
-    {% endif %}
 
-    <div id="prev-next">
-        {% if post.prev %}
-        <a href="{{post.prev.uri}}">&laquo; {{post.prev.title}}</a>
-        {% endif %}
-        {% if post.next %}
-        <a class="right" href="{{post.next.uri}}">{{post.next.title}} &raquo;</a>
-        {% endif %}
+    <div class="tile is-parent">
+      <article class="tile is-child hero is-light is-bold">
+        <a href="http://slack.yetibot.com">
+          <div class="hero-body">
+            <h1 class="title">
+              Join Yetibot Slack
+            </h1>
+          </div>
+        </a>
+      </article>
     </div>
+
+    <div class="tile is-parent">
+      <article class="tile is-child hero is-dark is-bold">
+        <a href="/media">
+          <div class="hero-body">
+            <h1 class="title">
+              Media kit
+            </h1>
+          </div>
+        </a>
+      </article>
+    </div>
+
+    <div class="tile is-parent">
+      <article class="tile is-child hero is-warning is-bold">
+        <a href="https://github.com/yetibot/yetibot">
+          <div class="hero-body">
+            <h1 class="title">
+              GitHub
+            </h1>
+          </div>
+        </a>
+      </article>
+    </div>
+
+  </div>
 </div>
 {% endblock %}

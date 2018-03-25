@@ -4,7 +4,7 @@
  :site-url             "http://yetibot.com"
  :post-root            "posts"
  :page-root            "pages"
- :post-root-uri        "posts"
+ :post-root-uri        "blog"
  :page-root-uri        ""
  :tag-root-uri         "tags"
  :author-root-uri      "authors"

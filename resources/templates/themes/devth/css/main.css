@@ -6431,16 +6431,18 @@ label.panel-block {
 #foo {
   display: none; }
 
-body {
-  display: relative; }
-
 .is-horizontal-center {
   justify-content: center; }
+
+nav {
+  margin-bottom: 60px; }
+  nav .nav-logo {
+    max-height: 28px; }
 
 .logo {
   max-width: 100%;
   max-height: 600px;
-  margin-top: 160px; }
+  margin-top: 60px; }
 
 h2.tagline {
   margin: 18px 0 120px 0; }
@@ -6448,19 +6450,15 @@ h2.tagline {
 .home-tiles article:hover {
   filter: opacity(80%); }
 
-footer {
+.media-boxes .box {
+  padding: 80px; }
+
+footer.footer {
+  background: white;
   width: 100%;
   margin-top: 60px;
-  padding: 1rem;
-  background-color: #efefef;
   text-align: center; }
-  @media screen and (min-width: 1024px) {
-    footer {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      left: 0; } }
-  footer a {
+  footer.footer a {
     font-weight: bold; }
 
 /*# sourceMappingURL=main.css.map */

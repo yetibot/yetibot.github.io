@@ -8,82 +8,41 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
     {% style "css/main.css" %}
   </head>
-  <body>
+  <body class="{% if home? %}home{% endif %}">
 
-    {% if post.home? %}
-      <div class="container has-text-centered">
-        <div class="is-flex is-horizontal-center">
-          <img class="logo" src="/img/yetibot_logo.svg" class="is-horizontal-center" />
+
+    <div class="container main-content">
+      <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="/">
+            <img class="nav-logo" src="/img/yetibot_lambda_blue.svg"
+              alt="Yetibot: A powerful, expressive chatops platform written in Clojure."
+            />
+          </a>
+
+          {% for nav-page in navbar-pages %}
+          <a href="{{nav-page.uri}}"
+             class="navbar-item {%ifequal page.uri nav-page.uri %}is-active{% endifequal %}">
+            {{nav-page.title}}
+          </a>
+          {% endfor %}
+          <a class="navbar-item {% if archives %}active{% endif %}" href="{{archives-uri}}">Blog</a>
+
+          <div class="navbar-burger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
-
-        <h2 class="tagline title has-text-centered">
-          A powerful, expressive chatops platform written in Clojure.
-        </h2>
-
-      </div>
+      </nav>
 
       <div class="container">
-        <div class="home-tiles tile is-ancestor">
-
-          <div class="tile is-parent">
-            <article class="tile is-child hero is-info is-bold">
-              <a href="/docs">
-                <div class="hero-body">
-                  <h1 class="title">
-                    Read the docs
-                  </h1>
-                </div>
-              </a>
-            </article>
-          </div>
-
-          <div class="tile is-parent">
-            <article class="tile is-child hero is-light is-bold">
-              <a href="http://slack.yetibot.com">
-                <div class="hero-body">
-                  <h1 class="title">
-                    Join Yetibot Slack
-                  </h1>
-                </div>
-              </a>
-            </article>
-          </div>
-
-          <div class="tile is-parent">
-            <article class="tile is-child hero is-dark is-bold">
-              <a href="/media">
-                <div class="hero-body">
-                  <h1 class="title">
-                    Media kit
-                  </h1>
-                </div>
-              </a>
-            </article>
-          </div>
-
-          <div class="tile is-parent">
-            <article class="tile is-child hero is-warning is-bold">
-              <a href="https://github.com/yetibot/yetibot">
-                <div class="hero-body">
-                  <h1 class="title">
-                    GitHub
-                  </h1>
-                </div>
-              </a>
-            </article>
-          </div>
-
-        </div>
-      </div>
-
-    {% else %}
-
-      <div class="contain">
         {% block content %}
         {% endblock %}
       </div>
 
-    {% endif %}
+    </div>
+
 
     <footer class="footer">
       <div class="content has-text-centered">
@@ -98,6 +57,11 @@
           Artwork by
           <a href="http://www.freeformdesign.co/">Freeform Design Co.</a>
           in <strong>Montana</strong>.
+          <br />
+
+          This site is continously delivered from
+          <a href="https://github.com/yetibot/yetibot.github.io">
+             source</a>.
         </p>
       </div>
     </footer>
