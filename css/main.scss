@@ -1,0 +1,22 @@
+@import "bulma/bulma.sass";
+#foo { display: none; }
+
+.is-horizontal-center {
+  justify-content: center;
+}
+
+.logo {
+  max-width: 600px;
+  max-height: 600px;
+  margin-top: 160px;
+}
+
+h2.tagline {
+  margin: 18px 0 120px 0;
+}
+
+footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+}
