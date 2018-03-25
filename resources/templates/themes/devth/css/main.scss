@@ -1,3 +1,8 @@
+
+// override bulma to use Yetibot's blue for cyan, which in turn affects bulma's
+// `primary` colors
+$cyan: #55C4D4;
+
 @import "bulma/bulma.sass";
 #foo { display: none; }
 
@@ -15,8 +20,21 @@ h2.tagline {
   margin: 18px 0 120px 0;
 }
 
+.home-tiles {
+  article {
+    &:hover {
+      filter: opacity(80%);
+    }
+  }
+}
+
 footer {
-  position: fixed;
-  bottom: 0px;
   width: 100%;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
 }
