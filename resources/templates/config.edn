@@ -17,11 +17,11 @@
  :sass-src             []
  :sass-path            "sass"
  :compass-path         "compass"
- :theme                "lotus"
+ :theme                "devth"
  :resources            ["img"]
  :keep-files           [".git"]
  :disqus?              true
- :disqus-shortname     ""
+ :disqus-shortname     "yetibot"
  :ignored-files        [#"\.#.*" #".*\.swp$"]
  :posts-per-page       5
  :blocks-per-preview   2

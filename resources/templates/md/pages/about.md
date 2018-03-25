@@ -3,8 +3,6 @@
  :page-index 0
  :navbar? true}
 
-## About Yetibot
-
 Yetibot was started in 2011 by [@devth](https://github.com/devth) as a fun way
 to learn Clojure.
 
