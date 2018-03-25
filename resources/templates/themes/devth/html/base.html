@@ -1,103 +1,103 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
+  <head>
     <meta charset="utf-8"/>
     <title>{{title}}{% block subtitle %}{% endblock %}</title>
     <link rel="canonical" href="{{site-url}}{{uri}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    {# <link href="//fonts.googleapis.com/css?family=Alegreya:400italic,700italic,400,700" rel="stylesheet" #}
-    {#       type="text/css"> #}
-
-    {# <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"> #}
-    {# <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"> #}
-
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
     {% style "css/main.css" %}
-</head>
-<body>
+  </head>
+  <body>
 
-
-<nav class="navbar navbar-default">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{{index-uri}}">{{title}}</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li {% if home %} class="active" {% endif %}><a href="{{index-uri}}">Home</a></li>
-                <li
-                {# {% if archives %} class="active" {% endif %}><a href="{{archives-uri}}">Archives</a></li> #}
-                {% for nav-page in navbar-pages %}
-                <li
-                {%ifequal page.uri nav-page.uri %} class="active" {% endifequal %}>
-                <a href="{{nav-page.uri}}">{{nav-page.title}}</a>
-                </li>
-                {% endfor %}
-                {# <li><a href="{{rss-uri}}">RSS</a></li> #}
-            </ul>
-        </div><!--/.nav-collapse -->
-    </div><!--/.container-fluid -->
-</nav>
-
-
-<div class="container">
-
-
-    <div class="row">
-        <div class="col-lg-9">
-            <div id="content">
-                {% block content %}
-                {% endblock %}
-            </div>
+    {% if post.home? %}
+      <div class="container has-text-centered">
+        <div class="is-flex is-horizontal-center">
+          <img class="logo" src="/img/yetibot_logo.svg" class="is-horizontal-center" />
         </div>
 
-        <div class="col-md-3">
-            <div id="sidebar">
-                <h3>Links</h3>
-                <ul id="links">
-                    {% for page in sidebar-pages %}
-                    <li><a href="{{page.uri}}">{{page.title}}</a></li>
-                    {% endfor %}
-                </ul>
-                {% if latest-posts|not-empty %}
-                <div id="recent">
-                    <h3>Recent Posts</h3>
-                    <ul>
-                        {% for post in latest-posts %}
-                        <li><a href="{{post.uri}}">{{post.title}}</a></li>
-                        {% endfor %}
-                    </ul>
+        <h2 class="tagline title has-text-centered">
+          A powerful, expressive chatops platform written in Clojure.
+        </h2>
+
+      </div>
+
+      <div class="container">
+        <div class="tile is-ancestor">
+
+          <div class="tile is-parent">
+            <article class="tile is-child hero is-primary is-bold">
+              <a href="/docs">
+                <div class="hero-body">
+                  <h1 class="title">
+                    Read the docs
+                  </h1>
                 </div>
-                {% endif %}
-                {% if tags|not-empty %}
-                <div id="tags">
-                    <h3>Tags</h3>
-                    <ul>
-                        {% for tag in tags %}
-                        <li><a href="{{tag.uri}}">{{tag.name}}</a></li>
-                        {% endfor %}
-                    </ul>
+              </a>
+            </article>
+          </div>
+
+          <div class="tile is-parent">
+            <article class="tile is-child hero is-warning is-bold">
+              <a href="http://slack.yetibot.com">
+                <div class="hero-body">
+                  <h1 class="title">
+                    Join Yetibot Slack
+                  </h1>
                 </div>
-                {% endif %}
-            </div>
+              </a>
+            </article>
+          </div>
+
+          <div class="tile is-parent">
+            <article class="tile is-child hero is-danger is-bold">
+              <a href="/media">
+                <div class="hero-body">
+                  <h1 class="title">
+                    Media kit
+                  </h1>
+                </div>
+              </a>
+            </article>
+          </div>
+
+          <div class="tile is-parent">
+            <article class="tile is-child hero is-info is-bold">
+              <a href="https://github.com/yetibot/yetibot">
+                <div class="hero-body">
+                  <h1 class="title">
+                    GitHub
+                  </h1>
+                </div>
+              </a>
+            </article>
+          </div>
+
         </div>
-    </div>
-    <footer>Copyright &copy; {{today|date:yyyy}} {{author}}
-</div>
-<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+      </div>
 
-{# <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> #}
+    {% else %}
 
-{% script "js/highlight.pack.js" %}
-<script>hljs.initHighlightingOnLoad();</script>
-{% if post.klipse %} {{post.klipse|safe}} {% endif %}
-{% if page.klipse %} {{page.klipse|safe}} {% endif %}
-</body>
+      <div class="contain">
+        {% block content %}
+        {% endblock %}
+      </div>
+
+    {% endif %}
+
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          <strong>Yetibot</strong> by <a href="https://devth.com">Trevor
+            Hartman</a> & contributors. Source code is licensed
+          <a href="https://opensource.org/licenses/eclipse-1.0.php">
+            Eclipse Public License 1.0
+          </a>, the same as Clojure. Artwork by <a
+             href="http://www.freeformdesign.co/">Freeform Design Co.</a> in Montana.
+        </p>
+      </div>
+    </footer>
+
+  </body>
 </html>
+
