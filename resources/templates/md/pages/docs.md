@@ -4,12 +4,17 @@
  :page-index 0
  :navbar? true}
 
-Welcome to Yetibot docs. Let's walk through a few of the ways in which a user
-can interact with Yetibot.
+<strong>Welcome to Yetibot docs!</strong>
+
+Let's walk through a few of the ways in which a user can interact with Yetibot.
+All the examples below are <strong>interactive</strong>. Click the button below
+each example evaluate the expression against the live, <a
+href="http://public.yetibot.com">public Yetibot instance</a> using the GraphQL
+API.
 
 ## Basics
 
-```
+```yetibot
 !echo hi
 ```
 
@@ -22,15 +27,21 @@ Yetibot responses are either:
 1. A single value
 1. A collection of values
 
-There is no concept of types beyond this. Everything can be treated as a String
-conceptually.
+There are no other types in Yetibot, though the underlying Clojure data
+structures in responses may contain more diverse responses, such as when
+returning the result of an API call.
 
 To view the raw data structure type of a response in Yetibot, use `raw`. For
 example:
 
-```
+```yetibot
 !list 1 2 3 | raw
 ```
+
+## Data
+
+Yeibot commands by default return a pretty-printed response for human
+consumption, but the underlying data is preserved and accessible as well.
 
 ## Pipes
 
@@ -64,3 +75,5 @@ An observer listens for patterns and automatically runs commands when triggered.
 
 Cron is, as you'd expect, a way to run a command on an interval given a cron
 expression.
+
+## GraphQL API

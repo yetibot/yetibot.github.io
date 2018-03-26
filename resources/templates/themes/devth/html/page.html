@@ -2,9 +2,14 @@
 {%block subtitle %}: {{page.title}}{% endblock %}
 {% block content %}
 
-<section class="content" id="custom-page">
+<article class="page-title hero is-info is-bold">
+  <div class="hero-body">
+    <h2 class="title">{{page.title}}</h2>
+  </div>
+</article>
 
-  <h2 class="page-title title">{{page.title}}</h2>
+<div class="container">
+<section class="content" id="custom-page">
 
   {% if page.toc %}{{page.toc|safe}}{% endif %}
 
@@ -23,5 +28,6 @@
   </div>
 
 </section>
+</div>
 
 {% endblock %}
