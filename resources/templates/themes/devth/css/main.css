@@ -6453,6 +6453,9 @@ h2.tagline {
 .media-boxes .box {
   padding: 80px; }
 
+body .main-content {
+  padding: 12px; }
+
 footer.footer {
   background: white;
   width: 100%;
