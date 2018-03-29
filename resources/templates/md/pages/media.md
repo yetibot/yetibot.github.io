@@ -1,6 +1,6 @@
 {:title "Media"
  :layout :page
- :page-index 1
+ :page-index 2
  :navbar? true}
 
 All Yetibot artwork designed by <a href="http://www.freeformdesign.co/">Freeform
