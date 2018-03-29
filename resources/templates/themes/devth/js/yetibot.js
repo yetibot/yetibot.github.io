@@ -1,5 +1,5 @@
 
-const client = graphql("http://localhost:3003/graphql");
+const client = graphql("http://public.yetibot.com/graphql");
 
 const yetibotEval = function(expr) {
   const result = client('{eval(expr: "' + expr + '")}')();
