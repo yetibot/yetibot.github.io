@@ -80,7 +80,13 @@
 </code></pre><h2 id="subexpressions">Subexpressions</h2><p>Subexpressions let you build up more complex expressions by nesting one expression in another.</p><pre><code class="yetibot">!echo `echo Yetibot is` pretty cool
 </code></pre><p>Backticks are convenient when you need a single level of nesting, but <code>$&#40;&#41;</code> syntax lets you embed any level of nesting:</p><pre><code class="yetibot">!echo $&#40;echo $&#40;echo Yetibot&#41; is&#41; alive
 </code></pre><p>These examples are necessarily simplistic, but when you start piecing together more complex commands that fetch data the ability to arbitrarily nest expressions provides tremendous power.</p><h2 id="xargs">Xargs</h2><p>Xargs allows us to operate over a collection, evaluating an expression for each value, in parallel.</p><pre><code class="yetibot">!list 1 2 3 | xargs echo number | unwords
-</code></pre><h2 id="collection&#95;utilities">Collection utilities</h2><p>Since Yetibot can return a collection as a response, it needs basic operations to manipulate collections.</p><h2 id="aliases">Aliases</h2><p>Aliases are similar to <code>alias</code> in bash allowing us to give a name for a command.</p><h2 id="observers">Observers</h2><p>An observer listens for patterns and automatically runs commands when triggered.</p><h2 id="data">Data</h2><p>Yeibot commands by default return a pretty-printed response for human consumption, but the underlying data is preserved and accessible as well.</p><h2 id="cron">Cron</h2><p>Cron is, as you'd expect, a way to run a command on an interval given a cron expression.</p><h2 id="graphql&#95;api">GraphQL API</h2>
+</code></pre><h2 id="collection&#95;utilities">Collection utilities</h2><p>Since Yetibot can return a collection as a response, it needs basic operations to manipulate collections.</p><h2 id="aliases">Aliases</h2><p>Aliases are similar to <code>alias</code> in bash allowing us to give a name for a command.</p><h2 id="observers">Observers</h2><p>An observer listens for patterns and automatically runs commands when triggered.</p><h2 id="data">Data</h2><p>Yeibot commands by default return a pretty-printed response for human consumption, but the underlying data is preserved and accessible as well.</p><h2 id="cron">Cron</h2><p>Cron is, as you'd expect, a way to run a command on an interval given a cron expression.</p><h2 id="graphql&#95;api">GraphQL API</h2><p>Yetibot serves a GraphQL endpoint as part of its web app. The public Yetibot instance is accessible at <a href='https://public.yetibot.com/graphql'>https://public.yetibot.com/graphql</a>.</p><p>For example, to inspect the configured adapters run a query with a GraphQL client:</p><pre><code class="graphql">{
+  adapters {
+    uuid
+    platform
+  }
+}
+</code></pre>
 
   <div id="prev-next">
     
