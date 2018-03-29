@@ -20,6 +20,12 @@ API.
 
 This is what a simple command looks like. Yetibot should reply `hi`.
 
+A little more dynamic example:
+
+```yetibot
+!uptime
+```
+
 ## Types
 
 Yetibot responses are either:
