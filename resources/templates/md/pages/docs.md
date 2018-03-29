@@ -121,3 +121,20 @@ Cron is, as you'd expect, a way to run a command on an interval given a cron
 expression.
 
 ## GraphQL API
+
+Yetibot serves a GraphQL endpoint as part of its web app. The public Yetibot
+instance is accessible at
+[https://public.yetibot.com/graphql](https://public.yetibot.com/graphql).
+
+For example, to inspect the configured adapters run a query with a GraphQL
+client:
+
+```graphql
+{
+  adapters {
+    uuid
+    platform
+  }
+}
+```
+
