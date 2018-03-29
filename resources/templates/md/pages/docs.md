@@ -114,7 +114,6 @@ An observer listens for patterns and automatically runs commands when triggered.
 Yeibot commands by default return a pretty-printed response for human
 consumption, but the underlying data is preserved and accessible as well.
 
-
 ## Cron
 
 Cron is, as you'd expect, a way to run a command on an interval given a cron
