@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const result = yetibotEval(expr);
       result.then(function(response) {
         console.log(response.eval);
-        codeBlock.append(response.eval + '\n');
+        response.eval.forEach(e => codeBlock.append(e + '\n'));
       });
 
       return false;
