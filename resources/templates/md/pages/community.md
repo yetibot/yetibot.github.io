@@ -19,9 +19,9 @@ Feel free to ping `@devth` with questions.
 
 ## Discussion
 
-There's a dedicated [community GitHub
-repo](https://github.com/yetibot/community) for discussions. Open a new issue to
-discuss questions, suggestions, comments, etc.
+There's a dedicated [community GitHub repo](https://github.com/yetibot/community)
+for discussions. Open a new issue to discuss questions, suggestions, comments,
+etc.
 
 ## About Yetibot
 
