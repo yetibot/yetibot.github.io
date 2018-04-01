@@ -22,35 +22,35 @@
   <body class="{% if home? %}home{% endif %}">
 
 
-    <div class="container main-content">
+    <div class="main-content">
       <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="/">
-            <img class="nav-logo" src="/img/yetibot_lambda_blue.svg"
-              alt="Yetibot: A powerful, expressive chatops platform written in Clojure."
-            />
-          </a>
+        <div class="container">
+          <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+              <img class="nav-logo" src="/img/yetibot_lambda_blue.svg"
+                                    alt="Yetibot: A powerful, expressive chatops platform written in Clojure."
+                                    />
+            </a>
 
-          {% for nav-page in navbar-pages %}
-          <a href="{{nav-page.uri}}"
-             class="navbar-item {%ifequal page.uri nav-page.uri %}is-active{% endifequal %}">
-            {{nav-page.title}}
-          </a>
-          {% endfor %}
-          <a class="navbar-item {% if archives %}active{% endif %}" href="{{archives-uri}}">Blog</a>
+            {% for nav-page in navbar-pages %}
+            <a href="{{nav-page.uri}}"
+              class="navbar-item {%ifequal page.uri nav-page.uri %}is-active{% endifequal %}">
+              {{nav-page.title}}
+            </a>
+            {% endfor %}
+            <a class="navbar-item {% if archives %}active{% endif %}" href="{{archives-uri}}">Blog</a>
 
-          <div class="navbar-burger">
-            <span></span>
-            <span></span>
-            <span></span>
+            <div class="navbar-burger">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
           </div>
         </div>
       </nav>
 
-      <div class="container">
-        {% block content %}
-        {% endblock %}
-      </div>
+      {% block content %}
+      {% endblock %}
 
     </div>
 
