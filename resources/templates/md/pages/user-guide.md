@@ -1,12 +1,11 @@
-{:title "Docs"
+{:title "User Guide"
  :layout :page
  :toc true
  :page-index 0
  :navbar? true}
 
-<strong>Welcome to Yetibot docs!</strong>
+<strong>Welcome to the Yetibot User Guide!</strong>
 
-Let's walk through a few of the ways in which a user can interact with Yetibot.
 All the examples below are <strong>interactive</strong>. Click the button below
 each example evaluate the expression against the live, <a
 href="http://public.yetibot.com">public Yetibot instance</a> using the GraphQL
@@ -14,13 +13,15 @@ API.
 
 ## Basics
 
+This is what a simple command looks like:
+
 ```yetibot
 !echo hi
 ```
 
-This is what a simple command looks like. Yetibot should reply `hi`.
+Yetibot should reply `hi`.
 
-A little more dynamic example:
+To see a more dynamic example, run `uptime`:
 
 ```yetibot
 !uptime
