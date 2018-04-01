@@ -5,6 +5,9 @@
 This is the static site generator source for
 [https://yetibot.com](https://yetibot.com).
 
+## Prerequisite
+[Install Sass](https://sass-lang.com/install)
+
 ## Build
 
 Generate the static site:
