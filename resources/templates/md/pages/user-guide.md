@@ -1,10 +1,9 @@
 {:title "User Guide"
+ :subtitle "Welcome to the interactive Yetibot User Guide!"
  :layout :page
  :toc true
  :page-index 0
  :navbar? true}
-
-<strong>Welcome to the Yetibot User Guide!</strong>
 
 All the examples below are <strong>interactive</strong>. Click the button below
 each example evaluate the expression against the live, <a
