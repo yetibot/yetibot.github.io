@@ -32,19 +32,21 @@
                                     />
             </a>
 
+            <div class="navbar-burger" data-target="nav-menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+
+          </div>
+          <div class="navbar-menu" id="nav-menu">
             {% for nav-page in navbar-pages %}
             <a href="{{nav-page.uri}}"
               class="navbar-item {%ifequal page.uri nav-page.uri %}is-active{% endifequal %}">
               {{nav-page.title}}
             </a>
             {% endfor %}
-            <a class="navbar-item {% if archives %}active{% endif %}" href="{{archives-uri}}">Blog</a>
-
-            <div class="navbar-burger">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
+            <!-- <a class="navbar&#45;item {% if archives %}active{% endif %}" href="{{archives&#45;uri}}">Blog</a> -->
           </div>
         </div>
       </nav>

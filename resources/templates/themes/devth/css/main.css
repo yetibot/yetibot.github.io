@@ -6440,7 +6440,8 @@ nav .nav-logo {
 .logo {
   max-width: 100%;
   max-height: 600px;
-  margin-top: 18px; }
+  margin-top: 18px;
+  padding: 12px; }
 
 h2.tagline {
   margin: 18px 0 120px 0; }
