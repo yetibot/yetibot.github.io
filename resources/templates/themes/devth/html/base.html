@@ -23,11 +23,11 @@
 
 
     <div class="main-content">
-      <nav class="navbar" role="navigation" aria-label="main navigation">
+      <nav class="navbar is-black" role="navigation" aria-label="main navigation">
         <div class="container">
           <div class="navbar-brand">
             <a class="navbar-item" href="/">
-              <img class="nav-logo" src="/img/yetibot_lambda_blue.svg"
+              <img class="nav-logo" src="/img/yetibot_lambda_blue_with_grey.svg"
                                     alt="Yetibot: A powerful, expressive chatops platform written in Clojure."
                                     />
             </a>
@@ -40,13 +40,15 @@
 
           </div>
           <div class="navbar-menu" id="nav-menu">
-            {% for nav-page in navbar-pages %}
-            <a href="{{nav-page.uri}}"
-              class="navbar-item {%ifequal page.uri nav-page.uri %}is-active{% endifequal %}">
-              {{nav-page.title}}
-            </a>
-            {% endfor %}
-            <!-- <a class="navbar&#45;item {% if archives %}active{% endif %}" href="{{archives&#45;uri}}">Blog</a> -->
+            <div class="navbar-start">
+              {% for nav-page in navbar-pages %}
+              <a href="{{nav-page.uri}}"
+                class="navbar-item {%ifequal page.uri nav-page.uri %}is-active{% endifequal %}">
+                {{nav-page.title}}
+              </a>
+              {% endfor %}
+              <!-- <a class="navbar&#45;item {% if archives %}active{% endif %}" href="{{archives&#45;uri}}">Blog</a> -->
+            </div>
           </div>
         </div>
       </nav>
