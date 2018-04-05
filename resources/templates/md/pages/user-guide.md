@@ -31,7 +31,13 @@ To see a more dynamic example, run `uptime`:
 The `help` command lets you explore the commands available and their usage. It
 has its own help doc:
 
-`!help help`
+```yetibot
+!help help
+```
+
+```yetibot
+!help
+```
 
 ## Response Types
 
