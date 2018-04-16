@@ -5,8 +5,10 @@
 This is the static site generator source for
 [https://yetibot.com](https://yetibot.com).
 
-## Prerequisite
-[Install Sass](https://sass-lang.com/install)
+## Prerequisites
+
+- [Leiningen](https://github.com/technomancy/leiningen)
+- [Sass](https://sass-lang.com/install)
 
 ## Build
 
