@@ -7,7 +7,7 @@
 
 All the examples below are <strong>interactive</strong>. Click the button below
 each example evaluate the expression against the live, <a
-href="http://public.yetibot.com">public Yetibot instance</a> using the GraphQL
+href="https://public.yetibot.com">public Yetibot instance</a> using the GraphQL
 API.
 
 ## Basics
@@ -96,8 +96,8 @@ syntax lets you embed any level of nesting:
 !echo $(echo $(echo Yetibot) is) alive
 ```
 
-These examples are necessarily simplistic, but when you start piecing together
-more complex commands that fetch data the ability to arbitrarily nest
+These examples are necessarily simplistic but when you start piecing together
+more complex commands that fetch data, the ability to arbitrarily nest
 expressions provides tremendous power.
 
 ## Xargs
@@ -155,7 +155,7 @@ They're super powerful but can be easily be abused.
 
 ## Data
 
-Yeibot commands by default return a pretty-printed response for human
+Yetibot commands by default return a pretty-printed response for human
 consumption, but the underlying data is preserved and accessible as well.
 
 ```yetibot
@@ -174,7 +174,7 @@ expression.
 ## Eval
 
 The `eval` command runs arbitrary Clojure against the Yetibot process itself, so
-it's by definition very insecure. Because of this, it's only allowed to by run
+it's by definition very insecure. Because of this, it's only allowed to be run
 by users that have been pre-configured to have access.
 
 It can be a fun way of poking at otherwise-unavailable state inside Yetibot.
@@ -195,7 +195,7 @@ Yetibot serves a GraphQL endpoint as part of its web app. The public Yetibot
 instance is accessible at
 [https://public.yetibot.com/graphql](https://public.yetibot.com/graphql).
 
-For example, to inspect the configured adapters run a query with a GraphQL
+For example, to inspect the configured adapters, run the following query with a GraphQL
 client:
 
 ```graphql
