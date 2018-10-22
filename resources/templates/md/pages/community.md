@@ -1,6 +1,6 @@
 {:title "Community"
  :layout :page
- :page-index 1
+ :page-index 2
  :navbar? true}
 
 Yetibot is primarily built by [@devth](https://github.com/devth) plus

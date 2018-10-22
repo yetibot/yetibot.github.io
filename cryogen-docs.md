@@ -5,7 +5,8 @@
  :draft? true
  :toc true}
 
-This intro only documents a subset of Cryogen's features. For additional documentation please see the [cryogen site](http://cryogenweb.org).
+This intro only documents a subset of Cryogen's features. For additional
+documentation please see the [cryogen site](http://cryogenweb.org).
 
 ## Features
 
@@ -89,23 +90,35 @@ For information about each key please see the ["Configuration"](http://cryogenwe
 
 ### Switching between Markdown and AsciiDoc
 
-Cryogen comes with Markdown support as default. If you want to use AsciiDoc instead, open the `project.clj` in your created blog (e.g. `my-blog`), and change the line in `:dependencies` that says `cryogen-markdown` to `cryogen-asciidoc`.
-Instead of looking for files ending in `.md` in the `resources/templates/md` directory, the compiler will now look for files ending in `.asc` in the `resources/templates/asc` directory.
+Cryogen comes with Markdown support as default. If you want to use AsciiDoc
+instead, open the `project.clj` in your created blog (e.g. `my-blog`), and
+change the line in `:dependencies` that says `cryogen-markdown` to
+`cryogen-asciidoc`. Instead of looking for files ending in `.md` in the
+`resources/templates/md` directory, the compiler will now look for files ending
+in `.asc` in the `resources/templates/asc` directory.
 
 ### Selecting a Theme
 
-The Cryogen template comes with two themes in the `resources/templates/themes` folder. To change your blog's theme, change the value of the `:theme` key in `config.edn`.
+The Cryogen template comes with two themes in the `resources/templates/themes`
+folder. To change your blog's theme, change the value of the `:theme` key in
+`config.edn`.
 
 ### Customizing Layouts
 
-Cryogen uses [Selmer](https://github.com/yogthos/Selmer) templating engine for layouts. Please refer to its documentation
-to see the supported tags and filters for the layouts.
+Cryogen uses [Selmer](https://github.com/yogthos/Selmer) templating engine for
+layouts. Please refer to its documentation to see the supported tags and filters
+for the layouts.
 
-The layouts are contained in the `resources/templates/themes/{theme}/html` folder of the project. By default, the `base.html` layout is used to provide the general layout for the site. This is where you would add static resources such as CSS and JavaScript
-assets as well as define headers and footers for your site.
+The layouts are contained in the `resources/templates/themes/{theme}/html`
+folder of the project. By default, the `base.html` layout is used to provide the
+general layout for the site. This is where you would add static resources such
+as CSS and JavaScript assets as well as define headers and footers for your
+site.
 
-Each page layout should have a name that matches the `:layout` key in the page metadata and end with `.html`. Page layouts extend the base layout and should only contain the content relevant to the page inside the `content` block.
-For example, the `tag` layout is located in `tag.html` and looks as follows:
+Each page layout should have a name that matches the `:layout` key in the page
+metadata and end with `.html`. Page layouts extend the base layout and should
+only contain the content relevant to the page inside the `content` block. For
+example, the `tag` layout is located in `tag.html` and looks as follows:
 
 ```xml
 {% extends "templates/html/layouts/base.html" %}
@@ -125,9 +138,12 @@ For example, the `tag` layout is located in `tag.html` and looks as follows:
 
 ### Code Syntax Highlighting
 
-Cryogen uses [Highlight.js](https://highlightjs.org/) for code syntax highlighting. You can add more languages by replacing `templates/js/highlight.pack.js` with a customized package from [here](https://highlightjs.org/download/).
+Cryogen uses [Highlight.js](https://highlightjs.org/) for code syntax
+highlighting. You can add more languages by replacing
+`templates/js/highlight.pack.js` with a customized package from
+[here](https://highlightjs.org/download/).
 
-The ` initHighlightingOnLoad` function is called in `{theme}/html/base.html`.
+The `initHighlightingOnLoad` function is called in `{theme}/html/base.html`.
 
 ```xml
 <script>hljs.initHighlightingOnLoad();</script>
@@ -135,10 +151,12 @@ The ` initHighlightingOnLoad` function is called in `{theme}/html/base.html`.
 
 ## Deploying Your Site
 
-The generated static content will be found under the `resources/public` folder. Simply copy the content to a static
-folder for a server such as Nginx or Apache and your site is now ready for service.
+The generated static content will be found under the `resources/public` folder.
+Simply copy the content to a static folder for a server such as Nginx or Apache
+and your site is now ready for service.
 
-A sample Nginx configuration that's placed in `/etc/nginx/sites-available/default` can be seen below:
+A sample Nginx configuration that's placed in
+`/etc/nginx/sites-available/default` can be seen below:
 
 ```javascript
 server {
@@ -156,11 +174,12 @@ server {
 }
 ```
 
-Simply set `yoursite.com` to the domain of your site in the above configuration and
-ensure the static content is available at `/var/blog/`. Finally, place your custom error page
-in the `/var/blog/404.html` file.
+Simply set `yoursite.com` to the domain of your site in the above configuration
+and ensure the static content is available at `/var/blog/`. Finally, place your
+custom error page in the `/var/blog/404.html` file.
 
-More information on deployment can be found [here](http://cryogenweb.org/docs/deploying-to-github-pages.html).
+More information on deployment can be found
+[here](http://cryogenweb.org/docs/deploying-to-github-pages.html).
 
 ## Some Sites Made With Cryogen
 

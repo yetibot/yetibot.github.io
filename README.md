@@ -5,6 +5,8 @@
 This is the static site generator source for
 [https://yetibot.com](https://yetibot.com).
 
+It's built on [Cryogen](http://cryogenweb.org/).
+
 ## Prerequisites
 
 - [Leiningen](https://github.com/technomancy/leiningen)
@@ -23,5 +25,5 @@ lein run
 Run a Ring server for local dev:
 
 ```bash
-lein ring server
+PORT=4040 lein ring server
 ```
