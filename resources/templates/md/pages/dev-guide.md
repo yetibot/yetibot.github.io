@@ -6,10 +6,9 @@
  :navbar? true}
 
  These docs are are work in progress. If something is missing and you have
- questions just ask in #dev channl on [Yetibot
- Slack](https://slack.yetibot.com). Feel free to [open an
- issue](https://github.com/yetibot/yetibot.github.io/issues) to ask questions or
- suggest changes.
+ questions just ask in #dev channl on [Yetibot Slack](https://slack.yetibot.com).
+ Feel free to [open an issue](https://github.com/yetibot/yetibot.github.io/issues)
+ to ask questions or suggest changes.
 
 ## Running Yetibot locally
 
