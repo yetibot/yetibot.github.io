@@ -1,7 +1,7 @@
 {:site-title           "Yetibot"
  :author               "Trevor Hartman"
  :description          "Docs and blog posts for Yetibot"
- :site-url             "http://yetibot.com"
+ :site-url             "https://yetibot.com/"
  :post-root            "posts"
  :page-root            "pages"
  :post-root-uri        "blog"
