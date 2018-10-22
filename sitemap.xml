@@ -5,7 +5,7 @@
 http://yetibot.comarchives/index.html
 </loc>
 <lastmod>
-2018-10-04
+2018-10-22
 </lastmod>
 </url>
 <url>
@@ -13,7 +13,7 @@ http://yetibot.comarchives/index.html
 http://yetibot.comtags/index.html
 </loc>
 <lastmod>
-2018-10-04
+2018-10-22
 </lastmod>
 </url>
 <url>
@@ -21,7 +21,7 @@ http://yetibot.comtags/index.html
 http://yetibot.comtags/news/index.html
 </loc>
 <lastmod>
-2018-10-04
+2018-10-22
 </lastmod>
 </url>
 <url>
@@ -29,7 +29,7 @@ http://yetibot.comtags/news/index.html
 http://yetibot.comimg/favicon/html_code.html
 </loc>
 <lastmod>
-2018-10-04
+2018-10-22
 </lastmod>
 </url>
 <url>
@@ -37,7 +37,7 @@ http://yetibot.comimg/favicon/html_code.html
 http://yetibot.com404.html
 </loc>
 <lastmod>
-2018-10-04
+2018-10-22
 </lastmod>
 </url>
 <url>
@@ -45,7 +45,15 @@ http://yetibot.com404.html
 http://yetibot.comindex.html
 </loc>
 <lastmod>
-2018-10-04
+2018-10-22
+</lastmod>
+</url>
+<url>
+<loc>
+http://yetibot.comdev-guide/index.html
+</loc>
+<lastmod>
+2018-10-22
 </lastmod>
 </url>
 <url>
@@ -53,7 +61,7 @@ http://yetibot.comindex.html
 http://yetibot.comauthors/Trevor Hartman/index.html
 </loc>
 <lastmod>
-2018-10-04
+2018-10-22
 </lastmod>
 </url>
 <url>
@@ -61,7 +69,7 @@ http://yetibot.comauthors/Trevor Hartman/index.html
 http://yetibot.comuser-guide/index.html
 </loc>
 <lastmod>
-2018-10-04
+2018-10-22
 </lastmod>
 </url>
 <url>
@@ -69,7 +77,7 @@ http://yetibot.comuser-guide/index.html
 http://yetibot.comblog/2018-03-24-launch/index.html
 </loc>
 <lastmod>
-2018-10-04
+2018-10-22
 </lastmod>
 </url>
 <url>
@@ -77,7 +85,7 @@ http://yetibot.comblog/2018-03-24-launch/index.html
 http://yetibot.comcommunity/index.html
 </loc>
 <lastmod>
-2018-10-04
+2018-10-22
 </lastmod>
 </url>
 <url>
@@ -85,7 +93,7 @@ http://yetibot.comcommunity/index.html
 http://yetibot.commedia/index.html
 </loc>
 <lastmod>
-2018-10-04
+2018-10-22
 </lastmod>
 </url>
 </urlset>

@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
   <head>
     <meta charset="utf-8"/>
-    <title>Yetibot: Media</title>
-    <link rel="canonical" href="http://yetibot.com/media/">
+    <title>Yetibot: Developer Guide</title>
+    <link rel="canonical" href="http://yetibot.com/dev-guide/">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
     <link href="/css/main.css" rel="stylesheet" type="text/css" />
@@ -55,7 +55,7 @@
               </a>
               
               <a href="/dev-guide/"
-                class="navbar-item ">
+                class="navbar-item is-active">
                 Developer Guide
               </a>
               
@@ -65,7 +65,7 @@
               </a>
               
               <a href="/media/"
-                class="navbar-item is-active">
+                class="navbar-item ">
                 Media
               </a>
               
@@ -80,8 +80,8 @@
 <article class="page-title hero is-light is-bold is-fullwidth">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title">Media</h1>
-      <p class="subtitle">All Yetibot artwork designed by <a target='_blank' href='http://www.freeformdesign.co/'>Freeform Design Co.</a></p>
+      <h1 class="title">Developer Guide</h1>
+      <p class="subtitle">Welcome to the interactive Yetibot Developer Guide</p>
     </div>
   </div>
 </article>
@@ -89,15 +89,20 @@
 <section class="section content">
 
   <div class="container">
-    
+    <ol class="content"><li><a href="#running_yetibot_locally">Running Yetibot locally</a></li><li><a href="#building_your_first_command">Building your first command</a></li><li><a href="#command_pipeline">Command pipeline</a></li><ol><li><a href="#command_arguments">Command arguments</a></li><li><a href="#push_down_operations">Push down operations</a></li><li><a href="#timeouts">Timeouts</a></li><li><a href="#testing_commands">Testing commands</a></li></ol><li><a href="#working_with_the_database">Working with the database</a></li><li><a href="#parser">Parser</a></li><li><a href="#graphql_api">GraphQL API</a></li><li><a href="#web_dashboard">Web dashboard</a></li></ol>
 
-    <p><div class="media-boxes"></p><p><!&ndash; can't indent or markdown will treat it like code &ndash;></p><p><div class="box">   <img src="/img/yetibot_lambda_blue.svg" alt="Yetibot lambda" /> </div></p><p><div class="box">   <img src="/img/yetibot_lambda_blue_with_grey.svg" alt="Yetibot lambda" /> </div></p><p><div class="box">   <img src="/img/yetibot_logo.svg" alt="Yetibot logo" /> </div></p><p><div class="box">   <img src="/img/yetibot_mark_blue.svg" alt="Yetibot mark blue" /> </div></p><p><div class="box">   <img src="/img/yetibot_mark_grey.svg" alt="Yetibot mark grey" /> </div></p><p></div></p>
+    <p> These docs are are work in progress. If something is missing and you have  questions just ask in #dev channl on [Yetibot  Slack](https://slack.yetibot.com). Feel free to [open an  issue](https://github.com/yetibot/yetibot.github.io/issues) to ask questions or  suggest changes.</p><h2 id="running&#95;yetibot&#95;locally">Running Yetibot locally</h2><h2 id="building&#95;your&#95;first&#95;command">Building your first command</h2><h2 id="command&#95;pipeline">Command pipeline</h2><h3 id="command&#95;arguments">Command arguments</h3><h3 id="push&#95;down&#95;operations">Push down operations</h3><p>Yetibot has the ability to look ahead into the command pipeline and optionally consume subsequent commands from a command handler function. In relational algebra this is often referred to as pushing down an operation.</p><p>Consider <code>history | random</code> as an example. The <code>history</code> command looks ahead at the next commands in the pipeline, sees that it's a command it knows how to consume (<code>random</code>), and tells the command execution pipeline to skip it for efficiency and instead handle itself.</p><p>Imagine the default naive method Yetibot would execute if this were not the case:</p><ol><li>Load all history into a data structure</li><li>Pass the data structure to <code>random</code> which calls <code>rand-nth</code> on the collection.   According to the <a href='https://public.yetibot.com/'>public Yetibot dashboard</a> at   the time of writing we have 12,723 entries in the history table. This isn't   that much but you can imagine how slow it'd be as the table continues to   grow.</li></ol><p>The full set of commands that <code>history</code> consumes are defined in <a href='https://github.com/yetibot/yetibot.core/blob/f2e045002e20adccb79adbb84eb12566fc99c51e/src/yetibot/core/commands/history.clj#L8'><code>yetibot.core.commands.history/consumeables</code></a>:</p><pre><code class="clojure">&#40;def consumables #{&quot;head&quot; &quot;tail&quot; &quot;count&quot; &quot;grep&quot; &quot;random&quot;}&#41;
+</code></pre><p>See [the history command](https://github.com/yetibot/yetibot.core/blob/master/src/yetibot/core/commands/history.clj#L46-L61) for a full example.</p><h3 id="timeouts">Timeouts</h3><h3 id="testing&#95;commands">Testing commands</h3><ol><li>Using <code>command-execution-info</code></li><li>Mocking with Midje</li></ol><h2 id="working&#95;with&#95;the&#95;database">Working with the database</h2><h2 id="parser">Parser</h2><h2 id="graphql&#95;api">GraphQL API</h2><h2 id="web&#95;dashboard">Web dashboard</h2>
 
     <div id="prev-next">
       
-      <a class="button is-warning" href="/community/">&laquo; Community</a>
+      <a class="button is-warning" href="/user-guide/">&laquo; User Guide</a>
       
       
+
+      
+      
+      <a class="button is-warning" href="/community/">Community &raquo;</a>
       
     </div>
   </div>
