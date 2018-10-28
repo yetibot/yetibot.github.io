@@ -18,6 +18,10 @@
 
 ### Command arguments
 
+Use `raw all` to view arguments.
+
+#### Data
+
 ### Push down operations
 
 Yetibot has the ability to look ahead into the command pipeline and optionally
@@ -46,8 +50,7 @@ The full set of commands that `history` consumes are defined in
 (def consumables #{"head" "tail" "count" "grep" "random"})
 ```
 
-See [the history
-command](https://github.com/yetibot/yetibot.core/blob/master/src/yetibot/core/commands/history.clj#L46-L61)
+See [the history command](https://github.com/yetibot/yetibot.core/blob/master/src/yetibot/core/commands/history.clj#L46-L61)
 for a full example.
 
 ### Timeouts
