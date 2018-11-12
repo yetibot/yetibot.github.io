@@ -14,20 +14,22 @@
 <section class="section content">
 
   <div class="container">
-    {% if page.toc %}{{page.toc|safe}}{% endif %}
+    <div id="page">
+      {% if page.toc %}{{page.toc|safe}}{% endif %}
 
-    {{page.content|safe}}
+      {{page.content|safe}}
 
-    <div id="prev-next">
-      {% if page.prev %}
-      <a class="button is-warning" href="{{page.prev.uri}}">&laquo; {{page.prev.title}}</a>
-      {% endif %}
-      {% if all page.prev page.next %}
+      <div id="prev-next">
+        {% if page.prev %}
+        <a class="button is-warning" href="{{page.prev.uri}}">&laquo; {{page.prev.title}}</a>
+        {% endif %}
+        {% if all page.prev page.next %}
 
-      {% endif %}
-      {% if page.next %}
-      <a class="button is-warning" href="{{page.next.uri}}">{{page.next.title}} &raquo;</a>
-      {% endif %}
+        {% endif %}
+        {% if page.next %}
+        <a class="button is-warning" href="{{page.next.uri}}">{{page.next.title}} &raquo;</a>
+        {% endif %}
+      </div>
     </div>
   </div>
 

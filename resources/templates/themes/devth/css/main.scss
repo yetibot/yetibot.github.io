@@ -83,6 +83,12 @@ body .main-content {
   margin-bottom: 1em;
 }
 
+// Posts and pages
+
+#post, #page {
+  max-width: 700px;
+}
+
 // Posts
 
 #post-tags {

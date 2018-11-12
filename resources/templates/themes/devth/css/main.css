@@ -6463,6 +6463,9 @@ h2.tagline {
 .eval-button {
   margin-bottom: 1em; }
 
+#post, #page {
+  max-width: 700px; }
+
 #post-tags {
   margin: 40px 0 20px 0; }
 
