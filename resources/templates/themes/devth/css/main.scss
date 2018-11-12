@@ -6,6 +6,10 @@ $cyan: #55C4D4;
 @import "bulma/bulma.sass";
 #foo { display: none; }
 
+.navbar .navbar-start > a.navbar-item.is-active {
+  text-decoration: underline;
+}
+
 body {
   // position: relative;
   // min-height: 100%;

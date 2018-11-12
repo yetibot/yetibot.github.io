@@ -3,8 +3,9 @@
  :page-index 2
  :navbar? true}
 
-Yetibot is primarily built by [@devth](https://github.com/devth) plus
-contributions from a number of other users.
+Yetibot is built by [@devth](https://github.com/devth) plus [contributions from
+a number of other
+users](https://github.com/yetibot/yetibot/graphs/contributors).
 
 ## Slack
 
