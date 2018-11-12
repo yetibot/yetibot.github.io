@@ -1,15 +1,19 @@
 {% extends "/html/base.html" %}
 {%block subtitle %}: Tags{% endblock %}
 {% block content %}
-<div id="tags-page">
-    <div id="page-header">
-        <h2>Tags</h2>
-    </div>
 
-    <ul>
+<section class="section content">
+  <div class="container">
+    <div id="tags-page">
+      <div id="page-header">
+        <h2>Tags</h2>
+      </div>
+      <ul>
         {% for tag in tags %}
         <li><a href="{{tag.uri}}">{{tag.name}}</a></li>
         {% endfor %}
-    </ul>
-</div>
+      </ul>
+    </div>
+  </div>
+</section>
 {% endblock %}

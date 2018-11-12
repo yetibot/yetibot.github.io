@@ -79,6 +79,20 @@ body .main-content {
   margin-bottom: 1em;
 }
 
+// Posts
+
+#post-tags {
+  margin: 40px 0 20px 0;
+}
+#prev-next {
+  margin: 20px 0;
+}
+
+#disqus{
+  margin-top: 40px;
+  padding: 40px;
+}
+
 // Footer
 
 footer.footer {
@@ -90,3 +104,4 @@ footer.footer {
     font-weight: bold;
   }
 }
+

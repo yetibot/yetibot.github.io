@@ -12,6 +12,14 @@ It's built on [Cryogen](http://cryogenweb.org/).
 - [Leiningen](https://github.com/technomancy/leiningen)
 - [Sass](https://sass-lang.com/install)
 
+## Dev usage
+
+Run a Ring server for local dev:
+
+```bash
+PORT=4040 lein ring server
+```
+
 ## Build
 
 Generate the static site:
@@ -20,10 +28,3 @@ Generate the static site:
 lein run
 ```
 
-## Dev usage
-
-Run a Ring server for local dev:
-
-```bash
-PORT=4040 lein ring server
-```
