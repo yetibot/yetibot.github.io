@@ -6431,6 +6431,9 @@ label.panel-block {
 #foo {
   display: none; }
 
+.navbar .navbar-start > a.navbar-item.is-active {
+  text-decoration: underline; }
+
 .is-horizontal-center {
   justify-content: center; }
 
@@ -6459,6 +6462,16 @@ h2.tagline {
 
 .eval-button {
   margin-bottom: 1em; }
+
+#post-tags {
+  margin: 40px 0 20px 0; }
+
+#prev-next {
+  margin: 20px 0; }
+
+#disqus {
+  margin-top: 40px;
+  padding: 40px; }
 
 footer.footer {
   background: white;

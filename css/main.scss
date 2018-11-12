@@ -6,6 +6,10 @@ $cyan: #55C4D4;
 @import "bulma/bulma.sass";
 #foo { display: none; }
 
+.navbar .navbar-start > a.navbar-item.is-active {
+  text-decoration: underline;
+}
+
 body {
   // position: relative;
   // min-height: 100%;
@@ -79,6 +83,20 @@ body .main-content {
   margin-bottom: 1em;
 }
 
+// Posts
+
+#post-tags {
+  margin: 40px 0 20px 0;
+}
+#prev-next {
+  margin: 20px 0;
+}
+
+#disqus{
+  margin-top: 40px;
+  padding: 40px;
+}
+
 // Footer
 
 footer.footer {
@@ -90,3 +108,4 @@ footer.footer {
     font-weight: bold;
   }
 }
+

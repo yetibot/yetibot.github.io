@@ -12,7 +12,7 @@ https://yetibot.com/
 Docs and blog posts for Yetibot
 </description>
 <lastBuildDate>
-Sun, 28 Oct 2018 02:45:36 +0000
+Mon, 12 Nov 2018 03:01:37 +0000
 </lastBuildDate>
 <generator>
 clj-rss
@@ -28,7 +28,7 @@ https://yetibot.com/blog/2018-03-24-launch/
 Yetibot.com Launch
 </title>
 <description>
-&lt;p&gt;Yetibot finally has a site!&lt;/p&gt;&lt;p&gt;Check out the &lt;a href='https://github.com/yetibot/yetibot.github.io'&gt;source on GitHub&lt;/a&gt; here if you're so inclined. It's powered by &lt;a href='http://cryogenweb.org/'&gt;Cryogen&lt;/a&gt;, the Clojure-based static site generator.&lt;/p&gt;&lt;h2 id=&quot;interactive&amp;#95;example&quot;&gt;Interactive example&lt;/h2&gt;&lt;p&gt;One of the goals with launching the site was to have inline interactive Yetibot examples that uses the GraphQL API on the public Yetibot instance to evaluate!&lt;/p&gt;
+&lt;p&gt;Yetibot finally has a site!&lt;/p&gt;&lt;p&gt;Check out the &lt;a href='https://github.com/yetibot/yetibot.github.io'&gt;source on GitHub&lt;/a&gt; here if you're so inclined. It's powered by &lt;a href='http://cryogenweb.org/'&gt;Cryogen&lt;/a&gt;, the Clojure-based static site generator.&lt;/p&gt;&lt;p&gt;One of the goals with launching the site was to have inline interactive Yetibot examples that uses the GraphQL API on the public Yetibot instance to evaluate! See the &lt;a href='/user-guide'&gt;User Guide&lt;/a&gt; to check out the interactive examples in the docs.&lt;/p&gt;&lt;p&gt;The site and docs are pretty bare bones but we'll improve it over time.&lt;/p&gt;
 </description>
 <pubDate>
 Sat, 24 Mar 2018 00:00:00 +0000
