@@ -6497,4 +6497,7 @@ footer.footer {
   width: 100%;
   position: absolute; }
 
+p, pre {
+  clear: both; }
+
 /*# sourceMappingURL=main.css.map */

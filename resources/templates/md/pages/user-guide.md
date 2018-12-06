@@ -153,13 +153,82 @@ They're super powerful but can be easily be abused.
 !help observer
 ```
 
+Run the above help docs. As you can see, observers support several different
+event types.
+
+### message
+
+The default event type for observes is `message`. This allows Yetibot to react
+to a message by running a command. For example:
+
+```yetibot
+!obs sushi = react :sushi:
+```
+
+With this observer any time anyone mention sushi they get a 🍣 reaction. Note
+that we could have specified a regex pattern instead of the literal "sushi".
+
+It also supports optional settings that let you filter on:
+
+- the name of the channel using `-c`
+- the username of the person who posted a message using `-u`
+
+For example:
+
+```yetibot
+!obs -c dev-testing -u devth = echo {{username}} said {{body}} in {{channel}}
+```
+
+The above example also illustrates the templating functionality. Along with
+`username` and `body`, `channel` is available on all event types, and for
+`react` observer events, `reaction` and `message-username` are also available.
+
+## react
+
+A `react` event fires when a user reacts to a message (Slack only).
+
+```yetibot
+!obs -c dev-testing -e react = giphy {{reaction}} {{body}}
+```
+
+This causes a giphy lookup using the reaction used (e.g. `100` or `smile`) and
+the body text of the message that was reacted to.
+
+React events also have two other fields available: `reaction` and
+`message-username` where `message-username` is the username of the user that
+posted the original message (`username` is the `username` of the user that
+reacted).
+
+### enter
+
+The `enter` event fires when a user enters a channel.
+
+```yetibot
+!obs -c dev-testing -e enter = meme internet: welcome to {{channe}} {{username}}!
+```
+
+### leave
+
+The `leave` event fires when a user leaves a channel.
+
+```yetibot
+!obs -c dev-testing -e leave = meme crying jordan: / bye {{username}}
+```
+
 ## Data
 
 Yetibot commands by default return a pretty-printed response for human
-consumption, but the underlying data is preserved and accessible as well.
+consumption, but for many commands the underlying data is preserved and passed
+across the pipe as well:
 
 ```yetibot
 !help data
+```
+
+For example, we can get all the data behind the `weather` command:
+
+```yetibot
+!weather seattle, wa | data show
 ```
 
 ## Cron
