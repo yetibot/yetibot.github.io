@@ -183,7 +183,7 @@ The above example also illustrates the templating functionality. Along with
 `username` and `body`, `channel` is available on all event types, and for
 `react` observer events, `reaction` and `message-username` are also available.
 
-## react
+### react
 
 A `react` event fires when a user reacts to a message (Slack only).
 
