@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const expr = codeBlock.textContent.trim().replace(/^!/, "");
     const runButton = document.createElement('a');
-    runButton.setAttribute("class", "eval-button button is-info");
-    runButton.appendChild(document.createTextNode("Run Yetibot expression"));
+    runButton.setAttribute("class", "eval-button button is-info is-pulled-right");
+    runButton.appendChild(document.createTextNode("Run"));
     runButton.onclick = function(e) {
       console.log('clicked', expr);
       const result = yetibotEval(expr);
