@@ -119,7 +119,27 @@ Since Yetibot can return a collection as a response, it needs basic operations
 to manipulate collections.
 
 ```yetibot
+!help range
+```
+
+```yetibot
+!range 10
+```
+
+```yetibot
 !help random
+```
+
+With no args, random just produces a random number:
+
+```yetibot
+!random
+```
+
+But if you pass it a collection it takes a random item from it:
+
+```yetibot
+!range 10 | random
 ```
 
 ```yetibot
@@ -127,14 +147,38 @@ to manipulate collections.
 ```
 
 ```yetibot
+!range 10 | head
+```
+
+```yetibot
+!range 10 | head 3
+```
+
+```yetibot
 !help tail
+```
+
+```yetibot
+!range 10 | tail 3
+```
+
+```yetibot
+!range 10 | head 3 | tail
 ```
 
 ```yetibot
 !help shuffle
 ```
 
-There are many others. TODO document them!
+```yetibot
+!range 10 | shuffle
+```
+
+There are others. To view them all we can look them up by category:
+
+```yetibot
+!category list collection
+```
 
 ## Aliases
 
