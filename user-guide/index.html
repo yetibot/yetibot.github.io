@@ -104,11 +104,21 @@
 </code></pre><p>Backticks are convenient when you need a single level of nesting, but <code>$&#40;&#41;</code> syntax lets you embed any level of nesting:</p><pre><code class="yetibot">!echo $&#40;echo $&#40;echo Yetibot&#41; is&#41; alive
 </code></pre><p>These examples are necessarily simplistic but when you start piecing together more complex commands that fetch data, the ability to arbitrarily nest expressions provides tremendous power.</p><h2 id="xargs">Xargs</h2><p>Xargs allows us to operate over a collection, evaluating an expression for each value, in parallel.</p><pre><code class="yetibot">!help xargs
 </code></pre><pre><code class="yetibot">!list 1 2 3 | xargs echo number | unwords
-</code></pre><h2 id="collection&#95;utilities">Collection utilities</h2><p>Since Yetibot can return a collection as a response, it needs basic operations to manipulate collections.</p><pre><code class="yetibot">!help random
+</code></pre><h2 id="collection&#95;utilities">Collection utilities</h2><p>Since Yetibot can return a collection as a response, it needs basic operations to manipulate collections.</p><pre><code class="yetibot">!help range
+</code></pre><pre><code class="yetibot">!range 10
+</code></pre><pre><code class="yetibot">!help random
+</code></pre><p>With no args, random just produces a random number:</p><pre><code class="yetibot">!random
+</code></pre><p>But if you pass it a collection it takes a random item from it:</p><pre><code class="yetibot">!range 10 | random
 </code></pre><pre><code class="yetibot">!help head
+</code></pre><pre><code class="yetibot">!range 10 | head
+</code></pre><pre><code class="yetibot">!range 10 | head 3
 </code></pre><pre><code class="yetibot">!help tail
+</code></pre><pre><code class="yetibot">!range 10 | tail 3
+</code></pre><pre><code class="yetibot">!range 10 | head 3 | tail
 </code></pre><pre><code class="yetibot">!help shuffle
-</code></pre><p>There are many others. TODO document them!</p><h2 id="aliases">Aliases</h2><p>Aliases are similar to <code>alias</code> in bash allowing us to give a name for a command.</p><pre><code class="yetibot">!help alias
+</code></pre><pre><code class="yetibot">!range 10 | shuffle
+</code></pre><p>There are others. To view them all we can look them up by category:</p><pre><code class="yetibot">!category list collection
+</code></pre><h2 id="aliases">Aliases</h2><p>Aliases are similar to <code>alias</code> in bash allowing us to give a name for a command.</p><pre><code class="yetibot">!help alias
 </code></pre><h2 id="observers">Observers</h2><p>An observer listens for patterns and automatically runs commands when triggered. They're super powerful but can be easily be abused.</p><pre><code class="yetibot">!help observer
 </code></pre><p>Run the above help docs. As you can see, observers support several different event types.</p><h3 id="message">message</h3><p>The default event type for observes is <code>message</code>. This allows Yetibot to react to a message by running a command. For example:</p><pre><code class="yetibot">!obs sushi = react :sushi:
 </code></pre><p>With this observer any time anyone mention sushi they get a 🍣 reaction. Note that we could have specified a regex pattern instead of the literal "sushi".</p><p>It also supports optional settings that let you filter on:</p><ul><li>the name of the channel using <code>-c</code></li><li>the username of the person who posted a message using <code>-u</code></li></ul><p>For example:</p><pre><code class="yetibot">!obs -c dev-testing -u devth = echo {{username}} said {{body}} in {{channel}}
