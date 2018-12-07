@@ -90,7 +90,7 @@
 
   <div class="container">
     <div id="page">
-      <ol class="content"><li><a href="#basics">Basics</a></li><li><a href="#help">Help</a></li><li><a href="#response_types">Response Types</a></li><li><a href="#pipes">Pipes</a></li><li><a href="#subexpressions">Subexpressions</a></li><li><a href="#xargs">Xargs</a></li><li><a href="#collection_utilities">Collection utilities</a></li><li><a href="#aliases">Aliases</a></li><li><a href="#observers">Observers</a></li><ol><li><a href="#message">message</a></li></ol><li><a href="#react">react</a></li><ol><li><a href="#enter">enter</a></li><li><a href="#leave">leave</a></li></ol><li><a href="#data">Data</a></li><li><a href="#cron">Cron</a></li><li><a href="#eval">Eval</a></li><li><a href="#scrape">Scrape</a></li><li><a href="#graphql_api">GraphQL API</a></li></ol>
+      <ol class="content"><li><a href="#basics">Basics</a></li><li><a href="#help">Help</a></li><li><a href="#response_types">Response Types</a></li><li><a href="#pipes">Pipes</a></li><li><a href="#subexpressions">Subexpressions</a></li><li><a href="#xargs">Xargs</a></li><li><a href="#collection_utilities">Collection utilities</a></li><li><a href="#aliases">Aliases</a></li><li><a href="#observers">Observers</a></li><ol><li><a href="#message">message</a></li><li><a href="#react">react</a></li><li><a href="#enter">enter</a></li><li><a href="#leave">leave</a></li></ol><li><a href="#data">Data</a></li><li><a href="#cron">Cron</a></li><li><a href="#eval">Eval</a></li><li><a href="#scrape">Scrape</a></li><li><a href="#graphql_api">GraphQL API</a></li><li><a href="#examples">Examples</a></li><ol><li><a href="#alltemps">Alltemps</a></li><li><a href="#yetibot_should_not_have_kids">Yetibot should not have kids</a></li><li><a href="#grids">Grids</a></li><li><a href="#hide_yo">Hide yo</a></li></ol></ol>
 
       <p>All the examples below are <strong>interactive</strong>. Click the button below each example evaluate the expression against the live, <a href="https://public.yetibot.com">public Yetibot instance</a> using the GraphQL API.</p><h2 id="basics">Basics</h2><p>This is what a simple command looks like:</p><pre><code class="yetibot">!echo hi
 </code></pre><p>Yetibot should reply <code>hi</code>.</p><p>To see a more dynamic example, run <code>uptime</code>:</p><pre><code class="yetibot">!uptime
@@ -112,7 +112,7 @@
 </code></pre><h2 id="observers">Observers</h2><p>An observer listens for patterns and automatically runs commands when triggered. They're super powerful but can be easily be abused.</p><pre><code class="yetibot">!help observer
 </code></pre><p>Run the above help docs. As you can see, observers support several different event types.</p><h3 id="message">message</h3><p>The default event type for observes is <code>message</code>. This allows Yetibot to react to a message by running a command. For example:</p><pre><code class="yetibot">!obs sushi = react :sushi:
 </code></pre><p>With this observer any time anyone mention sushi they get a 🍣 reaction. Note that we could have specified a regex pattern instead of the literal "sushi".</p><p>It also supports optional settings that let you filter on:</p><ul><li>the name of the channel using <code>-c</code></li><li>the username of the person who posted a message using <code>-u</code></li></ul><p>For example:</p><pre><code class="yetibot">!obs -c dev-testing -u devth = echo {{username}} said {{body}} in {{channel}}
-</code></pre><p>The above example also illustrates the templating functionality. Along with <code>username</code> and <code>body</code>, <code>channel</code> is available on all event types, and for <code>react</code> observer events, <code>reaction</code> and <code>message-username</code> are also available.</p><h2 id="react">react</h2><p>A <code>react</code> event fires when a user reacts to a message (Slack only).</p><pre><code class="yetibot">!obs -c dev-testing -e react = giphy {{reaction}} {{body}}
+</code></pre><p>The above example also illustrates the templating functionality. Along with <code>username</code> and <code>body</code>, <code>channel</code> is available on all event types, and for <code>react</code> observer events, <code>reaction</code> and <code>message-username</code> are also available.</p><h3 id="react">react</h3><p>A <code>react</code> event fires when a user reacts to a message (Slack only).</p><pre><code class="yetibot">!obs -c dev-testing -e react = giphy {{reaction}} {{body}}
 </code></pre><p>This causes a giphy lookup using the reaction used (e.g. <code>100</code> or <code>smile</code>) and the body text of the message that was reacted to.</p><p>React events also have two other fields available: <code>reaction</code> and <code>message-username</code> where <code>message-username</code> is the username of the user that posted the original message (<code>username</code> is the <code>username</code> of the user that reacted).</p><h3 id="enter">enter</h3><p>The <code>enter</code> event fires when a user enters a channel.</p><pre><code class="yetibot">!obs -c dev-testing -e enter = meme internet: welcome to {{channe}} {{username}}!
 </code></pre><h3 id="leave">leave</h3><p>The <code>leave</code> event fires when a user leaves a channel.</p><pre><code class="yetibot">!obs -c dev-testing -e leave = meme crying jordan: / bye {{username}}
 </code></pre><h2 id="data">Data</h2><p>Yetibot commands by default return a pretty-printed response for human consumption, but for many commands the underlying data is preserved and passed across the pipe as well:</p><pre><code class="yetibot">!help data
@@ -126,7 +126,96 @@
     platform
   }
 }
-</code></pre>
+</code></pre><h2 id="examples">Examples</h2><h3 id="alltemps">Alltemps</h3><p>We use an alias to store the list of zip codes for all members of our distributed team, which we then feed to another alias which outputs a short single-line description of current weather for a location.</p><pre><code>!alias locs = list 59101 98101 94101
+
+!alias loctemp = &quot;weather $s | xargs sed s/Current conditions for / | head 2 | reverse | unwords&quot;
+
+!alias alltemps = &quot;locs | xargs loctemp | sort&quot;
+
+!alltemps
+
+25.4 F &#40;-3.7 C&#41;, Mostly Cloudy Jupiter Sulphur, Billings, Montana elevation 3114 ft:
+43.2 F &#40;6.2 C&#41;, Partly Cloudy Belltown, Seattle, Washington elevation 135 ft:
+49.8 F &#40;9.9 C&#41;, Overcast SOMA - Near Van Ness, San Francisco, California elevation 49 ft:
+</code></pre><h3 id="yetibot&#95;should&#95;not&#95;have&#95;kids">Yetibot should not have kids</h3><p>I'm pretty fond of this one. I <del>needed</del> <em>really wanted</em> a way to seed a meme alias with valid sentences like:</p><blockquote><p> [user] should not [do something] </p></blockquote><p>Time for some Google Complete, JavaScript, and a few aliases!</p><p>First, we need a random letter to seed Google Complete with, for ultimate variety of "shoulds":</p><pre><code>!alias randletter = &quot;range 65 91 | xargs echo | random | js String.fromCharCode&#40;%s&#41;&quot;
+
+!repeat 5 randletter | unwords
+
+V L R U S
+</code></pre><p>LGTM! ☝️</p><p>Now pipe that to a well-crafted <code>complete</code> query:</p><pre><code>!randletter | complete should i | random | sed s/should i/
+
+invest in bonds
+</code></pre><p>Awesome, let's alias it:</p><pre><code>!alias randshould = &quot;randletter | complete should i | random | sed s/should i/&quot;
+
+!repeat 10 randshould
+
+take creatine
+call her
+max out my 401k
+move to san francisco
+shave my beard
+have kids
+buy a house
+do it
+feed feral cats
+have a savings account
+</code></pre><p>Finally:</p><pre><code>!alias usershouldnot = &quot;user | random | echo %s should not `randshould`&quot;
+
+!usershouldnot | meme angry wolf:
+</code></pre><p><img src="http://i.imgflip.com/wx53f.jpg" alt="yetibot should not" /></p><p>👏</p><h3 id="grids">Grids</h3><pre><code>!alias dis = echo ಠ&#95;ಠ
+
+!alias grid = &quot;repeat 3 echo $&#40;repeat 3 echo $s | unwords&#41;&quot;
+
+!grid `dis`
+
+ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
+ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
+ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
+
+!grid `dis` | xargs grid
+
+ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
+ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
+ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
+ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
+ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
+ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
+ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
+ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
+ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
+
+!grid `dis` | xargs grid | xargs xargs grid
+
+ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
+ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
+ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
+ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
+ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
+ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
+ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
+ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
+ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
+ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
+ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
+ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
+ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
+ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
+ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
+ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
+ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
+ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
+ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
+ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
+ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
+ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
+ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
+ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
+ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
+ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
+ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
+</code></pre><p>I think you get the idea 🧐</p><h3 id="hide&#95;yo">Hide yo</h3><pre><code>!alias hide = &quot;meme hide yo: hide yo /&quot;
+!list wife, kids, husband too | xargs hide | unwords
+</code></pre><p><img src="http://i.imgflip.com/wx1cd.jpg" alt="hide yo wife" title="hide yo wife" /> <img src="http://i.imgflip.com/wx1cb.jpg" alt="hide yo kids" title="hide yo kids" /> <img src="http://i.imgflip.com/wx1cc.jpg" alt="hide yo husband too" title="hide yo husband too" /></p>
 
       <div id="prev-next">
         
