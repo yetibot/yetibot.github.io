@@ -100,23 +100,12 @@ These examples are necessarily simplistic but when you start piecing together
 more complex commands that fetch data, the ability to arbitrarily nest
 expressions provides tremendous power.
 
-## Xargs
-
-Xargs allows us to operate over a collection, evaluating an expression for each
-value, in parallel.
-
-```yetibot
-!help xargs
-```
-
-```yetibot
-!list 1 2 3 | xargs echo number | unwords
-```
-
 ## Collection utilities
 
 Since Yetibot can return a collection as a response, it needs basic operations
 to manipulate collections.
+
+### range
 
 ```yetibot
 !help range
@@ -125,6 +114,35 @@ to manipulate collections.
 ```yetibot
 !range 10
 ```
+
+```yetibot
+!range 0 100 25
+```
+
+### list
+
+```yetibot
+!help list
+```
+
+```yetibot
+!list Yetibot is alive
+```
+
+### xargs
+
+`xargs` allows us to operate over a collection, evaluating an expression for
+each value, in parallel.
+
+```yetibot
+!help xargs
+```
+
+```yetibot
+!range 10 | xargs echo number | unwords
+```
+
+### random
 
 ```yetibot
 !help random
@@ -142,6 +160,8 @@ But if you pass it a collection it takes a random item from it:
 !range 10 | random
 ```
 
+### head
+
 ```yetibot
 !help head
 ```
@@ -153,6 +173,8 @@ But if you pass it a collection it takes a random item from it:
 ```yetibot
 !range 10 | head 3
 ```
+
+### tail
 
 ```yetibot
 !help tail
@@ -166,6 +188,8 @@ But if you pass it a collection it takes a random item from it:
 !range 10 | head 3 | tail
 ```
 
+### shuffle
+
 ```yetibot
 !help shuffle
 ```
@@ -174,7 +198,203 @@ But if you pass it a collection it takes a random item from it:
 !range 10 | shuffle
 ```
 
-There are others. To view them all we can look them up by category:
+### words
+
+```yetibot
+!help words
+```
+
+```yetibot
+!echo Delta compression using up to 8 threads | words
+```
+
+### unwords
+
+```yetibot
+!help unwords
+```
+
+```yetibot
+!range 10 | unwords
+```
+
+```yetibot
+!echo Delta compression using up to 8 threads | words | shuffle | unwords
+```
+
+### join
+
+```yetibot
+!help join
+```
+
+```yetibot
+!range 10 | join
+```
+
+```yetibot
+!range 10 | join 💥
+```
+
+### split
+
+```yetibot
+!help split
+```
+
+```yetibot
+!echo stick-in-the-mud | split -
+```
+
+### letters
+
+This is just like `words`, except it splits apart letters.
+
+```yetibot
+!help letters
+```
+
+```yetibot
+!echo Yetibot | letters
+```
+
+### unletters
+
+```yetibot
+!help unletters
+```
+
+```yetibot
+!echo Yetibot | letters | shuffle | unletters
+```
+
+### trim
+
+```yetibot
+!help trim
+```
+
+```yetibot
+!echo    why such space    | trim
+```
+
+### set
+
+```yetibot
+!help set
+```
+
+```yetibot
+!list 1 1 2 2 3 3 | set
+```
+
+### count
+
+```yetibot
+!help count
+```
+
+```yetibot
+!range 10 | count
+```
+
+### sum
+
+```yetibot
+!help sum
+```
+
+```yetibot
+!range 5 | sum
+```
+
+It doesn't like it if you try to sum non-numbers:
+
+```yetibot
+!list one two three | sum
+```
+
+### sort
+
+```yetibot
+!help sort
+```
+
+```yetibot
+!list foo bar baz | sort
+```
+
+### sortnum
+
+```yetibot
+!help sortnum
+```
+
+```yetibot
+!list 22 foos, 33 bars, 11 bazes | sortnum
+```
+
+### grep
+
+```yetibot
+!help grep
+```
+
+```yetibot
+!range 50 | grep 5
+```
+
+```yetibot
+!range 50 | grep -C 1 5
+```
+
+### tee
+
+```yetibot
+!help tee
+```
+
+`tee` doesn't work in the GraphQL API yet, but you can try this out via chat:
+
+```yetibot
+!echo foo | tee | echo bar
+```
+
+### reverse
+
+```yetibot
+!help reverse
+```
+
+```yetibot
+!range 3 | reverse
+```
+
+### droplast
+
+```yetibot
+!help droplast
+```
+
+```yetibot
+!list first middle last | droplast
+```
+
+### rest
+
+```yetibot
+!help rest
+```
+
+```yetibot
+!range 10 | rest
+```
+
+### Other collection commands
+
+There are a few others not documented here such as `raw`, `keys`, vals`, and
+`data` (which is documented in its own section of this guide). To view them all
+we can look them up by category:
 
 ```yetibot
 !category list collection
@@ -183,6 +403,8 @@ There are others. To view them all we can look them up by category:
 ## Aliases
 
 Aliases are similar to `alias` in bash allowing us to give a name for a command.
+This is typically a heavily-used feature as teams build up aliases for fun or
+utility and become a manifestation of culture.
 
 ```yetibot
 !help alias
