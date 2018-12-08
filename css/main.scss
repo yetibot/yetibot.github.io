@@ -4,10 +4,19 @@
 $cyan: #55C4D4;
 
 @import "bulma/bulma.sass";
+@import "tocbot.css";
+
 #foo { display: none; }
 
+.navbar .navbar-brand {
+  margin: 6px 6px 6px 0;
+}
+.navbar .navbar-start a {
+  font-weight: 300;
+  font-size: 18px;
+}
 .navbar .navbar-start > a.navbar-item.is-active {
-  text-decoration: underline;
+  color: $cyan !important;
 }
 
 body {
@@ -69,6 +78,24 @@ h2.tagline {
   }
 }
 
+// ToC
+
+.column.toc {
+  .content {
+    position: absolute;
+    top: -35px;
+    ol {
+      margin-top: 0px;
+      margin-left: 1em;
+      list-style: none;
+    }
+  }
+  .content.fixed {
+    position: fixed;
+    top: 0px;
+  }
+}
+
 // Pages
 
 body .main-content {
@@ -81,12 +108,6 @@ body .main-content {
 
 .eval-button {
   margin-bottom: 1em;
-}
-
-// Posts and pages
-
-#post, #page {
-  max-width: 700px;
 }
 
 // Posts
@@ -130,6 +151,6 @@ footer.footer {
   position:absolute;
 }
 
-p, pre {
+h2, h3, h4, h5, p, pre {
   clear: both;
 }

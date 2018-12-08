@@ -1,5 +1,6 @@
 @charset "UTF-8";
 /*! bulma.io v0.6.2 | MIT License | github.com/jgthms/bulma */
+@import url(tocbot.css);
 @keyframes spinAround {
   from {
     transform: rotate(0deg); }
@@ -6431,8 +6432,15 @@ label.panel-block {
 #foo {
   display: none; }
 
+.navbar .navbar-brand {
+  margin: 6px 6px 6px 0; }
+
+.navbar .navbar-start a {
+  font-weight: 300;
+  font-size: 18px; }
+
 .navbar .navbar-start > a.navbar-item.is-active {
-  text-decoration: underline; }
+  color: #55C4D4 !important; }
 
 .is-horizontal-center {
   justify-content: center; }
@@ -6460,11 +6468,19 @@ h2.tagline {
 .media-boxes .box {
   padding: 80px; }
 
+.column.toc .content {
+  position: absolute;
+  top: -35px; }
+  .column.toc .content ol {
+    margin-top: 0px;
+    margin-left: 1em;
+    list-style: none; }
+.column.toc .content.fixed {
+  position: fixed;
+  top: 0px; }
+
 .eval-button {
   margin-bottom: 1em; }
-
-#post, #page {
-  max-width: 700px; }
 
 #post-tags {
   margin: 40px 0 20px 0; }
@@ -6497,7 +6513,7 @@ footer.footer {
   width: 100%;
   position: absolute; }
 
-p, pre {
+h2, h3, h4, h5, p, pre {
   clear: both; }
 
 /*# sourceMappingURL=main.css.map */
