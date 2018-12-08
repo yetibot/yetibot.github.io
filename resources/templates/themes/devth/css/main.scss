@@ -8,8 +8,15 @@ $cyan: #55C4D4;
 
 #foo { display: none; }
 
+.navbar .navbar-brand {
+  margin: 6px 6px 6px 0;
+}
+.navbar .navbar-start a {
+  font-weight: 300;
+  font-size: 18px;
+}
 .navbar .navbar-start > a.navbar-item.is-active {
-  text-decoration: underline;
+  color: $cyan !important;
 }
 
 body {
