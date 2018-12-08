@@ -11,8 +11,47 @@ const yetibotEval = function(expr) {
   return result;
 }
 
+let toc;
+let lastScrollY = 0;
+const fixedTOCThreshold = 208;
+
+window.addEventListener('scroll', function(e) {
+  // add fixed
+  if (
+    toc &&
+    lastScrollY <= fixedTOCThreshold &&
+    window.scrollY > fixedTOCThreshold
+  ) {
+    // console.log('add fixed', toc);
+    toc.classList.add('fixed');
+  }
+
+  // remove fixed
+  if (
+    toc &&
+    lastScrollY >= fixedTOCThreshold &&
+    window.scrollY < fixedTOCThreshold
+  ) {
+    // console.log('remove fixed', toc);
+    toc.classList.remove('fixed');
+  }
+
+  lastScrollY = window.scrollY;
+});
 
 document.addEventListener('DOMContentLoaded', function () {
+
+  toc = document.querySelector('.toc.column .content');
+
+  if (toc) {
+    tocbot.init({
+      tocSelector: '.toc .content',
+      contentSelector: '.page-content',
+      // Which headings to grab inside of the contentSelector element.
+      headingSelector: 'h2, h3, h4'
+    });
+  }
+
   const codeBlocks = document.querySelectorAll('code.yetibot');
   codeBlocks.forEach(function(codeBlock) {
 
@@ -35,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
     codeBlock.parentElement.insertAdjacentElement(
       "afterend", runButton);
 
-    console.log('yetibot code block', codeBlock, expr);
+    // console.log('yetibot code block', codeBlock, expr);
   });
 });
 

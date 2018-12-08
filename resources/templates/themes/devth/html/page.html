@@ -15,9 +15,15 @@
 
   <div class="container">
     <div id="page">
-      {% if page.toc %}{{page.toc|safe}}{% endif %}
+      <div class="columns">
+        <div class="column page-content is-three-quarters">
+          {{page.content|safe}}
+        </div>
 
-      {{page.content|safe}}
+        <div class="column toc">
+          {% if page.toc %}{{page.toc|safe}}{% endif %}
+        </div>
+      </div>
 
       <div id="prev-next">
         {% if page.prev %}

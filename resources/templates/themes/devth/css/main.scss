@@ -4,6 +4,8 @@
 $cyan: #55C4D4;
 
 @import "bulma/bulma.sass";
+@import "tocbot.css";
+
 #foo { display: none; }
 
 .navbar .navbar-start > a.navbar-item.is-active {
@@ -69,6 +71,24 @@ h2.tagline {
   }
 }
 
+// ToC
+
+.column.toc {
+  .content {
+    position: absolute;
+    top: -35px;
+    ol {
+      margin-top: 0px;
+      margin-left: 1em;
+      list-style: none;
+    }
+  }
+  .content.fixed {
+    position: fixed;
+    top: 0px;
+  }
+}
+
 // Pages
 
 body .main-content {
@@ -83,13 +103,11 @@ body .main-content {
   margin-bottom: 1em;
 }
 
-// Posts and pages
+// Posts
 
-#post, #page {
+#post {
   max-width: 700px;
 }
-
-// Posts
 
 #post-tags {
   margin: 40px 0 20px 0;
@@ -130,6 +148,6 @@ footer.footer {
   position:absolute;
 }
 
-p, pre {
+h2, h3, h4, h5, p, pre {
   clear: both;
 }
