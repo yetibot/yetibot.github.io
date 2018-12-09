@@ -6429,9 +6429,6 @@ label.panel-block {
   background-color: whitesmoke;
   padding: 3rem 1.5rem 6rem; }
 
-#foo {
-  display: none; }
-
 .navbar .navbar-brand {
   padding: 6px 6px 6px 0; }
 
@@ -6444,6 +6441,9 @@ label.panel-block {
 
 .navbar-menu {
   padding: 0; }
+
+pre {
+  border-top: 1px solid rgba(85, 196, 212, 0.1); }
 
 .is-horizontal-center {
   justify-content: center; }
