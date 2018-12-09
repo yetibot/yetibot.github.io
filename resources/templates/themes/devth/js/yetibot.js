@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   toc = document.querySelector('.toc.column .content');
 
-  if (toc) {
+  if (toc && window.innerWidth > 768) {
     tocbot.init({
       tocSelector: '.toc .content',
       contentSelector: '.page-content',

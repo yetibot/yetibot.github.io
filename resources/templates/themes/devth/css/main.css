@@ -6433,7 +6433,7 @@ label.panel-block {
   display: none; }
 
 .navbar .navbar-brand {
-  margin: 6px 6px 6px 0; }
+  padding: 6px 6px 6px 0; }
 
 .navbar .navbar-start a {
   font-weight: 300;
@@ -6441,6 +6441,9 @@ label.panel-block {
 
 .navbar .navbar-start > a.navbar-item.is-active {
   color: #55C4D4 !important; }
+
+.navbar-menu {
+  padding: 0; }
 
 .is-horizontal-center {
   justify-content: center; }
@@ -6468,16 +6471,27 @@ h2.tagline {
 .media-boxes .box {
   padding: 80px; }
 
+@media screen and (max-width: 768px) {
+  .main.columns {
+    flex-direction: column-reverse;
+    display: flex; }
+    .main.columns > .column {
+      flex-basis: auto; } }
 .column.toc .content {
   position: absolute;
   top: -35px; }
+  @media screen and (max-width: 768px) {
+    .column.toc .content {
+      position: relative; } }
   .column.toc .content ol {
-    margin-top: 0px;
-    margin-left: 1em;
+    margin: 0 0 0 1em;
     list-style: none; }
 .column.toc .content.fixed {
   position: fixed;
   top: 0px; }
+  @media screen and (max-width: 768px) {
+    .column.toc .content.fixed {
+      position: relative; } }
 
 .eval-button {
   margin-bottom: 1em; }
