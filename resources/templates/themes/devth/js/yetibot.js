@@ -19,7 +19,7 @@ window.addEventListener('scroll', function(e) {
   // add fixed
   if (
     toc &&
-    lastScrollY <= fixedTOCThreshold &&
+    (lastScrollY <= fixedTOCThreshold || !lastScrollY) &&
     window.scrollY > fixedTOCThreshold
   ) {
     // console.log('add fixed', toc);
@@ -29,7 +29,7 @@ window.addEventListener('scroll', function(e) {
   // remove fixed
   if (
     toc &&
-    lastScrollY >= fixedTOCThreshold &&
+    (lastScrollY >= fixedTOCThreshold || !lastScrollY) &&
     window.scrollY < fixedTOCThreshold
   ) {
     // console.log('remove fixed', toc);
