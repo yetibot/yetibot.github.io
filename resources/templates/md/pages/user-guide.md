@@ -621,7 +621,7 @@ Finally:
 !usershouldnot | meme angry wolf:
 ```
 
-![yetibot should not](http://i.imgflip.com/wx53f.jpg)
+![yetibot should not](//i.imgflip.com/wx53f.jpg)
 
 👏
 
@@ -690,6 +690,6 @@ I think you get the idea 🧐
 !list wife, kids, husband too | xargs hide | unwords
 ```
 
-![hide yo wife](http://i.imgflip.com/wx1cd.jpg "hide yo wife")
-![hide yo kids](http://i.imgflip.com/wx1cb.jpg "hide yo kids")
-![hide yo husband too](http://i.imgflip.com/wx1cc.jpg "hide yo husband too")
+![hide yo wife](//i.imgflip.com/wx1cd.jpg "hide yo wife")
+![hide yo kids](//i.imgflip.com/wx1cb.jpg "hide yo kids")
+![hide yo husband too](//i.imgflip.com/wx1cc.jpg "hide yo husband too")
