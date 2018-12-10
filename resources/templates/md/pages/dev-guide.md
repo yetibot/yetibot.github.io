@@ -93,6 +93,38 @@ for a full example.
 
 ## Parser
 
+## Load order
+
+Yetibot loads itself in a particular order. The database should be initialized
+and schemas loaded as soon as possible, since many models load themselves based
+on it. We want to start logging as soon as possible.
+
+### Database namespaces
+
+All database schemas should live in `db` namespaces:
+
+- `yetibot.db.*`
+- `yetibot.core.db.*`
+- `*.plugins.db.*`
+
+The `yetibot.core.db` namespace will map over these, building up their `schema`s
+if available.
+
+### Logging
+
+`start` fn is called on `yetibot.core.logging` to initialize its
+database-appender.
+
+### Chat adapters
+
+Chat adapters are loaded next. Their `start` functions are called, which
+connects to the chat protocol and bootstraps its users into the `users` model.
+
+### Observers and commands
+
+Finally, observers and commands are loaded. These typically `require` models and
+api namespaces, which may make network or database calls to bootstrap data.
+
 ## GraphQL API
 
 Yetibot hosts a GraphQL powered API. The public instance is available at
