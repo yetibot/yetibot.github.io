@@ -32,13 +32,14 @@
 </div>
 </article>
 
-These docs are are work in progress. If something is missing and you have
-questions just ask in #dev channl on [Yetibot Slack](https://slack.yetibot.com).
-Feel free to [open an issue](https://github.com/yetibot/yetibot.github.io/issues)
-to ask questions or suggest changes.
-
-**Don't hesitate to ask for help in Slack!** It could potentially save you a lot
-of time.
+<article class="message is-warning">
+<div class="message-header">
+  <p>🚧🚚👷🏗</p>
+</div>
+<div class="message-body">
+These docs are are work in progress.
+</div>
+</article>
 
 ## Building your first command
 
