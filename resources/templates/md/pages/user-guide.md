@@ -1,16 +1,43 @@
 {:title "User Guide"
- :subtitle "Welcome to the interactive Yetibot User Guide"
+ :subtitle "Interactive guide to using your Yetibot"
  :layout :page
  :toc true
  :page-index 0
  :navbar? true}
+
+<!-- can't indent this properly because Markdown turns it into a code block -->
+<article class="message is-info">
+<div class="message-header">
+  <p>Tip</p>
+</div>
+<div class="message-body">
+  This guide is all about interacting with Yetibot from the the user's
+  perspective. It documents runtime usage and many of the available commands.
+
+- If you're more interested in Yetibot's internals or building features, check
+  out the [Developer Guide](/dev-guide).
+- If you're interested in running and operating your own instance of Yetibot,
+  check out the [Operations Guide](/ops-guide).
+</div>
+</article>
+
+<article class="message is-info">
+<div class="message-header">
+  <p>Getting help</p>
+</div>
+<div class="message-body">
+  Although we hope the docs are useful and comprehensive,
+  **don't hesitate to ask for help in [Slack](https://slack.yetibot.com)!**
+  It could potentially save you a lot of time.
+</div>
+</article>
 
 All the examples below are <strong>interactive</strong>. Click the button below
 each example evaluate the expression against the live, <a
 href="https://public.yetibot.com">public Yetibot instance</a> using the GraphQL
 API.
 
-## Basics
+## Basic Yetibot expressions
 
 This is what a simple command looks like:
 
@@ -693,3 +720,16 @@ I think you get the idea 🧐
 ![hide yo wife](//i.imgflip.com/wx1cd.jpg "hide yo wife")
 ![hide yo kids](//i.imgflip.com/wx1cb.jpg "hide yo kids")
 ![hide yo husband too](//i.imgflip.com/wx1cc.jpg "hide yo husband too")
+
+## 🤔
+
+<article class="message is-info">
+<div class="message-header">
+  <p>Docs didn't answer your question?</p>
+</div>
+<div class="message-body">
+  Ask us in [Slack](https://slack.yetibot.com) or
+  [open a new issue](https://github.com/yetibot/community/issues/new)
+  on the `community` repo.
+</div>
+</article>

@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
       tocSelector: '.toc .content',
       contentSelector: '.page-content',
       // Which headings to grab inside of the contentSelector element.
-      headingSelector: 'h2, h3, h4'
+      headingSelector: 'h1, h2, h3, h4'
     });
   }
 

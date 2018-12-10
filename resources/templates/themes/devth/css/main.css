@@ -6443,7 +6443,7 @@ label.panel-block {
   padding: 0; }
 
 pre {
-  border-top: 1px solid rgba(85, 196, 212, 0.1); }
+  border-left: 5px solid #55c4d4; }
 
 .is-horizontal-center {
   justify-content: center; }
@@ -6484,7 +6484,7 @@ h2.tagline {
     .column.toc .content {
       position: relative; } }
   .column.toc .content ol {
-    margin: 0 0 0 1em;
+    margin: 0 0 0 0.5em;
     list-style: none; }
 .column.toc .content.fixed {
   position: fixed;

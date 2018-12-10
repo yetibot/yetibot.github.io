@@ -1,7 +1,7 @@
 {:title "Media"
  :subtitle "All Yetibot artwork designed by <a target='_blank' href='http://www.freeformdesign.co/'>Freeform Design Co.</a>"
  :layout :page
- :page-index 3
+ :page-index 4
  :navbar? true}
 
 <div class="media-boxes">

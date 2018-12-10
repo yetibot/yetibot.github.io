@@ -1,16 +1,44 @@
 {:title "Developer Guide"
- :subtitle "Welcome to the interactive Yetibot Developer Guide"
+ :subtitle "Yetibot internals and dev workflows"
  :layout :page
  :toc true
  :page-index 1
  :navbar? true}
 
- These docs are are work in progress. If something is missing and you have
- questions just ask in #dev channl on [Yetibot Slack](https://slack.yetibot.com).
- Feel free to [open an issue](https://github.com/yetibot/yetibot.github.io/issues)
- to ask questions or suggest changes.
+<!-- can't indent this properly because Markdown turns it into a code block -->
+<article class="message is-info">
+<div class="message-header">
+  <p>Tip</p>
+</div>
+<div class="message-body">
+  This guide is all about developing Yetibot. It includes docs about dev
+  workflow and Yetibot internals.
 
-## Running Yetibot locally
+- If you're more interested using Yetibot, check out the out the
+  [User Guide](/user-guide).
+- If you're interested in running and operating your own instance of Yetibot,
+  check out the [Operations Guide](/ops-guide).
+</div>
+</article>
+
+<article class="message is-info">
+<div class="message-header">
+  <p>Getting help</p>
+</div>
+<div class="message-body">
+  Although we hope the docs are useful and comprehensive,
+  **don't hesitate to ask for help in [Slack](https://slack.yetibot.com)!**
+  It could potentially save you a lot of time.
+</div>
+</article>
+
+These docs are are work in progress. If something is missing and you have
+questions just ask in #dev channl on [Yetibot Slack](https://slack.yetibot.com).
+Feel free to [open an issue](https://github.com/yetibot/yetibot.github.io/issues)
+to ask questions or suggest changes.
+
+**Don't hesitate to ask for help in Slack!** It could potentially save you a lot
+of time.
 
 ## Building your first command
 
@@ -66,4 +94,31 @@ for a full example.
 
 ## GraphQL API
 
+Yetibot hosts a GraphQL powered API. The public instance is available at
+[https://public.yetibot.com/graphql](https://public.yetibot.com/graphql).
+Try hitting it with `curl`:
+
+```bash
+curl 'https://public.yetibot.com/graphql' \
+  -H 'Accept: application/json' \
+  --data 'query=%7Beval(expr%3A%20%22uptime%22)%7D' \
+  --compressed
+```
+
 ## Web dashboard
+
+Yetibot hosts a web-based frontend powered by the GraphQL API. See the public
+instance at [public.yetibot.com](https://public.yetibot.com).
+
+## 🤔
+
+<article class="message is-info">
+<div class="message-header">
+  <p>Docs didn't answer your question?</p>
+</div>
+<div class="message-body">
+  Ask us in [Slack](https://slack.yetibot.com) or
+  [open a new issue](https://github.com/yetibot/community/issues/new)
+  on the `community` repo.
+</div>
+</article>
