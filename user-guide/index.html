@@ -59,6 +59,11 @@
                 Developer Guide
               </a>
               
+              <a href="/ops-guide/"
+                class="navbar-item ">
+                Operations Guide
+              </a>
+              
               <a href="/community/"
                 class="navbar-item ">
                 Community
@@ -81,7 +86,7 @@
   <div class="hero-body">
     <div class="container">
       <h1 class="title">User Guide</h1>
-      <p class="subtitle">Welcome to the interactive Yetibot User Guide</p>
+      <p class="subtitle">Interactive guide to using your Yetibot</p>
     </div>
   </div>
 </article>
@@ -92,7 +97,7 @@
     <div id="page">
       <div class="main columns">
         <div class="column page-content is-two-thirds">
-          <p>All the examples below are <strong>interactive</strong>. Click the button below each example evaluate the expression against the live, <a href="https://public.yetibot.com">public Yetibot instance</a> using the GraphQL API.</p><h2 id="basics">Basics</h2><p>This is what a simple command looks like:</p><pre><code class="yetibot">!echo hi
+          <p><!&ndash; can't indent this properly because Markdown turns it into a code block &ndash;> <article class="message is-info"> <div class="message-header">   <p>Tip</p> </div> <div class="message-body">   This guide is all about interacting with Yetibot from the the user's   perspective. It documents runtime usage and many of the available commands.</p><ul><li>If you're more interested in Yetibot's internals or building features, check  out the <a href='/dev-guide'>Developer Guide</a>.</li><li>If you're interested in running and operating your own instance of Yetibot,  check out the <a href='/ops-guide'>Operations Guide</a>.</div></article></li></ul><p><article class="message is-info"> <div class="message-header">   <p>Getting help</p> </div> <div class="message-body">   Although we hope the docs are useful and comprehensive,   <strong>don't hesitate to ask for help in <a href='https://slack.yetibot.com'>Slack</a>!</strong>   It could potentially save you a lot of time. </div> </article></p><p>All the examples below are <strong>interactive</strong>. Click the button below each example evaluate the expression against the live, <a href="https://public.yetibot.com">public Yetibot instance</a> using the GraphQL API.</p><h2 id="basic&#95;yetibot&#95;expressions">Basic Yetibot expressions</h2><p>This is what a simple command looks like:</p><pre><code class="yetibot">!echo hi
 </code></pre><p>Yetibot should reply <code>hi</code>.</p><p>To see a more dynamic example, run <code>uptime</code>:</p><pre><code class="yetibot">!uptime
 </code></pre><h2 id="help">Help</h2><p>The <code>help</code> command lets you explore the commands available and their usage. It has its own help doc:</p><pre><code class="yetibot">!help help
 </code></pre><pre><code class="yetibot">!help
@@ -266,11 +271,11 @@ have a savings account
 ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ ಠ&#95;ಠ
 </code></pre><p>I think you get the idea 🧐</p><h3 id="hide&#95;yo">Hide yo</h3><pre><code>!alias hide = &quot;meme hide yo: hide yo /&quot;
 !list wife, kids, husband too | xargs hide | unwords
-</code></pre><p><img src="//i.imgflip.com/wx1cd.jpg" alt="hide yo wife" title="hide yo wife" /> <img src="//i.imgflip.com/wx1cb.jpg" alt="hide yo kids" title="hide yo kids" /> <img src="//i.imgflip.com/wx1cc.jpg" alt="hide yo husband too" title="hide yo husband too" /></p>
+</code></pre><p><img src="//i.imgflip.com/wx1cd.jpg" alt="hide yo wife" title="hide yo wife" /> <img src="//i.imgflip.com/wx1cb.jpg" alt="hide yo kids" title="hide yo kids" /> <img src="//i.imgflip.com/wx1cc.jpg" alt="hide yo husband too" title="hide yo husband too" /></p><h2 id="🤔">🤔</h2><p><article class="message is-info"> <div class="message-header">   <p>Docs didn't answer your question?</p> </div> <div class="message-body">   Ask us in <a href='https://slack.yetibot.com'>Slack</a> or   <a href='https://github.com/yetibot/community/issues/new'>open a new issue</a>   on the <code>community</code> repo. </div> </article></p>
         </div>
 
         <div class="column toc">
-          <ol class="content"><li><a href="#basics">Basics</a></li><li><a href="#help">Help</a></li><li><a href="#response_types">Response Types</a></li><li><a href="#pipes">Pipes</a></li><li><a href="#subexpressions">Subexpressions</a></li><li><a href="#collection_utilities">Collection utilities</a></li><ol><li><a href="#range">range</a></li><li><a href="#list">list</a></li><li><a href="#xargs">xargs</a></li><li><a href="#random">random</a></li><li><a href="#head">head</a></li><li><a href="#tail">tail</a></li><li><a href="#shuffle">shuffle</a></li><li><a href="#words">words</a></li><li><a href="#unwords">unwords</a></li><li><a href="#join">join</a></li><li><a href="#split">split</a></li><li><a href="#letters">letters</a></li><li><a href="#unletters">unletters</a></li><li><a href="#trim">trim</a></li><li><a href="#set">set</a></li><li><a href="#count">count</a></li><li><a href="#sum">sum</a></li><li><a href="#sort">sort</a></li><li><a href="#sortnum">sortnum</a></li><li><a href="#grep">grep</a></li><li><a href="#tee">tee</a></li><li><a href="#reverse">reverse</a></li><li><a href="#droplast">droplast</a></li><li><a href="#rest">rest</a></li><li><a href="#other_collection_commands">Other collection commands</a></li></ol><li><a href="#aliases">Aliases</a></li><li><a href="#observers">Observers</a></li><ol><li><a href="#message">message</a></li><li><a href="#react">react</a></li><li><a href="#enter">enter</a></li><li><a href="#leave">leave</a></li></ol><li><a href="#data">Data</a></li><li><a href="#cron">Cron</a></li><li><a href="#eval">Eval</a></li><li><a href="#scrape">Scrape</a></li><li><a href="#graphql_api">GraphQL API</a></li><li><a href="#examples">Examples</a></li><ol><li><a href="#alltemps">Alltemps</a></li><li><a href="#yetibot_should_not_have_kids">Yetibot should not have kids</a></li><li><a href="#grids">Grids</a></li><li><a href="#hide_yo">Hide yo</a></li></ol></ol>
+          <ol class="content"><li><a href="#basic_yetibot_expressions">Basic Yetibot expressions</a></li><li><a href="#help">Help</a></li><li><a href="#response_types">Response Types</a></li><li><a href="#pipes">Pipes</a></li><li><a href="#subexpressions">Subexpressions</a></li><li><a href="#collection_utilities">Collection utilities</a></li><ol><li><a href="#range">range</a></li><li><a href="#list">list</a></li><li><a href="#xargs">xargs</a></li><li><a href="#random">random</a></li><li><a href="#head">head</a></li><li><a href="#tail">tail</a></li><li><a href="#shuffle">shuffle</a></li><li><a href="#words">words</a></li><li><a href="#unwords">unwords</a></li><li><a href="#join">join</a></li><li><a href="#split">split</a></li><li><a href="#letters">letters</a></li><li><a href="#unletters">unletters</a></li><li><a href="#trim">trim</a></li><li><a href="#set">set</a></li><li><a href="#count">count</a></li><li><a href="#sum">sum</a></li><li><a href="#sort">sort</a></li><li><a href="#sortnum">sortnum</a></li><li><a href="#grep">grep</a></li><li><a href="#tee">tee</a></li><li><a href="#reverse">reverse</a></li><li><a href="#droplast">droplast</a></li><li><a href="#rest">rest</a></li><li><a href="#other_collection_commands">Other collection commands</a></li></ol><li><a href="#aliases">Aliases</a></li><li><a href="#observers">Observers</a></li><ol><li><a href="#message">message</a></li><li><a href="#react">react</a></li><li><a href="#enter">enter</a></li><li><a href="#leave">leave</a></li></ol><li><a href="#data">Data</a></li><li><a href="#cron">Cron</a></li><li><a href="#eval">Eval</a></li><li><a href="#scrape">Scrape</a></li><li><a href="#graphql_api">GraphQL API</a></li><li><a href="#examples">Examples</a></li><ol><li><a href="#alltemps">Alltemps</a></li><li><a href="#yetibot_should_not_have_kids">Yetibot should not have kids</a></li><li><a href="#grids">Grids</a></li><li><a href="#hide_yo">Hide yo</a></li></ol><li><a href="#🤔">🤔</a></li></ol>
         </div>
       </div>
 
@@ -316,7 +321,8 @@ have a savings account
             type="text/javascript" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
     <script src="/js/yetibot.js" type="text/javascript" charset="utf-8"></script>
-
+    <script src="/js/highlight.pack.js" type="text/javascript"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
   </body>
 </html>
 

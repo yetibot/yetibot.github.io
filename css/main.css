@@ -6429,9 +6429,6 @@ label.panel-block {
   background-color: whitesmoke;
   padding: 3rem 1.5rem 6rem; }
 
-#foo {
-  display: none; }
-
 .navbar .navbar-brand {
   padding: 6px 6px 6px 0; }
 
@@ -6444,6 +6441,9 @@ label.panel-block {
 
 .navbar-menu {
   padding: 0; }
+
+pre {
+  border-left: 5px solid #55c4d4; }
 
 .is-horizontal-center {
   justify-content: center; }
@@ -6484,7 +6484,7 @@ h2.tagline {
     .column.toc .content {
       position: relative; } }
   .column.toc .content ol {
-    margin: 0 0 0 1em;
+    margin: 0 0 0 0.5em;
     list-style: none; }
 .column.toc .content.fixed {
   position: fixed;
