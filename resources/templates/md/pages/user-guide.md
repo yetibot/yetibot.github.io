@@ -34,8 +34,8 @@
 
 All the examples below are <strong>interactive</strong>. Click the button below
 each example evaluate the expression against the live, <a
-href="https://public.yetibot.com">public Yetibot instance</a> using the GraphQL
-API.
+href="https://public.yetibot.com">public Yetibot instance</a> using the <a
+href="#graphql_api">GraphQL API</a>.
 
 ## Basic Yetibot expressions
 
@@ -506,6 +506,77 @@ The `leave` event fires when a user leaves a channel.
 
 ```yetibot
 !obs -c dev-testing -e leave = meme crying jordan: / bye {{username}}
+```
+
+## Categories
+
+Yetibot commands can be organized under categories. Commands can be enabled or
+disabled according to channel settings (e.g. `:fun`). In the future, `help` might
+rely on categories.
+
+Categories are stored as meta-data directly on command handler functions under a
+`:yb/cat` prefix with a `Set` of keywords as the value.
+
+Current known categories are as follows. Please add to this list as needed. Some
+categories will overlap but are semantically distinct.
+
+See the
+[category command code](https://github.com/yetibot/yetibot.core/blob/master/src/yetibot/core/commands/category.clj#L10-L25)
+for the most up-to-date reference. Pasted here for reference:
+
+```clojure
+{:img "returns an image url"
+ :fun "generally fun and not work-related"
+ :meme "returns a meme"
+ :gif "returns a gif"
+ :ci "continuous integration"
+ :issue "issue tracker"
+ :infra "infrastructure automation"
+ :chart "returns a chart of some kind"
+ :info "information lookups (e.g. wiki, wolfram, weather)"
+ :repl "language REPLs"
+ :util "utilities that help transform expressions or operate Yetibot"
+ :crude "may return crude, racy and potentially NSFW results (e.g. urban)"
+ :collection "operates on collections"
+ :broken "known to be broken, probably due to an API that disappeared"}
+```
+
+### Channel-based category toggle
+
+Each category can be disabled or enabled at the channel level. By default all
+categories are enabled. To disable them, use:
+
+```
+!category disable :category-name
+```
+
+<article class="message is-info">
+<div class="message-header">
+  <p>NB</p>
+</div>
+<div class="message-body">
+  Disabled categories are stored using the normal channel settings, so you'll
+  see them in `!room` if you set them. `!category` is merely a convenience
+  wrapper.
+</div>
+</article>
+
+Show the list of categories and their docs:
+
+```yetibot
+!category
+```
+
+Disable the "fun" category:
+
+```
+!category disable fun
+```
+
+Re-enable it:
+
+```
+!category enable fun
 ```
 
 ## Data
