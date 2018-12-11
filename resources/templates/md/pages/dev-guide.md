@@ -41,6 +41,87 @@ These docs are are work in progress.
 </div>
 </article>
 
+## Dev workflow
+
+### Prerequisites
+
+#### Leiningen
+
+Leiningen is the Clojure build tool that Yetibot uses. See the [Leiningen
+Installation docs](https://github.com/technomancy/leiningen#installation) to
+install it.
+
+#### Postgres
+
+Yetibot needs a Postgres database. It defaults to `yetibot` as the database name
+(this is configurable). Ensure you have Postgres installed, then create the
+database:
+
+```bash
+createdb yetibot
+```
+
+The default connection string of `postgresql://localhost:5432/yetibot` should
+"just work".
+
+#### Configuration
+
+Make sure you've configured at least one chat adapter. This could be IRC or
+Slack. See [Up and running / minimal
+config](http://localhost:4040/ops-guide/#minimal_config) for a simple IRC
+example.
+
+### REPL
+
+Start up a development REPL with:
+
+```bash
+lein repl
+```
+
+Then run:
+
+```clojure
+(start)
+```
+
+To load a core set of commands and connect to any configured adapters.
+
+At this point a typical dev workflow would be to iteratively write and reload
+code from your editor as is common in the Clojure community. See
+[Essentials](http://clojure-doc.org/articles/content.html#essentials) for docs
+on setting up various editors for Clojure development.
+
+You can also optionally load all commands from the REPL using:
+
+```clojure
+(load-all)
+```
+
+To fully reload and restart the adapters and database connections, use:
+
+```clojure
+(reset)
+```
+
+And to stop, use:
+
+```clojure
+(stop)
+```
+
+See source for
+[`yetibot.core.repl`](https://github.com/yetibot/yetibot.core/blob/master/src/yetibot/core/repl.clj)
+for more info.
+
+### Linting
+
+Run this from the repo root to lint:
+
+```bash
+codeclimate analyze
+```
+
 ## Building your first command
 
 ## Command handling pipeline
