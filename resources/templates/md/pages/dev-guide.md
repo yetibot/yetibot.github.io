@@ -47,9 +47,9 @@ These docs are are work in progress.
 
 #### Leiningen
 
-Leiningen is the Clojure build tool that Yetibot uses. See the [Leiningen
-Installation docs](https://github.com/technomancy/leiningen#installation) to
-install it.
+Leiningen is the Clojure build tool that Yetibot uses. See the
+[Leiningen Installation docs](https://github.com/technomancy/leiningen#installation)
+to install it.
 
 #### Postgres
 
@@ -67,9 +67,9 @@ The default connection string of `postgresql://localhost:5432/yetibot` should
 #### Configuration
 
 Make sure you've configured at least one chat adapter. This could be IRC or
-Slack. See [Up and running / minimal
-config](http://localhost:4040/ops-guide/#minimal_config) for a simple IRC
-example.
+Slack. See
+[Up and running / minimal config](http://localhost:4040/ops-guide/#minimal_config)
+docs for a simple IRC example.
 
 ### REPL
 
