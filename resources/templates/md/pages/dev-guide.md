@@ -37,7 +37,7 @@
   <p>🚧🚚👷🏗</p>
 </div>
 <div class="message-body">
-These docs are are work in progress.
+These docs are work in progress.
 </div>
 </article>
 
@@ -140,14 +140,14 @@ its command handling pipeline.
   `:message` and `:react` have a `body`. Otherwise it is `nil`. When not `nil`,
   `handle-raw` checks to see if the `body` is prefixed with `!`. If it is,
   `handle-raw` strips the leading `!` and
-  `yetibot.core.handler/handle-unprased-expr` is called with `chat-source`,
+  `yetibot.core.handler/handle-unparsed-expr` is called with `chat-source`,
   `user`, and `body`.
 
 ### Unparsed expression handling
 
 Raw, unparsed expression are passed to
-`yetibot.core.handler/handle-unprased-expr`, along with the `user` and `body`.
-`handle-unprased-expr` sets a `binding` for the latter 2, then parses and
+`yetibot.core.handler/handle-unparsed-expr`, along with the `user` and `body`.
+`handle-unparsed-expr` sets a `binding` for the latter 2, then parses and
 evaluates the expression using `yetibot.core.parser/parse-and-eval`.
 
 ### Parsing
@@ -170,7 +170,7 @@ Command output can either be a single value, or a collection of values. This
 affects the method `pipe-cmds` will pass it to the next comand:
 
 - **Single value**: `pipe-cmds` will simply append it using
-  `yetibot.core.util/psuedo-format`, which is similar to `clojure.core/format`
+  `yetibot.core.util/pseudo-format`, which is similar to `clojure.core/format`
   except it will append the value at the end of the string if there is not a
   `%s` placeholder present, and if there are *multiple* `%s`s present, it will
   replace *all* of them with the value.
