@@ -65,6 +65,11 @@ config like:
       - YB_DB_URL=postgresql://yetibot:yetibot@postgres:5432/yetibot
 ```
 
+### Kubernetes with Helm
+
+Running on Kubernetes is super simple with the official
+[yetibot-helm](https://github.com/yetibot/yetibot-helm) chart.
+
 ### Minimal config
 
 A very minimal config would be `config/config.edn`:
