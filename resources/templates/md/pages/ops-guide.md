@@ -14,7 +14,7 @@
   This guide is all about running and operating a Yetibot. It documents system
   dependencies, Docker usage, and configuration mechanisms.
 
-- If you're more interested using Yetibot, check out the out the
+- If you're more interested using Yetibot, check out the
   [User Guide](/user-guide).
 - If you're more interested in Yetibot's internals or building features, check
   out the [Developer Guide](/dev-guide).
@@ -53,7 +53,7 @@ This starts up a Postgres container and a Yetibot container, configured to
 connect to IRC as user name `yetibot_demo`. Once it's up check out
 [http://localhost:3456](http://localhost:3456) to view the dashboard.
 
-See the [docker-compose.yml](../docker-compose.yml) file to look at exactly how
+See the [docker-compose.yml](https://github.com/yetibot/yetibot/blob/master/docker-compose.yml) file to look at exactly how
 these containers are configured. This demonstrates a very minimal default config
 that you can modify. For example, you could use Slack instead by switching to a
 config like:
@@ -170,7 +170,7 @@ createdb yetibot
 
 There are a few ways to quickly run a Yetibot:
 
-1. Docker - [read the Yetibot on Docker docs](doc/DOCKER.md)
+1. Docker - [read the Yetibot on Docker docs](https://yetibot.com/ops-guide/#docker)
 1. Grab an archive of the source from the [Yetibot
    releases](https://github.com/yetibot/yetibot/releases), unzip, put the config
    in place and `lein run`
@@ -263,7 +263,7 @@ mutability in our system.
 
 **Immutable config sources** include both `profiles.clj` and environmental
 variables via `environ` and loading EDN from a file at `config/config.edn`
-(this can be overridden with by specifying a `CONFIG_PATH` env var).
+(this can be overridden by specifying a `CONFIG_PATH` env var).
 
 Any config specified in an EDN file will be overridden by values provided by
 `environ`. Environment config can be explicitly ignored by setting an
@@ -271,7 +271,7 @@ environment variable `YETIBOT_ENV_CONFIG_DISABLED=true`.
 
 Providing config via multiple methods
 makes it compatible with 12-factor configuration and simple usage in container
-environments while still retaining the ease of of use of the EDN file option.
+environments while still retaining the ease of use of the EDN file option.
 
 The majority of configurable sub-systems use immutable config as they do not
 need to change very often. Examples include:
