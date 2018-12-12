@@ -102,7 +102,7 @@
       - YB&#95;ADAPTERS&#95;SLACK&#95;TYPE=slack
       - YB&#95;ADAPTERS&#95;SLACK&#95;TOKEN=xoxb-my-token
       - YB&#95;DB&#95;URL=postgresql://yetibot:yetibot@postgres:5432/yetibot
-</code></pre><h3 id="minimal&#95;config">Minimal config</h3><p>A very minimal config would be <code>config/config.edn</code>:</p><pre><code class="clojure">{:yetibot
+</code></pre><h3 id="kubernetes&#95;with&#95;helm">Kubernetes with Helm</h3><p>Running on Kubernetes is super simple with the official <a href='https://github.com/yetibot/yetibot-helm'>yetibot-helm</a> chart.</p><h3 id="minimal&#95;config">Minimal config</h3><p>A very minimal config would be <code>config/config.edn</code>:</p><pre><code class="clojure">{:yetibot
   {:adapters {:freenode {:type &quot;irc&quot;,
                         :username &quot;my-yetibot&quot;,
                         :host &quot;chat.freenode.net&quot;,
@@ -173,7 +173,7 @@ YETIBOT&#95;COMMAND&#95;PREFIX=&quot;,&quot;
         </div>
 
         <div class="column toc">
-          <ol class="content"><li><a href="#up_and_running">Up and running</a></li><ol><li><a href="#docker_compose">Docker Compose</a></li><li><a href="#minimal_config">Minimal config</a></li><li><a href="#postgres">Postgres</a></li><ol><li><a href="#docker">Docker</a></li><li><a href="#ubuntu_vm">Ubuntu VM</a></li></ol><li><a href="#run_it">Run it</a></li></ol><li><a href="#configuration">Configuration</a></li><ol><li><a href="#rationale">Rationale</a></li><li><a href="#modes">Modes</a></li><ol><li><a href="#immutable">Immutable</a></li><li><a href="#mutable">Mutable</a></li></ol><li><a href="#prefixes">Prefixes</a></li><ol><li><a href="#edn">edn</a></li><li><a href="#profile">Profile</a></li><li><a href="#environment">Environment</a></li><li><a href="#merged_result">Merged result</a></li></ol></ol><li><a href="#🤔">🤔</a></li></ol>
+          <ol class="content"><li><a href="#up_and_running">Up and running</a></li><ol><li><a href="#docker_compose">Docker Compose</a></li><li><a href="#kubernetes_with_helm">Kubernetes with Helm</a></li><li><a href="#minimal_config">Minimal config</a></li><li><a href="#postgres">Postgres</a></li><ol><li><a href="#docker">Docker</a></li><li><a href="#ubuntu_vm">Ubuntu VM</a></li></ol><li><a href="#run_it">Run it</a></li></ol><li><a href="#configuration">Configuration</a></li><ol><li><a href="#rationale">Rationale</a></li><li><a href="#modes">Modes</a></li><ol><li><a href="#immutable">Immutable</a></li><li><a href="#mutable">Mutable</a></li></ol><li><a href="#prefixes">Prefixes</a></li><ol><li><a href="#edn">edn</a></li><li><a href="#profile">Profile</a></li><li><a href="#environment">Environment</a></li><li><a href="#merged_result">Merged result</a></li></ol></ol><li><a href="#🤔">🤔</a></li></ol>
         </div>
       </div>
 
