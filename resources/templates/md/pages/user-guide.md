@@ -11,7 +11,7 @@
   <p>Tip</p>
 </div>
 <div class="message-body">
-  This guide is all about interacting with Yetibot from the the user's
+  This guide is all about interacting with Yetibot from the user's
   perspective. It documents runtime usage and many of the available commands.
 
 - If you're more interested in Yetibot's internals or building features, check
@@ -451,7 +451,7 @@ event types.
 
 ### message
 
-The default event type for observes is `message`. This allows Yetibot to react
+The default event type for observers is `message`. This allows Yetibot to react
 to a message by running a command. For example:
 
 ```yetibot
