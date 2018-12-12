@@ -14,7 +14,7 @@
   This guide is all about developing Yetibot. It includes docs about dev
   workflow and Yetibot internals.
 
-- If you're more interested using Yetibot, check out the out the
+- If you're more interested in using Yetibot, check out the
   [User Guide](/user-guide).
 - If you're interested in running and operating your own instance of Yetibot,
   check out the [Operations Guide](/ops-guide).
@@ -68,7 +68,7 @@ The default connection string of `postgresql://localhost:5432/yetibot` should
 
 Make sure you've configured at least one chat adapter. This could be IRC or
 Slack. See
-[Up and running / minimal config](http://localhost:4040/ops-guide/#minimal_config)
+[Up and running / minimal config](https://yetibot.com/ops-guide/#minimal_config)
 docs for a simple IRC example.
 
 ### REPL
