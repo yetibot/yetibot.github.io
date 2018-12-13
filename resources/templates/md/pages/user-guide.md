@@ -604,12 +604,27 @@ data behind it!
 Using our `weather` example again:
 
 ```yetibot
-!weather seattle, wa | render Wind in {{city_name}} at {{wind_spd|multiply:2.23694}} mph {{wind_cdir_full|capitalize}}
+!weather seattle | render Wind in {{city_name}} at {{wind_spd|multiply:2.23694|double-format:2}} mph blowing {{wind_cdir_full|capitalize}}
 ```
 
 The templating support is provided by
 [Selmer](https://github.com/yogthos/Selmer). It supports a number of filters,
-e.g. `{{name|capitalize}}`. See the docs for more!
+e.g. `{{name|capitalize}}`. See the
+[Selmer docs](https://github.com/yogthos/Selmer#usage) for more!
+
+Need to know the ID of the `computer gandalf` meme for some reason?
+
+```yetibot
+!meme search computer gandalf | data show
+```
+
+```yetibot
+!meme search computer gandalf | render ID of {{name}} at {{url}} is {{id}}
+```
+
+We could go on and on (and on and on). `render` opens up a ton of possabilities
+for customizing command output and using Yetibot in unexpected and unanticipated
+ways!
 
 ## Cron
 
