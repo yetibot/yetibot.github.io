@@ -595,6 +595,22 @@ For example, we can get all the data behind the `weather` command:
 !weather seattle, wa | data show
 ```
 
+## Render
+
+The `render` command lets us turn the data discussed in the previous section
+into strings, which means we can customize the output of a command using the
+data behind it!
+
+Using our `weather` example again:
+
+```yetibot
+!weather seattle, wa | render Wind in {{city_name}} at {{wind_spd|multiply:2.23694}} mph {{wind_cdir_full|capitalize}}
+```
+
+The templating support is provided by
+[Selmer](https://github.com/yogthos/Selmer). It supports a number of filters,
+e.g. `{{name|capitalize}}`. See the docs for more!
+
 ## Cron
 
 Cron is, as you'd expect, a way to run a command on an interval given a cron
