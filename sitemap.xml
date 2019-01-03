@@ -2,7 +2,31 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
 <url>
 <loc>
+https://yetibot.com/tags/2018.html
+</loc>
+<lastmod>
+2019-01-03
+</lastmod>
+</url>
+<url>
+<loc>
 https://yetibot.com/tags/screencast.html
+</loc>
+<lastmod>
+2019-01-03
+</lastmod>
+</url>
+<url>
+<loc>
+https://yetibot.com/tags/2019.html
+</loc>
+<lastmod>
+2019-01-03
+</lastmod>
+</url>
+<url>
+<loc>
+https://yetibot.com/tags/roadmap.html
 </loc>
 <lastmod>
 2019-01-03
@@ -91,6 +115,14 @@ https://yetibot.com/user-guide.html
 <url>
 <loc>
 https://yetibot.com/authors/Trevor Hartman.html
+</loc>
+<lastmod>
+2019-01-03
+</lastmod>
+</url>
+<url>
+<loc>
+https://yetibot.com/blog/2019-01-03-yetibot-2019-roadmap.html
 </loc>
 <lastmod>
 2019-01-03
