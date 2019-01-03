@@ -9,7 +9,7 @@
                            [org.webjars.npm/bulma "0.6.2"]
                            [ring-server "0.5.0"]
                            [cryogen-markdown "0.1.7"]
-                           [cryogen-core "0.1.61"]]
+                           [cryogen-core "0.1.65"]]
             :plugins [[lein-ring "0.9.7"]]
             :main cryogen.core
             :ring {:init cryogen.server/init

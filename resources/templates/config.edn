@@ -26,7 +26,7 @@
  :posts-per-page       5
  :blocks-per-preview   2
  :previews?            false
- :clean-urls?          false
+ :clean-urls?          true
  :hide-future-posts?   true
  :klipse               {}
  :debug?               false}
