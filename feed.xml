@@ -12,17 +12,17 @@ https://yetibot.com/
 Docs and blog posts for Yetibot
 </description>
 <lastBuildDate>
-Thu, 13 Dec 2018 21:36:31 +0000
+Thu, 03 Jan 2019 21:00:25 +0000
 </lastBuildDate>
 <generator>
 clj-rss
 </generator>
 <item>
 <guid>
-https://yetibot.com/blog/2018-11-11-yeticast-0.html
+https://yetibot.com/blog/2018-11-11-yeticast-0
 </guid>
 <link>
-https://yetibot.com/blog/2018-11-11-yeticast-0.html
+https://yetibot.com/blog/2018-11-11-yeticast-0
 </link>
 <title>
 Yeticast #0: Bug fix for subexpression evaluation
@@ -36,10 +36,10 @@ Sun, 11 Nov 2018 00:00:00 +0000
 </item>
 <item>
 <guid>
-https://yetibot.com/blog/2018-03-24-launch.html
+https://yetibot.com/blog/2018-03-24-launch
 </guid>
 <link>
-https://yetibot.com/blog/2018-03-24-launch.html
+https://yetibot.com/blog/2018-03-24-launch
 </link>
 <title>
 Yetibot.com Launch
