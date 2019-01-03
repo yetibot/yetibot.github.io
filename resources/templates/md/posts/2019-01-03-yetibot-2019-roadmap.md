@@ -73,6 +73,13 @@ like:
   `config.sample.edn`)
 - friendly command output with help docs when a command is not yet configured
 
+### Dashboard
+
+The [current dashboard](https://public.yetibot.com) was a great starting point.
+Now we need to make it more usable by improving the way history renders, adding
+more filters to history to search on, adding pagination or infinite scroll, and
+improving visibility into the health of the Yetibot instance.
+
 ### Screencasts
 
 We'll post more screencasts that demonstrate contributing to Yetibot and what an
