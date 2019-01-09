@@ -92,6 +92,5 @@ Cognitect is putting out, like how REBL fits into our dev workflow.
 We'll continue to build fun stuff as it comes up, like we've done all along.
 Feel free to [join us!](https://slack.yetibot.com)
 
-And check out the [`good first
-issue`](https://github.com/yetibot/yetibot/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
+And check out the [`good first issue`](https://github.com/yetibot/yetibot/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
 issues in the tracker to jump into contributing!
