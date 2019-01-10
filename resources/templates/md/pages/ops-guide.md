@@ -341,6 +341,29 @@ Note how environment variables are exploded into nested maps. This is powered by
 [dec](https://github.com/devth/dec) which you can read about in the blog post
 [dec: Deep Environmental Config](https://devth.com/2018/dec-deep-environmental-config).
 
+## Health checks
+
+Yetibot has a `/healthz` endpoint that should be use for heath checks. This
+endpoint checks the status of all configured adapters. If any adapter reports
+not being connected, `/healthz` responds `503 Service Unavailable`. Otherwise it
+responds `200 OK`.
+
+See [healthz.clj](https://github.com/yetibot/yetibot.core/blob/master/src/yetibot/core/webapp/routes/healthz.clj)
+for the implementation.
+
+## Slack auto-reconnect
+
+When a Slack connection is closed, we automatically try to reconnect with
+exponential back-off, up to 500 times. This usually works to restore the
+connection eventually unless there is a prolonged network outage and all 500
+reconnect attempts are spent.
+
+While a connection is open, we try to keep it open by sending `ping` event every
+10 seconds, and expect a `pong` back within 5 seconds, as recommended in the
+[Slack RTM docs](https://api.slack.com/rtm). If we fail to get a `pong` back
+within those 5 seconds, the connection is then marked in-active, causing the
+above `/healthz` endpoint to report `503`.
+
 ## 🤔
 
 <article class="message is-info">
