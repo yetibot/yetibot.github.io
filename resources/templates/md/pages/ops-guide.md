@@ -341,6 +341,20 @@ Note how environment variables are exploded into nested maps. This is powered by
 [dec](https://github.com/devth/dec) which you can read about in the blog post
 [dec: Deep Environmental Config](https://devth.com/2018/dec-deep-environmental-config).
 
+## Dashboard
+
+Yetibot runs a web server that hosts a client-side web dashboard. The dashboard
+is the [yetibot-dashboard](https://github.com/yetibot/yetibot-dashboard) NPM
+module, written in TypeScript. It compiles down to plain HTML, CSS and
+JavaScript, which Yetibot serves up. This dashboard fetches all dynamic data
+from the local GraphQL API.
+
+An example of the dashboard is hosted at
+[public.yetibot.com](https://public.yetibot.com).
+
+By default it runs on port `3003`, but you may override this by setting the
+`PORT` environment variable.
+
 ## Health checks
 
 Yetibot has a `/healthz` endpoint that should be use for heath checks. This
