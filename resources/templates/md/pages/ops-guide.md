@@ -344,10 +344,11 @@ Note how environment variables are exploded into nested maps. This is powered by
 ## Dashboard
 
 Yetibot runs a web server that hosts a client-side web dashboard. The dashboard
-is the [yetibot-dashboard](https://github.com/yetibot/yetibot-dashboard) NPM
-module, written in TypeScript. It compiles down to plain HTML, CSS and
-JavaScript, which Yetibot serves up. This dashboard fetches all dynamic data
-from the local GraphQL API.
+is powered by the
+[yetibot-dashboard](https://github.com/yetibot/yetibot-dashboard) NPM module,
+written in TypeScript. It compiles down to plain HTML, CSS and JavaScript, which
+Yetibot consumes and serves as static resources. The dashboard fetches all
+dynamic data from the local GraphQL API.
 
 An example of the dashboard is hosted at
 [public.yetibot.com](https://public.yetibot.com).
