@@ -6513,6 +6513,9 @@ footer.footer {
   text-align: center; }
   footer.footer a {
     font-weight: bold; }
+  footer.footer .logo {
+    margin-left: 20px;
+    max-width: 200px; }
 
 .video-responsive {
   overflow: hidden;

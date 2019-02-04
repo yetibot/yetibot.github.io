@@ -34,7 +34,7 @@
 
 <article class="message is-warning">
 <div class="message-header">
-  <p>🚧🚚👷🏗</p>
+  <p>🚧🏗👷</p>
 </div>
 <div class="message-body">
 These docs are work in progress.
@@ -123,6 +123,110 @@ codeclimate analyze
 ```
 
 ## Building your first command
+
+TODO
+
+## Command response structure
+
+The result of a command can be a simple value e.g. a string or collection of
+strings. These will be passed directly to the chat adapter to be posted either
+as a single message (like the case of a String) or as multiple messages or a
+single multi-line message for collections, depending on the capabilities of
+the chat adapter. For example, `echo`:
+
+```clojure
+(defn echo-cmd
+  "echo <text> # Echos back <text>. Useful for piping."
+  {:yb/cat #{:util}}
+  [{:keys [args]}]
+  args)
+
+(cmd-hook #"echo"
+  _ echo-cmd)
+```
+
+This command simply returns its string args. This was the original behavior of
+all commands, but much later we devised a more precise structure that allows
+Yetibot to:
+
+1. pass data across pipes and
+1. explicitly indicate when an error has occurred.
+
+In the first case (i.e. non error results), a command can return:
+
+```clojure
+{:result/value "The formatted string derived from some data"
+ :result/data {:the {:data :structure}}}
+```
+
+In the second case (i.e. errors), a command should return a `:result/error` key
+with an error message string value to indicate that an error took place. This
+allows Yetibot to short-circuit pipe expressions early in the face of errors,
+making it more clear what happened in an expression:
+
+```clojure
+{:result/error "The API blew up"}
+```
+
+Let's look at these in more detail.
+
+### Data across pipes
+
+Many commands resolve some sort of data structure through an API call then pull
+attributes out of a structure and format them into a human-friendly string. This
+is often great from a UX perspective, but we give up so much data in the process
+of deriving that string. What if we could have the best of both worlds?
+
+To illustrate the point let's look at a `weather` command:
+
+```yetibot
+!weather seattle, wa
+```
+
+This is a nice human-friendly representation of the current weather conditions
+for Seattle, but how much data are we losing in the process of deriving that
+string? Let's peak at the actual data:
+
+```yetibot
+!weather seattle, wa | data show
+```
+
+And finally, let's demonstrate how a user could harness all this data to come up
+with their own human-readable derivation (this is the same example taken from
+the [user docs](/user-guide#render)).
+
+```yetibot
+!weather seattle | render Wind in {{city_name}} at {{wind_spd|multiply:2.23694|double-format:2}} mph blowing {{wind_cdir_full|capitalize}}
+```
+
+Check out the source for the `weather` command to see how it works:
+
+```clojure
+{:result/value "The formatted string derived from some data"
+ :result/data {:any {:data {:structure ['you 'want]}}}}
+```
+
+```yetibot
+!source yetibot.commands.weather/weather-cmd
+```
+
+It's not a requirement that your command output this structure, but it's highly
+recommended!
+
+### Errors
+
+Along the same lines as `:result/data` demonstrated in the previous section, a
+command can explicitly return an error by returning a
+`{:result/error "error message"}` map. The `weather` command uses this structure
+to indicate an invalid location:
+
+```yetibot
+!weather bad location
+```
+
+```yetibot
+!source yetibot.commands.weather/error-response
+```
 
 ## Command handling pipeline
 
