@@ -51,6 +51,18 @@ nav {
 
 // Home
 
+.features {
+  .feature.tile .tile {
+    margin: 1em;
+    strong {
+      font-size: 1.4em;
+      line-height: 1em;
+    }
+  }
+
+  margin-bottom: 4em;
+}
+
 .logo {
   max-width: 100%;
   max-height: 600px;
