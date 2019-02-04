@@ -146,6 +146,8 @@ body .main-content {
 
 // Footer
 
+// Only display the log once - the home page has it in the main area
+
 footer.footer {
   background: white;
   width: 100%;
@@ -153,6 +155,11 @@ footer.footer {
   text-align: center;
   a {
     font-weight: bold;
+  }
+
+  .logo {
+    margin-left: 20px;
+    max-width: 200px;
   }
 }
 
