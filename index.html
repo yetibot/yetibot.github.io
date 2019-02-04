@@ -94,6 +94,138 @@
 </div>
 
 <div class="container">
+
+
+  <div class="features">
+    <div class="feature tile is-ancestor tiles">
+
+      <div class="tile">
+        <article class="media">
+          <div class="media-left">
+            <span class="icon">
+              <i class="fas fa-home"></i>
+            </span>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong>Unix-style pipes</strong> allow tremendous expressiveness
+                in chaining together complex and flexible commands.
+              </p>
+              <code>
+                !echo world | echo hello
+              </code>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="tile">
+        <article class="media">
+          <div class="media-left">
+            <span class="icon">
+              <i class="fas fa-home"></i>
+            </span>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <strong>Sub-expressions</strong> let you embed the output of one
+              command into an outer command. They can be nested as many levels
+              deep as you can imagine.
+            </div>
+            <code>
+              !wolfram $(weather seattle | data $.temp) Celcius to Fahrenheit
+            </code>
+          </div>
+        </article>
+      </div>
+
+      <div class="tile">
+        <article class="media">
+          <div class="media-left">
+            <span class="icon">
+              <i class="fas fa-home"></i>
+            </span>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <strong>Aliases</strong> let you parameterize complex expressions
+              and give them a name allowing your team to quickly build up
+              idiomatic team-specific Yetibot usages (not just memes!).
+            </div>
+            <code>
+              !alias randletter = "range 65 91 | xargs echo | random | js String.fromCharCode(%s)"
+            </code>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="feature tile is-ancestor tiles">
+
+      <div class="tile">
+        <article class="media">
+          <div class="media-left">
+            <span class="icon">
+              <i class="fas fa-home"></i>
+            </span>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <strong>Observers</strong> let Yetibot respond to user events with
+              regex matching on messages and reactions as well as events like
+              leaving and entering a room.
+            </div>
+            <code>
+              !obs -e enter = meme sparta: welcome  / this is Yetibot chat
+            </code>
+          </div>
+        </article>
+      </div>
+
+      <div class="tile">
+        <article class="media">
+          <div class="media-left">
+            <span class="icon">
+              <i class="fas fa-home"></i>
+            </span>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <strong>Scrapers</strong> let Yetibot scrape from web sites and
+              parse HTML or JSON into data structures that can be deeply queried
+              with JSON Path syntax. These combine nicely with aliases!
+            </div>
+            <code>
+              !json https://api.coinbase.com/v2/prices/BTC-USD/spot | json path $.data.amount
+            </code>
+          </div>
+        </article>
+      </div>
+
+      <div class="tile">
+        <article class="media">
+          <div class="media-left">
+            <span class="icon">
+              <i class="fas fa-home"></i>
+            </span>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <strong>Cron</strong> lets you run any expression on an interval
+              or date at second-level precision.
+            </div>
+            <code>
+              !cron 0 0 12 * 11 11 * meme grumpy cat: happy birthday yetibot
+            </code>
+          </div>
+        </article>
+      </div>
+
+    </div>
+
+  </div>
+
   <div class="home-tiles tile is-ancestor">
 
     <div class="tile is-parent">
