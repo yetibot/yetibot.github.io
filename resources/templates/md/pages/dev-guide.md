@@ -191,9 +191,18 @@ string? Let's peak at the actual data:
 !weather seattle, wa | data show
 ```
 
-And finally, let's demonstrate how a user could harness all this data to come up
-with their own human-readable derivation (this is the same example taken from
-the [user docs](/user-guide#render)).
+That's a lot of data! Since Yetibot passes this data across pipes, we can craft
+commands that utilize it in some way. One of Yetibot's built-in commands,
+`render`, does exactly that. It allows a user to provide their own formatting
+with string templates.
+
+```yetibot
+!help render
+```
+
+To demonstrate how a user could harness all this data to come up with their own
+human-readable derivation (this is the same example taken from the
+[user docs](/user-guide#render)):
 
 ```yetibot
 !weather seattle | render Wind in {{city_name}} at {{wind_spd|multiply:2.23694|double-format:2}} mph blowing {{wind_cdir_full|capitalize}}
@@ -201,16 +210,11 @@ the [user docs](/user-guide#render)).
 
 Check out the source for the `weather` command to see how it works:
 
-```clojure
-{:result/value "The formatted string derived from some data"
- :result/data {:any {:data {:structure ['you 'want]}}}}
-```
-
 ```yetibot
 !source yetibot.commands.weather/weather-cmd
 ```
 
-It's not a requirement that your command output this structure, but it's highly
+It's not a requirement that your command outputs this structure, but it's highly
 recommended!
 
 ### Errors
