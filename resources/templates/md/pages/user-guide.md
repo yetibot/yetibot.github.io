@@ -653,6 +653,49 @@ It can be a fun way of poking at otherwise-unavailable state inside Yetibot.
 !help scrape
 ```
 
+## Channel settings
+
+TODO
+
+## JIRA
+
+Yetibot's JIRA capabilities are fairly powerful. It can operate over a global
+list of projects or per-channel project settings. Operations include creating,
+updating, resolving, describing, deleting, assigning and commenting on issues. 
+
+It can also search issues using JIRA's powerful
+[`jql`](https://confluence.atlassian.com/jiracore/blog/2015/07/search-jira-like-a-boss-with-jql)
+syntax.
+
+```yetibot
+!help jira
+```
+
+JIRA configuration looks like:
+
+```edn
+  :jira {:default {:project {:key "Optional"}, :issue {:type {:id "3"}}},
+         :user "",
+         :projects [{:default {:version {:id "42"}}, :key "FOO"}],
+         :subtask {:issue {:type {:id "27"}}},
+         :domain "",
+         :password ""},
+```
+
+The `projects` key is optional and specifies the global list of projects. This
+is mostly important for the observer that detects a JIRA task like `PROJ-123`
+and auto outputs the details of the task, when found.
+
+This ability is also configurable on a per-channel basis using [channel
+settings](#channel_settings):
+
+```
+channel set jira-project YETIBOT
+```
+
+After setting that in a channel, Yetibot will know to expand all occurrences of
+strings that look like JIRA keys, such as `YETIBOT-123`.
+
 ## GraphQL API
 
 Yetibot serves a GraphQL endpoint as part of its web app. The public Yetibot
