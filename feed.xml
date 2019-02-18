@@ -12,11 +12,28 @@ https://yetibot.com/
 Docs and blog posts for Yetibot
 </description>
 <lastBuildDate>
-Mon, 04 Feb 2019 23:23:28 +0000
+Mon, 18 Feb 2019 18:18:40 +0000
 </lastBuildDate>
 <generator>
 clj-rss
 </generator>
+<item>
+<guid>
+https://yetibot.com/blog/2019-02-14-moving-mutable-config-to-the-database
+</guid>
+<link>
+https://yetibot.com/blog/2019-02-14-moving-mutable-config-to-the-database
+</link>
+<title>
+Moving mutable configuration to the database
+</title>
+<description>
+&lt;p&gt;It's time to move &lt;a href='https://yetibot.com/ops-guide#mutable'&gt;mutable config&lt;/a&gt; to the database. Why? &lt;a href='https://www.digitalocean.com/community/tutorials/what-is-immutable-infrastructure'&gt;Immutable infrastructure&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Yetibot embraces &lt;a href='https://devth.com/2018/dec-deep-environmental-config'&gt;modern infrastructure&lt;/a&gt; best practices.&lt;/p&gt;
+</description>
+<pubDate>
+Thu, 14 Feb 2019 00:00:00 +0000
+</pubDate>
+</item>
 <item>
 <guid>
 https://yetibot.com/blog/2019-01-03-yetibot-2019-roadmap
