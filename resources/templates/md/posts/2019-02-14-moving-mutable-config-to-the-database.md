@@ -35,12 +35,12 @@ painless. We are not providing an automated migration tool, so your options are:
 
    You would create rows:
 
-  | chat-source-adapter | chat-source-room | key          | value   |
-  |---------------------|------------------|--------------|---------|
-  | :ybslack            | #obs             | broadcast    | false   |
-  | :ybslack            | local            | jira-project | YETIBOT |
-  |                     |                  |              |         |
+| chat-source-adapter | chat-source-room | key          | value   |
+|---------------------|------------------|--------------|---------|
+| :ybslack            | #obs             | broadcast    | false   |
+| :ybslack            | local            | jira-project | YETIBOT |
+|                     |                  |              |         |
 
-1. Use Yetibot to recreate the config, e.g. `channel set jia-project myjira`
+2. Use Yetibot to recreate the config, e.g. `channel set jia-project myjira`
 
-1. Do nothing 😅
+3. Do nothing 😅
