@@ -19,3 +19,28 @@ is not durable at all. In an environment like Kubernetes this would be lost on
 each pod creation (unless a durable disk was mounted, but that's a pain). We
 already have a durable place to store keys and values: the Postgres database.
 
+## What does this mean for me?
+
+Given that mutable config hasn't been heavily used the migration should be quite
+painless. We are not providing an automated migration tool, so your options are:
+
+1. Look in `config/mutable.edn` and manually copy the key/values and chat source
+   rooms to the postgres table. For example, if your `mutable.edn` looks like:
+
+   ```edn
+   :room
+   {:ybslack
+    {"#obs" {"broadcast" "false"}, "local" {"jira-project" "YETIBOT"}}}}
+   ```
+
+   You would create rows:
+
+  | chat-source-adapter | chat-source-room | key          | value   |
+  |---------------------|------------------|--------------|---------|
+  | :ybslack            | #obs             | broadcast    | false   |
+  | :ybslack            | local            | jira-project | YETIBOT |
+  |                     |                  |              |         |
+
+1. Use Yetibot to recreate the config, e.g. `channel set jia-project myjira`
+
+1. Do nothing 😅
