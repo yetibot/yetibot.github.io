@@ -24,8 +24,10 @@ already have a durable place to store keys and values: the Postgres database.
 Given that mutable config hasn't been heavily used the migration should be quite
 painless. We are not providing an automated migration tool, so your options are:
 
+1. Do nothing if you're not using any mutable config yet (quite likely) 😅
+1. Use Yetibot to recreate the config, e.g. `channel set jia-project myjira`
 1. Look in `config/mutable.edn` and manually copy the key/values and chat source
-   rooms to the postgres table. For example, if your `mutable.edn` looks like:
+   rooms to the Postgres table. For example, if your `mutable.edn` looks like:
 
    ```edn
    :room
@@ -35,12 +37,27 @@ painless. We are not providing an automated migration tool, so your options are:
 
    You would create rows:
 
-| chat-source-adapter | chat-source-room | key          | value   |
-|---------------------|------------------|--------------|---------|
-| :ybslack            | #obs             | broadcast    | false   |
-| :ybslack            | local            | jira-project | YETIBOT |
-|                     |                  |              |         |
+<table>
+<tr>
+  <td>chat-source-adapter</td>
+  <td>chat-source-room</td>
+  <td>key</td>
+  <td>value</td>
+</tr>
+<tr>
+  <td>:ybslack</td>
+  <td>#obs</td>
+  <td>broadcast</td>
+  <td>false</td>
+</tr>
+<tr>
+  <td>:ybslack</td>
+  <td>local</td>
+  <td>jira-project</td>
+  <td>YETIBOT</td>
+</tr>
+</table>
 
-2. Use Yetibot to recreate the config, e.g. `channel set jia-project myjira`
 
-3. Do nothing 😅
+
+
