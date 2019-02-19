@@ -16,7 +16,9 @@ One reason why we haven't done this up till now is that mutable config has never
 been relied upon much. Currently it serves two purposes:
 
 1. Store channel-specific configuration (e.g. `jira-project`, `broadcast`,
-   `jenkins-default` or any other arbitrary room-specific key/value).
+   `jenkins-default` or any other arbitrary room-specific key/value). The
+   `category` command relies on these settings as well to disable or enable
+   specific categories of command in a channel.
 1. Remember which channels Yetibot should join upon connecting to IRC.
 
 Previously these values would be persisted to a local edn file which by default
@@ -34,7 +36,8 @@ painless. We are not providing an automated migration tool, so your options are:
 1. Do nothing if you're not using any mutable config yet (quite likely) 😅.
 1. Use Yetibot to recreate the config, e.g. `channel set jia-project myjira`.
 1. Look in `config/mutable.edn` and manually copy the key/values and chat source
-   rooms to the Postgres table. For example, if your `mutable.edn` looks like:
+   rooms to the `channels` Postgres table. For example, if your `mutable.edn`
+   looks like:
 
    ```edn
    :room
@@ -42,7 +45,7 @@ painless. We are not providing an automated migration tool, so your options are:
     {"#obs" {"broadcast" "false"}, "local" {"jira-project" "YETIBOT"}}}}
    ```
 
-   You would create rows:
+   You would create rows in `yetibot_channels`:
 
 <table>
 <tr>
