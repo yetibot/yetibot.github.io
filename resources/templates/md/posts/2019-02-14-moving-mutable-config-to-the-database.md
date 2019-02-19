@@ -13,11 +13,18 @@ best practices. We made a lot of progress moving to mostly-immutable
 configuration. This is the next step.
 
 One reason why we haven't done this up till now is that mutable config has never
-been relied upon much. You can do things like configure per-channel settings
-with the `channel` command. These are then persisted to a local edn file. This
-is not durable at all. In an environment like Kubernetes this would be lost on
-each pod creation (unless a durable disk was mounted, but that's a pain). We
-already have a durable place to store keys and values: the Postgres database.
+been relied upon much. Currently it serves two purposes:
+
+1. Store channel-specific configuration (e.g. `jira-project`, `broadcast`,
+   `jenkins-default` or any other arbitrary room-specific key/value.
+1. Remember which channels Yetibot should join upon connecting to IRC
+
+Previously these values would be persisted to a local edn file which by default
+lives at `config/mutable.edn`. However, in modern cloud environments this is not
+durable. For example when running Yetibot on Kubernetes this would be lost on
+each pod creation (unless a durable disk was mounted, but that's an unnecessary
+complication). We already have a durable place to store keys and values: the
+Postgres database.
 
 ## What does this mean for me?
 
