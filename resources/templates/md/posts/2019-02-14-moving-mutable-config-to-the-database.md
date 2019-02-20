@@ -36,38 +36,52 @@ painless. We are not providing an automated migration tool, so your options are:
 1. Do nothing if you're not using any mutable config yet (quite likely) 😅.
 1. Use Yetibot to recreate the config, e.g. `channel set jia-project myjira`.
 1. Look in `config/mutable.edn` and manually copy the key/values and chat source
-   rooms to the `channels` Postgres table. For example, if your `mutable.edn`
-   looks like:
+   rooms to the `yetibot_channels` Postgres table. For example, if your
+   `mutable.edn` looks like:
 
    ```edn
-   :room
-   {:ybslack
-    {"#obs" {"broadcast" "false"}, "local" {"jira-project" "YETIBOT"}}}}
+   {:room
+    {:ybslack
+     {"#general" {:disabled-categories #{:crude}},
+      "#dev" {"jira-project" "YETIBOT",
+              "nope" "lol",
+              :disabled-categories #{:crude}}}}}
    ```
 
    You would create rows in `yetibot_channels`:
 
 <table>
 <tr>
-  <td>chat-source-adapter</td>
-  <td>chat-source-room</td>
-  <td>key</td>
-  <td>value</td>
+  <th>`chat_source_adapter`</th>
+  <th>`chat_source_room`</th>
+  <th>`key`</th>
+  <th>`value`</th>
 </tr>
 <tr>
   <td>:ybslack</td>
-  <td>#obs</td>
-  <td>broadcast</td>
-  <td>false</td>
+  <td>#general</td>
+  <td>disabled-categories</td>
+  <td>#{:crude}</td>
 </tr>
 <tr>
   <td>:ybslack</td>
-  <td>local</td>
+  <td>#dev</td>
   <td>jira-project</td>
   <td>YETIBOT</td>
 </tr>
+<tr>
+  <td>:ybslack</td>
+  <td>#dev</td>
+  <td>nope</td>
+  <td>lol</td>
+</tr>
+<tr>
+  <td>:ybslack</td>
+  <td>#dev</td>
+  <td>disabled-categories</td>
+  <td>#{:crude}</td>
+</tr>
+
 </table>
 
-
-
-
+All values in the table are strings.
