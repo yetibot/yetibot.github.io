@@ -204,7 +204,7 @@
          :subtask {:issue {:type {:id &quot;27&quot;}}},
          :domain &quot;&quot;,
          :password &quot;&quot;},
-</code></pre><p>The <code>projects</code> key is optional and specifies the global list of projects. This is mostly important for the observer that detects a JIRA task like <code>PROJ-123</code> and auto outputs the details of the task, when found.</p><p>This ability is also configurable on a per-channel basis using [channel settings](#channel_settings):</p><pre><code>channel set jira-project YETIBOT
+</code></pre><p>The <code>projects</code> key is optional and specifies the global list of projects. This is mostly important for the observer that detects a JIRA task like <code>PROJ-123</code> and auto outputs the details of the task, when found.</p><p>This ability is also configurable on a per-channel basis using <a href='#channel_settings'>channel settings</a>:</p><pre><code>!channel set jira-project YETIBOT
 </code></pre><p>After setting that in a channel, Yetibot will know to expand all occurrences of strings that look like JIRA keys, such as <code>YETIBOT-123</code>.</p><h2 id="graphql&#95;api">GraphQL API</h2><p>Yetibot serves a GraphQL endpoint as part of its web app. The public Yetibot instance is accessible at <a href='https://public.yetibot.com/graphql'>https://public.yetibot.com/graphql</a>.</p><p>For example, to inspect the configured adapters, run the following query with a GraphQL client:</p><pre><code class="graphql">{
   adapters {
     uuid
