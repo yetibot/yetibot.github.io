@@ -85,3 +85,6 @@ painless. We are not providing an automated migration tool, so your options are:
 </table>
 
 All values in the table are strings.
+
+Here's the [Pull Request](https://github.com/yetibot/yetibot.core/pull/61) that
+made these changes.
