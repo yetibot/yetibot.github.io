@@ -12,7 +12,7 @@ https://yetibot.com/
 Docs and blog posts for Yetibot
 </description>
 <lastBuildDate>
-Wed, 20 Feb 2019 03:37:31 +0000
+Wed, 20 Feb 2019 03:45:07 +0000
 </lastBuildDate>
 <generator>
 clj-rss
@@ -34,7 +34,7 @@ Moving mutable configuration to the database
       &amp;quot;#dev&amp;quot; {&amp;quot;jira-project&amp;quot; &amp;quot;YETIBOT&amp;quot;,
               &amp;quot;nope&amp;quot; &amp;quot;lol&amp;quot;,
               :disabled-categories #{:crude}}}}}
-   &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;   You would create rows in &lt;code&gt;yetibot&amp;#95;channels&lt;/code&gt;:&lt;/p&gt;&lt;p&gt;&lt;table&gt; &lt;tr&gt;   &lt;th&gt;&lt;code&gt;chat&amp;#95;source&amp;#95;adapter&lt;/code&gt;&lt;/th&gt;   &lt;th&gt;&lt;code&gt;chat&amp;#95;source&amp;#95;room&lt;/code&gt;&lt;/th&gt;   &lt;th&gt;&lt;code&gt;key&lt;/code&gt;&lt;/th&gt;   &lt;th&gt;&lt;code&gt;value&lt;/code&gt;&lt;/th&gt; &lt;/tr&gt; &lt;tr&gt;   &lt;td&gt;:ybslack&lt;/td&gt;   &lt;td&gt;#general&lt;/td&gt;   &lt;td&gt;disabled-categories&lt;/td&gt;   &lt;td&gt;#{:crude}&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt;   &lt;td&gt;:ybslack&lt;/td&gt;   &lt;td&gt;#dev&lt;/td&gt;   &lt;td&gt;jira-project&lt;/td&gt;   &lt;td&gt;YETIBOT&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt;   &lt;td&gt;:ybslack&lt;/td&gt;   &lt;td&gt;#dev&lt;/td&gt;   &lt;td&gt;nope&lt;/td&gt;   &lt;td&gt;lol&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt;   &lt;td&gt;:ybslack&lt;/td&gt;   &lt;td&gt;#dev&lt;/td&gt;   &lt;td&gt;disabled-categories&lt;/td&gt;   &lt;td&gt;#{:crude}&lt;/td&gt; &lt;/tr&gt;&lt;/p&gt;&lt;p&gt;&lt;/table&gt;&lt;/p&gt;&lt;p&gt;All values in the table are strings.&lt;/p&gt;
+   &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;   You would create rows in &lt;code&gt;yetibot&amp;#95;channels&lt;/code&gt;:&lt;/p&gt;&lt;p&gt;&lt;table&gt; &lt;tr&gt;   &lt;th&gt;&lt;code&gt;chat&amp;#95;source&amp;#95;adapter&lt;/code&gt;&lt;/th&gt;   &lt;th&gt;&lt;code&gt;chat&amp;#95;source&amp;#95;room&lt;/code&gt;&lt;/th&gt;   &lt;th&gt;&lt;code&gt;key&lt;/code&gt;&lt;/th&gt;   &lt;th&gt;&lt;code&gt;value&lt;/code&gt;&lt;/th&gt; &lt;/tr&gt; &lt;tr&gt;   &lt;td&gt;:ybslack&lt;/td&gt;   &lt;td&gt;#general&lt;/td&gt;   &lt;td&gt;disabled-categories&lt;/td&gt;   &lt;td&gt;#{:crude}&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt;   &lt;td&gt;:ybslack&lt;/td&gt;   &lt;td&gt;#dev&lt;/td&gt;   &lt;td&gt;jira-project&lt;/td&gt;   &lt;td&gt;YETIBOT&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt;   &lt;td&gt;:ybslack&lt;/td&gt;   &lt;td&gt;#dev&lt;/td&gt;   &lt;td&gt;nope&lt;/td&gt;   &lt;td&gt;lol&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt;   &lt;td&gt;:ybslack&lt;/td&gt;   &lt;td&gt;#dev&lt;/td&gt;   &lt;td&gt;disabled-categories&lt;/td&gt;   &lt;td&gt;#{:crude}&lt;/td&gt; &lt;/tr&gt;&lt;/p&gt;&lt;p&gt;&lt;/table&gt;&lt;/p&gt;&lt;p&gt;All values in the table are strings.&lt;/p&gt;&lt;p&gt;Here's the &lt;a href='https://github.com/yetibot/yetibot.core/pull/61'&gt;Pull Request&lt;/a&gt; that made these changes.&lt;/p&gt;
 </description>
 <pubDate>
 Thu, 14 Feb 2019 00:00:00 +0000
