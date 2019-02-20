@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8"/>
     <title>Yetibot: Moving mutable configuration to the database</title>
-    <link rel="canonical" href="https://yetibot.com/blog/2019-02-14-moving-mutable-config-to-the-database">
+    <link rel="canonical" href="https://yetibot.com/blog/2019-02-20-moving-mutable-config-to-the-database">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
     <link href="/css/main.css" rel="stylesheet" type="text/css" />
@@ -87,14 +87,14 @@
     <div id="post">
       <div class="post-header">
   <div id="post-meta" class="row">
-    <div class="col-lg-6">February 14, 2019</div>
+    <div class="col-lg-6">February 20, 2019</div>
     
   </div>
   <h2>Moving mutable configuration to the database</h2>
 </div>
 <div class="main columns">
   <div class="column is-two-thirds">
-    <p>It's time to move <a href='https://yetibot.com/ops-guide#mutable'>mutable config</a> to the database. Why? <a href='https://www.digitalocean.com/community/tutorials/what-is-immutable-infrastructure'>Immutable infrastructure</a>.</p><p>Yetibot embraces <a href='https://devth.com/2018/dec-deep-environmental-config'>modern infrastructure</a> best practices. We made a lot of progress moving to mostly-immutable configuration. This is the next step.</p><p>One reason why we haven't done this up till now is that mutable config has never been relied upon much. Currently it serves two purposes:</p><ol><li>Store channel-specific configuration (e.g. <code>jira-project</code>, <code>broadcast</code>,   <code>jenkins-default</code> or any other arbitrary room-specific key/value). The   <code>category</code> command relies on these settings as well to disable or enable   specific categories of command in a channel.</li><li>Remember which channels Yetibot should join upon connecting to IRC.</li></ol><p>Previously these values would be persisted to a local edn file which by default lives at <code>config/mutable.edn</code>. However, in modern cloud environments this is not durable. For example when running Yetibot on Kubernetes this would be lost on each pod creation (unless a durable disk was mounted, but that's an unnecessary complication). We already have a durable place to store keys and values: the Postgres database.</p><h2 id="what&#95;does&#95;this&#95;mean&#95;for&#95;me?">What does this mean for me?</h2><p>Given that mutable config hasn't been heavily used the migration should be quite painless. We are not providing an automated migration tool, so your options are:</p><ol><li>Do nothing if you're not using any mutable config yet (quite likely) 😅.</li><li>Use Yetibot to recreate the config, e.g. <code>channel set jia-project myjira</code>.</li><li>Look in <code>config/mutable.edn</code> and manually copy the key/values and chat source   rooms to the <code>yetibot&#95;channels</code> Postgres table. For example, if your   <code>mutable.edn</code> looks like:</li></ol><pre><code class="edn">   {:room
+    <p>It's time to move <a href='https://yetibot.com/ops-guide#mutable'>mutable config</a> to the database. This is in adherence with <a href='https://www.digitalocean.com/community/tutorials/what-is-immutable-infrastructure'>immutable infrastructure</a> practices. Yetibot embraces <a href='https://devth.com/2018/dec-deep-environmental-config'>modern infrastructure</a>. We made a lot of progress moving to mostly-immutable configuration. This is the next step.</p><p>One reason why we haven't done this up till now is that mutable config has never been relied upon much. Currently its purpose is to:</p><ol><li>Store channel-specific configuration (e.g. <code>jira-project</code>, <code>broadcast</code>,   <code>jenkins-default</code> or any other arbitrary room-specific key/value) for the   <code>channel</code> command</li><li>Store channel-specific disabled categories for the <code>category</code> command</li><li>Remember which channels Yetibot should join upon connecting to IRC</li></ol><p>Previously these values would be persisted to a local edn file which by default lives at <code>config/mutable.edn</code>. However, in modern cloud environments this is not durable. For example when running Yetibot on Kubernetes this would be lost on each pod creation (unless a durable disk was mounted, but that's an unnecessary complication). We already have a durable place to store keys and values: the Postgres database.</p><p>All of these use cases will now move to a single <code>yetibot&#95;channels</code> table.</p><h2 id="what&#95;does&#95;this&#95;mean&#95;for&#95;me?">What does this mean for me?</h2><p>Given that mutable config hasn't been heavily used the migration should be quite painless. We are not providing an automated migration tool, so your options are:</p><ol><li>Do nothing if you're not using any mutable config yet (quite likely) 😅</li><li>Use Yetibot to recreate the config, e.g. <code>channel set jia-project myjira</code></li><li>Look in <code>config/mutable.edn</code> and manually copy the key/values and chat source   rooms to the <code>yetibot&#95;channels</code> Postgres table. For example, if your   <code>mutable.edn</code> looks like:</li></ol><pre><code class="edn">   {:room
     {:ybslack
      {&quot;#general&quot; {:disabled-categories #{:crude}},
       &quot;#dev&quot; {&quot;jira-project&quot; &quot;YETIBOT&quot;,
@@ -133,7 +133,7 @@
           <div id="disqus_thread"></div>
           <script type="text/javascript">
               var disqus_config = function () {
-                  this.page.url = "https://yetibot.com/blog/2019-02-14-moving-mutable-config-to-the-database";
+                  this.page.url = "https://yetibot.com/blog/2019-02-20-moving-mutable-config-to-the-database";
                   this.page.identifier = "Moving mutable configuration to the database";
               };
               (function() {
