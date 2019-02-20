@@ -686,11 +686,11 @@ The `projects` key is optional and specifies the global list of projects. This
 is mostly important for the observer that detects a JIRA task like `PROJ-123`
 and auto outputs the details of the task, when found.
 
-This ability is also configurable on a per-channel basis using [channel
-settings](#channel_settings):
+This ability is also configurable on a per-channel basis using
+[channel settings](#channel_settings):
 
 ```
-channel set jira-project YETIBOT
+!channel set jira-project YETIBOT
 ```
 
 After setting that in a channel, Yetibot will know to expand all occurrences of
