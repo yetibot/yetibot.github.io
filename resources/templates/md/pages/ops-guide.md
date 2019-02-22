@@ -341,6 +341,45 @@ Note how environment variables are exploded into nested maps. This is powered by
 [dec](https://github.com/devth/dec) which you can read about in the blog post
 [dec: Deep Environmental Config](https://devth.com/2018/dec-deep-environmental-config).
 
+## Poking the runtime
+
+Yetibot has a couple ways to poke around internal state at runtime. One is the
+typical-yet-amazing practice of exposing an nREPL. The other is its built in
+`eval` command. Let's take a look.
+
+### nREPL
+
+The default port Yetibot exposes its nREPL on is `65432`. You can override this
+at config path: `:nrepl :port`.
+
+### Eval
+
+Yetibot ships with `eval`:
+
+```
+!help eval
+```
+
+Because it's so powerful it must be explicitly enabled per user. This is an
+admin-only feature, and maybe shouldn't be enabled at all for anyone.
+
+
+<article class="message is-warning">
+<div class="message-header">
+  <p>⚠️ Warning ⚠️</p>
+</div>
+<div class="message-body">
+Be careful with `eval`! **It has no limits.** You can:
+
+- mess up your Yetibot or bring it down
+- destroy stuff
+- expose your secrets to others in the channel
+</div>
+</article>
+
+
+
+
 ## Dashboard
 
 Yetibot runs a web server that hosts a client-side web dashboard. The dashboard
