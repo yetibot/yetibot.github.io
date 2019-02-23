@@ -349,20 +349,41 @@ typical-yet-amazing practice of exposing an nREPL. The other is its built in
 
 ### nREPL
 
-The default port Yetibot exposes its nREPL on is `65432`. You can override this
-at config path: `:nrepl :port`.
+Yetibot exposes its [nREPL](https://nrepl.org/) on port `65432` by default.
+You can override this at config path: `:nrepl :port`.
+
+This allows you to connect your local nREPL-based tools (e.g. vim-fireplace,
+CIDER, Cursive, or [many others](https://nrepl.org/nrepl/0.6.0/usage/clients.html)),
+load namespaces and evaluate expressions to read or mutate state making it the
+ultimate runtime debugging tool.
+
+Some related resources:
+
+- [Live-Debugging Remote Clojure Apps with Drawbridge](https://devcenter.heroku.com/articles/debugging-clojure)
+  - Yetibot doesn't expose the nREPL over HTTP (though we could, and perhaps is
+    not a bad idea!), but this post highlights the same idea and potential
+    workflow as socket-based connections.
+
+In addition to connecting local tools, you can simply SSH to your server and
+connect to the REPL with `leiningen` like:
+
+```bash
+ssh your-server
+docker exec -it yetibot sh
+lein repl :connect localhost:65432
+```
 
 ### Eval
 
-Yetibot ships with `eval`:
+Yetibot ships with a command called `eval`:
 
 ```
 !help eval
 ```
 
-Because it's so powerful it must be explicitly enabled per user. This is an
-admin-only feature, and maybe shouldn't be enabled at all for anyone.
-
+Because it's so powerful it must be explicitly enabled per user in
+configuration. This is an admin-only feature, and maybe shouldn't be enabled at
+all for anyone.
 
 <article class="message is-warning">
 <div class="message-header">
@@ -377,8 +398,12 @@ Be careful with `eval`! **It has no limits.** You can:
 </div>
 </article>
 
+Here are some examples at poking around with eval:
 
-
+```clojure
+;; look at the state of the adapters
+!eval (map (juxt yetibot.core.adapters.adapter/uuid yetibot.core.adapters.adapter/connected? yetibot.core.adapters.adapter/connection-latency) (yetibot.core.adapters.adapter/active-adapters))
+```
 
 ## Dashboard
 

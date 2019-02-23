@@ -4,13 +4,14 @@
 
 
 It's time to move [mutable config](https://yetibot.com/ops-guide#mutable) to the
-database. This is in adherence with
+database in adherence with
 [immutable infrastructure](https://www.digitalocean.com/community/tutorials/what-is-immutable-infrastructure)
 practices. Yetibot embraces [modern infrastructure](https://devth.com/2018/dec-deep-environmental-config). We made a
-lot of progress moving to mostly-immutable configuration. This is the next step.
+lot of progress moving to mostly-immutable configuration. This is the next step,
+and is done as of Yetibot `0.5.0`.
 
 One reason why we haven't done this up till now is that mutable config has never
-been relied upon much. Currently its purpose is to:
+been relied upon much. Its purpose was to:
 
 1. Store channel-specific configuration (e.g. `jira-project`, `broadcast`,
    `jenkins-default` or any other arbitrary room-specific key/value) for the
@@ -84,6 +85,10 @@ painless. We are not providing an automated migration tool, so your options are:
 </table>
 
 All values in the table are strings.
+
+If you use IRC, your channels to join config will be lost as well. Simply
+re-invite Yetibot to the proper channels and they will be stored in the
+database.
 
 Here's the [Pull Request](https://github.com/yetibot/yetibot.core/pull/61) that
 made these changes.
