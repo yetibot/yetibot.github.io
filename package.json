@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "highlightjs": "^9.12.0",
+    "if-is-image": "^1.0.6",
+    "tocbot": "^4.5.0"
+  },
+  "devDependencies": {
+    "husky": "^1.3.1",
+    "watch": "^1.0.2",
+    "webpack": "^4.29.5",
+    "webpack-cli": "^3.2.3"
+  },
+  "scripts": {
+    "dev": "webpack --mode development --output resources/templates/themes/devth/js/dist.js",
+    "dev:watch": "watch 'yarn dev' ./src",
+    "build": "webpack --mode production --output resources/templates/themes/devth/js/dist.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn build"
+    }
+  }
+}

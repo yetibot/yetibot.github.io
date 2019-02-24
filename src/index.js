@@ -1,16 +1,12 @@
-
+const hljs = require('highlightjs');
 const client = graphql("https://public.yetibot.com/graphql");
+const tocbot = require('tocbot');
+const ifIsImage = require('if-is-image');
 
-const yetibotEval = function(expr) {
-  const result = client('{eval(expr: "' + expr + '")}')();
-  result.then(function(x) {
-    console.log(x);
-  }).catch(function(err) {
-    console.error('error evaluating', expr, err);
-  });
-  return result;
-}
+hljs.initHighlightingOnLoad();
 
+
+// TOC interactive
 let toc;
 let lastScrollY = 0;
 const fixedTOCThreshold = 208;
@@ -39,11 +35,33 @@ window.addEventListener('scroll', function(e) {
   lastScrollY = window.scrollY;
 });
 
+// Eval against Yetibot GraphQL
 
-// Either prints raw text or images depending on url structure
-const printResponse = (response) => {
+const yetibotEval = function(expr) {
+  const result = client('{eval(expr: "' + expr + '")}')();
+  result.then(function(x) {
+    console.log(x);
+  }).catch(function(err) {
+    console.error('error evaluating', expr, err);
+  });
+  return result;
 }
 
+
+// Either prints raw text or images depending on url structure
+const appendResult = async (response, node) => {
+  console.log(node, typeof(node), 'result', response, ifIsImage(response));
+  console.log(Object.getOwnPropertyNames(node));
+  if (ifIsImage(response)) {
+    const img = document.createElement("img");
+    img.src = response;
+    node.appendChild(img);
+  } else {
+    node.append(response + '\n')
+  }
+};
+
+// Init
 document.addEventListener('DOMContentLoaded', function () {
 
   toc = document.querySelector('.toc.column .content');
@@ -69,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const result = yetibotEval(expr);
       result.then(function(response) {
         console.log(response.eval);
-        response.eval.forEach(e => codeBlock.append(e + '\n'));
+        response.eval.forEach(e => appendResult(e, codeBlock));
       });
 
       return false;
@@ -90,19 +108,15 @@ document.addEventListener('DOMContentLoaded', function () {
   var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
   // Check if there are any navbar burgers
   if ($navbarBurgers.length > 0) {
-
     // Add a click event on each of them
     $navbarBurgers.forEach(function ($el) {
       $el.addEventListener('click', function () {
-
         // Get the target from the "data-target" attribute
         var target = $el.dataset.target;
         var $target = document.getElementById(target);
-
         // Toggle the class on both the "navbar-burger" and the "navbar-menu"
         $el.classList.toggle('is-active');
         $target.classList.toggle('is-active');
-
       });
     });
   }

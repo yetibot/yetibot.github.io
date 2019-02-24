@@ -127,6 +127,36 @@ These examples are necessarily simplistic but when you start piecing together
 more complex commands that fetch data, the ability to arbitrarily nest
 expressions provides tremendous power.
 
+## Fun stuff
+
+### Meme generation
+
+This was one of Yetibot's first features 😂.
+
+```yetibot
+!meme yetibot: hello world!
+```
+
+### Giphy
+
+### No
+
+```yetibot
+!help no
+```
+
+```yetibot
+!no
+```
+
+```yetibot
+!alias can = "nil | no"
+```
+
+```yetibot
+!can we use modern tools and engineering practices at $corp?
+```
+
 ## Collection utilities
 
 Since Yetibot can return a collection as a response, it needs basic operations
@@ -520,25 +550,24 @@ Categories are stored as meta-data directly on command handler functions under a
 Current known categories are as follows. Please add to this list as needed. Some
 categories will overlap but are semantically distinct.
 
-See the
-[category command code](https://github.com/yetibot/yetibot.core/blob/master/src/yetibot/core/commands/category.clj#L10-L25)
-for the most up-to-date reference. Pasted here for reference:
+```yetibot
+!help category
+```
 
-```clojure
-{:img "returns an image url"
- :fun "generally fun and not work-related"
- :meme "returns a meme"
- :gif "returns a gif"
- :ci "continuous integration"
- :issue "issue tracker"
- :infra "infrastructure automation"
- :chart "returns a chart of some kind"
- :info "information lookups (e.g. wiki, wolfram, weather)"
- :repl "language REPLs"
- :util "utilities that help transform expressions or operate Yetibot"
- :crude "may return crude, racy and potentially NSFW results (e.g. urban)"
- :collection "operates on collections"
- :broken "known to be broken, probably due to an API that disappeared"}
+```yetibot
+!category
+```
+
+```yetibot
+!category list fun
+```
+
+```yetibot
+!category list util
+```
+
+```yetibot
+!category list repl
 ```
 
 ### Channel-based category toggle

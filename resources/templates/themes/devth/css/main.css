@@ -6444,6 +6444,8 @@ label.panel-block {
 
 pre {
   border-left: 5px solid #55c4d4; }
+  pre img {
+    display: block; }
 
 .is-horizontal-center {
   justify-content: center; }

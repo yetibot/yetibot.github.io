@@ -20,6 +20,17 @@ Run a Ring server for local dev:
 PORT=4040 lein ring server
 ```
 
+If working on Javascript, edit `src/index.js` and run:
+
+```bash
+yarn dev:watch
+```
+
+This will compile the JS with Webpack. Currently does not transpile.
+
+TODO setup a git precommit hook to compile the JS for production so we don't
+have to run it in CI for now.
+
 ## Build
 
 Generate the static site:
