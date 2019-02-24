@@ -107,7 +107,12 @@
 </code></pre><p>Notice how the output of each preceding command is appended to the end of the following command separated by a space. This is the default behavior, but you can also choose where to place arguments and control whitespace using <code>%s</code>:</p><pre><code class="yetibot">!echo foo | echo %sbar
 </code></pre><h2 id="subexpressions">Subexpressions</h2><p>Subexpressions let you build up more complex expressions by nesting one expression in another.</p><pre><code class="yetibot">!echo `echo Yetibot is` pretty cool
 </code></pre><p>Backticks are convenient when you need a single level of nesting, but <code>$&#40;&#41;</code> syntax lets you embed any level of nesting:</p><pre><code class="yetibot">!echo $&#40;echo $&#40;echo Yetibot&#41; is&#41; alive
-</code></pre><p>These examples are necessarily simplistic but when you start piecing together more complex commands that fetch data, the ability to arbitrarily nest expressions provides tremendous power.</p><h2 id="collection&#95;utilities">Collection utilities</h2><p>Since Yetibot can return a collection as a response, it needs basic operations to manipulate collections.</p><h3 id="range">range</h3><pre><code class="yetibot">!help range
+</code></pre><p>These examples are necessarily simplistic but when you start piecing together more complex commands that fetch data, the ability to arbitrarily nest expressions provides tremendous power.</p><h2 id="fun&#95;stuff">Fun stuff</h2><h3 id="meme&#95;generation">Meme generation</h3><p>This was one of Yetibot's first features 😂.</p><pre><code class="yetibot">!meme yetibot: hello world!
+</code></pre><h3 id="giphy">Giphy</h3><h3 id="no">No</h3><pre><code class="yetibot">!help no
+</code></pre><pre><code class="yetibot">!no
+</code></pre><pre><code class="yetibot">!alias can = &quot;nil | no&quot;
+</code></pre><pre><code class="yetibot">!can we use modern tools and engineering practices at $corp?
+</code></pre><h2 id="collection&#95;utilities">Collection utilities</h2><p>Since Yetibot can return a collection as a response, it needs basic operations to manipulate collections.</p><h3 id="range">range</h3><pre><code class="yetibot">!help range
 </code></pre><pre><code class="yetibot">!range 10
 </code></pre><pre><code class="yetibot">!range 0 100 25
 </code></pre><h3 id="list">list</h3><pre><code class="yetibot">!help list
@@ -171,20 +176,11 @@
 </code></pre><p>The above example also illustrates the templating functionality. Along with <code>username</code> and <code>body</code>, <code>channel</code> is available on all event types, and for <code>react</code> observer events, <code>reaction</code> and <code>message-username</code> are also available.</p><h3 id="react">react</h3><p>A <code>react</code> event fires when a user reacts to a message (Slack only).</p><pre><code class="yetibot">!obs -c dev-testing -e react = giphy {{reaction}} {{body}}
 </code></pre><p>This causes a giphy lookup using the reaction used (e.g. <code>100</code> or <code>smile</code>) and the body text of the message that was reacted to.</p><p>React events also have two other fields available: <code>reaction</code> and <code>message-username</code> where <code>message-username</code> is the username of the user that posted the original message (<code>username</code> is the <code>username</code> of the user that reacted).</p><h3 id="enter">enter</h3><p>The <code>enter</code> event fires when a user enters a channel.</p><pre><code class="yetibot">!obs -c dev-testing -e enter = meme internet: welcome to {{channe}} {{username}}!
 </code></pre><h3 id="leave">leave</h3><p>The <code>leave</code> event fires when a user leaves a channel.</p><pre><code class="yetibot">!obs -c dev-testing -e leave = meme crying jordan: / bye {{username}}
-</code></pre><h2 id="categories">Categories</h2><p>Yetibot commands can be organized under categories. Commands can be enabled or disabled according to channel settings (e.g. <code>:fun</code>). In the future, <code>help</code> might rely on categories.</p><p>Categories are stored as meta-data directly on command handler functions under a <code>:yb/cat</code> prefix with a <code>Set</code> of keywords as the value.</p><p>Current known categories are as follows. Please add to this list as needed. Some categories will overlap but are semantically distinct.</p><p>See the <a href='https://github.com/yetibot/yetibot.core/blob/master/src/yetibot/core/commands/category.clj#L10-L25'>category command code</a> for the most up-to-date reference. Pasted here for reference:</p><pre><code class="clojure">{:img &quot;returns an image url&quot;
- :fun &quot;generally fun and not work-related&quot;
- :meme &quot;returns a meme&quot;
- :gif &quot;returns a gif&quot;
- :ci &quot;continuous integration&quot;
- :issue &quot;issue tracker&quot;
- :infra &quot;infrastructure automation&quot;
- :chart &quot;returns a chart of some kind&quot;
- :info &quot;information lookups &#40;e.g. wiki, wolfram, weather&#41;&quot;
- :repl &quot;language REPLs&quot;
- :util &quot;utilities that help transform expressions or operate Yetibot&quot;
- :crude &quot;may return crude, racy and potentially NSFW results &#40;e.g. urban&#41;&quot;
- :collection &quot;operates on collections&quot;
- :broken &quot;known to be broken, probably due to an API that disappeared&quot;}
+</code></pre><h2 id="categories">Categories</h2><p>Yetibot commands can be organized under categories. Commands can be enabled or disabled according to channel settings (e.g. <code>:fun</code>). In the future, <code>help</code> might rely on categories.</p><p>Categories are stored as meta-data directly on command handler functions under a <code>:yb/cat</code> prefix with a <code>Set</code> of keywords as the value.</p><p>Current known categories are as follows. Please add to this list as needed. Some categories will overlap but are semantically distinct.</p><pre><code class="yetibot">!help category
+</code></pre><pre><code class="yetibot">!category
+</code></pre><pre><code class="yetibot">!category list fun
+</code></pre><pre><code class="yetibot">!category list util
+</code></pre><pre><code class="yetibot">!category list repl
 </code></pre><h3 id="channel-based&#95;category&#95;toggle">Channel-based category toggle</h3><p>Each category can be disabled or enabled at the channel level. By default all categories are enabled. To disable them, use:</p><pre><code>!category disable :category-name
 </code></pre><p><article class="message is-info"> <div class="message-header">   <p>NB</p> </div> <div class="message-body">   Disabled categories are stored using the normal channel settings, so you'll   see them in <code>!room</code> if you set them. <code>!category</code> is merely a convenience   wrapper. </div> </article></p><p>Show the list of categories and their docs:</p><pre><code class="yetibot">!category
 </code></pre><p>Disable the "fun" category:</p><pre><code>!category disable fun
@@ -304,7 +300,7 @@ have a savings account
         </div>
 
         <div class="column toc">
-          <ol class="content"><li><a href="#basic_yetibot_expressions">Basic Yetibot expressions</a></li><li><a href="#help">Help</a></li><li><a href="#response_types">Response Types</a></li><li><a href="#pipes">Pipes</a></li><li><a href="#subexpressions">Subexpressions</a></li><li><a href="#collection_utilities">Collection utilities</a></li><ol><li><a href="#range">range</a></li><li><a href="#list">list</a></li><li><a href="#xargs">xargs</a></li><li><a href="#random">random</a></li><li><a href="#head">head</a></li><li><a href="#tail">tail</a></li><li><a href="#shuffle">shuffle</a></li><li><a href="#words">words</a></li><li><a href="#unwords">unwords</a></li><li><a href="#join">join</a></li><li><a href="#split">split</a></li><li><a href="#letters">letters</a></li><li><a href="#unletters">unletters</a></li><li><a href="#trim">trim</a></li><li><a href="#set">set</a></li><li><a href="#count">count</a></li><li><a href="#sum">sum</a></li><li><a href="#sort">sort</a></li><li><a href="#sortnum">sortnum</a></li><li><a href="#grep">grep</a></li><li><a href="#tee">tee</a></li><li><a href="#reverse">reverse</a></li><li><a href="#droplast">droplast</a></li><li><a href="#rest">rest</a></li><li><a href="#other_collection_commands">Other collection commands</a></li></ol><li><a href="#aliases">Aliases</a></li><li><a href="#observers">Observers</a></li><ol><li><a href="#message">message</a></li><li><a href="#react">react</a></li><li><a href="#enter">enter</a></li><li><a href="#leave">leave</a></li></ol><li><a href="#categories">Categories</a></li><ol><li><a href="#channel-based_category_toggle">Channel-based category toggle</a></li></ol><li><a href="#data">Data</a></li><li><a href="#render">Render</a></li><li><a href="#cron">Cron</a></li><li><a href="#eval">Eval</a></li><li><a href="#scrape">Scrape</a></li><li><a href="#channel_settings">Channel settings</a></li><li><a href="#jira">JIRA</a></li><li><a href="#graphql_api">GraphQL API</a></li><li><a href="#examples">Examples</a></li><ol><li><a href="#alltemps">Alltemps</a></li><li><a href="#yetibot_should_not_have_kids">Yetibot should not have kids</a></li><li><a href="#grids">Grids</a></li><li><a href="#hide_yo">Hide yo</a></li></ol><li><a href="#🤔">🤔</a></li></ol>
+          <ol class="content"><li><a href="#basic_yetibot_expressions">Basic Yetibot expressions</a></li><li><a href="#help">Help</a></li><li><a href="#response_types">Response Types</a></li><li><a href="#pipes">Pipes</a></li><li><a href="#subexpressions">Subexpressions</a></li><li><a href="#fun_stuff">Fun stuff</a></li><ol><li><a href="#meme_generation">Meme generation</a></li><li><a href="#giphy">Giphy</a></li><li><a href="#no">No</a></li></ol><li><a href="#collection_utilities">Collection utilities</a></li><ol><li><a href="#range">range</a></li><li><a href="#list">list</a></li><li><a href="#xargs">xargs</a></li><li><a href="#random">random</a></li><li><a href="#head">head</a></li><li><a href="#tail">tail</a></li><li><a href="#shuffle">shuffle</a></li><li><a href="#words">words</a></li><li><a href="#unwords">unwords</a></li><li><a href="#join">join</a></li><li><a href="#split">split</a></li><li><a href="#letters">letters</a></li><li><a href="#unletters">unletters</a></li><li><a href="#trim">trim</a></li><li><a href="#set">set</a></li><li><a href="#count">count</a></li><li><a href="#sum">sum</a></li><li><a href="#sort">sort</a></li><li><a href="#sortnum">sortnum</a></li><li><a href="#grep">grep</a></li><li><a href="#tee">tee</a></li><li><a href="#reverse">reverse</a></li><li><a href="#droplast">droplast</a></li><li><a href="#rest">rest</a></li><li><a href="#other_collection_commands">Other collection commands</a></li></ol><li><a href="#aliases">Aliases</a></li><li><a href="#observers">Observers</a></li><ol><li><a href="#message">message</a></li><li><a href="#react">react</a></li><li><a href="#enter">enter</a></li><li><a href="#leave">leave</a></li></ol><li><a href="#categories">Categories</a></li><ol><li><a href="#channel-based_category_toggle">Channel-based category toggle</a></li></ol><li><a href="#data">Data</a></li><li><a href="#render">Render</a></li><li><a href="#cron">Cron</a></li><li><a href="#eval">Eval</a></li><li><a href="#scrape">Scrape</a></li><li><a href="#channel_settings">Channel settings</a></li><li><a href="#jira">JIRA</a></li><li><a href="#graphql_api">GraphQL API</a></li><li><a href="#examples">Examples</a></li><ol><li><a href="#alltemps">Alltemps</a></li><li><a href="#yetibot_should_not_have_kids">Yetibot should not have kids</a></li><li><a href="#grids">Grids</a></li><li><a href="#hide_yo">Hide yo</a></li></ol><li><a href="#🤔">🤔</a></li></ol>
         </div>
       </div>
 
@@ -350,12 +346,10 @@ have a savings account
       </div>
     </footer>
 
+    
     <script src="https://cdn.rawgit.com/f/graphql.js/master/graphql.min.js"
             type="text/javascript" charset="utf-8"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
-    <script src="/js/yetibot.js" type="text/javascript" charset="utf-8"></script>
-    <script src="/js/highlight.pack.js" type="text/javascript"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/dist.js" type="text/javascript" charset="utf-8"></script>
   </body>
 </html>
 

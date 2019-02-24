@@ -39,6 +39,11 @@ window.addEventListener('scroll', function(e) {
   lastScrollY = window.scrollY;
 });
 
+
+// Either prints raw text or images depending on url structure
+const printResponse = (response) => {
+}
+
 document.addEventListener('DOMContentLoaded', function () {
 
   toc = document.querySelector('.toc.column .content');
