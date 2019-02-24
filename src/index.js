@@ -1,13 +1,26 @@
-const hljs = require('highlightjs');
-const client = graphql("https://public.yetibot.com/graphql");
-const tocbot = require('tocbot');
-const ifIsImage = require('if-is-image');
+import ifIsImage from 'if-is-image';
+import tocbot from 'tocbot';
+import gql from 'graphql-tag';
+// graphql.js docs https://graphql.org/graphql-js/graphql/
+// import { request, GraphQLClient } from 'graphql-request'
+// const client = graphql("https://public.yetibot.com/graphql");
+import ApolloClient from "apollo-boost";
 
-hljs.initHighlightingOnLoad();
-
+const endpoint = "https://public.yetibot.com/graphql";
+const client = new ApolloClient({uri: endpoint});
 
 // TOC interactive
-let toc;
+tocbot.init({
+  tocSelector: '.toc .content',
+  contentSelector: '.page-content',
+  // Which headings to grab inside of the contentSelector element.
+  headingSelector: 'h1, h2, h3, h4'
+});
+
+const toc = document.querySelector('.toc.column .content');
+toc.classList.add('ready');
+console.log(toc);
+
 let lastScrollY = 0;
 const fixedTOCThreshold = 208;
 
@@ -37,21 +50,23 @@ window.addEventListener('scroll', function(e) {
 
 // Eval against Yetibot GraphQL
 
-const yetibotEval = function(expr) {
-  const result = client('{eval(expr: "' + expr + '")}')();
-  result.then(function(x) {
-    console.log(x);
-  }).catch(function(err) {
-    console.error('error evaluating', expr, err);
-  });
-  return result;
-}
+const evalQuery = gql`
+  query EvalQuery($expr: String!) {
+    eval(expr: $expr)
+  }
+`;
+
+export const yetibotEval = function(expr) {
+  console.log('eval', evalQuery, {expr});
+  // '{eval(expr: "' + escape(expr) + '")}'
+  // const result = client.request(evalQuery, {expr});
+  return client.query({query: evalQuery, fetchPolicy: 'no-cache', variables: {expr}});
+};
 
 
 // Either prints raw text or images depending on url structure
 const appendResult = async (response, node) => {
-  console.log(node, typeof(node), 'result', response, ifIsImage(response));
-  console.log(Object.getOwnPropertyNames(node));
+  // console.log(node, typeof(node), 'result', response, ifIsImage(response));
   if (ifIsImage(response)) {
     const img = document.createElement("img");
     img.src = response;
@@ -64,17 +79,6 @@ const appendResult = async (response, node) => {
 // Init
 document.addEventListener('DOMContentLoaded', function () {
 
-  toc = document.querySelector('.toc.column .content');
-
-  if (toc && window.innerWidth > 768) {
-    tocbot.init({
-      tocSelector: '.toc .content',
-      contentSelector: '.page-content',
-      // Which headings to grab inside of the contentSelector element.
-      headingSelector: 'h1, h2, h3, h4'
-    });
-  }
-
   const codeBlocks = document.querySelectorAll('code.yetibot');
   codeBlocks.forEach(function(codeBlock) {
 
@@ -86,10 +90,11 @@ document.addEventListener('DOMContentLoaded', function () {
       console.log('clicked', expr);
       const result = yetibotEval(expr);
       result.then(function(response) {
-        console.log(response.eval);
-        response.eval.forEach(e => appendResult(e, codeBlock));
+        console.log('result', response.data.eval);
+        response.data.eval.forEach(e => appendResult(e, codeBlock));
+      }).catch(function(err) {
+        console.warn('error from graphql evaluating expression:', expr, err);
       });
-
       return false;
     };
 

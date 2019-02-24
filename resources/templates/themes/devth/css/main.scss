@@ -18,7 +18,27 @@ $link: $cyan;
 .navbar .navbar-start > a.navbar-item.is-active {
   color: $cyan !important;
 }
+.navbar .navbar-start > a.navbar-item:hover,
+.navbar .navbar-end > a.navbar-item:hover {
+  color: $yellow !important;
+}
+.navbar .navbar-end > a.navbar-item {
+  padding: 0.5rem 0.5rem;
+}
 .navbar-menu { padding: 0 }
+
+
+// Override the font size of the Icons. Bulma lg is .33 and 2x is 2 but we want
+// somewhere in between those:
+.navbar .icon i { font-size: 1.7rem; }
+
+h1 { @extend .is-size-1; }
+h2 { @extend .is-size-2; }
+h3 { @extend .is-size-3; }
+h4 { @extend .is-size-4; }
+h5 { @extend .is-size-5; }
+h6 { @extend .is-size-6; }
+h7 { @extend .is-size-7; }
 
 body {
   // position: relative;
@@ -69,6 +89,7 @@ nav {
   max-width: 100%;
   max-height: 600px;
   margin-top: 72px;
+  margin-left: 76px;
   padding: 12px;
 
   @include mobile {
@@ -107,6 +128,15 @@ h2.tagline {
       flex-basis: auto;
     }
   }
+}
+
+// Initially hide the toc until it's tocbotified
+.column.toc ol.content {
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+}
+.column.toc ol.content.ready {
+  opacity: 1;
 }
 
 .column.toc {

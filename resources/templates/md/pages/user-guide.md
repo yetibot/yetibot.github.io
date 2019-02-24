@@ -113,31 +113,76 @@ Subexpressions let you build up more complex expressions by nesting one
 expression in another.
 
 ```yetibot
-!echo `echo Yetibot is` pretty cool
+!echo `echo Hello` Yetibot
 ```
 
 Backticks are convenient when you need a single level of nesting, but `$()`
 syntax lets you embed any level of nesting:
 
 ```yetibot
-!echo $(echo $(echo Yetibot) is) alive
+!echo $(echo $(echo Yetibot) is) `echo alive`
 ```
 
 These examples are necessarily simplistic but when you start piecing together
 more complex commands that fetch data, the ability to arbitrarily nest
-expressions provides tremendous power.
+expressions is quite useful.
 
-## Fun stuff
+## Fun 🎉
+
+Fun has always been an important part of Yetibot's existence. The full list of
+commands in the `fun` category can be listed via:
+
+```yetibot
+!category list fun
+```
+
+Below we document a few highlights.
 
 ### Meme generation
 
-This was one of Yetibot's first features 😂.
+Meme gen was one of Yetibot's first features 😂.
 
 ```yetibot
 !meme yetibot: hello world!
 ```
 
+```yetibot
+!help meme
+```
+
+```yetibot
+!catfact | meme
+```
+
+```yetibot
+!chuck | meme chuck:
+```
+
+```yetibot
+!jargon | meme yeah if you:
+```
+
 ### Giphy
+
+```yetibot
+!help giphy
+```
+
+```yetibot
+!giphy reaction
+```
+
+```yetibot
+!giphy whoa
+```
+
+```yetibot
+!giphy random
+```
+
+```yetibot
+!giphy trending
+```
 
 ### No
 
@@ -149,12 +194,26 @@ This was one of Yetibot's first features 😂.
 !no
 ```
 
+### Http
+
 ```yetibot
-!alias can = "nil | no"
+!http 404
 ```
 
 ```yetibot
-!can we use modern tools and engineering practices at $corp?
+!http 200
+```
+
+```yetibot
+!http 401
+```
+
+```yetibot
+!http 500
+```
+
+```yetibot
+!http 420
 ```
 
 ## Collection utilities

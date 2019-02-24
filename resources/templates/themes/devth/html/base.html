@@ -5,9 +5,7 @@
     <title>{{title}}{% block subtitle %}{% endblock %}</title>
     <link rel="canonical" href="{{site-url}}{{uri}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
     {% style "css/main.css" %}
-
     <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
@@ -56,6 +54,24 @@
               {% endfor %}
               <a class="navbar-item {% if archives %}is-active{% endif %}" href="{{archives-uri}}">Blog</a>
             </div>
+            <div class="navbar-end">
+
+              <a href="https://github.com/yetibot/yetibot"
+                 title="Yetibot on GitHub"
+                 class="navbar-item">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+              </a>
+              <a class="navbar-item"
+                 title="Yetibot Slack"
+                 href="https://slack.yetibot.com">
+                <span class="icon">
+                  <i class="fab fa-slack"></i>
+                </span>
+              </a>
+
+            </div>
           </div>
         </div>
       </nav>
@@ -91,10 +107,11 @@
       </div>
     </footer>
 
-    {# TODO use webpack for apollo #}
-    <script src="https://cdn.rawgit.com/f/graphql.js/master/graphql.min.js"
-            type="text/javascript" charset="utf-8"></script>
     <script src="/js/dist.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    {% script "js/highlight.pack.js" %}
+    <script>hljs.initHighlightingOnLoad();</script>
   </body>
 </html>
 
