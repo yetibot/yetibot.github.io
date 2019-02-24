@@ -202,25 +202,25 @@ table th {
   right: 0;
   top: 0; }
 
-.is-size-1 {
+.is-size-1, h1 {
   font-size: 3rem !important; }
 
-.is-size-2 {
+.is-size-2, h2 {
   font-size: 2.5rem !important; }
 
-.is-size-3 {
+.is-size-3, h3 {
   font-size: 2rem !important; }
 
-.is-size-4 {
+.is-size-4, h4 {
   font-size: 1.5rem !important; }
 
-.is-size-5 {
+.is-size-5, h5 {
   font-size: 1.25rem !important; }
 
-.is-size-6 {
+.is-size-6, h6 {
   font-size: 1rem !important; }
 
-.is-size-7 {
+.is-size-7, h7 {
   font-size: 0.75rem !important; }
 
 @media screen and (max-width: 768px) {
@@ -6439,8 +6439,18 @@ label.panel-block {
 .navbar .navbar-start > a.navbar-item.is-active {
   color: #55C4D4 !important; }
 
+.navbar .navbar-start > a.navbar-item:hover,
+.navbar .navbar-end > a.navbar-item:hover {
+  color: #ffdd57 !important; }
+
+.navbar .navbar-end > a.navbar-item {
+  padding: 0.5rem 0.5rem; }
+
 .navbar-menu {
   padding: 0; }
+
+.navbar .icon i {
+  font-size: 1.7rem; }
 
 pre {
   border-left: 5px solid #55c4d4; }
@@ -6465,6 +6475,7 @@ nav .nav-logo {
   max-width: 100%;
   max-height: 600px;
   margin-top: 72px;
+  margin-left: 76px;
   padding: 12px; }
   @media screen and (max-width: 768px) {
     .logo {
@@ -6487,6 +6498,13 @@ h2.tagline {
     display: flex; }
     .main.columns > .column {
       flex-basis: auto; } }
+.column.toc ol.content {
+  opacity: 0;
+  transition: opacity 0.4s ease-out; }
+
+.column.toc ol.content.ready {
+  opacity: 1; }
+
 .column.toc .content {
   position: absolute;
   top: -35px; }

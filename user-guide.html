@@ -5,9 +5,7 @@
     <title>Yetibot: User Guide</title>
     <link rel="canonical" href="https://yetibot.com/user-guide">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
     <link href="/css/main.css" rel="stylesheet" type="text/css" />
-
     <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
@@ -76,6 +74,24 @@
               
               <a class="navbar-item " href="/archives">Blog</a>
             </div>
+            <div class="navbar-end">
+
+              <a href="https://github.com/yetibot/yetibot"
+                 title="Yetibot on GitHub"
+                 class="navbar-item">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+              </a>
+              <a class="navbar-item"
+                 title="Yetibot Slack"
+                 href="https://slack.yetibot.com">
+                <span class="icon">
+                  <i class="fab fa-slack"></i>
+                </span>
+              </a>
+
+            </div>
           </div>
         </div>
       </nav>
@@ -105,13 +121,26 @@
 </code></pre><p>To view the raw underlying Clojure data structure type of a response in Yetibot, use <code>raw</code>. For example:</p><pre><code class="yetibot">!list 1 2 3 | raw
 </code></pre><h2 id="pipes">Pipes</h2><p>Pipes allow chaining together more complex expressions using the output of one command as the input of another command.</p><pre><code class="yetibot">!echo 1 | echo 2 | echo 3
 </code></pre><p>Notice how the output of each preceding command is appended to the end of the following command separated by a space. This is the default behavior, but you can also choose where to place arguments and control whitespace using <code>%s</code>:</p><pre><code class="yetibot">!echo foo | echo %sbar
-</code></pre><h2 id="subexpressions">Subexpressions</h2><p>Subexpressions let you build up more complex expressions by nesting one expression in another.</p><pre><code class="yetibot">!echo `echo Yetibot is` pretty cool
-</code></pre><p>Backticks are convenient when you need a single level of nesting, but <code>$&#40;&#41;</code> syntax lets you embed any level of nesting:</p><pre><code class="yetibot">!echo $&#40;echo $&#40;echo Yetibot&#41; is&#41; alive
-</code></pre><p>These examples are necessarily simplistic but when you start piecing together more complex commands that fetch data, the ability to arbitrarily nest expressions provides tremendous power.</p><h2 id="fun&#95;stuff">Fun stuff</h2><h3 id="meme&#95;generation">Meme generation</h3><p>This was one of Yetibot's first features 😂.</p><pre><code class="yetibot">!meme yetibot: hello world!
-</code></pre><h3 id="giphy">Giphy</h3><h3 id="no">No</h3><pre><code class="yetibot">!help no
+</code></pre><h2 id="subexpressions">Subexpressions</h2><p>Subexpressions let you build up more complex expressions by nesting one expression in another.</p><pre><code class="yetibot">!echo `echo Hello` Yetibot
+</code></pre><p>Backticks are convenient when you need a single level of nesting, but <code>$&#40;&#41;</code> syntax lets you embed any level of nesting:</p><pre><code class="yetibot">!echo $&#40;echo $&#40;echo Yetibot&#41; is&#41; `echo alive`
+</code></pre><p>These examples are necessarily simplistic but when you start piecing together more complex commands that fetch data, the ability to arbitrarily nest expressions is quite useful.</p><h2 id="fun&#95;🎉">Fun 🎉</h2><p>Fun has always been an important part of Yetibot's existence. The full list of commands in the <code>fun</code> category can be listed via:</p><pre><code class="yetibot">!category list fun
+</code></pre><p>Below we document a few highlights.</p><h3 id="meme&#95;generation">Meme generation</h3><p>Meme gen was one of Yetibot's first features 😂.</p><pre><code class="yetibot">!meme yetibot: hello world!
+</code></pre><pre><code class="yetibot">!help meme
+</code></pre><pre><code class="yetibot">!catfact | meme
+</code></pre><pre><code class="yetibot">!chuck | meme chuck:
+</code></pre><pre><code class="yetibot">!jargon | meme yeah if you:
+</code></pre><h3 id="giphy">Giphy</h3><pre><code class="yetibot">!help giphy
+</code></pre><pre><code class="yetibot">!giphy reaction
+</code></pre><pre><code class="yetibot">!giphy whoa
+</code></pre><pre><code class="yetibot">!giphy random
+</code></pre><pre><code class="yetibot">!giphy trending
+</code></pre><h3 id="no">No</h3><pre><code class="yetibot">!help no
 </code></pre><pre><code class="yetibot">!no
-</code></pre><pre><code class="yetibot">!alias can = &quot;nil | no&quot;
-</code></pre><pre><code class="yetibot">!can we use modern tools and engineering practices at $corp?
+</code></pre><h3 id="http">Http</h3><pre><code class="yetibot">!http 404
+</code></pre><pre><code class="yetibot">!http 200
+</code></pre><pre><code class="yetibot">!http 401
+</code></pre><pre><code class="yetibot">!http 500
+</code></pre><pre><code class="yetibot">!http 420
 </code></pre><h2 id="collection&#95;utilities">Collection utilities</h2><p>Since Yetibot can return a collection as a response, it needs basic operations to manipulate collections.</p><h3 id="range">range</h3><pre><code class="yetibot">!help range
 </code></pre><pre><code class="yetibot">!range 10
 </code></pre><pre><code class="yetibot">!range 0 100 25
@@ -300,7 +329,7 @@ have a savings account
         </div>
 
         <div class="column toc">
-          <ol class="content"><li><a href="#basic_yetibot_expressions">Basic Yetibot expressions</a></li><li><a href="#help">Help</a></li><li><a href="#response_types">Response Types</a></li><li><a href="#pipes">Pipes</a></li><li><a href="#subexpressions">Subexpressions</a></li><li><a href="#fun_stuff">Fun stuff</a></li><ol><li><a href="#meme_generation">Meme generation</a></li><li><a href="#giphy">Giphy</a></li><li><a href="#no">No</a></li></ol><li><a href="#collection_utilities">Collection utilities</a></li><ol><li><a href="#range">range</a></li><li><a href="#list">list</a></li><li><a href="#xargs">xargs</a></li><li><a href="#random">random</a></li><li><a href="#head">head</a></li><li><a href="#tail">tail</a></li><li><a href="#shuffle">shuffle</a></li><li><a href="#words">words</a></li><li><a href="#unwords">unwords</a></li><li><a href="#join">join</a></li><li><a href="#split">split</a></li><li><a href="#letters">letters</a></li><li><a href="#unletters">unletters</a></li><li><a href="#trim">trim</a></li><li><a href="#set">set</a></li><li><a href="#count">count</a></li><li><a href="#sum">sum</a></li><li><a href="#sort">sort</a></li><li><a href="#sortnum">sortnum</a></li><li><a href="#grep">grep</a></li><li><a href="#tee">tee</a></li><li><a href="#reverse">reverse</a></li><li><a href="#droplast">droplast</a></li><li><a href="#rest">rest</a></li><li><a href="#other_collection_commands">Other collection commands</a></li></ol><li><a href="#aliases">Aliases</a></li><li><a href="#observers">Observers</a></li><ol><li><a href="#message">message</a></li><li><a href="#react">react</a></li><li><a href="#enter">enter</a></li><li><a href="#leave">leave</a></li></ol><li><a href="#categories">Categories</a></li><ol><li><a href="#channel-based_category_toggle">Channel-based category toggle</a></li></ol><li><a href="#data">Data</a></li><li><a href="#render">Render</a></li><li><a href="#cron">Cron</a></li><li><a href="#eval">Eval</a></li><li><a href="#scrape">Scrape</a></li><li><a href="#channel_settings">Channel settings</a></li><li><a href="#jira">JIRA</a></li><li><a href="#graphql_api">GraphQL API</a></li><li><a href="#examples">Examples</a></li><ol><li><a href="#alltemps">Alltemps</a></li><li><a href="#yetibot_should_not_have_kids">Yetibot should not have kids</a></li><li><a href="#grids">Grids</a></li><li><a href="#hide_yo">Hide yo</a></li></ol><li><a href="#🤔">🤔</a></li></ol>
+          <ol class="content"><li><a href="#basic_yetibot_expressions">Basic Yetibot expressions</a></li><li><a href="#help">Help</a></li><li><a href="#response_types">Response Types</a></li><li><a href="#pipes">Pipes</a></li><li><a href="#subexpressions">Subexpressions</a></li><li><a href="#fun_🎉">Fun 🎉</a></li><ol><li><a href="#meme_generation">Meme generation</a></li><li><a href="#giphy">Giphy</a></li><li><a href="#no">No</a></li><li><a href="#http">Http</a></li></ol><li><a href="#collection_utilities">Collection utilities</a></li><ol><li><a href="#range">range</a></li><li><a href="#list">list</a></li><li><a href="#xargs">xargs</a></li><li><a href="#random">random</a></li><li><a href="#head">head</a></li><li><a href="#tail">tail</a></li><li><a href="#shuffle">shuffle</a></li><li><a href="#words">words</a></li><li><a href="#unwords">unwords</a></li><li><a href="#join">join</a></li><li><a href="#split">split</a></li><li><a href="#letters">letters</a></li><li><a href="#unletters">unletters</a></li><li><a href="#trim">trim</a></li><li><a href="#set">set</a></li><li><a href="#count">count</a></li><li><a href="#sum">sum</a></li><li><a href="#sort">sort</a></li><li><a href="#sortnum">sortnum</a></li><li><a href="#grep">grep</a></li><li><a href="#tee">tee</a></li><li><a href="#reverse">reverse</a></li><li><a href="#droplast">droplast</a></li><li><a href="#rest">rest</a></li><li><a href="#other_collection_commands">Other collection commands</a></li></ol><li><a href="#aliases">Aliases</a></li><li><a href="#observers">Observers</a></li><ol><li><a href="#message">message</a></li><li><a href="#react">react</a></li><li><a href="#enter">enter</a></li><li><a href="#leave">leave</a></li></ol><li><a href="#categories">Categories</a></li><ol><li><a href="#channel-based_category_toggle">Channel-based category toggle</a></li></ol><li><a href="#data">Data</a></li><li><a href="#render">Render</a></li><li><a href="#cron">Cron</a></li><li><a href="#eval">Eval</a></li><li><a href="#scrape">Scrape</a></li><li><a href="#channel_settings">Channel settings</a></li><li><a href="#jira">JIRA</a></li><li><a href="#graphql_api">GraphQL API</a></li><li><a href="#examples">Examples</a></li><ol><li><a href="#alltemps">Alltemps</a></li><li><a href="#yetibot_should_not_have_kids">Yetibot should not have kids</a></li><li><a href="#grids">Grids</a></li><li><a href="#hide_yo">Hide yo</a></li></ol><li><a href="#🤔">🤔</a></li></ol>
         </div>
       </div>
 
@@ -346,10 +375,11 @@ have a savings account
       </div>
     </footer>
 
-    
-    <script src="https://cdn.rawgit.com/f/graphql.js/master/graphql.min.js"
-            type="text/javascript" charset="utf-8"></script>
     <script src="/js/dist.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <script src="/js/highlight.pack.js" type="text/javascript"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
   </body>
 </html>
 
