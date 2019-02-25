@@ -2,38 +2,48 @@
 {%block subtitle %}: {{post.title}}{% endblock %}
 {% block content %}
 
-<section class="section content">
-  <div class="container">
-    <div id="post">
-      {% include "/html/post-content.html" %}
+<div id="post">
+  {% include "/html/post-content.html" %}
 
+  <section class="section content">
+    <div class="container">
       <div id="prev-next">
+
         {% if post.prev %}
-          <a href="{{post.prev.uri}}">&laquo; {{post.prev.title}}</a>
+        <a class="button is-warning is-medium"
+          href="{{post.prev.uri}}">
+          ↞ {{post.prev.title}}
+        </a>
         {% endif %}
+
         {% if post.next %}
-        <a class="right" href="{{post.next.uri}}">{{post.next.title}} &raquo;</a>
+        <a class="button is-warning is-medium"
+          class="right" href="{{post.next.uri}}">
+          {{post.next.title}} ↠
+        </a>
         {% endif %}
+
       </div>
-
-      {% if disqus-shortname %}
-
-        <section id="disqus" class="">
-          <div id="disqus_thread"></div>
-          <script type="text/javascript">
-              var disqus_config = function () {
-                  this.page.url = "{{site-url}}{{uri}}";
-                  this.page.identifier = "{{post.title}}";
-              };
-              (function() {
-                  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                  dsq.src = '//{{disqus-shortname}}.disqus.com/embed.js';
-                  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-              })();
-          </script>
-        </section>
-      {% endif %}
     </div>
-  </div>
-</section>
+  </section>
+
+  {% if disqus-shortname %}
+
+  <section id="disqus" class="section container">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = "{{site-url}}{{uri}}";
+        this.page.identifier = "{{post.title}}";
+      };
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//{{disqus-shortname}}.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+    </script>
+  </section>
+  {% endif %}
+</div>
+
 {% endblock %}

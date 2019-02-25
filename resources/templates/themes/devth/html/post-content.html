@@ -1,25 +1,38 @@
-<div class="post-header">
-  <div id="post-meta" class="row">
-    <div class="col-lg-6">{{post.date|date:longDate}}</div>
-    {% if post.author %}
-      <span class="col-lg-6 right">By: {{post.author}}</span>
+<article class="page-title hero is-dark is-bold is-fullwidth">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">{{post.title}}</h1>
+      <p class="subtitle">
+        {{page.subtitle|safe}}
+
+        {{post.date|date:longDate}}
+        {% if post.author %}
+          <span>By {{post.author}}</span>
+        {% endif %}
+      </p>
+    </div>
+  </div>
+</article>
+
+
+<section class="section content">
+  <div class="container">
+
+    <div class="main columns">
+      <div class="column is-two-thirds">
+        {{post.content|safe}}
+      </div>
+      <div class="column toc">
+        {% if post.toc %}{{post.toc|safe}}{% endif %}
+      </div>
+    </div>
+    {% if post.tags|not-empty %}
+    <div id="post-tags">
+      <b>Tags: </b>
+      {% for tag in post.tags %}
+        <a href="{{tag.uri}}">{{tag.name}}</a>
+      {% endfor %}
+    </div>
     {% endif %}
   </div>
-  <h1>{{post.title}}</h1>
 </div>
-<div class="main columns">
-  <div class="column is-two-thirds">
-    {{post.content|safe}}
-  </div>
-  <div class="column toc">
-    {% if post.toc %}{{post.toc|safe}}{% endif %}
-  </div>
-</div>
-{% if post.tags|not-empty %}
-<div id="post-tags">
-  <b>Tags: </b>
-  {% for tag in post.tags %}
-    <a href="{{tag.uri}}">{{tag.name}}</a>
-  {% endfor %}
-</div>
-{% endif %}
