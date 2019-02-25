@@ -21,7 +21,8 @@ if (toc) {
       headingSelector: 'h1, h2, h3, h4',
       positionFixedSelector: '.toc.column .content',
       positionFixedClass: 'fixed',
-      fixedSidebarOffset: 230
+      fixedSidebarOffset: 230,
+      headingsOffset: -15
     });
   }
   toc.classList.add('ready');
