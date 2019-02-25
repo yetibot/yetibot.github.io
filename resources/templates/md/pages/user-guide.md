@@ -743,7 +743,13 @@ It can be a fun way of poking at otherwise-unavailable state inside Yetibot.
 
 ## Channel settings
 
-TODO
+Arbitrary key/value pairs can be stored on a per-channel basis. This lets you do
+things like set channel local JIRA projects, Jenkins jobs, or other values that
+could for example be utilized by aliases.
+
+```yetibot
+!help channel
+```
 
 ## JIRA
 

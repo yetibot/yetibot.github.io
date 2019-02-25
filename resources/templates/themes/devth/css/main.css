@@ -6480,11 +6480,21 @@ nav .nav-logo {
   @media screen and (max-width: 768px) {
     .logo {
       max-width: 80%;
+      max-height: 400px;
       margin-top: 12px;
-      max-height: 460px; } }
+      max-height: 460px;
+      margin-left: 12px; } }
 
 h2.tagline {
-  margin: 18px 0 120px 0; }
+  margin: 18px 0 120px 0;
+  font-size: 2em; }
+  @media screen and (max-width: 768px) {
+    h2.tagline {
+      font-size: 1.4em !important;
+      margin: 12px; } }
+
+.button.get-started {
+  margin: 24px 0 42px 0; }
 
 .home-tiles article:hover {
   filter: opacity(80%); }

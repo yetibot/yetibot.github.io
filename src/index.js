@@ -9,47 +9,26 @@ import ApolloClient from "apollo-boost";
 const endpoint = "https://public.yetibot.com/graphql";
 const client = new ApolloClient({uri: endpoint});
 
-// TOC interactive
-tocbot.init({
-  tocSelector: '.toc .content',
-  contentSelector: '.page-content',
-  // Which headings to grab inside of the contentSelector element.
-  headingSelector: 'h1, h2, h3, h4'
-});
-
+// TOC interactive - desktop only for now
 const toc = document.querySelector('.toc.column .content');
-toc.classList.add('ready');
 console.log(toc);
-
-let lastScrollY = 0;
-const fixedTOCThreshold = 208;
-
-window.addEventListener('scroll', function(e) {
-  // add fixed
-  if (
-    toc &&
-    (lastScrollY <= fixedTOCThreshold || !lastScrollY) &&
-    window.scrollY > fixedTOCThreshold
-  ) {
-    // console.log('add fixed', toc);
-    toc.classList.add('fixed');
+if (toc) {
+  if (window.innerWidth > 768) {
+    tocbot.init({
+      tocSelector: '.toc .content',
+      contentSelector: '.page-content',
+      // Which headings to grab inside of the contentSelector element.
+      headingSelector: 'h1, h2, h3, h4',
+      positionFixedSelector: '.toc.column .content',
+      positionFixedClass: 'fixed',
+      fixedSidebarOffset: 230
+    });
   }
+  toc.classList.add('ready');
+}
 
-  // remove fixed
-  if (
-    toc &&
-    (lastScrollY >= fixedTOCThreshold || !lastScrollY) &&
-    window.scrollY < fixedTOCThreshold
-  ) {
-    // console.log('remove fixed', toc);
-    toc.classList.remove('fixed');
-  }
-
-  lastScrollY = window.scrollY;
-});
 
 // Eval against Yetibot GraphQL
-
 const evalQuery = gql`
   query EvalQuery($expr: String!) {
     eval(expr: $expr)
