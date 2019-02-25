@@ -94,13 +94,23 @@ nav {
 
   @include mobile {
     max-width: 80%;
+    max-height: 400px;
     margin-top: 12px;
     max-height: 460px;
+    margin-left: 12px;
   }
 }
 
 h2.tagline {
   margin: 18px 0 120px 0;
+  font-size: 2em;
+  @include mobile {
+    font-size: 1.4em !important;
+    margin: 12px;
+  }
+}
+.button.get-started {
+  margin: 24px 0 42px 0;
 }
 
 .home-tiles {
@@ -119,6 +129,22 @@ h2.tagline {
 }
 
 // ToC
+
+// Don't show the gray border left of items
+
+// Leave it enabled for now
+// Tracking issue at https://github.com/tscanlin/tocbot/issues/130
+// .toc-link::before {
+//   background: none !important;
+// }
+// .toc-link {
+//   padding-left: 16px;
+//   &.is-active-link {
+//     padding-left: 14px;
+//     border-left: 2px solid #55C4D4;
+//   }
+// }
+
 
 @include mobile {
   .main.columns {
