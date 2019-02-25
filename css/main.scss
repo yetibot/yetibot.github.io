@@ -18,9 +18,15 @@ $link: $cyan;
 .navbar .navbar-start > a.navbar-item.is-active {
   color: $cyan !important;
 }
+
+.navbar .navbar-start > a.navbar-item,
+.navbar .navbar-end > a.navbar-item {
+  transition: color 0.4s ease-out;
+}
+
 .navbar .navbar-start > a.navbar-item:hover,
 .navbar .navbar-end > a.navbar-item:hover {
-  color: $yellow !important;
+  color: $cyan !important;
 }
 .navbar .navbar-end > a.navbar-item {
   padding: 0.5rem 0.5rem;
