@@ -171,9 +171,7 @@ createdb yetibot
 There are a few ways to quickly run a Yetibot:
 
 1. Docker - [read the Yetibot on Docker docs](https://yetibot.com/ops-guide/#docker)
-1. Grab an archive of the source from the [Yetibot
-   releases](https://github.com/yetibot/yetibot/releases), unzip, put the config
-   in place and `lein run`
+1. Grab an archive of the source from the [Yetibot releases](https://github.com/yetibot/yetibot/releases), unzip, put the config in place and `lein run`
 1. Clone the source of this repo, put the config in place and `lein run`
 
 As an example, here's how you could get the latest code from `master`, extract,
