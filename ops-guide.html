@@ -156,7 +156,7 @@ exit
 sudo apt-get install -y postgresql postgresql-contrib
 sudo -u postgres psql
 createdb yetibot
-</code></pre><h3 id="run&#95;it">Run it</h3><p>There are a few ways to quickly run a Yetibot:</p><ol><li>Docker - <a href='https://yetibot.com/ops-guide/#docker'>read the Yetibot on Docker docs</a></li><li>Grab an archive of the source from the [Yetibot   releases](https://github.com/yetibot/yetibot/releases), unzip, put the config   in place and <code>lein run</code></li><li>Clone the source of this repo, put the config in place and <code>lein run</code></li></ol><p>As an example, here's how you could get the latest code from <code>master</code>, extract, put config in place, and run it (assumes you already have <a href='https://github.com/technomancy/leiningen'>Leiningen</a> installed):</p><pre><code class="bash">cd /tmp
+</code></pre><h3 id="run&#95;it">Run it</h3><p>There are a few ways to quickly run a Yetibot:</p><ol><li>Docker - <a href='https://yetibot.com/ops-guide/#docker'>read the Yetibot on Docker docs</a></li><li>Grab an archive of the source from the <a href='https://github.com/yetibot/yetibot/releases'>Yetibot releases</a>, unzip, put the config in place and <code>lein run</code></li><li>Clone the source of this repo, put the config in place and <code>lein run</code></li></ol><p>As an example, here's how you could get the latest code from <code>master</code>, extract, put config in place, and run it (assumes you already have <a href='https://github.com/technomancy/leiningen'>Leiningen</a> installed):</p><pre><code class="bash">cd /tmp
 curl https://codeload.github.com/yetibot/yetibot/tar.gz/master | tar xvz
 cd yetibot-master
 cat &lt;&lt; EOF &gt; config.edn
