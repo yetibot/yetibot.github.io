@@ -11,6 +11,7 @@ It's built on [Cryogen](http://cryogenweb.org/).
 
 - [Leiningen](https://github.com/technomancy/leiningen)
 - [Sass](https://sass-lang.com/install)
+- [yarn or npm](https://yarnpkg.com/en/)
 
 ## Dev usage
 
@@ -43,4 +44,3 @@ Generate the static site:
 ```bash
 lein run
 ```
-
