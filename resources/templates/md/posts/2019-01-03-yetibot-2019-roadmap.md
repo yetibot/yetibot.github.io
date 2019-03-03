@@ -1,5 +1,6 @@
 {:title "Looking back at 2018 and forward for 2019"
  :layout :post
+ :toc true
  :tags  ["news" "roadmap" "2018" "2019"]}
 
 We made a ton of progress on Yetibot in 2018 and gained some new contributors in
