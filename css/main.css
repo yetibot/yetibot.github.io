@@ -6520,6 +6520,7 @@ h2.tagline {
   opacity: 1; }
 
 .column.toc .content {
+  overflow: hidden;
   position: absolute;
   top: -35px; }
   @media screen and (max-width: 768px) {
