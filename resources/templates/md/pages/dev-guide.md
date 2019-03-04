@@ -126,6 +126,36 @@ codeclimate analyze
 
 TODO
 
+## Testing yetibot.core changes in yetibot
+
+If you need to test out changes to `yetibot.core` in `yetibot`, this can be done
+by installing the `yetibot.core` SNAPSHOT locally and consuming it from
+`yetibot`:
+
+```bash
+[yetibot.core] $ lein install
+Warning: specified :main without including it in :aot.
+Implicit AOT of :main will be removed in Leiningen 3.0.0.
+If you only need AOT for your uberjar, consider adding :aot :all into your
+:uberjar profile instead.
+Compiling yetibot.core.init
+Created /Users/thartman/oss/yetibot.core/target/yetibot.core-x.y.z-SNAPSHOT.jar
+Wrote /Users/thartman/oss/yetibot.core/pom.xml
+Installed jar and pom into local repo.
+```
+
+Now in `yetibot`'s `project.clj`, set the dependency of `yetibot.core` to:
+
+```bash
+[yetibot.core "x.y.z-SNAPSHOT"]
+```
+
+Of course you need to replace `x.y.z` with the actual version you're working on.
+
+Make sure to never commit these kind of changes to `master` (assuming they
+somehow passed code review). Snapshot versions should only be used during
+development.
+
 ## Command response structure
 
 The result of a command can be a simple value e.g. a string or collection of
