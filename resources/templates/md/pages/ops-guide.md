@@ -1,4 +1,4 @@
-{:title "Operations Guide"
+{:title "Ops Guide"
  :subtitle "Running and operating a Yetibot"
  :layout :page
  :toc true

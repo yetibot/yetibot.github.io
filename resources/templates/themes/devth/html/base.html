@@ -46,13 +46,19 @@
           </div>
           <div class="navbar-menu" id="nav-menu">
             <div class="navbar-start">
+
               {% for nav-page in navbar-pages %}
               <a href="{{nav-page.uri}}"
-                class="navbar-item {%ifequal page.uri nav-page.uri %}is-active{% endifequal %}">
+                class="navbar-item is-tab
+                {%ifequal page.uri nav-page.uri %}is-active{% endifequal %}">
                 {{nav-page.title}}
               </a>
               {% endfor %}
-              <a class="navbar-item {% if archives %}is-active{% endif %}" href="{{archives-uri}}">Blog</a>
+
+              <a class="navbar-item is-tab
+                {% if archives %}is-active{% endif %}" href="{{archives-uri}}">
+                Blog
+              </a>
             </div>
             <div class="navbar-end">
 

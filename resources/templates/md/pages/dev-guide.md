@@ -1,4 +1,4 @@
-{:title "Developer Guide"
+{:title "Dev Guide"
  :subtitle "Yetibot internals and dev workflows"
  :layout :page
  :toc true
