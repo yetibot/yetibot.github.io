@@ -5,8 +5,15 @@ $cyan: #55C4D4;
 
 $link: $cyan;
 
+@import "bulma/sass/utilities/initial-variables.sass";
+
+// $navbar-dropdown-background-color: $black;
+// $navbar-dropdown-item-color: $white-ter;
+
 @import "bulma/bulma.sass";
 @import "tocbot.css";
+
+
 
 .navbar .navbar-brand {
   padding: 6px 6px 6px 0;
@@ -32,6 +39,9 @@ $link: $cyan;
   padding: 0.5rem 0.5rem;
 }
 .navbar-menu { padding: 0 }
+
+
+
 
 
 // Override the font size of the Icons. Bulma lg is .33 and 2x is 2 but we want
