@@ -827,6 +827,21 @@ client:
 
 ## Examples
 
+### Countdown
+
+This alias uses JavaScript to determine the number of days till a specific date
+and outputs the day along with a string message. It could be further abstracted
+as a `countdown` alias that takes a date and a message, but we typically just
+re-define the alias as needed.
+
+```
+!alias countdown = "js Math.ceil((Date.parse('4/2/2019') - Date.now()) / (1000 * 60 * 60 * 24)) + ' days until Google+ shutdown'"
+```
+
+```yetibot
+!countdown
+```
+
 ### Alltemps
 
 We use an alias to store the list of zip codes for all members of our
