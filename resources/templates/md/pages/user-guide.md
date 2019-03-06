@@ -667,7 +667,9 @@ Re-enable it:
 !category enable fun
 ```
 
-## Data
+## Utilities
+
+### Data
 
 Yetibot commands by default return a pretty-printed response for human
 consumption, but for many commands the underlying data is preserved and passed
@@ -683,7 +685,7 @@ For example, we can get all the data behind the `weather` command:
 !weather seattle, wa | data show
 ```
 
-## Render
+### Render
 
 The `render` command lets us turn the data discussed in the previous section
 into strings, which means we can customize the output of a command using the
@@ -714,7 +716,7 @@ We could go on and on (and on and on). `render` opens up a ton of possabilities
 for customizing command output and using Yetibot in unexpected and unanticipated
 ways!
 
-## Cron
+### Cron
 
 Cron is, as you'd expect, a way to run a command on an interval given a cron
 expression.
@@ -723,7 +725,7 @@ expression.
 !help cron
 ```
 
-## Eval
+### Eval
 
 The `eval` command runs arbitrary Clojure against the Yetibot process itself, so
 it's by definition very insecure. Because of this, it's only allowed to be run
@@ -735,13 +737,13 @@ It can be a fun way of poking at otherwise-unavailable state inside Yetibot.
 !help eval
 ```
 
-## Scrape
+### Scrape
 
 ```yetibot
 !help scrape
 ```
 
-## Channel settings
+### Channel settings
 
 Arbitrary key/value pairs can be stored on a per-channel basis. This lets you do
 things like set channel local JIRA projects, Jenkins jobs, or other values that
@@ -749,6 +751,21 @@ could for example be utilized by aliases.
 
 ```yetibot
 !help channel
+```
+
+### That
+
+The `that` command retrieves the last non-command thing said, excluding Yetibot
+output, and `that cmd` retrieves the last command.
+
+```yetibot
+!help that
+```
+
+Example usage:
+
+```
+!that | meme insanity:
 ```
 
 ## JIRA
