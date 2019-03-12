@@ -5,6 +5,17 @@ import gql from 'graphql-tag';
 // import { request, GraphQLClient } from 'graphql-request'
 // const client = graphql("https://public.yetibot.com/graphql");
 import ApolloClient from "apollo-boost";
+import {GitHubOrg} from 'github-org-cards'
+import ReactDOM from 'react-dom';
+import React from 'react';
+
+// Team for Community page
+const team = document.querySelector('.core-team');
+if (team) {
+  console.log('found', team, GitHubOrg, ReactDOM, ReactDOM.render);
+  const GitHubOrgFactory = React.createFactory(GitHubOrg);
+  ReactDOM.render(GitHubOrgFactory({org: 'yetibot', columns: 6}), team);
+}
 
 const endpoint = "https://public.yetibot.com/graphql";
 const client = new ApolloClient({uri: endpoint});
