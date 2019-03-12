@@ -6460,7 +6460,7 @@ pre {
   border-left: 5px solid #55c4d4; }
   pre img {
     display: block; }
-  pre code {
+  pre code .wrap {
     white-space: normal; }
 
 .is-horizontal-center {
