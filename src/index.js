@@ -57,13 +57,16 @@ export const yetibotEval = function(expr) {
 // Either prints raw text or images depending on url structure
 const appendResult = async (response, node) => {
   // console.log(node, typeof(node), 'result', response, ifIsImage(response));
-  node.appendChild(document.createElement('br'));
+  // node.appendChild(document.createElement('br'));
   if (ifIsImage(response)) {
     const img = document.createElement("img");
     img.src = response;
     node.appendChild(img);
   } else {
-    node.append(`${response}\n`)
+    const span = document.createElement('span');
+    span.className = 'wrap';
+    span.append(`${response}\n`)
+    node.append(span);
   }
 };
 
