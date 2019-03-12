@@ -1,4 +1,5 @@
 {:title "Community"
+ :subtitle "Welcome to Yetibot!"
  :layout :page
  :page-index 3
  :toc true

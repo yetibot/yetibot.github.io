@@ -768,6 +768,12 @@ Example usage:
 !that | meme insanity:
 ```
 
+## GitHub
+
+```yetibot
+!help gh
+```
+
 ## JIRA
 
 Yetibot's JIRA capabilities are fairly powerful. It can operate over a global
