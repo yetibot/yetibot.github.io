@@ -12,7 +12,6 @@ import React from 'react';
 // Team for Community page
 const team = document.querySelector('.core-team');
 if (team) {
-  console.log('found', team, GitHubOrg, ReactDOM, ReactDOM.render);
   const GitHubOrgFactory = React.createFactory(GitHubOrg);
   ReactDOM.render(GitHubOrgFactory({org: 'yetibot', columns: 6}), team);
 }

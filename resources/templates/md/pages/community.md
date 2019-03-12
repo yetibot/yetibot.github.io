@@ -19,7 +19,7 @@ Primary channels are:
 - `#random` - random examples, posts
 - `#music` - album reviews, music suggestions
 
-Feel free to ping `@devth` with questions.
+Feel free to ping `@devth` or any of the core team members with questions.
 
 ## Discussion
 
