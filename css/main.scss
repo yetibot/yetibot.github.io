@@ -1,14 +1,12 @@
-
 // override bulma to use Yetibot's blue for cyan, which in turn affects bulma's
 // `primary` colors
 $cyan: #55C4D4;
 
 $link: $cyan;
 
-@import "bulma/sass/utilities/initial-variables.sass";
+// TODO fix bulma is being overriden by github-org-cards
 
-// $navbar-dropdown-background-color: $black;
-// $navbar-dropdown-item-color: $white-ter;
+@import "bulma/sass/utilities/initial-variables.sass";
 
 @import "bulma/bulma.sass";
 @import "tocbot.css";
