@@ -33,3 +33,8 @@ etc. All topics are welcome.
 Yetibot was started in 2011 by [@devth](https://github.com/devth) as a fun way
 to learn Clojure. It has since evolved into a powerful expressive chat bot used
 by teams for automation and for fun.
+
+<span class="icon">
+  <i class="fab fa-github"></i>
+</span>
+[Edit this page](https://github.com/yetibot/yetibot.github.io/blob/source/resources/templates/md/pages/community.md)

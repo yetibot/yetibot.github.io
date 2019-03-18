@@ -1010,3 +1010,8 @@ I think you get the idea 🧐
   on the `community` repo.
 </div>
 </article>
+
+<span class="icon">
+  <i class="fab fa-github"></i>
+</span>
+[Edit this page](https://github.com/yetibot/yetibot.github.io/blob/source/resources/templates/md/pages/user-guide.md)

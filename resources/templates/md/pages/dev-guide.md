@@ -439,3 +439,8 @@ instance at [public.yetibot.com](https://public.yetibot.com).
   on the `community` repo.
 </div>
 </article>
+
+<span class="icon">
+  <i class="fab fa-github"></i>
+</span>
+[Edit this page](https://github.com/yetibot/yetibot.github.io/blob/source/resources/templates/md/pages/dev-guide.md)
