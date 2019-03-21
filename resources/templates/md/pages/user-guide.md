@@ -831,6 +831,15 @@ client:
 }
 ```
 
+Or if you prefer `curl`:
+
+```bash
+curl -s 'https://public.yetibot.com/graphql' \
+  -H 'Accept: application/json' \
+  --data 'query={adapters {uuid platform}}' \
+  --compressed | jq
+```
+
 ## Recipes
 
 These recipes are fun example usages of Yetibot that more holistically
