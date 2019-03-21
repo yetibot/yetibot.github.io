@@ -831,7 +831,33 @@ client:
 }
 ```
 
-## Examples
+## Recipes
+
+These recipes are fun example usages of Yetibot that more holistically
+communicate its capabilities and historical usage.
+
+### Celcius / Fahrenheit conversion with render
+
+The built in `render` command is quite powerful because it uses the
+[Selmer library](https://github.com/yogthos/Selmer) for rendering
+templates, which includes many
+[filters](https://github.com/yogthos/Selmer#filters) for postprocessing a value.
+
+The following example illustrates this by implementing Celcius to Fahrenheit
+conversion, and vice versa, in terms of `render`:
+
+```
+!alias ctof = "echo $s°C = `render {{$s|multiply:1.8|add:32|round}}°F`"
+!alias ftoc = "echo $s°F = `render {{$s|add:-32|multiply:5|divide:9|round}}°C`"
+```
+
+```yetibot
+!ctof 0
+```
+
+```yetibot
+!ftoc 100
+```
 
 ### Countdown
 
