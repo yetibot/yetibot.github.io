@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
   <head>
     <meta charset="utf-8"/>
-    <title>Yetibot: Moving mutable configuration to the database</title>
-    <link rel="canonical" href="https://yetibot.com/blog/2019-02-20-moving-mutable-config-to-the-database">
+    <title>Yetibot: Yetibot Workshop @ eBay San Jose</title>
+    <link rel="canonical" href="https://yetibot.com/blog/2019-03-26-yetibot-workshop-at-ebay">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="/css/main.css" rel="stylesheet" type="text/css" />
     <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
@@ -119,11 +119,11 @@
   <article class="page-title hero is-dark is-bold is-fullwidth">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title">Moving mutable configuration to the database</h1>
+      <h1 class="title">Yetibot Workshop @ eBay San Jose</h1>
       <p class="subtitle">
         
 
-        February 20, 2019
+        March 26, 2019
         
       </p>
     </div>
@@ -136,13 +136,7 @@
 
     <div class="main columns">
       <div class="column is-two-thirds">
-        <p>It's time to move <a href='https://yetibot.com/ops-guide#mutable'>mutable config</a> to the database in adherence with <a href='https://www.digitalocean.com/community/tutorials/what-is-immutable-infrastructure'>immutable infrastructure</a> practices. Yetibot embraces <a href='https://devth.com/2018/dec-deep-environmental-config'>modern infrastructure</a>. We made a lot of progress moving to mostly-immutable configuration. This is the next step, and is done as of Yetibot <code>0.5.0</code>.</p><p>One reason why we haven't done this up till now is that mutable config has never been relied upon much. Its purpose was to:</p><ol><li>Store channel-specific configuration (e.g. <code>jira-project</code>, <code>broadcast</code>,   <code>jenkins-default</code> or any other arbitrary room-specific key/value) for the   <code>channel</code> command</li><li>Store channel-specific disabled categories for the <code>category</code> command</li><li>Remember which channels Yetibot should join upon connecting to IRC</li></ol><p>Previously these values would be persisted to a local edn file which by default lives at <code>config/mutable.edn</code>. However, in modern cloud environments this is not durable. For example when running Yetibot on Kubernetes this would be lost on each pod creation (unless a durable disk was mounted, but that's an unnecessary complication). We already have a durable place to store keys and values: the Postgres database.</p><p>All of these use cases will now move to a single <code>yetibot&#95;channels</code> table.</p><h2 id="what&#95;does&#95;this&#95;mean&#95;for&#95;me?">What does this mean for me?</h2><p>Given that mutable config hasn't been heavily used the migration should be quite painless. We are not providing an automated migration tool, so your options are:</p><ol><li>Do nothing if you're not using any mutable config yet (quite likely) 😅</li><li>Use Yetibot to recreate the config, e.g. <code>channel set jia-project myjira</code></li><li>Look in <code>config/mutable.edn</code> and manually copy the key/values and chat source   rooms to the <code>yetibot&#95;channels</code> Postgres table. For example, if your   <code>mutable.edn</code> looks like:</li></ol><pre><code class="edn">   {:room
-    {:ybslack
-     {&quot;#general&quot; {:disabled-categories #{:crude}},
-      &quot;#dev&quot; {&quot;jira-project&quot; &quot;YETIBOT&quot;,
-              &quot;nope&quot; &quot;lol&quot;,
-              :disabled-categories #{:crude}}}}}
-   </code></pre><p>   You would create rows in <code>yetibot&#95;channels</code>:</p><p><table> <tr>   <th><code>chat&#95;source&#95;adapter</code></th>   <th><code>chat&#95;source&#95;room</code></th>   <th><code>key</code></th>   <th><code>value</code></th> </tr> <tr>   <td>:ybslack</td>   <td>#general</td>   <td>disabled-categories</td>   <td>#{:crude}</td> </tr> <tr>   <td>:ybslack</td>   <td>#dev</td>   <td>jira-project</td>   <td>YETIBOT</td> </tr> <tr>   <td>:ybslack</td>   <td>#dev</td>   <td>nope</td>   <td>lol</td> </tr> <tr>   <td>:ybslack</td>   <td>#dev</td>   <td>disabled-categories</td>   <td>#{:crude}</td> </tr></p><p></table></p><p>All values in the table are strings.</p><p>If you use IRC, your channels to join config will be lost as well. Simply re-invite Yetibot to the proper channels and they will be stored in the database.</p><p>Here's the <a href='https://github.com/yetibot/yetibot.core/pull/61'>Pull Request</a> that made these changes.</p>
+        <p><img src="/img/yetibot_workshop.jpg" alt="Yetibot Workshop" /></p><p>As part of eBay's internal Front End conference, <a href='https://github.com/devth'>@devth</a> gave a "Contributing to Yetibot" workshop covering:</p><ul><li>A demo of some of Yetibot's fun and useful features</li><li>Brief history of the project</li><li>Fundamentals of Yetibot usage:<ul><li>Aliases</li><li>Expression composition via pipes</li><li>Values and Lists</li><li>Xargs</li><li>Data + render</li></ul></li><li>Livecoding a new feature, adding <code>forecast</code> support to the existing weather  command (<a href='https://github.com/yetibot/yetibot/pull/901'>resulting PR!</a>) with  the goal of showing off the amazing power of the Clojure language and the  interactive development workflow</li></ul><p>The audience consisted of FE engineers who had zero Clojure experience. During the livecoding session we went over some Clojure language basics.</p><p>To explain fundamentals, we deconstructed the <code>alltemps</code> alias, breaking it down to its individual pieces and testing each command in isolation.</p><p><div class="video-responsive"> <iframe   width="854" height="480"   src="https://www.youtube.com/embed/tcFvu6CL2fg?rel=0"   frameborder="0"   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"   allowfullscreen> </iframe> </div></p><p>This was a fun exercise, but to make it even more clear we're planning to build a front end component that, given an expression, visually breaks down the expression into its parts, showing the result of each command in the pipeline and the corresponding data behind them (follow along on <a href='https://github.com/yetibot/yetibot.github.io/issues/6'>#900</a>).</p>
       </div>
       <div class="column toc">
         
@@ -152,11 +146,11 @@
     <div id="post-tags">
       <b>Tags: </b>
       
-        <a href="/tags/config">config</a>
+        <a href="/tags/screencast">screencast</a>
       
-        <a href="/tags/news">news</a>
+        <a href="/tags/presentation">presentation</a>
       
-        <a href="/tags/2019">2019</a>
+        <a href="/tags/events">events</a>
       
     </div>
     
@@ -169,16 +163,11 @@
       <div id="prev-next">
 
         
-        <a class="button is-warning is-medium"
-          href="/blog/2019-03-26-yetibot-workshop-at-ebay">
-          ↞ Yetibot Workshop @ eBay San Jose
-        </a>
-        
 
         
         <a class="button is-warning is-medium"
-          class="right" href="/blog/2019-01-03-yetibot-2019-roadmap">
-          Looking back at 2018 and forward for 2019 ↠
+          class="right" href="/blog/2019-02-20-moving-mutable-config-to-the-database">
+          Moving mutable configuration to the database ↠
         </a>
         
 
@@ -192,8 +181,8 @@
     <div id="disqus_thread"></div>
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = "https://yetibot.com/blog/2019-02-20-moving-mutable-config-to-the-database";
-        this.page.identifier = "Moving mutable configuration to the database";
+        this.page.url = "https://yetibot.com/blog/2019-03-26-yetibot-workshop-at-ebay";
+        this.page.identifier = "Yetibot Workshop @ eBay San Jose";
       };
 (function() {
   var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

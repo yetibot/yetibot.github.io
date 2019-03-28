@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
   <head>
     <meta charset="utf-8"/>
-    <title>Yetibot: Moving mutable configuration to the database</title>
-    <link rel="canonical" href="https://yetibot.com/blog/2019-02-20-moving-mutable-config-to-the-database">
+    <title>Yetibot: Posts Tagged &quot;presentation&quot;</title>
+    <link rel="canonical" href="https://yetibot.com/tags/presentation">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="/css/main.css" rel="stylesheet" type="text/css" />
     <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
@@ -114,97 +114,22 @@
       </nav>
 
       
-
-<div id="post">
-  <article class="page-title hero is-dark is-bold is-fullwidth">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">Moving mutable configuration to the database</h1>
-      <p class="subtitle">
-        
-
-        February 20, 2019
-        
-      </p>
-    </div>
-  </div>
-</article>
-
-
 <section class="section content">
   <div class="container">
-
-    <div class="main columns">
-      <div class="column is-two-thirds">
-        <p>It's time to move <a href='https://yetibot.com/ops-guide#mutable'>mutable config</a> to the database in adherence with <a href='https://www.digitalocean.com/community/tutorials/what-is-immutable-infrastructure'>immutable infrastructure</a> practices. Yetibot embraces <a href='https://devth.com/2018/dec-deep-environmental-config'>modern infrastructure</a>. We made a lot of progress moving to mostly-immutable configuration. This is the next step, and is done as of Yetibot <code>0.5.0</code>.</p><p>One reason why we haven't done this up till now is that mutable config has never been relied upon much. Its purpose was to:</p><ol><li>Store channel-specific configuration (e.g. <code>jira-project</code>, <code>broadcast</code>,   <code>jenkins-default</code> or any other arbitrary room-specific key/value) for the   <code>channel</code> command</li><li>Store channel-specific disabled categories for the <code>category</code> command</li><li>Remember which channels Yetibot should join upon connecting to IRC</li></ol><p>Previously these values would be persisted to a local edn file which by default lives at <code>config/mutable.edn</code>. However, in modern cloud environments this is not durable. For example when running Yetibot on Kubernetes this would be lost on each pod creation (unless a durable disk was mounted, but that's an unnecessary complication). We already have a durable place to store keys and values: the Postgres database.</p><p>All of these use cases will now move to a single <code>yetibot&#95;channels</code> table.</p><h2 id="what&#95;does&#95;this&#95;mean&#95;for&#95;me?">What does this mean for me?</h2><p>Given that mutable config hasn't been heavily used the migration should be quite painless. We are not providing an automated migration tool, so your options are:</p><ol><li>Do nothing if you're not using any mutable config yet (quite likely) 😅</li><li>Use Yetibot to recreate the config, e.g. <code>channel set jia-project myjira</code></li><li>Look in <code>config/mutable.edn</code> and manually copy the key/values and chat source   rooms to the <code>yetibot&#95;channels</code> Postgres table. For example, if your   <code>mutable.edn</code> looks like:</li></ol><pre><code class="edn">   {:room
-    {:ybslack
-     {&quot;#general&quot; {:disabled-categories #{:crude}},
-      &quot;#dev&quot; {&quot;jira-project&quot; &quot;YETIBOT&quot;,
-              &quot;nope&quot; &quot;lol&quot;,
-              :disabled-categories #{:crude}}}}}
-   </code></pre><p>   You would create rows in <code>yetibot&#95;channels</code>:</p><p><table> <tr>   <th><code>chat&#95;source&#95;adapter</code></th>   <th><code>chat&#95;source&#95;room</code></th>   <th><code>key</code></th>   <th><code>value</code></th> </tr> <tr>   <td>:ybslack</td>   <td>#general</td>   <td>disabled-categories</td>   <td>#{:crude}</td> </tr> <tr>   <td>:ybslack</td>   <td>#dev</td>   <td>jira-project</td>   <td>YETIBOT</td> </tr> <tr>   <td>:ybslack</td>   <td>#dev</td>   <td>nope</td>   <td>lol</td> </tr> <tr>   <td>:ybslack</td>   <td>#dev</td>   <td>disabled-categories</td>   <td>#{:crude}</td> </tr></p><p></table></p><p>All values in the table are strings.</p><p>If you use IRC, your channels to join config will be lost as well. Simply re-invite Yetibot to the proper channels and they will be stored in the database.</p><p>Here's the <a href='https://github.com/yetibot/yetibot.core/pull/61'>Pull Request</a> that made these changes.</p>
+    <div id="posts-by-tag">
+      <div id="page-header">
+        <h2>Posts Tagged &quot;presentation&quot;</h2>
       </div>
-      <div class="column toc">
+      <ul>
         
-      </div>
+        <li>
+          <a href="/blog/2019-03-26-yetibot-workshop-at-ebay">Yetibot Workshop @ eBay San Jose</a>
+        </li>
+        
+      </ul>
     </div>
-    
-    <div id="post-tags">
-      <b>Tags: </b>
-      
-        <a href="/tags/config">config</a>
-      
-        <a href="/tags/news">news</a>
-      
-        <a href="/tags/2019">2019</a>
-      
-    </div>
-    
   </div>
-</div>
-
-
-  <section class="section content">
-    <div class="container">
-      <div id="prev-next">
-
-        
-        <a class="button is-warning is-medium"
-          href="/blog/2019-03-26-yetibot-workshop-at-ebay">
-          ↞ Yetibot Workshop @ eBay San Jose
-        </a>
-        
-
-        
-        <a class="button is-warning is-medium"
-          class="right" href="/blog/2019-01-03-yetibot-2019-roadmap">
-          Looking back at 2018 and forward for 2019 ↠
-        </a>
-        
-
-      </div>
-    </div>
-  </section>
-
-  
-
-  <section id="disqus" class="section container">
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-      var disqus_config = function () {
-        this.page.url = "https://yetibot.com/blog/2019-02-20-moving-mutable-config-to-the-database";
-        this.page.identifier = "Moving mutable configuration to the database";
-      };
-(function() {
-  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-  dsq.src = '//yetibot.disqus.com/embed.js';
-  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();
-    </script>
-  </section>
-  
-</div>
-
+</section>
 
 
     </div>
