@@ -12,6 +12,31 @@
     <link rel="manifest" href="/img/favicon/site.webmanifest">
     <link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <link rel="shortcut icon" href="/img/favicon/favicon.ico">
+
+    <!-— facebook open graph tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{site-url}}{{uri}}" />
+    <meta property="og:title" content="{{title}}{% block subtitle %}{% endblock %}" />
+    <meta property="og:description" content="Yeitbot is a powerful, expressive chatops platform written in Clojure." />
+    <meta property="og:image" content="https://yetibot.com/img/yetibot_logo.svg" />
+
+    <!-— twitter card tags additive with the og: tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:domain" value="yetibot.com" />
+    <meta name="twitter:title" value="{{title}}{% block subtitle %}{% endblock %}" />
+    <meta name="twitter:description" value="Yeitbot is a powerful, expressive chatops platform written in Clojure." />
+    <meta name="twitter:image" content="https://yetibot.com/img/yetibot_logo.svg" />
+    <meta name="twitter:url" value="{{site-url}}{{uri}}" />
+
+    {% if post.tags|not-empty %}
+    <meta name="twitter:label1" value="Date" />
+    <meta name="twitter:data1" value="{{post.date|date:longDate}}" />
+      {% for tag in post.tags %}
+    <meta name="twitter:label{{forloop.counter|add:1}}" value="{{tag.name}}" />
+    <meta name="twitter:data{{forloop.counter|add:1}}" value="{{site-url}}{{tag.uri}}" />
+      {% endfor %}
+    {% endif %}
+
     <meta name="msapplication-TileColor" content="#ffc40d">
     <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
