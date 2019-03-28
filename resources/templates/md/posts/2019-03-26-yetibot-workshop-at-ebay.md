@@ -43,3 +43,8 @@ a front end component that, given an expression, visually breaks down the
 expression into its parts, showing the result of each command in the pipeline
 and the corresponding data behind them (follow along on
 [#900](https://github.com/yetibot/yetibot.github.io/issues/6)).
+
+![Yetibot Stickers](/img/yetibot_stickers.jpg)
+
+We now have Yetibot stickers! Ping `@devth` (Slack, Twitter, etc) if you
+want one or three mailed to you!
