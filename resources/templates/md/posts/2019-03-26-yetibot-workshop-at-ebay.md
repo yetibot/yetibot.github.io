@@ -1,6 +1,6 @@
 {:title "Yetibot Workshop @ eBay San Jose"
  :layout :post
- :tags  ["presentation" "events" "screencast"]}
+ :tags  ["presentation" "events" "screencast" "2019"]}
 
 
 ![Yetibot Workshop](/img/yetibot_workshop.jpg)

@@ -1,19 +1,37 @@
 {% extends "/html/base.html" %}
-{%block subtitle %}: Posts Tagged &quot;{{name}}&quot;{% endblock %}
+{%block subtitle %}: &quot;{{name}}&quot; tag{% endblock %}
 {% block content %}
+
+<article class="page-title hero is-dark is-bold is-fullwidth">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">Posts Tagged &quot;{{name}}&quot;</h1>
+    </div>
+  </div>
+</article>
+
+
 <section class="section content">
   <div class="container">
     <div id="posts-by-tag">
-      <div id="page-header">
-        <h2>Posts Tagged &quot;{{name}}&quot;</h2>
-      </div>
-      <ul>
+
+      <div class="columns is-multiline">
+
         {% for post in posts %}
-        <li>
-          <a href="{{post.uri}}">{{post.title}}</a>
-        </li>
+          <div class="column is-3">
+            <div class="card">
+              <div class="card-content">
+                <p class="title">
+                <a href="{{post.uri}}">{{post.title}}</a>
+                </p>
+                <p class="subtitle">
+                {{post.date|date:"MMM dd, YYYY"}}
+                </p>
+              </div>
+            </div>
+          </div>
         {% endfor %}
-      </ul>
+      </div>
     </div>
   </div>
 </section>

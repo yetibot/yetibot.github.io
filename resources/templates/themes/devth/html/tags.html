@@ -2,17 +2,30 @@
 {%block subtitle %}: Tags{% endblock %}
 {% block content %}
 
+<article class="page-title hero is-dark is-bold is-fullwidth">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">Tags</h1>
+    </div>
+  </div>
+</article>
+
 <section class="section content">
   <div class="container">
     <div id="tags-page">
-      <div id="page-header">
-        <h2>Tags</h2>
-      </div>
-      <ul>
+      <div class="columns is-multiline">
         {% for tag in tags %}
-        <li><a href="{{tag.uri}}">{{tag.name}}</a></li>
+          <div class="column is-3">
+            <div class="card">
+              <div class="card-content">
+                <p class="title">
+                  <a href="{{tag.uri}}">{{tag.name}}</a>
+                </p>
+              </div>
+            </div>
+          </div>
         {% endfor %}
-      </ul>
+      </div>
     </div>
   </div>
 </section>

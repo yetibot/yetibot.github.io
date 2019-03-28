@@ -12,6 +12,11 @@ $link: $cyan;
 @import "tocbot.css";
 
 
+body a {
+  // need this  hack until we fix styles in github-org-cards :(
+  color: $link;
+}
+
 
 .navbar .navbar-brand {
   padding: 6px 6px 6px 0;
@@ -270,3 +275,9 @@ h2, h3, h4, h5, p, pre {
   clear: both;
 }
 
+
+// archive / blog
+
+.archive .card {
+  height: 100%;
+}

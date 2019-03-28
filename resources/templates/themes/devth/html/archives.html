@@ -1,29 +1,38 @@
 {% extends "/html/base.html" %}
-{%block subtitle %}: Archives{% endblock %}
+{%block subtitle %}: Blog Archives{% endblock %}
 {% block content %}
 
 <article class="page-title hero is-dark is-bold is-fullwidth">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title">Archives</h1>
+      <h1 class="title">Blog Archives</h1>
     </div>
   </div>
 </article>
 
-<section class="section content">
+<section class="section content archive">
   <div class="container">
     <div id="posts">
-      {% for group in groups %}
-        <h4>{{group.group}}</h4>
-        <ul>
+      <div class="columns is-multiline">
+        {% for group in groups %}
           {% for post in group.posts %}
-            <li>
-              {{post.date|date:"MMM dd"}} - <a href="{{post.uri}}">{{post.title}}</a>
-            </li>
+
+          <div class="column is-3">
+            <div class="card">
+              <div class="card-content">
+                <p class="title">
+                <a href="{{post.uri}}">{{post.title}}</a>
+                </p>
+                <p class="subtitle">
+                {{post.date|date:"MMM dd, YYYY"}}
+                </p>
+              </div>
+            </div>
+          </div>
           {% endfor %}
-        </ul>
-      {% endfor %}
-      <a href="{{rss-uri}}" class="button is-info">RSS</a>
+        {% endfor %}
+      </div>
+      <a href="{{rss-uri}}" class="button is-warning">RSS</a>
     </div>
   </div>
 </section>

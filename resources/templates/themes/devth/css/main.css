@@ -6429,6 +6429,9 @@ label.panel-block {
   background-color: whitesmoke;
   padding: 3rem 1.5rem 6rem; }
 
+body a {
+  color: #55C4D4; }
+
 .navbar .navbar-brand {
   padding: 6px 6px 6px 0; }
 
@@ -6577,5 +6580,8 @@ footer.footer {
 
 h2, h3, h4, h5, p, pre {
   clear: both; }
+
+.archive .card {
+  height: 100%; }
 
 /*# sourceMappingURL=main.css.map */
