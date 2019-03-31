@@ -155,7 +155,24 @@
 </code></pre><p>To fully reload and restart the adapters and database connections, use:</p><pre><code class="clojure">&#40;reset&#41;
 </code></pre><p>And to stop, use:</p><pre><code class="clojure">&#40;stop&#41;
 </code></pre><p>See source for <a href='https://github.com/yetibot/yetibot.core/blob/master/src/yetibot/core/repl.clj'><code>yetibot.core.repl</code></a> for more info.</p><h3 id="linting">Linting</h3><p>Run this from the repo root to lint:</p><pre><code class="bash">codeclimate analyze
-</code></pre><h2 id="building&#95;your&#95;first&#95;command">Building your first command</h2><p>TODO</p><h2 id="testing&#95;yetibot.core&#95;changes&#95;in&#95;yetibot">Testing yetibot.core changes in yetibot</h2><p>If you need to test out changes to <code>yetibot.core</code> in <code>yetibot</code>, this can be done by installing the <code>yetibot.core</code> SNAPSHOT locally and consuming it from <code>yetibot</code>:</p><pre><code class="bash">&#91;yetibot.core&#93; $ lein install
+</code></pre><h2 id="building&#95;your&#95;first&#95;command">Building your first command</h2><p>Building a Yetibot command is easy. The primary interface is <code>cmd-hook</code>, which registers a command with its prefix and set of sub-commands.</p><p>Here's an example command that adds 2 numbers:</p><pre><code class="clojure">&#40;ns mycompany.plugins.commands.add
+  &#40;:require &#91;yetibot.core.hooks :refer &#91;cmd-hook&#93;&#93;&#41;&#41;
+
+&#40;defn add-cmd
+  &quot;add &lt;number1&gt; &lt;number2&gt; # Add two numbers&quot;
+  &#91;{&#91;&#95; n1 n2&#93; :match}&#93; &#40;+ &#40;read-string n1&#41; &#40;read-string n2&#41;&#41;&#41;
+
+&#40;cmd-hook #&quot;add&quot; ;; command prefix
+  ;; Pattern to match the subcommand on the left and the function to handle it
+  ;; on the right. Notice that we specified a docstring on `add-cmd` - Yetibot
+  ;; will use this to populate the help docs for the `add` command.
+  #&quot;&#40;\d+&#41;\s+&#40;\d+&#41;&quot; add-cmd&#41;
+</code></pre><p>An example invocation would look like:</p><pre><code>!add 2 3
+5
+</code></pre><p>And if we ask for help:</p><pre><code>!help add
+add &lt;number1&gt; &lt;number2&gt; # Add two numbers
+</code></pre><p>In addition to loading its own internal commands, Yetibot will load all command namespaces matching:</p><pre><code class="clojure">#&quot;&#94;.&#42;plugins\.commands.&#42;&quot;
+</code></pre><p>So in our example above, the <code>mycompany.plugins.commands.add</code> namespace would be matched by this pattern and loaded.</p><p>For many more examples of various commands, take a look at <a href='https://github.com/yetibot/yetibot/tree/master/src/yetibot/commands'>Yetibot's built in commands</a>.</p><h2 id="testing&#95;yetibot.core&#95;changes&#95;in&#95;yetibot">Testing yetibot.core changes in yetibot</h2><p>If you need to test out changes to <code>yetibot.core</code> in <code>yetibot</code>, this can be done by installing the <code>yetibot.core</code> SNAPSHOT locally and consuming it from <code>yetibot</code>:</p><pre><code class="bash">&#91;yetibot.core&#93; $ lein install
 Warning: specified :main without including it in :aot.
 Implicit AOT of :main will be removed in Leiningen 3.0.0.
 If you only need AOT for your uberjar, consider adding :aot :all into your
@@ -244,7 +261,7 @@ Installed jar and pom into local repo.
       </div>
     </footer>
 
-    <script src="/js/dist.js?q=28032019103924" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/dist.js?q=3103201991319" type="text/javascript" charset="utf-8"></script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <script src="/js/highlight.pack.js" type="text/javascript"></script>
