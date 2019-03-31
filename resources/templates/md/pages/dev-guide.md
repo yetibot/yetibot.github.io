@@ -124,7 +124,52 @@ codeclimate analyze
 
 ## Building your first command
 
-TODO
+Building a Yetibot command is easy. The primary interface is `cmd-hook`, which
+registers a command with its prefix and set of sub-commands.
+
+Here's an example command that adds 2 numbers:
+
+```clojure
+(ns mycompany.plugins.commands.add
+  (:require [yetibot.core.hooks :refer [cmd-hook]]))
+
+(defn add-cmd
+  "add <number1> <number2> # Add two numbers"
+  [{[_ n1 n2] :match}] (+ (read-string n1) (read-string n2)))
+
+(cmd-hook #"add" ;; command prefix
+  ;; Pattern to match the subcommand on the left and the function to handle it
+  ;; on the right. Notice that we specified a docstring on `add-cmd` - Yetibot
+  ;; will use this to populate the help docs for the `add` command.
+  #"(\d+)\s+(\d+)" add-cmd)
+```
+
+An example invocation would look like:
+
+```
+!add 2 3
+5
+```
+
+And if we ask for help:
+
+```
+!help add
+add <number1> <number2> # Add two numbers
+```
+
+In addition to loading its own internal commands, Yetibot will load all command
+namespaces matching:
+
+```clojure
+#"^.*plugins\.commands.*"
+```
+
+So in our example above, the `mycompany.plugins.commands.add` namespace would be
+matched by this pattern and loaded.
+
+For many more examples of various commands, take a look at
+[Yetibot's built in commands](https://github.com/yetibot/yetibot/tree/master/src/yetibot/commands).
 
 ## Testing yetibot.core changes in yetibot
 
