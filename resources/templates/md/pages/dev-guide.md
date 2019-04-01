@@ -132,7 +132,8 @@ codeclimate analyze
   If you're new to Yetibot usage, it might be useful to check out the
   [Contributing to Yetibot screencast](https://yetibot.com/blog/2019-03-26-yetibot-workshop-at-ebay)
   where we break down a non-trivial nested alias and explain how command
-  composition works.
+  composition works. This screencast also includes livecoding a new feature
+  (adding `forecast` support to weather).
 </div>
 </article>
 
