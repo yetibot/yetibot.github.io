@@ -124,6 +124,18 @@ codeclimate analyze
 
 ## Building your first command
 
+<article class="message is-info">
+<div class="message-header">
+  <p>Heads up</p>
+</div>
+<div class="message-body">
+  If you're new to Yetibot usage, it might be useful to check out the
+  [Contributing to Yetibot screencast](https://yetibot.com/blog/2019-03-26-yetibot-workshop-at-ebay)
+  where we break down a non-trivial nested alias and explain how command
+  composition works.
+</div>
+</article>
+
 Building a Yetibot command is easy. The primary interface is `cmd-hook`, which
 registers a command with its prefix and set of sub-commands.
 
