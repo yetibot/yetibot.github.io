@@ -768,6 +768,44 @@ Example usage:
 !that | meme insanity:
 ```
 
+## Karma
+
+The `karma` command lets you increment or decrement another user's karma along
+with a note.
+
+```yetibot
+!help karma
+```
+
+View the leaderboard:
+
+```yetibot
+!karma
+```
+
+Give Yetibot some ❤️:
+
+```yetibot
+!karma @yetibot++ these docs
+```
+
+Give Yetibot some 💔:
+
+```yetibot
+!karma @yetibot-- you had one job
+```
+
+In addition to these commands, karma is also exposed via the GraphQL API!
+
+Try a query like:
+
+```bash
+curl -s 'https://public.yetibot.com/graphql' \
+  -H 'Accept: application/json' \
+  --data 'query={stats {uptime adapter_count user_count command_count}}' \
+  --compressed | jq
+```
+
 ## GitHub
 
 ```yetibot
@@ -831,12 +869,19 @@ client:
 }
 ```
 
-Or if you prefer `curl`:
+Or if you prefer examples in `curl`:
 
 ```bash
+# list the configured Adapters
 curl -s 'https://public.yetibot.com/graphql' \
   -H 'Accept: application/json' \
   --data 'query={adapters {uuid platform}}' \
+  --compressed | jq
+
+# get some stats about this Yetibot
+curl -s 'https://public.yetibot.com/graphql' \
+  -H 'Accept: application/json' \
+  --data 'query={stats {uptime adapter_count user_count command_count}}' \
   --compressed | jq
 ```
 
