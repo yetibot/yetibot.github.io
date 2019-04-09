@@ -800,9 +800,16 @@ In addition to these commands, karma is also exposed via the GraphQL API!
 Try a query like:
 
 ```bash
+# scores
 curl -s 'https://public.yetibot.com/graphql' \
   -H 'Accept: application/json' \
-  --data 'query={stats {uptime adapter_count user_count command_count}}' \
+  --data 'query={karmas(report: SCORES) {user_id score}}' \
+  --compressed | jq
+
+# givers
+curl -s 'https://public.yetibot.com/graphql' \
+  -H 'Accept: application/json' \
+  --data 'query={karmas(report: GIVERS) {user_id score}}' \
   --compressed | jq
 ```
 
