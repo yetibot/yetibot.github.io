@@ -6464,7 +6464,7 @@ pre {
   pre img {
     display: block; }
   pre code .wrap {
-    white-space: normal; }
+    white-space: pre-wrap; }
 
 .is-horizontal-center {
   justify-content: center; }
