@@ -71,6 +71,9 @@ Slack. See
 [Up and running / minimal config](https://yetibot.com/ops-guide/#minimal_config)
 docs for a simple IRC example.
 
+For the full set of configuration options see the
+[Ops Guide / Configuration section](/ops-guide#configuration).
+
 ### REPL
 
 Start up a development REPL with:

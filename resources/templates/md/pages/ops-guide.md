@@ -106,9 +106,7 @@ the above config, it'd look like:
   :db {:url "postgresql://user:pass@mydb:5432/yetibot"}}}
 ```
 
-For full config see the
-[CONFIGURATION](https://github.com/yetibot/yetibot.core/blob/master/doc/CONFIGURATION.md)
-docs (TODO move these to the site).
+For full config see the [Configuration docs](#configuration).
 
 ### Postgres
 
@@ -225,7 +223,8 @@ precedence with the first overriding the next:
 
 When multiple methods are specified the values are merged.
 
-See sample configuration files in both formats:
+There are many configuration options in Yetibot. See sample configuration files
+annotated with inline documentation in both formats:
 
 - [profiles.sample.clj](https://github.com/yetibot/yetibot.core/blob/master/config/profiles.sample.clj)
 - [config.sample.edn](https://github.com/yetibot/yetibot.core/blob/master/config/config.sample.edn)
@@ -245,15 +244,6 @@ On the other hand, the benefits of immutability are well-known. Explicitly
 separating out the small amount of mutable config from the majority of immutable
 config lets us maximize immutability benefits and minimize negative affects of
 mutability in our system.
-
-<article class="message is-info">
-<div class="message-header">
-  <p>Note</p>
-</div>
-<div class="message-body">
-  In the future we may move all mutable configuration to the database.
-</div>
-</article>
 
 ### Modes
 
@@ -281,15 +271,12 @@ need to change very often. Examples include:
 
 #### Mutable
 
-**Mutable config source** is an EDN file stored at `./config/mutable.edn` by
-default. `CONFIG_MUTABLE` can optionally be defined to specify a custom
-location. Yetibot reads and writes to this file at runtime, so it should not
-be modified by hand while Yetibot is running.
+**All mutable config is stored in the database**.
 
 A much smaller subset of commands need mutable config, e.g.:
 
 - IRC channels
-- Room settings
+- Channel settings
 
 ### Prefixes
 
