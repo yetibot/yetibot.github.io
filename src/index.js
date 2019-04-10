@@ -17,6 +17,7 @@ if (team) {
 }
 
 const endpoint = "https://public.yetibot.com/graphql";
+// const endpoint = "http://localhost:3003/graphql";
 const client = new ApolloClient({uri: endpoint});
 
 // TOC interactive - desktop only for now

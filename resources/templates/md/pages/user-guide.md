@@ -771,7 +771,7 @@ Example usage:
 ## Karma
 
 The `karma` command lets you increment or decrement another user's karma along
-with a note.
+with an optional note.
 
 ```yetibot
 !help karma
@@ -786,7 +786,7 @@ View the leaderboard:
 Give Yetibot some ❤️:
 
 ```yetibot
-!karma @yetibot++ these docs
+!karma @yetibot++ thanks Yetibot
 ```
 
 Give Yetibot some 💔:
@@ -795,7 +795,13 @@ Give Yetibot some 💔:
 !karma @yetibot-- you had one job
 ```
 
-In addition to these commands, karma is also exposed via the GraphQL API!
+Now take a look at Yetibot's Karma:
+
+```yetibot
+!karma @yetibot
+```
+
+In addition to these commands, `karma` is also exposed via the GraphQL API!
 
 Try a query like:
 
@@ -811,6 +817,13 @@ curl -s 'https://public.yetibot.com/graphql' \
   -H 'Accept: application/json' \
   --data 'query={karmas(report: GIVERS) {user_id score}}' \
   --compressed | jq
+
+# inspect Yetibot's karma
+curl -s 'https://public.yetibot.com/graphql' \
+  -H 'Accept: application/json' \
+  --data 'query={user(id:"U3K6P707R"){username,karma}}' \
+  --compressed | jq
+
 ```
 
 ## GitHub
