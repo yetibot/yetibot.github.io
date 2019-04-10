@@ -768,6 +768,64 @@ Example usage:
 !that | meme insanity:
 ```
 
+## Karma
+
+The `karma` command lets you increment or decrement another user's karma along
+with an optional note.
+
+```yetibot
+!help karma
+```
+
+View the leaderboard:
+
+```yetibot
+!karma
+```
+
+Give Yetibot some ❤️:
+
+```yetibot
+!karma @yetibot++ thanks Yetibot
+```
+
+Give Yetibot some 💔:
+
+```yetibot
+!karma @yetibot-- you had one job
+```
+
+Now take a look at Yetibot's Karma:
+
+```yetibot
+!karma @yetibot
+```
+
+In addition to these commands, `karma` is also exposed via the GraphQL API!
+
+Try a query like:
+
+```bash
+# scores
+curl -s 'https://public.yetibot.com/graphql' \
+  -H 'Accept: application/json' \
+  --data 'query={karmas(report: SCORES) {user_id score}}' \
+  --compressed | jq
+
+# givers
+curl -s 'https://public.yetibot.com/graphql' \
+  -H 'Accept: application/json' \
+  --data 'query={karmas(report: GIVERS) {user_id score}}' \
+  --compressed | jq
+
+# inspect Yetibot's karma
+curl -s 'https://public.yetibot.com/graphql' \
+  -H 'Accept: application/json' \
+  --data 'query={user(id:"U3K6P707R"){username,karma}}' \
+  --compressed | jq
+
+```
+
 ## GitHub
 
 ```yetibot
@@ -831,12 +889,19 @@ client:
 }
 ```
 
-Or if you prefer `curl`:
+Or if you prefer examples in `curl`:
 
 ```bash
+# list the configured Adapters
 curl -s 'https://public.yetibot.com/graphql' \
   -H 'Accept: application/json' \
   --data 'query={adapters {uuid platform}}' \
+  --compressed | jq
+
+# get some stats about this Yetibot
+curl -s 'https://public.yetibot.com/graphql' \
+  -H 'Accept: application/json' \
+  --data 'query={stats {uptime adapter_count user_count command_count}}' \
   --compressed | jq
 ```
 
