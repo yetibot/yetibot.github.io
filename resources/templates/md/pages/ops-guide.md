@@ -65,6 +65,23 @@ config like:
       - YB_DB_URL=postgresql://yetibot:yetibot@postgres:5432/yetibot
 ```
 
+<article class="message is-warning">
+<div class="message-header">
+  <p>🐳🐳🐳</p>
+</div>
+<div class="message-body">
+  For your reference, see Yetibot's
+  [`Dockerfile`](https://github.com/yetibot/yetibot/blob/master/Dockerfile).
+
+  If you decide to override the default command, make sure you activate the
+  `docker` profile (e.g. `lein with-profile +docker run`) as this properly
+  specifies the `.java.policy` location, which is necessary for the JVM Sandbox
+  utilized by the `clj` command.
+</div>
+</article>
+
+
+
 ### Kubernetes with Helm
 
 Running on Kubernetes is super simple with the official
