@@ -1073,7 +1073,13 @@ Finally:
 
 ![yetibot should not](//i.imgflip.com/wx53f.jpg)
 
-👏
+Or try the variant, `yetishould`:
+
+```yetibot
+!yetishould
+```
+
+Hint: run it more than once 😁
 
 ### Grids
 
