@@ -153,7 +153,7 @@
       - YB&#95;ADAPTERS&#95;SLACK&#95;TYPE=slack
       - YB&#95;ADAPTERS&#95;SLACK&#95;TOKEN=xoxb-my-token
       - YB&#95;DB&#95;URL=postgresql://yetibot:yetibot@postgres:5432/yetibot
-</code></pre><h3 id="kubernetes&#95;with&#95;helm">Kubernetes with Helm</h3><p>Running on Kubernetes is super simple with the official <a href='https://github.com/yetibot/yetibot-helm'>yetibot-helm</a> chart.</p><h3 id="minimal&#95;config">Minimal config</h3><p>A very minimal config would be <code>config/config.edn</code>:</p><pre><code class="clojure">{:yetibot
+</code></pre><p><article class="message is-warning"> <div class="message-header">   <p>🐳🐳🐳</p> </div> <div class="message-body">   For your reference, see Yetibot's   <a href='https://github.com/yetibot/yetibot/blob/master/Dockerfile'><code>Dockerfile</code></a>.</p><p>  If you decide to override the default command, make sure you activate the   <code>docker</code> profile (e.g. <code>lein with-profile +docker run</code>) as this properly   specifies the <code>.java.policy</code> location, which is necessary for the JVM Sandbox   utilized by the <code>clj</code> command. </div> </article></p><h3 id="kubernetes&#95;with&#95;helm">Kubernetes with Helm</h3><p>Running on Kubernetes is super simple with the official <a href='https://github.com/yetibot/yetibot-helm'>yetibot-helm</a> chart.</p><h3 id="minimal&#95;config">Minimal config</h3><p>A very minimal config would be <code>config/config.edn</code>:</p><pre><code class="clojure">{:yetibot
   {:adapters {:freenode {:type &quot;irc&quot;,
                         :username &quot;my-yetibot&quot;,
                         :host &quot;chat.freenode.net&quot;,
@@ -281,7 +281,7 @@ lein repl :connect localhost:65432
       </div>
     </footer>
 
-    <script src="/js/dist.js?q=1204201912324" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/dist.js?q=1204201945021" type="text/javascript" charset="utf-8"></script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <script src="/js/highlight.pack.js" type="text/javascript"></script>
