@@ -832,6 +832,52 @@ curl -s 'https://public.yetibot.com/graphql' \
 !help gh
 ```
 
+List the open PRs for Yetibot:
+
+```yetibot
+!gh pr yetibot
+```
+
+or try Clojure:
+
+```yetibot
+!gh pr clojure
+```
+
+List Yetibot's repos:
+
+```yetibot
+!gh repos yetibot
+```
+
+List the tags on `yetibot.core`:
+
+```yetibot
+!gh tags yetibot/yetibot.core
+```
+
+List contributors on the `yetibot/yetibot` repo since last month:
+
+```yetibot
+!gh contributors yetibot/yetibot since 1 month ago
+```
+
+Look up git change stats on Clojure:
+
+```yetibot
+!gh stats clojure/clojure
+```
+
+Look up git change stats on Yetibot's first 3 repos:
+
+```yetibot
+!gh repos yetibot | head 3
+```
+
+```yetibot
+!gh repos yetibot | head 3 | xargs words | xargs head | xargs gh stats
+```
+
 ## JIRA
 
 Yetibot's JIRA capabilities are fairly powerful. It can operate over a global
