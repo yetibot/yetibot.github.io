@@ -262,9 +262,11 @@
 </code></pre><p>Example usage:</p><pre><code>!that | meme insanity:
 </code></pre><h2 id="karma">Karma</h2><p>The <code>karma</code> command lets you increment or decrement another user's karma along with an optional note.</p><pre><code class="yetibot">!help karma
 </code></pre><p>View the leaderboard:</p><pre><code class="yetibot">!karma
-</code></pre><p>Give Yetibot some ❤️:</p><pre><code class="yetibot">!karma @yetibot++ thanks Yetibot
-</code></pre><p>Give Yetibot some 💔:</p><pre><code class="yetibot">!karma @yetibot-- you had one job
-</code></pre><p>Now take a look at Yetibot's Karma:</p><pre><code class="yetibot">!karma @yetibot
+</code></pre><p>There are three ways to adjust a user's Karma.</p><p>The canonical <code>!karma</code> command invocation, using the traditional C increment (<code>++</code>) or decrement (<code>&ndash;</code>) operators, optionally followed by a note.</p><pre><code class="yetibot">!karma @yetibot++ thanks Yetibot
+</code></pre><pre><code class="yetibot">!karma @yetibot-- you had one job
+</code></pre><p>The Emoji versions to add (🌈) or subtract (⛈), optionally followed by a note.</p><pre><code class="plain">🌈 @yetibot 
+</code></pre><pre><code class="plain">⛈ @yetibot I told you to go before we got in the car!
+</code></pre><p>Via Emoji reactions, which necessarily preclude the addition of notes.</p><p><img src="/img/screenshots/karma.png" alt="karma screenshot" /></p><p>At this time removing your Emoji reaction does not reverse the initial addition or subtraction of Karma.</p><p>In all cases, Yetibot will respond with the user's new score.  Emoji reaction Karma is reported in a thread.</p><p>Now take a look at Yetibot's Karma:</p><pre><code class="yetibot">!karma @yetibot
 </code></pre><p>In addition to these commands, <code>karma</code> is also exposed via the GraphQL API!</p><p>Try a query like:</p><pre><code class="bash"># scores
 curl -s 'https://public.yetibot.com/graphql' \
   -H 'Accept: application/json' \
@@ -283,6 +285,7 @@ curl -s 'https://public.yetibot.com/graphql' \
   --data 'query={user&#40;id:&quot;U3K6P707R&quot;&#41;{username,karma}}' \
   --compressed | jq
 
+</code></pre><p>You can configure the positive and negative Emojis used in commands and reactions, overriding the default 🌈 and ⛈.  Have a look at <a href='https://github.com/yetibot/yetibot.core/blob/master/config/config.sample.edn'>config/config.sample.edn</a>.</p><p>Please use Slack shortcodes and not the Unicode characters themselves.</p><pre><code class="edn">:karma {:emoji {:positive &quot;:taco:&quot; :negative &quot;:poop:&quot;}}}}
 </code></pre><h2 id="github">GitHub</h2><pre><code class="yetibot">!help gh
 </code></pre><p>List the open PRs for Yetibot:</p><pre><code class="yetibot">!gh pr yetibot
 </code></pre><p>or try Clojure:</p><pre><code class="yetibot">!gh pr clojure
@@ -464,7 +467,7 @@ have a savings account
       </div>
     </footer>
 
-    <script src="/js/dist.js?q=1204201945021" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/dist.js?q=1804201912259" type="text/javascript" charset="utf-8"></script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <script src="/js/highlight.pack.js" type="text/javascript"></script>
