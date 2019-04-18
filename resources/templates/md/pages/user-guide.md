@@ -783,17 +783,35 @@ View the leaderboard:
 !karma
 ```
 
-Give Yetibot some ❤️:
+There are three ways to adjust a user's Karma.
+
+The canonical `!karma` command invocation, using the traditional C increment (`++`) or decrement (`--`) operators, optionally followed by a note.
 
 ```yetibot
 !karma @yetibot++ thanks Yetibot
 ```
 
-Give Yetibot some 💔:
-
 ```yetibot
 !karma @yetibot-- you had one job
 ```
+
+The Emoji versions to add (🌈) or subtract (⛈), optionally followed by a note.
+
+```plain
+🌈 @yetibot 
+```
+
+```plain
+⛈ @yetibot I told you to go before we got in the car!
+```
+
+Via Emoji reactions, which necessarily preclude the addition of notes.
+
+![karma screenshot](/img/screenshots/karma.png)
+
+At this time removing your Emoji reaction does not reverse the initial addition or subtraction of Karma.
+
+In all cases, Yetibot will respond with the user's new score.  Emoji reaction Karma is reported in a thread.
 
 Now take a look at Yetibot's Karma:
 
@@ -825,6 +843,15 @@ curl -s 'https://public.yetibot.com/graphql' \
   --compressed | jq
 
 ```
+
+You can configure the positive and negative Emojis used in commands and reactions, overriding the default 🌈 and ⛈.  Have a look at [config/config.sample.edn](https://github.com/yetibot/yetibot.core/blob/master/config/config.sample.edn).
+
+Please use Slack shortcodes and not the Unicode characters themselves.
+
+```edn
+:karma {:emoji {:positive ":taco:" :negative ":poop:"}}}}
+```
+
 
 ## GitHub
 
