@@ -805,13 +805,13 @@ The Emoji versions to add (🌈) or subtract (⛈), optionally followed by a not
 ⛈ @yetibot I told you to go before we got in the car!
 ```
 
-Via Emoji responses, which necessarily preclude the addition of notes.
+Via Emoji reactions, which necessarily preclude the addition of notes.
 
 ![karma screenshot](/img/screenshots/karma.png)
 
-At this time removing your Emoji response does not reverse the initial addition or subtraction of Karma.
+At this time removing your Emoji reaction does not reverse the initial addition or subtraction of Karma.
 
-In all cases, Yetibot will respond with the user's new score.  Emoji response Karma is updated in a thread.
+In all cases, Yetibot will respond with the user's new score.  Emoji reaction Karma is reported in a thread.
 
 Now take a look at Yetibot's Karma:
 
@@ -844,7 +844,7 @@ curl -s 'https://public.yetibot.com/graphql' \
 
 ```
 
-You can configure the positive and negative Emojis used in commands and responses, overriding the default 🌈 and ⛈.  Have a look at `config/config.sample.edn`
+You can configure the positive and negative Emojis used in commands and reactions, overriding the default 🌈 and ⛈.  Have a look at [config/config.sample.edn](https://github.com/yetibot/yetibot.core/blob/master/config/config.sample.edn).
 
 Please use Slack shortcodes and not the Unicode characters themselves.
 
