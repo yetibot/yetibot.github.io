@@ -308,6 +308,108 @@ Check out the source for the `weather` command to see how it works:
 It's not a requirement that your command outputs this structure, but it's highly
 recommended!
 
+
+#### Symmetry between `:result/data` and `:result/value`
+
+Returning `:result/data` from commands is great, but we need to be intentional
+about the symmetry between data and the human-friendly derived representation
+(i.e. `:result/value`). If we maintain symmetry, then collection commands such
+as `random` or `head` or `tail` can continue to propagate the data.
+
+As an example, let's look at the response from `github search`:
+
+```
+github search cmd-hook org:yetibot
+```
+
+This command makes an API call via GitHub's API which gives us a response like:
+
+```clojure
+{:total_count 104,
+ :incomplete_results false,
+ :items
+ [{:name "codeclimate.clj",
+   :path "src/yetibot_codeclimate/plugins/commands/codeclimate.clj",
+   :sha "9e13c91b2c40abe538b98e5c74f320aaa620aefd",
+   :url
+   "https://api.github.com/repositories/50538984/contents/src/yetibot_codeclimate/plugins/commands/codeclimate.clj?ref=46a59493ff7d249dcc9d33b479f41be623ec65a8",
+   :git_url
+   "https://api.github.com/repositories/50538984/git/blobs/9e13c91b2c40abe538b98e5c74f320aaa620aefd",
+   :html_url
+   "https://github.com/yetibot/yetibot-codeclimate/blob/46a59493ff7d249dcc9d33b479f41be623ec65a8/src/yetibot_codeclimate/plugins/commands/codeclimate.clj",
+   :repository
+   {:html_url "https://github.com/yetibot/yetibot-codeclimate",
+    :description ":rocket: Yetibot plugin for CodeClimate integration",
+    ;; ... elided
+    },
+   :score 33.93865}
+  {:name "stackstorm.clj",
+   :path "src/yetibot_stackstorm/plugins/commands/stackstorm.clj",
+   :sha "0bb9fec80a83b51d1dbbc7828d9745934856228d",
+   :url
+   "https://api.github.com/repositories/45482966/contents/src/yetibot_stackstorm/plugins/commands/stackstorm.clj?ref=d5a26ceecba749ecedd2df2c8dc2984df7d46c32",
+   :git_url
+   "https://api.github.com/repositories/45482966/git/blobs/0bb9fec80a83b51d1dbbc7828d9745934856228d",
+   :html_url
+   "https://github.com/yetibot/yetibot-stackstorm/blob/d5a26ceecba749ecedd2df2c8dc2984df7d46c32/src/yetibot_stackstorm/plugins/commands/stackstorm.clj",
+   :repository {} ;; elided
+   :score 31.011341}
+```
+
+But the human friendly `:result/value` looks like:
+
+```
+https://github.com/yetibot/yetibot-codeclimate/blob/46a59493ff7d249dcc9d33b479f41be623ec65a8/src/yetibot_codeclimate/plugins/commands/codeclimate.clj
+https://github.com/yetibot/yetibot-stackstorm/blob/d5a26ceecba749ecedd2df2c8dc2984df7d46c32/src/yetibot_stackstorm/plugins/commands/stackstorm.clj
+```
+
+listing only the `:html_url` of each item in the `:items` vector.
+
+In order for collection commands to propagate data, we need symmetry between the
+collection of values in `:result/value` and the data structure in
+`:result/data`, meaning each item in `:result/value` has a corresponding data
+item in `:result/data`. One way to do this would be to return the `:items`
+collection as `:result/data` but we'd be giving up useful data in the process
+(`:total_count` for example).
+
+Instead, we can attach a hint to the result map using the
+`:result/collection-path` key specifying the path to the items collection that
+was used to derive a human-friendly representation:
+
+```clojure
+(let [{items :items :as result} (gh/search-code query)]
+  {:result/data result
+   :result/collection-path [:items]
+   :result/value (map :html_url items)})
+```
+
+The expression pipeline will see this and use `get-in` on the value of
+`:result/data` to obtain the subset of data and pass it to command handlers
+under the `:data-collection` key.
+
+Now data propagation can work across collection utilities! For example, here is
+how `random` preserves the data:
+
+```clojure
+(defn random
+  "random <list> # returns a random item from <list>
+   random # generate a random number"
+  {:yb/cat #{:util :collection}}
+  [{:keys [data-collection] items :opts}]
+  (if (not (empty? items))
+    (let [idx (rand-int (count (ensure-items-collection items)))
+          item (nth items idx)
+          data (when data-collection (nth data-collection idx))]
+     {:result/value item
+      :result/data data})
+    (str (rand 100000))))
+```
+
+1. Generate a random int within the range of `items` length
+1. Extract the nth item from `items`
+1. Extract the corresponding nth item from `data-collection`
+1. Return these together as `:result/value` and `:result/data`
+
 ### Errors
 
 Along the same lines as `:result/data` demonstrated in the previous section, a
