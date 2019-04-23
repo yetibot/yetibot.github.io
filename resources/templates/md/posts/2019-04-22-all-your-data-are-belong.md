@@ -153,6 +153,17 @@ A few more examples demonstrating `grep` and `tail`:
 !github repos yetibot | tail 2 | data show
 ```
 
+Repeat now propagates any data returned by the command it's running:
+
+```yetibot
+!github repos yetibot | repeat 2 random | data show
+```
+
+```yetibot
+!repeat 3 cljquote | data show
+```
+
+
 ## Docs
 
 See the [updated data docs](https://yetibot.com/user-guide#data) for more details.
