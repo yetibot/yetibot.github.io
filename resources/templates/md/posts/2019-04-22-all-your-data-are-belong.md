@@ -119,13 +119,12 @@ are preserved.
 
 This works because there is symmetry between `:result/data` and `:result/value`,
 meaning each item in the `:result/value` collection corresponds with each item
-in `:result/data` or some subset of `:result/data. This doesn't mean that
+in `:result/data` or some subset of `:result/data`. This doesn't mean that
 `:result/data` must be a sequential collection. Often API responses return a top
 level map as the body with useful attributes like `:total-count` or other meta
 data, then return the collection as an attribute of that map, e.g. `:items`. In
 cases like these we don't want to give up those potentially-useful attributes,
-so instead commands can return an optional KV in their response,
-e.g.:
+so instead commands can return an optional KV in their response, e.g.:
 
 ```clojure
 {:result/value ["red" "green" "blue"]
