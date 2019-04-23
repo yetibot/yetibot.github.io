@@ -308,7 +308,6 @@ Check out the source for the `weather` command to see how it works:
 It's not a requirement that your command outputs this structure, but it's highly
 recommended!
 
-
 #### Symmetry between `:result/data` and `:result/value`
 
 Returning `:result/data` from commands is great, but we need to be intentional
@@ -387,8 +386,9 @@ The expression pipeline will see this and use `get-in` on the value of
 `:result/data` to obtain the subset of data and pass it to command handlers
 under the `:data-collection` key.
 
-Now data propagation can work across collection utilities! For example, here is
-how `random` preserves the data:
+Collection utilities use `data-collection` to propagate the correct data that
+mirrors the transformation it applies to `opts`. For example, here is how
+`random` propagates the proper data:
 
 ```clojure
 (defn random
