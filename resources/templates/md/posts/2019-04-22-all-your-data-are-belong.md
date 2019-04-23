@@ -68,9 +68,13 @@ syntax.
 !help data
 ```
 
+Let's peak at the data behind a Tweet:
+
 ```yetibot
 !twitter display 1095377246494220288 | data show
 ```
+
+And get an abbreviated view looking only at its keys:
 
 ```yetibot
 !twitter display 1095377246494220288 | data | keys
@@ -86,7 +90,7 @@ full text of the original tweet:
 We could do the same with `clj` using pure Clojure functions:
 
 ```yetibot
-!twitter display 1095377246494220288 | clj (get-in data [:quoted_status :full_text]
+!twitter display 1095377246494220288 | clj (get-in data [:quoted_status :full_text])
 ```
 
 And if we wanted to render multiple properties of the retweet, we could combine
@@ -95,6 +99,9 @@ And if we wanted to render multiple properties of the retweet, we could combine
 ```yetibot
 !twitter display 1095377246494220288 | data $.quoted_status | render {{full_text}} – @{{user.screen_name}} {{created_at}}
 ```
+
+Between `data`, `render`, and `clj` we have multiple flexible ways to take
+advantage of the data behind a pipe.
 
 ## Propagation in collections
 
@@ -110,13 +117,15 @@ are preserved.
 !twitter show yetibot_chatops | head 3 | data show
 ```
 
-This works because there is symmetry between `:result/data` and `:result/value`.
-However, this doesn't mean that `:result/data` must be a sequential collection.
-Often times API responses return a top level map as the body with useful
-attributes like `:total-count` or other meta data, then return the collection as
-an attribute of that map, e.g. `:items`. In cases like these we don't want to
-give up those potentially-useful attributes, so instead commands can return an
-optional KV in their response, e.g.:
+This works because there is symmetry between `:result/data` and `:result/value`,
+meaning each item in the `:result/value` collection corresponds with each item
+in `:result/data` or some subset of `:result/data. This doesn't mean that
+`:result/data` must be a sequential collection. Often API responses return a top
+level map as the body with useful attributes like `:total-count` or other meta
+data, then return the collection as an attribute of that map, e.g. `:items`. In
+cases like these we don't want to give up those potentially-useful attributes,
+so instead commands can return an optional KV in their response,
+e.g.:
 
 ```clojure
 {:result/value ["red" "green" "blue"]
@@ -134,20 +143,16 @@ optional KV in their response, e.g.:
  :result/collection-path [:items]}
 ```
 
+A few more examples demonstrating `grep` and `tail`:
 
-  - demo
-- a bunch of commands (github, twitter, jira, ...) support data now
-  - demo
-- collection commands now do the right thing with the data
-  - head, tail, grep, droplast, keys, vals, etc
-  - demo
-- commands can return a top level response with a pointer to the collection part
-  of the structure to power collection utils. This powers the "symmetry" aspect
-  of `:result/data` and `:result/value`. Internal command pipeline will use this
-  to provide a `data-collection` key/value in the cmd arguments map.
-- we'll be rapidly increasing `data` coverage of existing commands
+```yetibot
+!github repos yetibot | grep core | data show
+```
 
+```yetibot
+!github repos yetibot | tail 2 | data show
+```
 
 ## Docs
 
-See the [data docs](https://yetibot.com/user-guide#data) for more details.
+See the [updated data docs](https://yetibot.com/user-guide#data) for more details.
