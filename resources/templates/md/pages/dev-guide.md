@@ -317,8 +317,8 @@ as `random` or `head` or `tail` can continue to propagate the data.
 
 As an example, let's look at the response from `github search`:
 
-```
-github search cmd-hook org:yetibot
+```yetibot
+!github search cmd-hook org:yetibot
 ```
 
 This command makes an API call via GitHub's API which gives us a response like:
