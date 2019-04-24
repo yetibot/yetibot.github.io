@@ -7,7 +7,7 @@ responses in addition to the formatted lossy-but-human-friendly derived value.
 
 This lets us display the formatted values by default without giving up the full
 data in the process, and affords the user the option of tapping into these data
-using a few special commands that know how to access it.
+using a few special commands that know how to access them.
 
 The primary data-aware commands are:
 
@@ -24,7 +24,7 @@ The primary data-aware commands are:
 ```
 
 as well as most of the collection utilities, which simply propagate the correct
-data across the pipe.
+data across the pipe (i.e. do what you'd expect them to).
 
 ```yetibot
 !category list collection
@@ -35,8 +35,8 @@ data across the pipe.
 Having the data available means we can reference any piece of the shape instead
 of the default human-friendly representation. One way to do this is with the
 `clj` command, thanks to an awesome idea by one of our newest contributors,
-[@justone](https://github.com/justone) to make the data available to `clj` (he
-also contributed the `cljquote` command).
+[@justone](https://github.com/justone), to make the data available to `clj` (he
+also contributed the `cljquote` command which we'll use to demo this idea).
 
 ```yetibot
 !cljquote
@@ -56,12 +56,14 @@ Then, with this information we can extract just the piece we're interested in:
 !cljquote | clj (:clojure-quotes.core/text data)
 ```
 
-`clj` can access the data from the pipe as a special var called `data`.
+Notice how `clj` can access the data from the pipe as a special var named
+`data`. This puts the full power of the Clojure language at your disposal for
+slicing or transforming data from commands as you see fit.
 
 ## data
 
-The data command also provides a way to pretty print all the data or grab a
-specific piece using [json-path](https://goessner.net/articles/JsonPath/)
+The `data` command provides a way to pretty print all the data or get at a
+specific subset using [json-path](https://goessner.net/articles/JsonPath/)
 syntax.
 
 ```yetibot
@@ -80,7 +82,7 @@ And get an abbreviated view looking only at its keys:
 !twitter display 1095377246494220288 | data | keys
 ```
 
-These data represent a retweet with comment. Let's use `data` to grab the
+These data represent a retweet with comment. Let's use `data` to select the
 full text of the original tweet:
 
 ```yetibot
@@ -124,7 +126,8 @@ in `:result/data` or some subset of `:result/data`. This doesn't mean that
 level map as the body with useful attributes like `:total-count` or other meta
 data, then return the collection as an attribute of that map, e.g. `:items`. In
 cases like these we don't want to give up those potentially-useful attributes,
-so instead commands can return an optional KV in their response, e.g.:
+so instead commands can return an optional `:result/collection` path key whose
+value is a vector containing the path to the sequence in their response, e.g.:
 
 ```clojure
 {:result/value ["red" "green" "blue"]
@@ -139,6 +142,7 @@ so instead commands can return an optional KV in their response, e.g.:
                        {:display-name "blue"
                         :hex "#0000ff"
                         :id 3}]}
+ ;; 👀 notice how this points into the `:result/data` structure 
  :result/collection-path [:items]}
 ```
 
@@ -152,7 +156,7 @@ A few more examples demonstrating `grep` and `tail`:
 !github repos yetibot | tail 2 | data show
 ```
 
-Repeat now propagates any data returned by the command it's running:
+Repeat propagates any data returned by the command it's running:
 
 ```yetibot
 !github repos yetibot | repeat 2 random | data show
@@ -161,7 +165,6 @@ Repeat now propagates any data returned by the command it's running:
 ```yetibot
 !repeat 3 cljquote | data show
 ```
-
 
 ## Docs
 
