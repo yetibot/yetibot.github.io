@@ -42,7 +42,7 @@ This was a fun exercise, but to make it even more clear we're planning to build
 a front end component that, given an expression, visually breaks down the
 expression into its parts, showing the result of each command in the pipeline
 and the corresponding data behind them (follow along on
-[#900](https://github.com/yetibot/yetibot.github.io/issues/6)).
+[#900](https://github.com/yetibot/yetibot/issues/900)).
 
 ![Yetibot Stickers](/img/yetibot_stickers.jpg)
 
