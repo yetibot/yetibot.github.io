@@ -3,8 +3,6 @@
     <div class="container">
       <h1 class="title">{{post.title}}</h1>
       <p class="subtitle">
-        {{page.subtitle|safe}}
-
         {{post.date|date:longDate}}
         {% if post.author %}
           <span>By {{post.author}}</span>
@@ -14,17 +12,18 @@
   </div>
 </article>
 
-
 <section class="section content">
   <div class="container">
 
-    <div class="main columns">
+    <div class="main main-content columns">
       <div class="column is-two-thirds">
         {{post.content|safe}}
       </div>
+
       <div class="column toc">
         {% if post.toc %}{{post.toc|safe}}{% endif %}
       </div>
+
     </div>
     {% if post.tags|not-empty %}
     <div id="post-tags">

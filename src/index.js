@@ -27,7 +27,7 @@ if (toc) {
   if (window.innerWidth > 768) {
     tocbot.init({
       tocSelector: '.toc .content',
-      contentSelector: '.page-content',
+      contentSelector: '.main-content',
       // Which headings to grab inside of the contentSelector element.
       headingSelector: 'h1, h2, h3, h4',
       positionFixedSelector: '.toc.column .content',

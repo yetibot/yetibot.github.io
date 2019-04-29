@@ -1,5 +1,6 @@
 {:title "All your data are belong"
  :layout :post
+ :toc true
  :tags  ["core" "2019" "data"]}
 
 In the last few months we've been working on including raw data in command
@@ -142,7 +143,7 @@ value is a vector containing the path to the sequence in their response, e.g.:
                        {:display-name "blue"
                         :hex "#0000ff"
                         :id 3}]}
- ;; 👀 notice how this points into the `:result/data` structure 
+ ;; 👀 notice how this points into the `:result/data` structure
  :result/collection-path [:items]}
 ```
 
@@ -168,4 +169,5 @@ Repeat propagates any data returned by the command it's running:
 
 ## Docs
 
-See the [updated data docs](https://yetibot.com/user-guide#data) for more details.
+See the [updated data docs in the Dev Guide](http://localhost:4040/dev-guide#data_across_pipes)
+for more details.
