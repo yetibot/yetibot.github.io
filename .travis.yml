@@ -4,9 +4,6 @@ branches:
   only:
   - source
 
-jdk:
-  - oraclejdk9
-
 sudo: required
 
 cache:
