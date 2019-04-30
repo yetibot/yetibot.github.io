@@ -155,8 +155,6 @@
     <div class="container">
       <h1 class="title">Yetibot Workshop @ eBay San Jose</h1>
       <p class="subtitle">
-        
-
         March 26, 2019
         
       </p>
@@ -164,17 +162,18 @@
   </div>
 </article>
 
-
 <section class="section content">
   <div class="container">
 
-    <div class="main columns">
+    <div class="main main-content columns">
       <div class="column is-two-thirds">
-        <p><img src="/img/yetibot_workshop.jpg" alt="Yetibot Workshop" /></p><p>As part of eBay's internal Front End conference, <a href='https://github.com/devth'>@devth</a> gave a "Contributing to Yetibot" workshop covering:</p><ul><li>A demo of some of Yetibot's fun and useful features</li><li>Brief history of the project</li><li>Fundamentals of Yetibot usage:<ul><li>Aliases</li><li>Expression composition via pipes</li><li>Values and Lists</li><li>Xargs</li><li>Data + render</li></ul></li><li>Livecoding a new feature, adding <code>forecast</code> support to the existing weather  command (<a href='https://github.com/yetibot/yetibot/pull/901'>resulting PR!</a>) with  the goal of showing off the amazing power of the Clojure language and the  interactive development workflow</li></ul><p>The audience consisted of FE engineers who had zero Clojure experience. During the livecoding session we went over some Clojure language basics.</p><p>To explain fundamentals, we deconstructed the <code>alltemps</code> alias, breaking it down to its individual pieces and testing each command in isolation.</p><p><div class="video-responsive"> <iframe   width="854" height="480"   src="https://www.youtube.com/embed/tcFvu6CL2fg?rel=0"   frameborder="0"   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"   allowfullscreen> </iframe> </div></p><p>This was a fun exercise, but to make it even more clear we're planning to build a front end component that, given an expression, visually breaks down the expression into its parts, showing the result of each command in the pipeline and the corresponding data behind them (follow along on <a href='https://github.com/yetibot/yetibot.github.io/issues/6'>#900</a>).</p><p><img src="/img/yetibot_stickers.jpg" alt="Yetibot Stickers" /></p><p>We now have Yetibot stickers! Ping <code>@devth</code> (Slack, Twitter, etc) if you want one or three mailed to you!</p>
+        <p><img src="/img/yetibot_workshop.jpg" alt="Yetibot Workshop" /></p><p>As part of eBay's internal Front End conference, <a href='https://github.com/devth'>@devth</a> gave a "Contributing to Yetibot" workshop covering:</p><ul><li>A demo of some of Yetibot's fun and useful features</li><li>Brief history of the project</li><li>Fundamentals of Yetibot usage:<ul><li>Aliases</li><li>Expression composition via pipes</li><li>Values and Lists</li><li>Xargs</li><li>Data + render</li></ul></li><li>Livecoding a new feature, adding <code>forecast</code> support to the existing weather  command (<a href='https://github.com/yetibot/yetibot/pull/901'>resulting PR!</a>) with  the goal of showing off the amazing power of the Clojure language and the  interactive development workflow</li></ul><p>The audience consisted of FE engineers who had zero Clojure experience. During the livecoding session we went over some Clojure language basics.</p><p>To explain fundamentals, we deconstructed the <code>alltemps</code> alias, breaking it down to its individual pieces and testing each command in isolation.</p><p><div class="video-responsive"> <iframe   width="854" height="480"   src="https://www.youtube.com/embed/tcFvu6CL2fg?rel=0"   frameborder="0"   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"   allowfullscreen> </iframe> </div></p><p>This was a fun exercise, but to make it even more clear we're planning to build a front end component that, given an expression, visually breaks down the expression into its parts, showing the result of each command in the pipeline and the corresponding data behind them (follow along on <a href='https://github.com/yetibot/yetibot/issues/900'>#900</a>).</p><p><img src="/img/yetibot_stickers.jpg" alt="Yetibot Stickers" /></p><p>We now have Yetibot stickers! Ping <code>@devth</code> (Slack, Twitter, etc) if you want one or three mailed to you!</p>
       </div>
+
       <div class="column toc">
         
       </div>
+
     </div>
     
     <div id="post-tags">
@@ -199,6 +198,11 @@
       <div id="prev-next">
 
         
+        <a class="button is-warning is-medium"
+          href="/blog/2019-04-22-all-your-data-are-belong">
+          ↞ All your data are belong
+        </a>
+        
 
         
         <a class="button is-warning is-medium"
@@ -214,20 +218,23 @@
   
 
   <section id="disqus" class="section container">
-    <div id="disqus_thread"></div>
+    <div class="column is-two-thirds">
+      <div id="disqus_thread"></div>
+    </div>
     <script type="text/javascript">
       var disqus_config = function () {
         this.page.url = "https://yetibot.com/blog/2019-03-26-yetibot-workshop-at-ebay";
         this.page.identifier = "Yetibot Workshop @ eBay San Jose";
       };
-(function() {
-  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-  dsq.src = '//yetibot.disqus.com/embed.js';
-  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//yetibot.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
     </script>
   </section>
   
+
 </div>
 
 
@@ -260,7 +267,7 @@
       </div>
     </footer>
 
-    <script src="/js/dist.js?q=18042019124123" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/dist.js?q=30042019125723" type="text/javascript" charset="utf-8"></script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <script src="/js/highlight.pack.js" type="text/javascript"></script>

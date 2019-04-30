@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Yetibot: All your data are belong</title>
+    <link rel="canonical" href="https://yetibot.com/blog/2019-04-22-all-your-data-are-belong">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/css/main.css" rel="stylesheet" type="text/css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="/img/favicon/favicon.ico">
+
+    <!-— facebook open graph tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yetibot.com/blog/2019-04-22-all-your-data-are-belong" />
+    <meta property="og:title" content="Yetibot: All your data are belong" />
+    <meta property="og:description" content="Yeitbot is a powerful, expressive chatops platform written in Clojure." />
+    <meta property="og:image" content="https://yetibot.com/img/yetibot_logo.svg" />
+
+    <!-— twitter card tags additive with the og: tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:domain" value="yetibot.com" />
+    <meta name="twitter:title" value="Yetibot: All your data are belong" />
+    <meta name="twitter:description" value="Yeitbot is a powerful, expressive chatops platform written in Clojure." />
+    <meta name="twitter:image" content="https://yetibot.com/img/yetibot_logo.svg" />
+    <meta name="twitter:url" value="https://yetibot.com/blog/2019-04-22-all-your-data-are-belong" />
+
+    
+    <meta name="twitter:label1" value="Date" />
+    <meta name="twitter:data1" value="April 22, 2019" />
+      
+    <meta name="twitter:label2" value="2019" />
+    <meta name="twitter:data2" value="https://yetibot.com/tags/2019" />
+      
+    <meta name="twitter:label3" value="data" />
+    <meta name="twitter:data3" value="https://yetibot.com/tags/data" />
+      
+    <meta name="twitter:label4" value="core" />
+    <meta name="twitter:data4" value="https://yetibot.com/tags/core" />
+      
+    
+
+    <meta name="msapplication-TileColor" content="#ffc40d">
+    <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117101667-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-117101667-1');
+    </script>
+  </head>
+  <body class="home">
+
+
+    <div class="main-content">
+      <nav class="navbar is-black" role="navigation" aria-label="main navigation">
+        <div class="container">
+          <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+              <img class="nav-logo" src="/img/yetibot_lambda_blue_with_grey.svg"
+                                    alt="Yetibot: A powerful, expressive chatops platform written in Clojure."
+                                    />
+            </a>
+
+            <div class="navbar-burger" data-target="nav-menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+
+          </div>
+          <div class="navbar-menu" id="nav-menu">
+            <div class="navbar-start">
+
+              
+              <a href="/user-guide"
+                class="navbar-item is-tab
+                ">
+                User Guide
+              </a>
+              
+              <a href="/dev-guide"
+                class="navbar-item is-tab
+                ">
+                Dev Guide
+              </a>
+              
+              <a href="/ops-guide"
+                class="navbar-item is-tab
+                ">
+                Ops Guide
+              </a>
+              
+              <a href="/community"
+                class="navbar-item is-tab
+                ">
+                Community
+              </a>
+              
+              <a href="/media"
+                class="navbar-item is-tab
+                ">
+                Media
+              </a>
+              
+
+              <a class="navbar-item is-tab
+                " href="/archives">
+                Blog
+              </a>
+            </div>
+            <div class="navbar-end">
+
+              <a href="https://twitter.com/yetibot_chatops"
+                 title="Yetibot on Twitter"
+                 class="navbar-item">
+                <span class="icon">
+                  <i class="fab fa-twitter"></i>
+                </span>
+              </a>
+              <a href="https://github.com/yetibot/yetibot"
+                 title="Yetibot on GitHub"
+                 class="navbar-item">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+              </a>
+              <a class="navbar-item"
+                 title="Yetibot Slack"
+                 href="https://slack.yetibot.com">
+                <span class="icon">
+                  <i class="fab fa-slack"></i>
+                </span>
+              </a>
+
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      
+
+<div id="post">
+  <article class="page-title hero is-dark is-bold is-fullwidth">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">All your data are belong</h1>
+      <p class="subtitle">
+        April 22, 2019
+        
+      </p>
+    </div>
+  </div>
+</article>
+
+<section class="section content">
+  <div class="container">
+
+    <div class="main main-content columns">
+      <div class="column is-two-thirds">
+        <p>In the last few months we've been working on including raw data in command responses in addition to the formatted lossy-but-human-friendly derived value.</p><p>This lets us display the formatted values by default without giving up the full data in the process, and affords the user the option of tapping into these data using a few special commands that know how to access them.</p><p>The primary data-aware commands are:</p><pre><code class="yetibot">!help data
+</code></pre><pre><code class="yetibot">!help clj
+</code></pre><pre><code class="yetibot">!help render
+</code></pre><p>as well as most of the collection utilities, which simply propagate the correct data across the pipe (i.e. do what you'd expect them to).</p><pre><code class="yetibot">!category list collection
+</code></pre><h2 id="clj">clj</h2><p>Having the data available means we can reference any piece of the shape instead of the default human-friendly representation. One way to do this is with the <code>clj</code> command, thanks to an awesome idea by one of our newest contributors, <a href='https://github.com/justone'>@justone</a>, to make the data available to <code>clj</code> (he also contributed the <code>cljquote</code> command which we'll use to demo this idea).</p><pre><code class="yetibot">!cljquote
+</code></pre><p>First, let's use <code>data</code> to get at the data itself, then pass that over to <code>keys</code> to see what's available:</p><pre><code class="yetibot">!cljquote | data | keys
+</code></pre><p>Then, with this information we can extract just the piece we're interested in:</p><pre><code class="yetibot">!cljquote | clj &#40;:clojure-quotes.core/text data&#41;
+</code></pre><p>Notice how <code>clj</code> can access the data from the pipe as a special var named <code>data</code>. This puts the full power of the Clojure language at your disposal for slicing or transforming data from commands as you see fit.</p><h2 id="data">data</h2><p>The <code>data</code> command provides a way to pretty print all the data or get at a specific subset using <a href='https://goessner.net/articles/JsonPath/'>json-path</a> syntax.</p><pre><code class="yetibot">!help data
+</code></pre><p>Let's peak at the data behind a Tweet:</p><pre><code class="yetibot">!twitter display 1095377246494220288 | data show
+</code></pre><p>And get an abbreviated view looking only at its keys:</p><pre><code class="yetibot">!twitter display 1095377246494220288 | data | keys
+</code></pre><p>These data represent a retweet with comment. Let's use <code>data</code> to select the full text of the original tweet:</p><pre><code class="yetibot">!twitter display 1095377246494220288 | data $.quoted&#95;status.full&#95;text
+</code></pre><p>We could do the same with <code>clj</code> using pure Clojure functions:</p><pre><code class="yetibot">!twitter display 1095377246494220288 | clj &#40;get-in data &#91;:quoted&#95;status :full&#95;text&#93;&#41;
+</code></pre><p>And if we wanted to render multiple properties of the retweet, we could combine <code>data</code> and <code>render</code>:</p><pre><code class="yetibot">!twitter display 1095377246494220288 | data $.quoted&#95;status | render {{full&#95;text}} – @{{user.screen&#95;name}} {{created&#95;at}}
+</code></pre><p>Between <code>data</code>, <code>render</code>, and <code>clj</code> we have multiple flexible ways to take advantage of the data behind a pipe.</p><h2 id="propagation&#95;in&#95;collections">Propagation in collections</h2><p>Collection utilities are data-aware as well, so when you transform a collection with a utility like <code>head</code>, <code>tail</code>, <code>random</code> or <code>grep</code> (among others), the data are preserved.</p><pre><code class="yetibot">!twitter show yetibot&#95;chatops | random | data show
+</code></pre><pre><code class="yetibot">!twitter show yetibot&#95;chatops | head 3 | data show
+</code></pre><p>This works because there is symmetry between <code>:result/data</code> and <code>:result/value</code>, meaning each item in the <code>:result/value</code> collection corresponds with each item in <code>:result/data</code> or some subset of <code>:result/data</code>. This doesn't mean that <code>:result/data</code> must be a sequential collection. Often API responses return a top level map as the body with useful attributes like <code>:total-count</code> or other meta data, then return the collection as an attribute of that map, e.g. <code>:items</code>. In cases like these we don't want to give up those potentially-useful attributes, so instead commands can return an optional <code>:result/collection</code> path key whose value is a vector containing the path to the sequence in their response, e.g.:</p><pre><code class="clojure">{:result/value &#91;&quot;red&quot; &quot;green&quot; &quot;blue&quot;&#93;
+ :result/data {:total-count 3
+               :response-ms 228
+               :items &#91;{:display-name &quot;red&quot;
+                        :hex &quot;#ff0000&quot;
+                        :id 1}
+                       {:display-name &quot;green&quot;
+                        :hex &quot;#00ff00&quot;
+                        :id 2}
+                       {:display-name &quot;blue&quot;
+                        :hex &quot;#0000ff&quot;
+                        :id 3}&#93;}
+ ;; 👀 notice how this points into the `:result/data` structure
+ :result/collection-path &#91;:items&#93;}
+</code></pre><p>A few more examples demonstrating <code>grep</code> and <code>tail</code>:</p><pre><code class="yetibot">!github repos yetibot | grep core | data show
+</code></pre><pre><code class="yetibot">!github repos yetibot | tail 2 | data show
+</code></pre><p>Repeat propagates any data returned by the command it's running:</p><pre><code class="yetibot">!github repos yetibot | repeat 2 random | data show
+</code></pre><pre><code class="yetibot">!repeat 3 cljquote | data show
+</code></pre><h2 id="docs">Docs</h2><p>See the <a href='http://localhost:4040/dev-guide#data_across_pipes'>updated data docs in the Dev Guide</a> for more details.</p>
+      </div>
+
+      <div class="column toc">
+        <ol class="content"><li><a href="#clj">clj</a></li><li><a href="#data">data</a></li><li><a href="#propagation_in_collections">Propagation in collections</a></li><li><a href="#docs">Docs</a></li></ol>
+      </div>
+
+    </div>
+    
+    <div id="post-tags">
+      <b>Tags: </b>
+      
+        <a href="/tags/2019">2019</a>
+      
+        <a href="/tags/data">data</a>
+      
+        <a href="/tags/core">core</a>
+      
+    </div>
+    
+  </div>
+</div>
+
+
+  <section class="section content">
+    <div class="container">
+      <div id="prev-next">
+
+        
+
+        
+        <a class="button is-warning is-medium"
+          class="right" href="/blog/2019-03-26-yetibot-workshop-at-ebay">
+          Yetibot Workshop @ eBay San Jose ↠
+        </a>
+        
+
+      </div>
+    </div>
+  </section>
+
+  
+
+  <section id="disqus" class="section container">
+    <div class="column is-two-thirds">
+      <div id="disqus_thread"></div>
+    </div>
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = "https://yetibot.com/blog/2019-04-22-all-your-data-are-belong";
+        this.page.identifier = "All your data are belong";
+      };
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//yetibot.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+  </section>
+  
+
+</div>
+
+
+
+    </div>
+
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          <strong>Yetibot</strong> by <a href="https://devth.com">Trevor
+            Hartman</a> & <a href="/community#core_team">contributors</a>.
+          <br />
+          Distributed under the
+          <a href="https://opensource.org/licenses/eclipse-1.0.php">
+            Eclipse Public License 1.0</a>.
+          <br />
+          Artwork by
+          <a href="http://www.freeformdesign.co/">Freeform Design Co.</a>
+          in <strong>Montana</strong>.
+          <br />
+
+          This site is continously delivered from
+          <a href="https://github.com/yetibot/yetibot.github.io">
+             source</a>.
+        </p>
+        <a onClick="window.scroll({top: 0, left: 0, behavior: 'smooth'});
+          history.replaceState({}, '', window.location.pathname);">
+          <img class="logo" src="/img/yetibot_logo.svg" />
+        </a>
+      </div>
+    </footer>
+
+    <script src="/js/dist.js?q=30042019125723" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <script src="/js/highlight.pack.js" type="text/javascript"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

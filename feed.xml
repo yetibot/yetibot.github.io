@@ -12,11 +12,61 @@ https://yetibot.com/
 Docs and blog posts for Yetibot
 </description>
 <lastBuildDate>
-Thu, 18 Apr 2019 12:41:24 +0000
+Tue, 30 Apr 2019 00:57:24 +0000
 </lastBuildDate>
 <generator>
 clj-rss
 </generator>
+<item>
+<guid>
+https://yetibot.com/blog/2019-04-22-all-your-data-are-belong
+</guid>
+<link>
+https://yetibot.com/blog/2019-04-22-all-your-data-are-belong
+</link>
+<title>
+All your data are belong
+</title>
+<description>
+&lt;p&gt;In the last few months we've been working on including raw data in command responses in addition to the formatted lossy-but-human-friendly derived value.&lt;/p&gt;&lt;p&gt;This lets us display the formatted values by default without giving up the full data in the process, and affords the user the option of tapping into these data using a few special commands that know how to access them.&lt;/p&gt;&lt;p&gt;The primary data-aware commands are:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!help data
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!help clj
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!help render
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;as well as most of the collection utilities, which simply propagate the correct data across the pipe (i.e. do what you'd expect them to).&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!category list collection
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;clj&quot;&gt;clj&lt;/h2&gt;&lt;p&gt;Having the data available means we can reference any piece of the shape instead of the default human-friendly representation. One way to do this is with the &lt;code&gt;clj&lt;/code&gt; command, thanks to an awesome idea by one of our newest contributors, &lt;a href='https://github.com/justone'&gt;@justone&lt;/a&gt;, to make the data available to &lt;code&gt;clj&lt;/code&gt; (he also contributed the &lt;code&gt;cljquote&lt;/code&gt; command which we'll use to demo this idea).&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!cljquote
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;First, let's use &lt;code&gt;data&lt;/code&gt; to get at the data itself, then pass that over to &lt;code&gt;keys&lt;/code&gt; to see what's available:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!cljquote | data | keys
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Then, with this information we can extract just the piece we're interested in:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!cljquote | clj &amp;#40;:clojure-quotes.core/text data&amp;#41;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Notice how &lt;code&gt;clj&lt;/code&gt; can access the data from the pipe as a special var named &lt;code&gt;data&lt;/code&gt;. This puts the full power of the Clojure language at your disposal for slicing or transforming data from commands as you see fit.&lt;/p&gt;&lt;h2 id=&quot;data&quot;&gt;data&lt;/h2&gt;&lt;p&gt;The &lt;code&gt;data&lt;/code&gt; command provides a way to pretty print all the data or get at a specific subset using &lt;a href='https://goessner.net/articles/JsonPath/'&gt;json-path&lt;/a&gt; syntax.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!help data
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Let's peak at the data behind a Tweet:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!twitter display 1095377246494220288 | data show
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And get an abbreviated view looking only at its keys:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!twitter display 1095377246494220288 | data | keys
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;These data represent a retweet with comment. Let's use &lt;code&gt;data&lt;/code&gt; to select the full text of the original tweet:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!twitter display 1095377246494220288 | data $.quoted&amp;#95;status.full&amp;#95;text
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;We could do the same with &lt;code&gt;clj&lt;/code&gt; using pure Clojure functions:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!twitter display 1095377246494220288 | clj &amp;#40;get-in data &amp;#91;:quoted&amp;#95;status :full&amp;#95;text&amp;#93;&amp;#41;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And if we wanted to render multiple properties of the retweet, we could combine &lt;code&gt;data&lt;/code&gt; and &lt;code&gt;render&lt;/code&gt;:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!twitter display 1095377246494220288 | data $.quoted&amp;#95;status | render {{full&amp;#95;text}} – @{{user.screen&amp;#95;name}} {{created&amp;#95;at}}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Between &lt;code&gt;data&lt;/code&gt;, &lt;code&gt;render&lt;/code&gt;, and &lt;code&gt;clj&lt;/code&gt; we have multiple flexible ways to take advantage of the data behind a pipe.&lt;/p&gt;&lt;h2 id=&quot;propagation&amp;#95;in&amp;#95;collections&quot;&gt;Propagation in collections&lt;/h2&gt;&lt;p&gt;Collection utilities are data-aware as well, so when you transform a collection with a utility like &lt;code&gt;head&lt;/code&gt;, &lt;code&gt;tail&lt;/code&gt;, &lt;code&gt;random&lt;/code&gt; or &lt;code&gt;grep&lt;/code&gt; (among others), the data are preserved.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!twitter show yetibot&amp;#95;chatops | random | data show
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!twitter show yetibot&amp;#95;chatops | head 3 | data show
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This works because there is symmetry between &lt;code&gt;:result/data&lt;/code&gt; and &lt;code&gt;:result/value&lt;/code&gt;, meaning each item in the &lt;code&gt;:result/value&lt;/code&gt; collection corresponds with each item in &lt;code&gt;:result/data&lt;/code&gt; or some subset of &lt;code&gt;:result/data&lt;/code&gt;. This doesn't mean that &lt;code&gt;:result/data&lt;/code&gt; must be a sequential collection. Often API responses return a top level map as the body with useful attributes like &lt;code&gt;:total-count&lt;/code&gt; or other meta data, then return the collection as an attribute of that map, e.g. &lt;code&gt;:items&lt;/code&gt;. In cases like these we don't want to give up those potentially-useful attributes, so instead commands can return an optional &lt;code&gt;:result/collection&lt;/code&gt; path key whose value is a vector containing the path to the sequence in their response, e.g.:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;clojure&quot;&gt;{:result/value &amp;#91;&amp;quot;red&amp;quot; &amp;quot;green&amp;quot; &amp;quot;blue&amp;quot;&amp;#93;
+ :result/data {:total-count 3
+               :response-ms 228
+               :items &amp;#91;{:display-name &amp;quot;red&amp;quot;
+                        :hex &amp;quot;#ff0000&amp;quot;
+                        :id 1}
+                       {:display-name &amp;quot;green&amp;quot;
+                        :hex &amp;quot;#00ff00&amp;quot;
+                        :id 2}
+                       {:display-name &amp;quot;blue&amp;quot;
+                        :hex &amp;quot;#0000ff&amp;quot;
+                        :id 3}&amp;#93;}
+ ;; 👀 notice how this points into the `:result/data` structure
+ :result/collection-path &amp;#91;:items&amp;#93;}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;A few more examples demonstrating &lt;code&gt;grep&lt;/code&gt; and &lt;code&gt;tail&lt;/code&gt;:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!github repos yetibot | grep core | data show
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!github repos yetibot | tail 2 | data show
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Repeat propagates any data returned by the command it's running:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!github repos yetibot | repeat 2 random | data show
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!repeat 3 cljquote | data show
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;docs&quot;&gt;Docs&lt;/h2&gt;&lt;p&gt;See the &lt;a href='http://localhost:4040/dev-guide#data_across_pipes'&gt;updated data docs in the Dev Guide&lt;/a&gt; for more details.&lt;/p&gt;
+</description>
+<pubDate>
+Mon, 22 Apr 2019 00:00:00 +0000
+</pubDate>
+</item>
 <item>
 <guid>
 https://yetibot.com/blog/2019-03-26-yetibot-workshop-at-ebay
@@ -28,7 +78,7 @@ https://yetibot.com/blog/2019-03-26-yetibot-workshop-at-ebay
 Yetibot Workshop @ eBay San Jose
 </title>
 <description>
-&lt;p&gt;&lt;img src=&quot;/img/yetibot_workshop.jpg&quot; alt=&quot;Yetibot Workshop&quot; /&gt;&lt;/p&gt;&lt;p&gt;As part of eBay's internal Front End conference, &lt;a href='https://github.com/devth'&gt;@devth&lt;/a&gt; gave a &quot;Contributing to Yetibot&quot; workshop covering:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;A demo of some of Yetibot's fun and useful features&lt;/li&gt;&lt;li&gt;Brief history of the project&lt;/li&gt;&lt;li&gt;Fundamentals of Yetibot usage:&lt;ul&gt;&lt;li&gt;Aliases&lt;/li&gt;&lt;li&gt;Expression composition via pipes&lt;/li&gt;&lt;li&gt;Values and Lists&lt;/li&gt;&lt;li&gt;Xargs&lt;/li&gt;&lt;li&gt;Data + render&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;Livecoding a new feature, adding &lt;code&gt;forecast&lt;/code&gt; support to the existing weather  command (&lt;a href='https://github.com/yetibot/yetibot/pull/901'&gt;resulting PR!&lt;/a&gt;) with  the goal of showing off the amazing power of the Clojure language and the  interactive development workflow&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;The audience consisted of FE engineers who had zero Clojure experience. During the livecoding session we went over some Clojure language basics.&lt;/p&gt;&lt;p&gt;To explain fundamentals, we deconstructed the &lt;code&gt;alltemps&lt;/code&gt; alias, breaking it down to its individual pieces and testing each command in isolation.&lt;/p&gt;&lt;p&gt;&lt;div class=&quot;video-responsive&quot;&gt; &lt;iframe   width=&quot;854&quot; height=&quot;480&quot;   src=&quot;https://www.youtube.com/embed/tcFvu6CL2fg?rel=0&quot;   frameborder=&quot;0&quot;   allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot;   allowfullscreen&gt; &lt;/iframe&gt; &lt;/div&gt;&lt;/p&gt;&lt;p&gt;This was a fun exercise, but to make it even more clear we're planning to build a front end component that, given an expression, visually breaks down the expression into its parts, showing the result of each command in the pipeline and the corresponding data behind them (follow along on &lt;a href='https://github.com/yetibot/yetibot.github.io/issues/6'&gt;#900&lt;/a&gt;).&lt;/p&gt;&lt;p&gt;&lt;img src=&quot;/img/yetibot_stickers.jpg&quot; alt=&quot;Yetibot Stickers&quot; /&gt;&lt;/p&gt;&lt;p&gt;We now have Yetibot stickers! Ping &lt;code&gt;@devth&lt;/code&gt; (Slack, Twitter, etc) if you want one or three mailed to you!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/yetibot_workshop.jpg&quot; alt=&quot;Yetibot Workshop&quot; /&gt;&lt;/p&gt;&lt;p&gt;As part of eBay's internal Front End conference, &lt;a href='https://github.com/devth'&gt;@devth&lt;/a&gt; gave a &quot;Contributing to Yetibot&quot; workshop covering:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;A demo of some of Yetibot's fun and useful features&lt;/li&gt;&lt;li&gt;Brief history of the project&lt;/li&gt;&lt;li&gt;Fundamentals of Yetibot usage:&lt;ul&gt;&lt;li&gt;Aliases&lt;/li&gt;&lt;li&gt;Expression composition via pipes&lt;/li&gt;&lt;li&gt;Values and Lists&lt;/li&gt;&lt;li&gt;Xargs&lt;/li&gt;&lt;li&gt;Data + render&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;Livecoding a new feature, adding &lt;code&gt;forecast&lt;/code&gt; support to the existing weather  command (&lt;a href='https://github.com/yetibot/yetibot/pull/901'&gt;resulting PR!&lt;/a&gt;) with  the goal of showing off the amazing power of the Clojure language and the  interactive development workflow&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;The audience consisted of FE engineers who had zero Clojure experience. During the livecoding session we went over some Clojure language basics.&lt;/p&gt;&lt;p&gt;To explain fundamentals, we deconstructed the &lt;code&gt;alltemps&lt;/code&gt; alias, breaking it down to its individual pieces and testing each command in isolation.&lt;/p&gt;&lt;p&gt;&lt;div class=&quot;video-responsive&quot;&gt; &lt;iframe   width=&quot;854&quot; height=&quot;480&quot;   src=&quot;https://www.youtube.com/embed/tcFvu6CL2fg?rel=0&quot;   frameborder=&quot;0&quot;   allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot;   allowfullscreen&gt; &lt;/iframe&gt; &lt;/div&gt;&lt;/p&gt;&lt;p&gt;This was a fun exercise, but to make it even more clear we're planning to build a front end component that, given an expression, visually breaks down the expression into its parts, showing the result of each command in the pipeline and the corresponding data behind them (follow along on &lt;a href='https://github.com/yetibot/yetibot/issues/900'&gt;#900&lt;/a&gt;).&lt;/p&gt;&lt;p&gt;&lt;img src=&quot;/img/yetibot_stickers.jpg&quot; alt=&quot;Yetibot Stickers&quot; /&gt;&lt;/p&gt;&lt;p&gt;We now have Yetibot stickers! Ping &lt;code&gt;@devth&lt;/code&gt; (Slack, Twitter, etc) if you want one or three mailed to you!&lt;/p&gt;
 </description>
 <pubDate>
 Tue, 26 Mar 2019 00:00:00 +0000
