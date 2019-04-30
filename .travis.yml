@@ -5,7 +5,7 @@ branches:
   - source
 
 jdk:
-  - oraclejdk8
+  - oraclejdk9
 
 sudo: required
 
