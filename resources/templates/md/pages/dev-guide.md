@@ -217,6 +217,49 @@ Make sure to never commit these kind of changes to `master` (assuming they
 somehow passed code review). Snapshot versions should only be used during
 development.
 
+## Command arguments
+
+Every command takes a single map argument containing things like the arguments
+to the command, chat source that the command originated from, any data that was
+propagated across a pipe, the Yetibot user, and the user who executed the
+command. Yetibot can show you these at runtime using `raw all`:
+
+A simple command doesn't contain as much as a piped expression might:
+
+```yetibot
+!echo hi | raw all
+```
+
+Note: `:yetibot-user` is unbound in this context because the GraphQL
+`chat-source` has no concept of a Yetibot user and is not a normal Adapter.
+Normally the Adapter would bind this. For example, in Slack `:yetibot-user`
+would be the entity that represents Yetibot's bot account in that Slack instance
+and in IRC it would be a simpler map representing the Yetibot user in IRC.
+
+Let's peek at a slightly more complex example:
+
+```yetibot
+!history | random | raw all
+```
+
+Here we can see more interesting data behind the pipe.
+
+In particular:
+
+- `:match` - this is the matched args in the subexpression - in this case
+  `"all"`.
+- `:args` - this is the entire string passed to the command.
+- `:data` - shows us the data behind the pipe, which in the case of a random
+  history item is the database entity.
+- `:settings` - settings for the channel we're in. This is used for example to
+  disable categories, enable "broadcast" (i.e. allow Tweets from the stream to
+  be posted into the channel as they arrive) or set the `jira-project` which is
+  used to specify the default project(s) in the `jira` command.
+
+Any of these can be used by your command to do interesting things. Some commands
+care about which user executed them (e.g. `karma`). Other commands pay attention
+to the channel-specific settings (e.g. `jira`).
+
 ## Command response structure
 
 The result of a command can be a simple value e.g. a string or collection of
