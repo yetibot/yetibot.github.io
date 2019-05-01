@@ -242,10 +242,10 @@ Let's peek at a slightly more complex example:
 !history | random | raw all
 ```
 
-Here we can see more interesting data behind the pipe.
+Here we can see more interesting data behind the pipe in addition to the
+standard keys:
 
-In particular:
-
+- `:cmd` - the top level command that was matched
 - `:match` - this is the matched args in the subexpression - in this case
   `"all"`.
 - `:args` - this is the entire string passed to the command.
