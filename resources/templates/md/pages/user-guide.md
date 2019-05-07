@@ -712,7 +712,7 @@ Need to know the ID of the `computer gandalf` meme for some reason?
 !meme search computer gandalf | render ID of {{name}} at {{url}} is {{id}}
 ```
 
-We could go on and on (and on and on). `render` opens up a ton of possabilities
+We could go on and on (and on and on). `render` opens up a ton of possibilities
 for customizing command output and using Yetibot in unexpected and unanticipated
 ways!
 
