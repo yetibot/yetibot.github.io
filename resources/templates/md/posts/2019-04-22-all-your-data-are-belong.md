@@ -127,7 +127,7 @@ in `:result/data` or some subset of `:result/data`. This doesn't mean that
 level map as the body with useful attributes like `:total-count` or other meta
 data, then return the collection as an attribute of that map, e.g. `:items`. In
 cases like these we don't want to give up those potentially-useful attributes,
-so instead commands can return an optional `:result/collection` path key whose
+so instead commands can return an optional `:result/collection-path` key whose
 value is a vector containing the path to the sequence in their response, e.g.:
 
 ```clojure
