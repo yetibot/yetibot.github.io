@@ -1,5 +1,7 @@
 {:title "Karma Feature Announcement"
  :layout :post
+ :summary "The Yetibot Team just recently added a new feature called Karma."
+ :image "/img/screenshots/karma_user_score.png"
  :tags  ["core" "news" "2019"]}
 
 The Yetibot Team just recently added a new feature called Karma.  It's an implementation of the classic IRC feature of the same name, with a few updates, and support for Slack interface opportunities.
