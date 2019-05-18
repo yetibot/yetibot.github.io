@@ -12,11 +12,28 @@ https://yetibot.com/
 Docs and blog posts for Yetibot
 </description>
 <lastBuildDate>
-Wed, 01 May 2019 18:43:49 +0000
+Sat, 18 May 2019 19:30:48 +0000
 </lastBuildDate>
 <generator>
 clj-rss
 </generator>
+<item>
+<guid>
+https://yetibot.com/blog/2019-05-18-yetis-at-clojure-north
+</guid>
+<link>
+https://yetibot.com/blog/2019-05-18-yetis-at-clojure-north
+</link>
+<title>
+Yetis at Clojure/north
+</title>
+<description>
+&lt;p&gt;Yetibot core team members &lt;a href='https://github.com/kaffein'&gt;@kaffein&lt;/a&gt; and &lt;a href='https://github.com/devth'&gt;@devth&lt;/a&gt; had the privilege of meeting up in Toronto for the excellent &lt;a href='https://clojurenorth.com/'&gt;Clojure/north conference&lt;/a&gt; over April 19 and 20!&lt;/p&gt;&lt;p&gt;&lt;figure&gt;   &lt;img src=&quot;/img/clojure_north/core_members.jpg&quot; alt=&quot;Yetibot core members&quot; /&gt;   &lt;figcaption&gt;Yetis @ Niagra Falls&lt;/figcaption&gt; &lt;/figure&gt;&lt;/p&gt;&lt;p&gt;At the conference &lt;a href='https://github.com/devth'&gt;@devth&lt;/a&gt; gave a talk on Yetibot &quot;Growing a chatops platform and having fun with Clojure&quot;:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;demonstrated core Yetibot features like expression composition, data behind  pipes, xargs and aliases&lt;/li&gt;&lt;li&gt;live coded a new GitHub search feature to demonstrate typical development of  new features&lt;/li&gt;&lt;li&gt;talked about the history of Yetibot and how it grew into an integral  team culture-building tool&lt;/li&gt;&lt;li&gt;highlighted some of the ways that Clojure enabled the development of Yetibot&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;p&gt; &lt;div class=&quot;video-responsive&quot;&gt; &lt;iframe   width=&quot;854&quot; height=&quot;480&quot;   src=&quot;https://www.youtube.com/embed/dIh4lEnCCkQ?rel=0&quot;   frameborder=&quot;0&quot;   allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot;   allowfullscreen&gt; &lt;/iframe&gt; &lt;/div&gt; &lt;/p&gt;&lt;/p&gt;&lt;p&gt;Let us know in the comments if you have feedback on the talk or suggestions on topics to cover in future talks or blog posts!&lt;/p&gt;&lt;h2 id=&quot;photos&quot;&gt;Photos&lt;/h2&gt;&lt;p&gt;&lt;figure&gt;   &lt;img src=&quot;/img/clojure_north/devth_talk.jpg&quot; alt=&quot;Yetibot core members&quot; /&gt;   &lt;figcaption&gt;Intro&lt;/figcaption&gt; &lt;/figure&gt;&lt;/p&gt;&lt;p&gt;&lt;figure&gt;   &lt;img src=&quot;/img/clojure_north/clojure_north.jpg&quot; alt=&quot;Yetibot core members&quot; /&gt;   &lt;figcaption&gt;Clojure/north!&lt;/figcaption&gt; &lt;/figure&gt;&lt;/p&gt;&lt;p&gt;&lt;figure&gt;   &lt;img src=&quot;/img/clojure_north/niagra.jpg&quot; alt=&quot;Yetibot core members&quot; /&gt;   &lt;figcaption&gt;Niagra&lt;/figcaption&gt; &lt;/figure&gt;&lt;/p&gt;&lt;p&gt;&lt;figure&gt;   &lt;img src=&quot;/img/clojure_north/cn_tower.jpg&quot; alt=&quot;Yetibot core members&quot; /&gt;   &lt;figcaption&gt;CN Tower&lt;/figcaption&gt; &lt;/figure&gt;&lt;/p&gt;&lt;p&gt;&lt;figure&gt;   &lt;img src=&quot;/img/clojure_north/toronto.jpg&quot; alt=&quot;Yetibot core members&quot; /&gt;   &lt;figcaption&gt;Toronto&lt;/figcaption&gt; &lt;/figure&gt;&lt;/p&gt;&lt;p&gt;&lt;figure&gt;   &lt;img src=&quot;/img/clojure_north/flight.jpg&quot; alt=&quot;Yetibot core members&quot; /&gt;   &lt;figcaption&gt;Wisconsin along Lake Michigan&lt;/figcaption&gt; &lt;/figure&gt;&lt;/p&gt;
+</description>
+<pubDate>
+Sat, 18 May 2019 00:00:00 +0000
+</pubDate>
+</item>
 <item>
 <guid>
 https://yetibot.com/blog/2019-04-22-all-your-data-are-belong
