@@ -32,6 +32,6 @@ Or a particular user's score and recent comments, too.
 
 ![karma user score](/img/screenshots/karma_user_score.png)
 
-For next steps, we'd like to start making use of the digraph created as people show their appreciation for one another.  There's a commutative "web" of appreciation we form as we interact.  It might be fun to see how communities enmesh as members support each other.  How many degrees of separation are there in your community?  Yetibot might be able to help answer that someday.
+For next steps, we'd like to start making use of the [digraph](https://en.wikipedia.org/wiki/Directed_graph) created as people show their appreciation for one another.  There's a commutative "web" of appreciation we form as we interact.  It might be fun to see how communities enmesh as members support each other.  How many degrees of separation are there in your community?  Yetibot might be able to help answer that someday.
 
 For now, we hope you enjoy the simple act of giving and getting thanks.  Have a look through the [User Guide](https://yetibot.com/user-guide#karma) for more details on the interface, including our first steps on publishing reports via the GraphQL API
