@@ -1,6 +1,8 @@
 {:title "Yetis at Clojure/north"
  :layout :post
  :toc true
+ :summary "Yetibot core team members had the privilege of meeting up in Toronto for Clojure/north where @devth gave a talk on Yetibot!"
+ :image "/img/clojure_north/core_members.jpg"
  :tags  ["talk" "2019" "conference"]}
 
 Yetibot core team members [@kaffein](https://github.com/kaffein) and
