@@ -38,8 +38,9 @@ At the conference [@devth](https://github.com/devth) gave a talk on Yetibot
 </div>
 </p>
 
-Let us know in the comments if you have feedback on the talk or suggestions on
-topics to cover in future talks or blog posts!
+Feel free to discuss, leave feedback or ask questions on
+[reddit](https://www.reddit.com/r/Clojure/comments/bpqkkg/clojurenorth_growing_a_chatops_platform_and/)
+or in the comments of this post!
 
 ## Photos
 
