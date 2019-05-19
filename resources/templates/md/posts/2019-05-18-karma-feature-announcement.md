@@ -6,9 +6,9 @@
 
 The Yetibot Team just recently added a new feature called Karma.  It's an implementation of the classic IRC feature of the same name, with a few updates, and support for Slack interface opportunities.
 
-One of the summary notions we kick around in the project is "Community Command Line".  To me, this is all about building an interface to our work that let more people participate in decisions, and review their outcomes.  It's a big goal, and it's all about community.
+One of the summary notions we kick around in the project is "Community Command Line".  To me, this is all about building an interface to our work that lets more people participate in decisions and review their outcomes.  It's a big goal, and it's all about community.
 
-Part of any community is recognition.  It's how we show our appreciation when someone helps us, and how we identify our experts so others, with new problems to tackle, know where to start looking for help.  So with Yetibot's focus on communalizing work, adding a feature to give thanks and communicate accomplishments felt like a natural fit.
+Part of any community is recognition.  It's how we show our appreciation when someone helps us, and how we identify our experts so others, with new problems to tackle, know where to start looking for help.  With Yetibot's focus on communalizing work, adding a feature to give thanks and communicate accomplishments felt like a natural fit.
 
 The idea is simple: you give a point to someone, and optionally supply a note, when you want to recognize them.  It's quick and easy.
 
