@@ -1,7 +1,14 @@
+{:title "History powerups"
+ :layout :post
+ :summary "In the latest series of yetibot.core releases we focused on power-ups to history across all surfaces."
+ :image "TODO"
+ :tags  ["core" "history" "2019"]}
+ 
 In the latest series of yetibot.core releases we focused on power-ups to history
 across all surfaces:
 
-- yetibot.core 0.5.22
+
+, `0.5.31`
 
 
 - `history` command
