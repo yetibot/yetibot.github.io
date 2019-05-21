@@ -13,7 +13,7 @@
     <link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <link rel="shortcut icon" href="/img/favicon/favicon.ico">
 
-    
+
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://yetibot.com/dev-guide" />
     <meta property="og:title" content="Yetibot: Dev Guide" />
@@ -22,7 +22,7 @@
     <meta property="og:image"
       content="https://yetibot.com/img/yetibot_logo.svg"
     />
-    
+
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:domain" value="yetibot.com" />
     <meta name="twitter:title" value="Yetibot: Dev Guide" />
@@ -34,7 +34,7 @@
     />
     <meta name="twitter:url" value="https://yetibot.com/dev-guide" />
 
-    
+
 
     <meta name="msapplication-TileColor" content="#ffc40d">
     <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
@@ -71,37 +71,37 @@
           <div class="navbar-menu" id="nav-menu">
             <div class="navbar-start">
 
-              
+
               <a href="/user-guide"
                 class="navbar-item is-tab
                 ">
                 User Guide
               </a>
-              
+
               <a href="/dev-guide"
                 class="navbar-item is-tab
                 is-active">
                 Dev Guide
               </a>
-              
+
               <a href="/ops-guide"
                 class="navbar-item is-tab
                 ">
                 Ops Guide
               </a>
-              
+
               <a href="/community"
                 class="navbar-item is-tab
                 ">
                 Community
               </a>
-              
+
               <a href="/media"
                 class="navbar-item is-tab
                 ">
                 Media
               </a>
-              
+
 
               <a class="navbar-item is-tab
                 " href="/archives">
@@ -137,7 +137,7 @@
         </div>
       </nav>
 
-      
+
 
 <article class="page-title hero is-light is-bold is-fullwidth">
   <div class="hero-body">
@@ -155,10 +155,13 @@
       <div class="main columns">
         <div class="column main-content is-two-thirds">
           <p><!&ndash; can't indent this properly because Markdown turns it into a code block &ndash;> <article class="message is-info"> <div class="message-header">   <p>Tip</p> </div> <div class="message-body">   This guide is all about developing Yetibot. It includes docs about dev   workflow and Yetibot internals.</p><ul><li>If you're more interested in using Yetibot, check out the  <a href='/user-guide'>User Guide</a>.</li><li>If you're interested in running and operating your own instance of Yetibot,  check out the <a href='/ops-guide'>Operations Guide</a>.</div></article></li></ul><p><article class="message is-info"> <div class="message-header">   <p>Getting help</p> </div> <div class="message-body">   Although we hope the docs are useful and comprehensive,   <strong>don't hesitate to ask for help in <a href='https://slack.yetibot.com'>Slack</a>!</strong>   It could potentially save you a lot of time. </div> </article></p><p><article class="message is-warning"> <div class="message-header">   <p>🚧🏗👷</p> </div> <div class="message-body"> These docs are work in progress. </div> </article></p><h2 id="dev&#95;workflow">Dev workflow</h2><h3 id="prerequisites">Prerequisites</h3><h4 id="leiningen">Leiningen</h4><p>Leiningen is the Clojure build tool that Yetibot uses. See the <a href='https://github.com/technomancy/leiningen#installation'>Leiningen Installation docs</a> to install it.</p><h4 id="postgres">Postgres</h4><p>Yetibot needs a Postgres database. It defaults to <code>yetibot</code> as the database name (this is configurable). Ensure you have Postgres installed, then create the database:</p><pre><code class="bash">createdb yetibot
-</code></pre><p>The default connection string of <code>postgresql://localhost:5432/yetibot</code> should "just work".</p><h4 id="configuration">Configuration</h4><p>Make sure you've configured at least one chat adapter. This could be IRC or Slack. See <a href='https://yetibot.com/ops-guide/#minimal_config'>Up and running / minimal config</a> docs for a simple IRC example.</p><p>For the full set of configuration options see the <a href='/ops-guide#configuration'>Ops Guide / Configuration section</a>.</p><h3 id="repl">REPL</h3><p>Start up a development REPL with:</p><pre><code class="bash">lein repl
+</code></pre><p>The default connection string of <code>postgresql://localhost:5432/yetibot</code> should "just work".</p><h4 id="configuration">Configuration</h4><p>Make sure you've configured at least one chat adapter. This could be IRC or Slack. See <a href='https://yetibot.com/ops-guide#minimal_config'>Up and running / minimal config</a> docs for a simple IRC example.</p><p>For the full set of configuration options see the <a href='/ops-guide#configuration'>Ops Guide / Configuration section</a>.</p><h3 id="repl">REPL</h3><p>Start up a development REPL with:</p><pre><code class="bash">lein repl
 </code></pre><p>Then run:</p><pre><code class="clojure">&#40;start&#41;
 </code></pre><p>To load a core set of commands and connect to any configured adapters.</p><p>At this point a typical dev workflow would be to iteratively write and reload code from your editor as is common in the Clojure community. See <a href='http://clojure-doc.org/articles/content.html#essentials'>Essentials</a> for docs on setting up various editors for Clojure development.</p><p>You can also optionally load all commands from the REPL using:</p><pre><code class="clojure">&#40;load-all&#41;
 </code></pre><p>To fully reload and restart the adapters and database connections, use:</p><pre><code class="clojure">&#40;reset&#41;
+  &#91;{&#91;&#95; n1 n2&#93; :match}&#93; &#40;+ &#40;read-string n1&#41; &#40;read-string n2&#41;&#41;&#41;
+
+&#40;cmd-hook #&quot;add&quot; ;; command prefix
 </code></pre><p>And to stop, use:</p><pre><code class="clojure">&#40;stop&#41;
 </code></pre><p>See source for <a href='https://github.com/yetibot/yetibot.core/blob/master/src/yetibot/core/repl.clj'><code>yetibot.core.repl</code></a> for more info.</p><h3 id="linting">Linting</h3><p>Run this from the repo root to lint:</p><pre><code class="bash">codeclimate analyze
 </code></pre><h2 id="building&#95;your&#95;first&#95;command">Building your first command</h2><p><article class="message is-info"> <div class="message-header">   <p>Heads up</p> </div> <div class="message-body">   If you're new to Yetibot usage, it might be useful to check out the   <a href='https://yetibot.com/blog/2019-03-26-yetibot-workshop-at-ebay'>Contributing to Yetibot screencast</a>   where we break down a non-trivial nested alias and explain how command   composition works. This screencast also includes livecoding a new feature   (adding <code>forecast</code> support to weather). </div> </article></p><p>Building a Yetibot command is easy. The primary interface is <code>cmd-hook</code>, which registers a command with its prefix and set of sub-commands.</p><p>Here's an example command that adds 2 numbers:</p><pre><code class="clojure">&#40;ns mycompany.plugins.commands.add
@@ -271,16 +274,16 @@ https://github.com/yetibot/yetibot-stackstorm/blob/d5a26ceecba749ecedd2df2c8dc29
       </div>
 
       <div id="prev-next">
-        
-        <a class="button is-warning" href="/user-guide">&laquo; User Guide</a>
-        
-        
 
-        
-        
+        <a class="button is-warning" href="/user-guide">&laquo; User Guide</a>
+
+
+
+
+
         <a class="button is-warning"
           href="/ops-guide">Ops Guide ↠</a>
-        
+
       </div>
     </div>
   </div>
@@ -324,4 +327,3 @@ https://github.com/yetibot/yetibot-stackstorm/blob/d5a26ceecba749ecedd2df2c8dc29
     <script>hljs.initHighlightingOnLoad();</script>
   </body>
 </html>
-
