@@ -1,5 +1,6 @@
 {:title "Yetibot Workshop @ eBay San Jose"
  :layout :post
+ :author "@devth"
  :image "/img/yetibot_workshop.jpg"
  :summary "As part of eBay's internal Front End conference, @devth gave a 'Contributing to Yetibot' workshop"
  :tags ["presentation" "events" "screencast" "2019"]}

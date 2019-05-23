@@ -1,5 +1,6 @@
 {:title "Karma Feature Announcement"
  :layout :post
+ :author "@jcorrado"
  :summary "The Yetibot Team just recently added a new feature called Karma."
  :image "/img/screenshots/karma_user_score.png"
  :tags  ["core" "news" "2019"]}

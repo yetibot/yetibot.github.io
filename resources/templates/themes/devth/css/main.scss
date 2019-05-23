@@ -12,11 +12,19 @@ $link: $cyan;
 @import "tocbot.css";
 
 
-body a {
-  // need this  hack until we fix styles in github-org-cards :(
-  color: $link;
+body {
+  a {
+    // need this  hack until we fix styles in github-org-cards :(
+    color: $link;
+  }
+  // override breaking because "announcement" is too long of a word on mobile
+  // devices
+  .title {
+    overflow: hidden;
+    word-break: normal;
+    text-overflow: ellipsis;
+  }
 }
-
 
 .navbar .navbar-brand {
   padding: 6px 6px 6px 0;
@@ -276,8 +284,7 @@ h2, h3, h4, h5, p, pre {
 }
 
 
-// archive / blog
-
-.archive .card {
+// archive / blog - ensure all the cards are the same height
+#posts .card {
   height: 100%;
 }

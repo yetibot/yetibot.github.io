@@ -1,5 +1,6 @@
 {:title "Moving mutable configuration to the database"
  :layout :post
+ :author "@devth"
  :toc true
  :tags  ["news" "2019" "config"]}
 

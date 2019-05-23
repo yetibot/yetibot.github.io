@@ -1,19 +1,38 @@
 {% extends "/html/base.html" %}
 {%block subtitle %}: Posts by {{author}} {% endblock %}
 {% block content %}
-<div id="posts">
-  <div id="page-header" class="post-header">
-    <h2>Posts by {{author}}</h2>
+
+<article class="page-title hero is-dark is-bold is-fullwidth">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">Posts by {{author}}</h1>
+    </div>
   </div>
-  {% for group in groups %}
-  <h4>{{group.group}}</h4>
-  <ul>
-    {% for post in group.posts %}
-    <li>
-      {{post.date|date:"MMM dd"}} - <a href="{{post.uri}}">{{post.title}}</a>
-    </li>
-    {% endfor %}
-  </ul>
-  {% endfor %}
-</div>
+</article>
+
+<section class="section content">
+  <div class="container">
+    <div id="posts">
+      <div class="columns is-multiline">
+        {% for group in groups %}
+          {% for post in group.posts %}
+            <div class="column is-one-third-fullhd is-one-third-desktop is-one-half-tablet">
+              <div class="card">
+                <div class="card-content">
+                  <p class="title">
+                    <a href="{{post.uri}}">{{post.title}}</a>
+                  </p>
+                  <p class="subtitle">
+                    {{post.date|date:"MMM dd, YYYY"}}
+                  </p>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
 {% endblock %}
