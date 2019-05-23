@@ -1,5 +1,6 @@
 {:title "Looking back at 2018 and forward for 2019"
  :layout :post
+ :author "@devth"
  :toc true
  :tags  ["news" "roadmap" "2018" "2019"]}
 

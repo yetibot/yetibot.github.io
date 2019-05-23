@@ -5,7 +5,9 @@
       <p class="subtitle">
         {{post.date|date:longDate}}
         {% if post.author %}
-          <span>By {{post.author}}</span>
+          <span>by
+            <a href="/authors/{{post.author}}">{{post.author}}</a>
+          </span>
         {% endif %}
       </p>
     </div>
@@ -27,9 +29,12 @@
     </div>
     {% if post.tags|not-empty %}
     <div id="post-tags">
-      <b>Tags: </b>
       {% for tag in post.tags %}
-        <a href="{{tag.uri}}">{{tag.name}}</a>
+        <a href="{{tag.uri}}">
+          <span class="tag is-medium is-dark">
+              {{tag.name}}
+          </span>
+        </a>
       {% endfor %}
     </div>
     {% endif %}

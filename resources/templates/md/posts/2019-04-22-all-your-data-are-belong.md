@@ -1,6 +1,7 @@
 {:title "All your data are belong"
  :layout :post
  :toc true
+ :author "@devth"
  :tags  ["core" "2019" "data"]}
 
 In the last few months we've been working on including raw data in command

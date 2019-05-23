@@ -33,7 +33,9 @@
       content="{{site-url}}{{post.image|default:"/img/yetibot_logo.svg"}}"
     />
     <meta name="twitter:url" value="{{site-url}}{{uri}}" />
-
+    {% if post.author|not-empty %}
+      <meta name="twitter:creator" value="{{post.author}}" />
+    {% endif %}
     {% if post.tags|not-empty %}
     <meta name="twitter:label1" value="Date" />
     <meta name="twitter:data1" value="{{post.date|date:longDate}}" />
