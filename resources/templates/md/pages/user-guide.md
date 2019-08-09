@@ -667,6 +667,50 @@ Re-enable it:
 !category enable fun
 ```
 
+## SSH
+
+Yetibot can `ssh` into servers and run commands on your behalf.
+
+The config looks like:
+
+```clojure
+{:yetibot
+ {;; ...
+
+  :ssh {:groups
+        [{:user "",
+          :servers [{:host "", :name ""} {:host "", :name ""}],
+          :key "path-to-key"}]},
+ }}
+```
+
+Each map inside the `:groups` collection has a single `user` and `key` and
+allows multiple servers.
+
+For example, if we had a server with name `example` we could see it in the list
+of servers via:
+
+```
+!ssh servers
+```
+
+and run commands via:
+
+```
+!ssh example echo foo
+```
+
+Yetibot `ssh` currently only supports key-based authentication.
+
+<article class="message is-info">
+<div class="message-header">
+  <p>Note</p>
+</div>
+<div class="message-body">
+  See full [config docs](/ops-guide#configuration).
+</div>
+</article>
+
 ## Utilities
 
 ### Data

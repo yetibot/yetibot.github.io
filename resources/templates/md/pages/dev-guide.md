@@ -633,6 +633,27 @@ curl 'https://public.yetibot.com/graphql' \
 Yetibot hosts a web-based frontend powered by the GraphQL API. See the public
 instance at [public.yetibot.com](https://public.yetibot.com).
 
+## Working with Docker locally
+
+Sometimes we need to make changes to the `Dockerfile` and test them locally.
+
+Here's one way to do so without having to worry about running a Postgres
+instance or mess with config.
+
+After making changes to `Dockerfile` in the root of the
+[main Yetibot repo](https://github.com/yetibot/yetibot):
+
+```bash
+# 1. build a new docker image
+docker build -t yetibot/local .
+
+# 2. optionally edit docker-compose.local.yml to adjust configuration
+
+# 3. test out the new image using docker-compose.local.yml to override the image
+# and any other config you'd like to modify:
+docker-compose -f docker-compose.yml -f docker-compose.local.yml up
+```
+
 ## 🤔
 
 <article class="message is-info">
