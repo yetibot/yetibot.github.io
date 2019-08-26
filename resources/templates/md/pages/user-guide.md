@@ -529,7 +529,7 @@ utility and become a manifestation of culture.
 ## Observers
 
 An observer listens for patterns and automatically runs commands when triggered.
-They're super powerful but can be easily be abused.
+They're super powerful but can easily be abused.
 
 ```yetibot
 !help observer
