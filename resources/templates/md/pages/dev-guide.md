@@ -68,7 +68,7 @@ The default connection string of `postgresql://localhost:5432/yetibot` should
 
 Make sure you've configured at least one chat adapter. This could be IRC or
 Slack. See
-[Up and running / minimal config](https://yetibot.com/ops-guide/#minimal_config)
+[Up and running / minimal config](https://yetibot.com/ops-guide#minimal_config)
 docs for a simple IRC example.
 
 For the full set of configuration options see the
