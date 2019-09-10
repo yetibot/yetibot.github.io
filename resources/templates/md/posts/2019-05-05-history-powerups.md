@@ -115,4 +115,13 @@ and conversation.
  "
 ```
 
-## Examples
+## Example commands
+
+## GraphQL
+
+### Cursor-based pagination
+
+### Example queries
+
+## Web dashboard
+
