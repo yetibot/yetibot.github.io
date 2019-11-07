@@ -1064,14 +1064,24 @@ Yetibot expressions.
 We can also assign issues, but first let's see who's all available:
 
 ```yetibot
-!jira users
+!jira project-users
+```
+
+Note: we can also search for users, system wide:
+
+```yetibot
+!jira users t
+```
+
+```yetibot
+!jira users t | data show
 ```
 
 Assign a random issue to a random user (try running this multiple times for
 extra chaos 😈):
 
 ```yetibot
-!jira recent | random | jira parse | jira assign %s `jira users | random`
+!jira recent | random | jira parse | jira assign %s `jira project-users | random`
 ```
 
 Or assign all issues that mention `docs` in the summary to Yetibot:
