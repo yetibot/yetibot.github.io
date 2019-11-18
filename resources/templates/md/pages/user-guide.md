@@ -842,7 +842,7 @@ The canonical `!karma` command invocation, using the traditional C increment (`+
 The Emoji versions to add (🌈) or subtract (⛈), optionally followed by a note.
 
 ```plain
-🌈 @yetibot 
+🌈 @yetibot
 ```
 
 ```plain
@@ -951,9 +951,11 @@ Look up git change stats on Yetibot's first 3 repos:
 
 ## JIRA
 
-Yetibot's JIRA capabilities are fairly powerful. It can operate over a global
-list of projects or per-channel project settings. Operations include creating,
-updating, resolving, describing, deleting, assigning and commenting on issues. 
+Yetibot's JIRA capabilities are pretty powerful, especially when combined with
+Yetibot's expressions pipeline capabilities. It can operate over a global list
+of projects or per-channel project settings. Operations include creating,
+updating, resolving, describing, deleting, assigning, logging work, and
+commenting on issues.
 
 It can also search issues using JIRA's powerful
 [`jql`](https://confluence.atlassian.com/jiracore/blog/2015/07/search-jira-like-a-boss-with-jql)
@@ -962,6 +964,236 @@ syntax.
 ```yetibot
 !help jira
 ```
+
+### JIRA Basics
+
+Let's start by creating a new issue:
+
+```yetibot
+!jira create new issue from yetibot.com!
+```
+
+If we list recent issues and you should see the issue you just created at the
+top:
+
+```yetibot
+!jira recent
+```
+
+We can get more details on that issue:
+
+```yetibot
+!jira recent | head | jira parse | jira show
+```
+
+Let's break this down keeping in mind values flow across `|` pipes:
+
+1. `jira recent` - list the recent issues
+1. `head` - take the first issue from the list
+1. `jira parse` - extract the issue key from a url, e.g. extract `YETIBOT-X`
+   from `https://yetibot.atlassian.net/browse/YETIBOT-X`
+1. `jira show` - describe the issue
+
+If we knew the issue key ahead of time, we could have simply used it:
+
+```yetibot
+!jira show YETIBOT-4
+```
+
+We could also parse issue keys out of all recent issues via:
+
+```yetibot
+!jira recent | xargs jira parse
+```
+
+What if you want to create a subtask? We can do that too using the `-p` option
+to specify the parent when creating:
+
+```yetibot
+!help jira | grep create
+```
+
+Create a sub-task of our most recent issue:
+
+```yetibot
+!jira recent | head | jira parse | jira create I am a subtask -p %s
+```
+
+### JIRA JQL
+
+If you want to quickly search for issues:
+
+```yetibot
+!jira search demo
+```
+
+This runs a JQL query that looks like:
+
+```
+project in (YETIBOT) AND
+  (summary ~ "demo" OR description ~ "demo" OR comment ~ "demo")
+```
+
+It searches across 3 fields:
+
+1. `summary`
+1. `description`
+1. `comment`
+
+But you can also drop down to raw JQL when the need arises:
+
+```yetibot
+!jira jql created >= "-5h"
+```
+
+Checkout
+[Atlassian's Advanced searching docs](https://confluence.atlassian.com/jirasoftwarecloud/advanced-searching-764478330.html)
+and
+[Advanced searching - operators reference](https://confluence.atlassian.com/jirasoftwarecloud/advanced-searching-operators-reference-764478341.html)
+for more info on using JQL. It's super powerful.
+
+### Get fancy with JIRA
+
+Let's look at some of the ways we can interact with our issue with the power of
+Yetibot expressions.
+
+```yetibot
+!jira recent | head | jira parse | jira comment %s Works on my machine
+```
+
+We can also assign issues, but first let's see who's all available:
+
+```yetibot
+!jira project-users
+```
+
+Note: we can also search for users, system wide:
+
+```yetibot
+!jira users t
+```
+
+```yetibot
+!jira users t | data show
+```
+
+Assign a random issue to a random user (try running this multiple times for
+extra chaos 😈):
+
+```yetibot
+!jira recent | random | jira parse | jira assign %s `jira project-users | random`
+```
+
+Or assign all issues that mention `docs` in the summary to Yetibot:
+
+```yetibot
+!jira jql summary ~ docs | xargs jira parse | xargs jira assign %s Yetibot
+```
+
+Let's add a worklog item:
+
+```yetibot
+!jira recent | random | jira parse | jira worklog %s 15m explored the docs
+```
+
+### Components, versions, issue types, projects
+
+List components:
+
+```yetibot
+!jira components
+```
+
+All of the JIRA commands expose data. For example, take a peek at the full API
+response for a component:
+
+```yetibot
+!jira components | head | data show
+```
+
+This gives us flexability to get at any piece of the data that might not be
+included in Yetibot's default formatted output. What if we wanted to get the
+avatar of the first component's lead?
+
+```yetibot
+!jira components | head | render {{lead.avatarUrls.48x48}}
+```
+
+We can also list things like versions, issue types, and projects:
+
+```yetibot
+!jira versions
+```
+
+```yetibot
+!jira issue-types
+```
+
+```yetibot
+!jira projects
+```
+
+Search for projects matching `yet`:
+
+```yetibot
+!jira projects yet
+```
+
+Peek at some raw data behind the pipe:
+
+```yetibot
+!jira projects | random | data show
+```
+
+We can combine any of these with Yetibot's pipeline capabilities and do batch
+operations.
+
+### JIRA batch combos
+
+```yetibot
+!list do the right thing, do the best thing, do the fastest thing | xargs jira create
+```
+
+```yetibot
+!jira jql summary ~ thing AND resolution = Unresolved
+```
+
+```yetibot
+!jira jql summary ~ thing AND resolution = Unresolved | random | jira parse | jira comment %s I `list agree,disagree | random`
+```
+
+Batch resolve all the `thing`s:
+
+```yetibot
+!jira jql summary ~ thing AND resolution = Unresolved | xargs render {{key}}
+```
+
+```yetibot
+!jira jql summary ~ thing AND resolution = Unresolved | xargs render {{key}} | xargs jira resolve %s Fixed
+```
+
+Now clean your JIRA with `jira delete`:
+
+```yetibot
+!jira jql summary ~ thing AND resolution = Done | xargs jira parse | xargs jira delete
+```
+
+🔥
+
+
+And if you want to *really* clean up, delete all issues created today:
+
+```yetibot
+!jira jql created >= startOfDay()
+```
+
+```yetibot
+!jira jql created >= startOfDay() | xargs jira parse | xargs jira delete
+```
+
+🔥😑
+
+### JIRA Configuration
 
 JIRA configuration looks like:
 
@@ -982,11 +1214,11 @@ This ability is also configurable on a per-channel basis using
 [channel settings](#channel_settings):
 
 ```
-!channel set jira-project YETIBOT
+!channel set jira-project YETIBOT,COM
 ```
 
 After setting that in a channel, Yetibot will know to expand all occurrences of
-strings that look like JIRA keys, such as `YETIBOT-123`.
+strings that look like JIRA keys, such as `YETIBOT-123` or `COM-2`.
 
 ## GraphQL API
 
