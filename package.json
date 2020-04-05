@@ -9,7 +9,7 @@
     "if-is-image": "1.0.6",
     "react": "16.11.0",
     "react-dom": "16.11.0",
-    "tocbot": "4.10.0"
+    "tocbot": "4.10.1"
   },
   "devDependencies": {
     "css-loader": "3.2.0",
