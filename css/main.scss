@@ -16,6 +16,7 @@ body {
   a {
     // need this  hack until we fix styles in github-org-cards :(
     color: $link;
+    font-weight: 600;
   }
   // override breaking because "announcement" is too long of a word on mobile
   // devices

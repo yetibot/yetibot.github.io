@@ -6430,7 +6430,8 @@ label.panel-block {
   padding: 3rem 1.5rem 6rem; }
 
 body a {
-  color: #55C4D4; }
+  color: #55C4D4;
+  font-weight: 600; }
 body .title {
   overflow: hidden;
   word-break: normal;
