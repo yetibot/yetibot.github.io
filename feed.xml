@@ -12,11 +12,31 @@ https://yetibot.com/
 Docs and blog posts for Yetibot
 </description>
 <lastBuildDate>
-Mon, 06 Apr 2020 02:02:08 +0000
+Mon, 06 Apr 2020 11:03:43 +0000
 </lastBuildDate>
 <generator>
 clj-rss
 </generator>
+<item>
+<guid>
+https://yetibot.com/blog/2020-04-06-digitalocean-sponsorship
+</guid>
+<link>
+https://yetibot.com/blog/2020-04-06-digitalocean-sponsorship
+</link>
+<title>
+DigitalOcean Sponsorship
+</title>
+<description>
+&lt;p&gt;We are happy to announce that Yetibot is sponsored by DigitalOcean as part of their awesome &lt;a href='https://www.digitalocean.com/open-source/'&gt;Open Source Sponsorship&lt;/a&gt; program!&lt;/p&gt;&lt;p&gt;These credits allow to run the &lt;a href='https://public.yetibot.com'&gt;public Yetibot instance&lt;/a&gt; and a corresponding Postgres database on DO's cloud. This instance:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;provides the &lt;a href='https://yetibot.com/dev-guide#graphql_api'&gt;GraphQL API&lt;/a&gt; that  powers the docs at &lt;a href='https://yetibot.com'&gt;yetibot.com&lt;/a&gt;, and&lt;/li&gt;&lt;li&gt;connects to &lt;a href='https://slack.yetibot.com'&gt;Yetibot Slack&lt;/a&gt; and  &lt;a href='https://yetibot-mattermost.herokuapp.com/'&gt;Yetibot Mattermost&lt;/a&gt; so users can  play and test the bot&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;strong&gt;Thank you, DigitalOcean!&lt;/strong&gt; Your generous open source program removes hurdles for Yetibot and countless other open source projects. ⚡️&lt;/p&gt;&lt;p&gt;&lt;div id=&quot;digitalocean-sponsorship&quot;&gt; &lt;img src=&quot;/img/yetibot_lambda_blue.svg&quot; alt=&quot;Yetibot on DigitalOcean&quot; /&gt; &lt;img src=&quot;https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/PoweredByDO/DO_Powered_by_Badge_black.svg&quot; alt=&quot;DigitalOcean is awesome&quot; /&gt; &lt;/div&gt;&lt;/p&gt;
+</description>
+<author>
+@devth
+</author>
+<pubDate>
+Mon, 06 Apr 2020 00:00:00 +0000
+</pubDate>
+</item>
 <item>
 <guid>
 https://yetibot.com/blog/2019-05-18-karma-feature-announcement
