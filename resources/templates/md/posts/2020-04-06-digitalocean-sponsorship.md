@@ -1,8 +1,8 @@
 {:title "DigitalOcean Sponsorship"
  :layout :post
  :author "@devth"
- :summary "Proud to announce DigitalOcean as a sponsor of Yetibot"
- :image "/img/DO_Logo_Horizontal_Blue.png"
+ :summary "We are happy to announce Yetibot is sponsored by DigitalOcean!"
+ :image "/img/DO_Powered_by_Badge_white.png"
  :tags  ["2020" "sponsorship"]}
 
 We are happy to announce that Yetibot is sponsored by DigitalOcean as part of
