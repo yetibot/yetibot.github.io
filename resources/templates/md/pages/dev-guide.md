@@ -654,6 +654,46 @@ docker build -t yetibot/local .
 docker-compose -f docker-compose.yml -f docker-compose.local.yml up
 ```
 
+## Configuration constraints
+
+Yetibot allows several configuration mechanisms in an attempt to afford the
+operator of a Yetibot the most convenient method according to their environment,
+tooling and preferences. To support this level of flexibility we must adopt two
+constraints:
+
+1. All config values are strings
+1. `_` or `-` are not used in configuration key names as they represent levels
+   of nesting.
+
+For example: all of these are equivalent:
+
+```clojure
+;; config.edn
+{:yetibot
+ {:aws
+  {:access
+   {:key "lol"}}}}
+```
+
+```shell
+# shell
+export YETIBOT_AWS_ACCESS_KEY="lol"
+```
+
+```clojure
+;; profiles.clj (leiningen)
+:yetibot-aws-access-key "lol"
+```
+
+In the future we will lint configuration to prevent violations of these
+constraints, such as when a developer only uses the `config.edn` mechanism,
+which is more expressive than the other two.
+
+For more information, see:
+
+1. [Ops Guide / Configuration / Prefixes](https://yetibot.com/ops-guide#prefixes)
+1. [dec: Deep Environmental Config](https://devth.com/2018/dec-deep-environmental-config)
+
 ## Testing philosophy
 
 Tests should allow for a typical REPL driven workflow, just like typical
