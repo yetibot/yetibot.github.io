@@ -241,10 +241,11 @@ precedence with the first overriding the next:
 When multiple methods are specified the values are merged.
 
 There are many configuration options in Yetibot. See sample configuration files
-annotated with inline documentation in both formats:
+annotated with inline documentation in all available formats:
 
 - [profiles.sample.clj](https://github.com/yetibot/yetibot.core/blob/master/config/profiles.sample.clj)
 - [config.sample.edn](https://github.com/yetibot/yetibot.core/blob/master/config/config.sample.edn)
+- [sample.env](https://github.com/yetibot/yetibot.core/blob/master/config/sample.env)
 
 These are equivalent and both immutable (meaning they cannot change at runtime).
 
