@@ -40,6 +40,9 @@ To get a Yetibot running you need:
 1. A Postgres database
 1. A way to run it (i.e. `docker` or `lein`)
 
+Note: Yetibot runs on Java 11+. This is because Yetibot uses the Java 11 async
+HTTP client. If you run Yetibot via Docker then this is already taken care of.
+
 ### Docker Compose
 
 Docker Compose satisfies these requirements very quickly. Run from the root of
