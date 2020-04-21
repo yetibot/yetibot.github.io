@@ -526,13 +526,6 @@ utility and become a manifestation of culture.
 !help alias
 ```
 
-As an example, look at the default output of `stock`:
-
-```yetibot
-stock tsla
-```
-
-
 ## Observers
 
 An observer listens for patterns and automatically runs commands when triggered.
@@ -557,7 +550,7 @@ to a message by running a command. For example:
 With this observer any time anyone mention sushi they get a 🍣 reaction. Note
 that we could have specified a regex pattern instead of the literal "sushi".
 
-It also supports optional settings that let you filter on:
+It also supports optional settings that let us filter on:
 
 - the name of the channel using `-c`
 - the username of the person who posted a message using `-u`
