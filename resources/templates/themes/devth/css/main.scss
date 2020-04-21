@@ -86,6 +86,7 @@ pre {
     display: block;
   }
   code {
+    white-space: pre-wrap; 
     .wrap { white-space: pre-wrap; }
   }
 }

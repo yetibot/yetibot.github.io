@@ -6468,8 +6468,10 @@ pre {
   border-left: 5px solid #55c4d4; }
   pre img {
     display: block; }
-  pre code .wrap {
+  pre code {
     white-space: pre-wrap; }
+    pre code .wrap {
+      white-space: pre-wrap; }
 
 .is-horizontal-center {
   justify-content: center; }
