@@ -1266,29 +1266,6 @@ curl -s 'https://public.yetibot.com/graphql' \
 These recipes are fun example usages of Yetibot that more holistically
 communicate its capabilities and historical usage.
 
-### Google Sheets to JIRA Issues
-
-You know how non-eng sometimes use spreadsheets for issue tracking? Here is a
-recipe that consumes a G sheet and pipes it into jira create commands.
-
-This [Yetibot tasks sheet](https://docs.google.com/spreadsheets/d/1JIp3AjmPIA7T2aJsXPDaz7KxyxJLJGbgkR6r_dpvu_E/edit?usp=sharing)
-contains a few example task rows with columns `Summary`, `Description` and
-`Hours`. Google Sheets has a cool trick where you can change the url from
-`/edit` to `/export?format=json` to get a JSON representation
-
-Try it out:
-
-```yetibot
-!help json
-```
-
-```yetibot
-!json https://docs.google.com/spreadsheets/d/1JIp3AjmPIA7T2aJsXPDaz7KxyxJLJGbgkR6r_dpvu_E/export?format=json
-```
-
-https://docs.google.com/spreadsheets/d/1JIp3AjmPIA7T2aJsXPDaz7KxyxJLJGbgkR6r_dpvu_E/export?format=csv
-
-
 ### Celcius / Fahrenheit conversion with render
 
 The built in `render` command is quite powerful because it uses the
