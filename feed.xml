@@ -12,11 +12,45 @@ https://yetibot.com/
 Docs and blog posts for Yetibot
 </description>
 <lastBuildDate>
-Thu, 16 Apr 2020 19:25:50 +0000
+Tue, 21 Apr 2020 18:43:02 +0000
 </lastBuildDate>
 <generator>
 clj-rss
 </generator>
+<item>
+<guid>
+https://yetibot.com/blog/2020-04-20-guide-google-sheets-to-jira
+</guid>
+<link>
+https://yetibot.com/blog/2020-04-20-guide-google-sheets-to-jira
+</link>
+<title>
+Guide: Google Sheets to JIRA issues
+</title>
+<description>
+&lt;p&gt; This guide demonstrates the use of Yetibot to consume a Google Sheet as a CSV  and create JIRA issues from the rows.&lt;/p&gt;&lt;h2 id=&quot;csv&amp;#95;consumption&quot;&gt;CSV consumption&lt;/h2&gt;&lt;p&gt; We'll use this  &lt;a href='https://docs.google.com/spreadsheets/d/1JIp3AjmPIA7T2aJsXPDaz7KxyxJLJGbgkR6r_dpvu_E/edit?usp=sharing'&gt;Yetibot tasks Google Sheet&lt;/a&gt;.  To get the sheet in CSV format, just change the end of the URL from  &lt;code&gt;edit?usp=sharing&lt;/code&gt; to &lt;code&gt;export?format=csv&lt;/code&gt;:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!curl https://docs.google.com/spreadsheets/d/1JIp3AjmPIA7T2aJsXPDaz7KxyxJLJGbgkR6r&amp;#95;dpvu&amp;#95;E/export?format=csv
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;We can consume that URL with the &lt;code&gt;csv&lt;/code&gt; command.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!help csv
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!csv https://docs.google.com/spreadsheets/d/1JIp3AjmPIA7T2aJsXPDaz7KxyxJLJGbgkR6r&amp;#95;dpvu&amp;#95;E/export?format=csv
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Let's alias that so it's a little more readable:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!alias yetitasks = &amp;quot;csv https://docs.google.com/spreadsheets/d/1JIp3AjmPIA7T2aJsXPDaz7KxyxJLJGbgkR6r&amp;#95;dpvu&amp;#95;E/export?format=csv&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Then make sure it works as expected:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!yetitasks
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;towards&amp;#95;jira&quot;&gt;Towards JIRA&lt;/h2&gt;&lt;p&gt;Next, we need to figure out how to pipe that to &lt;code&gt;jira&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;We can take advantage of the &lt;code&gt;render&lt;/code&gt; command, which lets us render templates against a data structure, like the above.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!help render
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;For example, if we only want to look at the &lt;code&gt;Summary&lt;/code&gt; column:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!yetitasks | render {{Summary}}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Let's look at &lt;code&gt;jira create&lt;/code&gt; docs to see how we can construct it dynamically:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!help jira | grep create
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;So at a minimum, it'd look like:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!yetitasks | render jira create {{Summary}}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;But we can also take advantage of the other columns:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!yetitasks | render jira create {{Summary}} -d {{Decription}} -t {{Estimate}} -c {{Component}}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Finally, to actually run those commands, we can use the &lt;code&gt;cmd&lt;/code&gt; command:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!help cmd
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;tldr&quot;&gt;tldr&lt;/h2&gt;&lt;p&gt;Put it all together:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!yetitasks | render jira create {{Summary}} -d {{Description}} -t {{Estimate}} -c {{Component}} | xargs cmd
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;🔥&quot;&gt;🔥&lt;/h2&gt;&lt;p&gt;To clean up we can use &lt;code&gt;jira jql&lt;/code&gt; to query issues created in the last hour:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!jira jql created &amp;gt; -1h
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And delete them:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!jira jql created &amp;gt; -1h | xargs jira parse | xargs jira delete
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;🔥&lt;/p&gt;&lt;h2 id=&quot;power&quot;&gt;Power&lt;/h2&gt;&lt;p&gt;Hopefully this guide has illustrated the power of &lt;code&gt;|&lt;/code&gt; pipes, &lt;code&gt;xargs&lt;/code&gt;, &lt;code&gt;render&lt;/code&gt; and &lt;code&gt;cmd&lt;/code&gt;. They are foundational pieces of Yetibot's expressive pipeline capabilities.&lt;/p&gt;&lt;p&gt;Have ideas for other guides? Post a comment below!&lt;/p&gt;
+</description>
+<author>
+@devth
+</author>
+<pubDate>
+Mon, 20 Apr 2020 00:00:00 +0000
+</pubDate>
+</item>
 <item>
 <guid>
 https://yetibot.com/blog/2020-04-06-digitalocean-sponsorship
