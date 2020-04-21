@@ -6432,6 +6432,10 @@ label.panel-block {
 body a {
   color: #55C4D4;
   font-weight: 600; }
+body .toc-list-item a {
+  font-weight: normal; }
+  body .toc-list-item a.is-active-link {
+    font-weight: bold; }
 body .title {
   overflow: hidden;
   word-break: normal;
@@ -6468,8 +6472,10 @@ pre {
   border-left: 5px solid #55c4d4; }
   pre img {
     display: block; }
-  pre code .wrap {
+  pre code {
     white-space: pre-wrap; }
+    pre code .wrap {
+      white-space: pre-wrap; }
 
 .is-horizontal-center {
   justify-content: center; }

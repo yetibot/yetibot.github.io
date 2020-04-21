@@ -550,7 +550,7 @@ to a message by running a command. For example:
 With this observer any time anyone mention sushi they get a 🍣 reaction. Note
 that we could have specified a regex pattern instead of the literal "sushi".
 
-It also supports optional settings that let you filter on:
+It also supports optional settings that let us filter on:
 
 - the name of the channel using `-c`
 - the username of the person who posted a message using `-u`
@@ -1441,17 +1441,6 @@ Hint: run it more than once 😁
 ```
 
 I think you get the idea 🧐
-
-### Hide yo
-
-```
-!alias hide = "meme hide yo: hide yo /"
-!list wife, kids, husband too | xargs hide | unwords
-```
-
-![hide yo wife](//i.imgflip.com/wx1cd.jpg "hide yo wife")
-![hide yo kids](//i.imgflip.com/wx1cb.jpg "hide yo kids")
-![hide yo husband too](//i.imgflip.com/wx1cc.jpg "hide yo husband too")
 
 ## 🤔
 
