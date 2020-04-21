@@ -6432,6 +6432,10 @@ label.panel-block {
 body a {
   color: #55C4D4;
   font-weight: 600; }
+body .toc-list-item a {
+  font-weight: normal; }
+  body .toc-list-item a.is-active-link {
+    font-weight: bold; }
 body .title {
   overflow: hidden;
   word-break: normal;

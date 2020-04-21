@@ -18,6 +18,12 @@ body {
     color: $link;
     font-weight: 600;
   }
+  .toc-list-item a {
+    font-weight: normal;
+    &.is-active-link {
+      font-weight: bold;
+    }
+  }
   // override breaking because "announcement" is too long of a word on mobile
   // devices
   .title {

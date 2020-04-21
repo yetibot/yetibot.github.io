@@ -82,7 +82,7 @@ Finally, to actually run those commands, we can use the `cmd` command:
 !help cmd
 ```
 
-## The tldr
+## tldr
 
 Put it all together:
 
