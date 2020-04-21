@@ -526,6 +526,29 @@ utility and become a manifestation of culture.
 !help alias
 ```
 
+As an example, look at the default output of `stock`:
+
+```yetibot
+!stock tsla
+```
+
+Let's say we wanted a more concise one-liner using its `data`:
+
+```yetibot
+!stock tsla | data show
+```
+
+```yetibot
+!alias quickstock = "stock $s | render {{symbol}} ${{price}} {% ifequal change-percent|first '-'  %}📈{% else %}📉{% endif %} {{change-percent}} / ${{change}}"
+```
+
+Let's get multiple stocks at once:
+
+```yetibot
+!list aapl tsla vxus | xargs quickstock
+```
+
+
 ## Observers
 
 An observer listens for patterns and automatically runs commands when triggered.
