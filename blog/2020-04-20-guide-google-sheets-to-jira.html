@@ -179,7 +179,7 @@
 </code></pre><p>For example, if we only want to look at the <code>Summary</code> column:</p><pre><code class="yetibot">!yetitasks | render {{Summary}}
 </code></pre><p>Let's look at <code>jira create</code> docs to see how we can construct it dynamically:</p><pre><code class="yetibot">!help jira | grep create
 </code></pre><p>So at a minimum, it'd look like:</p><pre><code class="yetibot">!yetitasks | render jira create {{Summary}}
-</code></pre><p>But we can also take advantage of the other columns:</p><pre><code class="yetibot">!yetitasks | render jira create {{Summary}} -d {{Decription}} -t {{Estimate}} -c {{Component}}
+</code></pre><p>But we can also take advantage of the other columns:</p><pre><code class="yetibot">!yetitasks | render jira create {{Summary}} -d {{Description}} -t {{Estimate}} -c {{Component}}
 </code></pre><p>Finally, to actually run those commands, we can use the <code>cmd</code> command:</p><pre><code class="yetibot">!help cmd
 </code></pre><h2 id="tldr">tldr</h2><p>Put it all together:</p><pre><code class="yetibot">!yetitasks | render jira create {{Summary}} -d {{Description}} -t {{Estimate}} -c {{Component}} | xargs cmd
 </code></pre><h2 id="🔥">🔥</h2><p>To clean up we can use <code>jira jql</code> to query issues created in the last hour:</p><pre><code class="yetibot">!jira jql created &gt; -1h
@@ -288,7 +288,7 @@
       </div>
     </footer>
 
-    <script src="/js/dist.js?q=210420206431" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/dist.js?q=2204202063046" type="text/javascript" charset="utf-8"></script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <script src="/js/highlight.pack.js" type="text/javascript"></script>

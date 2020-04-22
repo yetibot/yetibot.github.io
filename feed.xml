@@ -12,7 +12,7 @@ https://yetibot.com/
 Docs and blog posts for Yetibot
 </description>
 <lastBuildDate>
-Tue, 21 Apr 2020 18:43:02 +0000
+Wed, 22 Apr 2020 18:30:47 +0000
 </lastBuildDate>
 <generator>
 clj-rss
@@ -37,7 +37,7 @@ Guide: Google Sheets to JIRA issues
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;For example, if we only want to look at the &lt;code&gt;Summary&lt;/code&gt; column:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!yetitasks | render {{Summary}}
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Let's look at &lt;code&gt;jira create&lt;/code&gt; docs to see how we can construct it dynamically:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!help jira | grep create
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;So at a minimum, it'd look like:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!yetitasks | render jira create {{Summary}}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;But we can also take advantage of the other columns:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!yetitasks | render jira create {{Summary}} -d {{Decription}} -t {{Estimate}} -c {{Component}}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;But we can also take advantage of the other columns:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!yetitasks | render jira create {{Summary}} -d {{Description}} -t {{Estimate}} -c {{Component}}
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Finally, to actually run those commands, we can use the &lt;code&gt;cmd&lt;/code&gt; command:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!help cmd
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;tldr&quot;&gt;tldr&lt;/h2&gt;&lt;p&gt;Put it all together:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!yetitasks | render jira create {{Summary}} -d {{Description}} -t {{Estimate}} -c {{Component}} | xargs cmd
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;🔥&quot;&gt;🔥&lt;/h2&gt;&lt;p&gt;To clean up we can use &lt;code&gt;jira jql&lt;/code&gt; to query issues created in the last hour:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!jira jql created &amp;gt; -1h
