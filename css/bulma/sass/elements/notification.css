@@ -1,6 +1,6 @@
 /*
 Error: Undefined variable: "$background".
-        on line 1 of themes/devth/css/bulma/sass/elements/notification.sass
+        on line 1 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/elements/notification.sass
 
 1: $notification-background-color: $background !default
 2: $notification-radius: $radius !default
@@ -10,7 +10,7 @@ Error: Undefined variable: "$background".
 6:   +block
 
 Backtrace:
-themes/devth/css/bulma/sass/elements/notification.sass:1
+/Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/elements/notification.sass:1
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/script/tree/variable.rb:49:in `_perform'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/script/tree/node.rb:50:in `perform'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:478:in `visit_variable'
@@ -51,4 +51,4 @@ themes/devth/css/bulma/sass/elements/notification.sass:1
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$background\".\A         on line 1 of themes/devth/css/bulma/sass/elements/notification.sass\A \A 1: $notification-background-color: $background !default\A 2: $notification-radius: $radius !default\A 3: $notification-padding: 1.25rem 2.5rem 1.25rem 1.5rem !default\A 4: \A 5: .notification\A 6:   +block"; }
+  content: "Error: Undefined variable: \"$background\".\A         on line 1 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/elements/notification.sass\A \A 1: $notification-background-color: $background !default\A 2: $notification-radius: $radius !default\A 3: $notification-padding: 1.25rem 2.5rem 1.25rem 1.5rem !default\A 4: \A 5: .notification\A 6:   +block"; }

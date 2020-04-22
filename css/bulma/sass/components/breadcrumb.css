@@ -1,6 +1,6 @@
 /*
 Error: Undefined variable: "$link".
-        on line 1 of themes/devth/css/bulma/sass/components/breadcrumb.sass
+        on line 1 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/components/breadcrumb.sass
 
 1: $breadcrumb-item-color: $link !default
 2: $breadcrumb-item-hover-color: $link-hover !default
@@ -10,7 +10,7 @@ Error: Undefined variable: "$link".
 6: 
 
 Backtrace:
-themes/devth/css/bulma/sass/components/breadcrumb.sass:1
+/Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/components/breadcrumb.sass:1
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/script/tree/variable.rb:49:in `_perform'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/script/tree/node.rb:50:in `perform'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:478:in `visit_variable'
@@ -51,4 +51,4 @@ themes/devth/css/bulma/sass/components/breadcrumb.sass:1
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$link\".\A         on line 1 of themes/devth/css/bulma/sass/components/breadcrumb.sass\A \A 1: $breadcrumb-item-color: $link !default\A 2: $breadcrumb-item-hover-color: $link-hover !default\A 3: $breadcrumb-item-active-color: $text-strong !default\A 4: \A 5: $breadcrumb-item-separator-color: $text !default\A 6: "; }
+  content: "Error: Undefined variable: \"$link\".\A         on line 1 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/components/breadcrumb.sass\A \A 1: $breadcrumb-item-color: $link !default\A 2: $breadcrumb-item-hover-color: $link-hover !default\A 3: $breadcrumb-item-active-color: $text-strong !default\A 4: \A 5: $breadcrumb-item-separator-color: $text !default\A 6: "; }

@@ -240,6 +240,10 @@
 </code></pre><pre><code class="yetibot">!range 10 | rest
 </code></pre><h3 id="other&#95;collection&#95;commands">Other collection commands</h3><p>There are a few others not documented here such as <code>raw</code>, <code>keys</code>, vals`, and <code>data</code> (which is documented in its own section of this guide). To view them all we can look them up by category:</p><pre><code class="yetibot">!category list collection
 </code></pre><h2 id="aliases">Aliases</h2><p>Aliases are similar to <code>alias</code> in bash allowing us to give a name for a command. This is typically a heavily-used feature as teams build up aliases for fun or utility and become a manifestation of culture.</p><pre><code class="yetibot">!help alias
+</code></pre><p>As an example, look at the default output of <code>stock</code>:</p><pre><code class="yetibot">!stock tsla
+</code></pre><p>Let's say we wanted a more concise one-liner using its <code>data</code>:</p><pre><code class="yetibot">!stock tsla | data show
+</code></pre><pre><code class="yetibot">!alias quickstock = 'stock $s | render {% ifequal change-percent|first &quot;-&quot; %}📉{% else %}📈{% endifequal %} {{symbol}} ${{price}} {{change-percent}} / ${{change}}'
+</code></pre><p>Let's get multiple stocks at once:</p><pre><code class="yetibot">!list aapl tsla vxus | xargs quickstock
 </code></pre><h2 id="observers">Observers</h2><p>An observer listens for patterns and automatically runs commands when triggered. They're super powerful but can easily be abused.</p><pre><code class="yetibot">!help observer
 </code></pre><p>Run the above help docs. As you can see, observers support several different event types.</p><h3 id="message">message</h3><p>The default event type for observers is <code>message</code>. This allows Yetibot to react to a message by running a command. For example:</p><pre><code class="yetibot">!obs sushi = react :sushi:
 </code></pre><p>With this observer any time anyone mention sushi they get a 🍣 reaction. Note that we could have specified a regex pattern instead of the literal "sushi".</p><p>It also supports optional settings that let us filter on:</p><ul><li>the name of the channel using <code>-c</code></li><li>the username of the person who posted a message using <code>-u</code></li></ul><p>For example:</p><pre><code class="yetibot">!obs -c dev-testing -u devth = echo {{username}} said {{body}} in {{channel}}
@@ -515,7 +519,7 @@ have a savings account
       </div>
     </footer>
 
-    <script src="/js/dist.js?q=2204202063046" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/dist.js?q=2204202011547" type="text/javascript" charset="utf-8"></script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <script src="/js/highlight.pack.js" type="text/javascript"></script>

@@ -1,6 +1,6 @@
 /*
 Error: Undefined variable: "$radius".
-        on line 1 of themes/devth/css/bulma/sass/utilities/controls.sass
+        on line 1 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/utilities/controls.sass
 
 1: $control-radius: $radius !default
 2: $control-radius-small: $radius-small !default
@@ -10,7 +10,7 @@ Error: Undefined variable: "$radius".
 6: 
 
 Backtrace:
-themes/devth/css/bulma/sass/utilities/controls.sass:1
+/Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/utilities/controls.sass:1
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/script/tree/variable.rb:49:in `_perform'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/script/tree/node.rb:50:in `perform'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:478:in `visit_variable'
@@ -51,4 +51,4 @@ themes/devth/css/bulma/sass/utilities/controls.sass:1
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$radius\".\A         on line 1 of themes/devth/css/bulma/sass/utilities/controls.sass\A \A 1: $control-radius: $radius !default\A 2: $control-radius-small: $radius-small !default\A 3: \A 4: $control-padding-vertical: calc(0.375em - 1px) !default\A 5: $control-padding-horizontal: calc(0.625em - 1px) !default\A 6: "; }
+  content: "Error: Undefined variable: \"$radius\".\A         on line 1 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/utilities/controls.sass\A \A 1: $control-radius: $radius !default\A 2: $control-radius-small: $radius-small !default\A 3: \A 4: $control-padding-vertical: calc(0.375em - 1px) !default\A 5: $control-padding-horizontal: calc(0.625em - 1px) !default\A 6: "; }
