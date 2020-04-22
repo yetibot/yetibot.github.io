@@ -1,6 +1,6 @@
 /*
 Error: Undefined variable: "$text-strong".
-        on line 1 of themes/devth/css/bulma/sass/elements/content.sass
+        on line 1 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/elements/content.sass
 
 1: $content-heading-color: $text-strong !default
 2: $content-heading-weight: $weight-normal !default
@@ -10,7 +10,7 @@ Error: Undefined variable: "$text-strong".
 6: $content-blockquote-border-left: 5px solid $border !default
 
 Backtrace:
-themes/devth/css/bulma/sass/elements/content.sass:1
+/Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/elements/content.sass:1
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/script/tree/variable.rb:49:in `_perform'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/script/tree/node.rb:50:in `perform'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:478:in `visit_variable'
@@ -51,4 +51,4 @@ themes/devth/css/bulma/sass/elements/content.sass:1
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$text-strong\".\A         on line 1 of themes/devth/css/bulma/sass/elements/content.sass\A \A 1: $content-heading-color: $text-strong !default\A 2: $content-heading-weight: $weight-normal !default\A 3: $content-heading-line-height: 1.125 !default\A 4: \A 5: $content-blockquote-background-color: $background !default\A 6: $content-blockquote-border-left: 5px solid $border !default"; }
+  content: "Error: Undefined variable: \"$text-strong\".\A         on line 1 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/elements/content.sass\A \A 1: $content-heading-color: $text-strong !default\A 2: $content-heading-weight: $weight-normal !default\A 3: $content-heading-line-height: 1.125 !default\A 4: \A 5: $content-blockquote-background-color: $background !default\A 6: $content-blockquote-border-left: 5px solid $border !default"; }

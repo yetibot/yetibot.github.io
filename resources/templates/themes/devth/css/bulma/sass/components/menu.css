@@ -1,6 +1,6 @@
 /*
 Error: Undefined variable: "$text".
-        on line 1 of themes/devth/css/bulma/sass/components/menu.sass
+        on line 1 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/components/menu.sass
 
 1: $menu-item-color: $text !default
 2: $menu-item-radius: $radius-small !default
@@ -10,7 +10,7 @@ Error: Undefined variable: "$text".
 6: $menu-item-active-background-color: $link !default
 
 Backtrace:
-themes/devth/css/bulma/sass/components/menu.sass:1
+/Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/components/menu.sass:1
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/script/tree/variable.rb:49:in `_perform'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/script/tree/node.rb:50:in `perform'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:478:in `visit_variable'
@@ -51,4 +51,4 @@ themes/devth/css/bulma/sass/components/menu.sass:1
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$text\".\A         on line 1 of themes/devth/css/bulma/sass/components/menu.sass\A \A 1: $menu-item-color: $text !default\A 2: $menu-item-radius: $radius-small !default\A 3: $menu-item-hover-color: $text-strong !default\A 4: $menu-item-hover-background-color: $background !default\A 5: $menu-item-active-color: $link-invert !default\A 6: $menu-item-active-background-color: $link !default"; }
+  content: "Error: Undefined variable: \"$text\".\A         on line 1 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/components/menu.sass\A \A 1: $menu-item-color: $text !default\A 2: $menu-item-radius: $radius-small !default\A 3: $menu-item-hover-color: $text-strong !default\A 4: $menu-item-hover-background-color: $background !default\A 5: $menu-item-active-color: $link-invert !default\A 6: $menu-item-active-background-color: $link !default"; }

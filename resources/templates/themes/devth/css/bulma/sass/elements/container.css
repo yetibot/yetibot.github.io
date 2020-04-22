@@ -1,7 +1,7 @@
 /*
 Error: Undefined mixin 'from'.
-        on line 4 of themes/devth/css/bulma/sass/elements/container.sass, in `from'
-        from line 4 of themes/devth/css/bulma/sass/elements/container.sass
+        on line 4 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/elements/container.sass, in `from'
+        from line 4 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/elements/container.sass
 
 1: .container
 2:   margin: 0 auto
@@ -14,8 +14,8 @@ Error: Undefined mixin 'from'.
 9:       margin-right: $gap
 
 Backtrace:
-themes/devth/css/bulma/sass/elements/container.sass:4:in `from'
-themes/devth/css/bulma/sass/elements/container.sass:4
+/Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/elements/container.sass:4:in `from'
+/Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/elements/container.sass:4
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:348:in `block in visit_mixin'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/stack.rb:98:in `block in with_mixin'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/stack.rb:135:in `with_frame'
@@ -69,4 +69,4 @@ themes/devth/css/bulma/sass/elements/container.sass:4
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined mixin 'from'.\A         on line 4 of themes/devth/css/bulma/sass/elements/container.sass, in `from'\A         from line 4 of themes/devth/css/bulma/sass/elements/container.sass\A \A 1: .container\A 2:   margin: 0 auto\A 3:   position: relative\A 4:   +from($desktop)\A 5:     max-width: $desktop - (2 * $gap)\A 6:     width: $desktop - (2 * $gap)\A 7:     &.is-fluid\A 8:       margin-left: $gap\A 9:       margin-right: $gap"; }
+  content: "Error: Undefined mixin 'from'.\A         on line 4 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/elements/container.sass, in `from'\A         from line 4 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/elements/container.sass\A \A 1: .container\A 2:   margin: 0 auto\A 3:   position: relative\A 4:   +from($desktop)\A 5:     max-width: $desktop - (2 * $gap)\A 6:     width: $desktop - (2 * $gap)\A 7:     &.is-fluid\A 8:       margin-left: $gap\A 9:       margin-right: $gap"; }

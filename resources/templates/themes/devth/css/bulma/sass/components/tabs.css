@@ -1,6 +1,6 @@
 /*
 Error: Undefined variable: "$border".
-        on line 1 of themes/devth/css/bulma/sass/components/tabs.sass
+        on line 1 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/components/tabs.sass
 
 1: $tabs-border-bottom-color: $border !default
 2: $tabs-border-bottom-style: solid !default
@@ -10,7 +10,7 @@ Error: Undefined variable: "$border".
 6: $tabs-link-hover-color: $text-strong !default
 
 Backtrace:
-themes/devth/css/bulma/sass/components/tabs.sass:1
+/Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/components/tabs.sass:1
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/script/tree/variable.rb:49:in `_perform'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/script/tree/node.rb:50:in `perform'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:478:in `visit_variable'
@@ -51,4 +51,4 @@ themes/devth/css/bulma/sass/components/tabs.sass:1
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$border\".\A         on line 1 of themes/devth/css/bulma/sass/components/tabs.sass\A \A 1: $tabs-border-bottom-color: $border !default\A 2: $tabs-border-bottom-style: solid !default\A 3: $tabs-border-bottom-width: 1px !default\A 4: $tabs-link-color: $text !default\A 5: $tabs-link-hover-border-bottom-color: $text-strong !default\A 6: $tabs-link-hover-color: $text-strong !default"; }
+  content: "Error: Undefined variable: \"$border\".\A         on line 1 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/components/tabs.sass\A \A 1: $tabs-border-bottom-color: $border !default\A 2: $tabs-border-bottom-style: solid !default\A 3: $tabs-border-bottom-width: 1px !default\A 4: $tabs-link-color: $text !default\A 5: $tabs-link-hover-border-bottom-color: $text-strong !default\A 6: $tabs-link-hover-color: $text-strong !default"; }

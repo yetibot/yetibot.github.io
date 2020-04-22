@@ -1,6 +1,6 @@
 /*
 Error: Undefined variable: "$black".
-        on line 3 of themes/devth/css/bulma/sass/components/modal.sass
+        on line 3 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/components/modal.sass
 
 1: $modal-z: 40 !default
 2: 
@@ -12,7 +12,7 @@ Error: Undefined variable: "$black".
 8: $modal-content-spacing-tablet: 40px !default
 
 Backtrace:
-themes/devth/css/bulma/sass/components/modal.sass:3
+/Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/components/modal.sass:3
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/script/tree/variable.rb:49:in `_perform'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/script/tree/node.rb:50:in `perform'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/script/tree/funcall.rb:182:in `perform_arg'
@@ -61,4 +61,4 @@ themes/devth/css/bulma/sass/components/modal.sass:3
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$black\".\A         on line 3 of themes/devth/css/bulma/sass/components/modal.sass\A \A 1: $modal-z: 40 !default\A 2: \A 3: $modal-background-background-color: rgba($black, 0.86) !default\A 4: \A 5: $modal-content-width: 640px !default\A 6: $modal-content-margin-mobile: 20px !default\A 7: $modal-content-spacing-mobile: 160px !default\A 8: $modal-content-spacing-tablet: 40px !default"; }
+  content: "Error: Undefined variable: \"$black\".\A         on line 3 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/components/modal.sass\A \A 1: $modal-z: 40 !default\A 2: \A 3: $modal-background-background-color: rgba($black, 0.86) !default\A 4: \A 5: $modal-content-width: 640px !default\A 6: $modal-content-margin-mobile: 20px !default\A 7: $modal-content-spacing-mobile: 160px !default\A 8: $modal-content-spacing-tablet: 40px !default"; }
