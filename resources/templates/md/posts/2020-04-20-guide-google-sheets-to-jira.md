@@ -73,7 +73,7 @@ So at a minimum, it'd look like:
 But we can also take advantage of the other columns:
 
 ```yetibot
-!yetitasks | render jira create {{Summary}} -d {{Decription}} -t {{Estimate}} -c {{Component}}
+!yetitasks | render jira create {{Summary}} -d {{Description}} -t {{Estimate}} -c {{Component}}
 ```
 
 Finally, to actually run those commands, we can use the `cmd` command:
