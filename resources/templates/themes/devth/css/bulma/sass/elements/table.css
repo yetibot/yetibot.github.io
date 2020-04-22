@@ -1,6 +1,6 @@
 /*
 Error: Undefined variable: "$grey-darker".
-        on line 1 of themes/devth/css/bulma/sass/elements/table.sass
+        on line 1 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/elements/table.sass
 
 1: $table-color: $grey-darker !default
 2: $table-background-color: $white !default
@@ -10,7 +10,7 @@ Error: Undefined variable: "$grey-darker".
 6: $table-cell-padding: 0.5em 0.75em !default
 
 Backtrace:
-themes/devth/css/bulma/sass/elements/table.sass:1
+/Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/elements/table.sass:1
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/script/tree/variable.rb:49:in `_perform'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/script/tree/node.rb:50:in `perform'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:478:in `visit_variable'
@@ -51,4 +51,4 @@ themes/devth/css/bulma/sass/elements/table.sass:1
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$grey-darker\".\A         on line 1 of themes/devth/css/bulma/sass/elements/table.sass\A \A 1: $table-color: $grey-darker !default\A 2: $table-background-color: $white !default\A 3: \A 4: $table-cell-border: 1px solid $grey-lighter !default\A 5: $table-cell-border-width: 0 0 1px !default\A 6: $table-cell-padding: 0.5em 0.75em !default"; }
+  content: "Error: Undefined variable: \"$grey-darker\".\A         on line 1 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/elements/table.sass\A \A 1: $table-color: $grey-darker !default\A 2: $table-background-color: $white !default\A 3: \A 4: $table-cell-border: 1px solid $grey-lighter !default\A 5: $table-cell-border-width: 0 0 1px !default\A 6: $table-cell-padding: 0.5em 0.75em !default"; }

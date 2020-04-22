@@ -539,7 +539,7 @@ Let's say we wanted a more concise one-liner using its `data`:
 ```
 
 ```yetibot
-!alias quickstock = "stock $s | render {{symbol}} ${{price}} {% ifequal change-percent|first '-'  %}📈{% else %}📉{% endif %} {{change-percent}} / ${{change}}"
+!alias quickstock = 'stock $s | render {% ifequal change-percent|first "-" %}📉{% else %}📈{% endifequal %} {{symbol}} ${{price}} {{change-percent}} / ${{change}}'
 ```
 
 Let's get multiple stocks at once:

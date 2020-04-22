@@ -1,6 +1,6 @@
 /*
 Error: Undefined variable: "$text".
-        on line 1 of themes/devth/css/bulma/sass/elements/box.sass
+        on line 1 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/elements/box.sass
 
 1: $box-color: $text !default
 2: $box-background-color: $white !default
@@ -10,7 +10,7 @@ Error: Undefined variable: "$text".
 6: 
 
 Backtrace:
-themes/devth/css/bulma/sass/elements/box.sass:1
+/Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/elements/box.sass:1
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/script/tree/variable.rb:49:in `_perform'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/script/tree/node.rb:50:in `perform'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:478:in `visit_variable'
@@ -51,4 +51,4 @@ themes/devth/css/bulma/sass/elements/box.sass:1
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$text\".\A         on line 1 of themes/devth/css/bulma/sass/elements/box.sass\A \A 1: $box-color: $text !default\A 2: $box-background-color: $white !default\A 3: $box-radius: $radius-large !default\A 4: $box-shadow: 0 2px 3px rgba($black, 0.1), 0 0 0 1px rgba($black, 0.1) !default\A 5: $box-padding: 1.25rem !default\A 6: "; }
+  content: "Error: Undefined variable: \"$text\".\A         on line 1 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/elements/box.sass\A \A 1: $box-color: $text !default\A 2: $box-background-color: $white !default\A 3: $box-radius: $radius-large !default\A 4: $box-shadow: 0 2px 3px rgba($black, 0.1), 0 0 0 1px rgba($black, 0.1) !default\A 5: $box-padding: 1.25rem !default\A 6: "; }

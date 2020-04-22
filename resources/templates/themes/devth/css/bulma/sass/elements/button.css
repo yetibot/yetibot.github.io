@@ -1,6 +1,6 @@
 /*
 Error: Undefined variable: "$grey-darker".
-        on line 1 of themes/devth/css/bulma/sass/elements/button.sass
+        on line 1 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/elements/button.sass
 
 1: $button-color: $grey-darker !default
 2: $button-background-color: $white !default
@@ -10,7 +10,7 @@ Error: Undefined variable: "$grey-darker".
 6: $button-hover-border-color: $link-hover-border !default
 
 Backtrace:
-themes/devth/css/bulma/sass/elements/button.sass:1
+/Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/elements/button.sass:1
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/script/tree/variable.rb:49:in `_perform'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/script/tree/node.rb:50:in `perform'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:478:in `visit_variable'
@@ -51,4 +51,4 @@ themes/devth/css/bulma/sass/elements/button.sass:1
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$grey-darker\".\A         on line 1 of themes/devth/css/bulma/sass/elements/button.sass\A \A 1: $button-color: $grey-darker !default\A 2: $button-background-color: $white !default\A 3: $button-border-color: $grey-lighter !default\A 4: \A 5: $button-hover-color: $link-hover !default\A 6: $button-hover-border-color: $link-hover-border !default"; }
+  content: "Error: Undefined variable: \"$grey-darker\".\A         on line 1 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/elements/button.sass\A \A 1: $button-color: $grey-darker !default\A 2: $button-background-color: $white !default\A 3: $button-border-color: $grey-lighter !default\A 4: \A 5: $button-hover-color: $link-hover !default\A 6: $button-hover-border-color: $link-hover-border !default"; }
