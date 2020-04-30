@@ -9,7 +9,8 @@
     "if-is-image": "1.0.6",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "tocbot": "4.10.1"
+    "tocbot": "4.10.1",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "css-loader": "3.2.0",
@@ -24,11 +25,14 @@
   "scripts": {
     "dev": "webpack --mode development",
     "dev:watch": "watch 'yarn dev' ./src",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
   },
   "husky": {
     "hooks": {
       "pre-commit": "yarn build; git add resources/templates/themes/devth/js/dist.js"
     }
-  }
+  },
+  "snyk": true
 }
