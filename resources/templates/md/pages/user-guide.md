@@ -42,10 +42,10 @@ href="#graphql_api">GraphQL API</a>.
 This is what a simple command looks like:
 
 ```yetibot
-!echo hi
+!echo Hello World!
 ```
 
-Yetibot should reply `hi`.
+Yetibot should reply with `Hello World!`.
 
 To see a more dynamic example, run `uptime`:
 
