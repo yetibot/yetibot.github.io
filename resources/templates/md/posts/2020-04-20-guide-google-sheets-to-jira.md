@@ -1,12 +1,12 @@
-{:title "Guide: Google Sheets to JIRA issues"
+{:title "Guide: Google Sheets to Jira issues"
  :layout :post
  :toc true
  :author "@devth"
- :summary "Consume a Google Sheet as a CSV and create JIRA issues for each item"
+ :summary "Consume a Google Sheet as a CSV and create Jira issues for each item"
  :tags  ["guide" "2020" "jira"]}
 
  This guide demonstrates the use of Yetibot to consume a Google Sheet as a CSV
- and create JIRA issues from the rows.
+ and create Jira issues from the rows.
 
 ## CSV consumption
 
@@ -41,7 +41,7 @@ Then make sure it works as expected:
 !yetitasks
 ```
 
-## Towards JIRA
+## Towards Jira
 
 Next, we need to figure out how to pipe that to `jira`.
 
