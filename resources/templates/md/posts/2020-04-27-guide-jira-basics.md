@@ -27,6 +27,8 @@ This tells Yetibot the default project to use when running `jira` commands in
 your channel, and allows it to auto-expand issues when you mention an issue key
 in conversation, without needing to trigger Yetibot manually.
 
+![karma basic interface](/img/screenshots/yetibot_jira_obs.png)
+
 Check current settings:
 
 ```yetibot
@@ -46,15 +48,13 @@ recent tasks for the configured project:
 !jira recent
 ```
 
-
 Make sure to set `jira-project` for every channel you're in. It can vary from
 channel to channel, and also supports multiple comma-separated projects. When
 multiple projects are specified, commands like `jira recent` or `jira create`
-will default to the first project. `jira-project` also controls a Yetibot
-[observer](/user-guide#observers) that listens for words that look like a JIRA
-issue key (e.g. `YETIBOt-123`) and returns a quick summary of the issue to
-augment a
-conversation.
+will default to the first project, and the issue
+[observer](/user-guide#observers) that listens for words  that look like a JIRA
+issue key (as demonstrated in the screenshot above) will fire on all configured
+projects.
 
 ## Create
 
@@ -136,7 +136,7 @@ Yetibot can update issues:
 ```
 
 Let's update the description of the most recent issue then pipe it to `jira
-show`, which will show us the full description unlike the short format.
+show`, which will show us the full description (unlike the short format).
 
 ```yetibot
 !firstjira | jira update %s -d This description was updated at `time +0` UTC | jira parse | jira show
@@ -155,6 +155,25 @@ show`, which will show us the full description unlike the short format.
 
 You can run this multiple times, and notice the updated timestamp each time it's
 run.
+
+## User search
+
+Search the users in JIRA with:
+
+```yetibot
+!jira users yeti
+```
+
+## Assigning issues
+
+Issues can be re-assigned using `jira update`:
+
+```yetibot
+!jira update `firstjira` -a yeti
+```
+
+The assignee can be a partial match. Yetibot uses the search API to resolve the
+user.
 
 ## Priority
 
@@ -178,8 +197,8 @@ priority:
 </div>
 <div class="message-body">
   Notice the use of subexpressions using backticks above. This lets us embed the
-  result of an inner command (`firstjira`) into an outer command (`jira
-  update`). [Read more about Subexpressions](/user-guide#subexpressions).
+  result of an inner command (`firstjira`) into an outer command (`jira update`).
+  [Read more about Subexpressions](/user-guide#subexpressions).
 </div>
 </article>
 
@@ -203,7 +222,64 @@ Or get crazy and set the component randomly:
 !jira update `firstjira` -c `jira components | render {{name}} | random` | jira parse | jira show
 ```
 
-Try running the above multiple times and see the component change.
+Try running the above multiple times and watch the component change.
+
+## Comments
+
+You can comment on an issue with Yetibot, but the author will always be Yetibot
+itself, as it doesn't have permission to comment on other users' behalf:
+
+```yetibot
+!help jira | grep jira comment
+```
+
+```yetibot
+!jira comment `firstjira` why isn't this done yet 🤔
+```
+
+## Logging work
+
+Yetibot can log work, but just like comments, it's logged on behalf of the
+Yetibot account.
+
+```yetibot
+!help jira | grep jira worklog
+```
+
+`time-spent` can be expressed like `2h`, `3d`, or `1w`.
+
+Let's log a whole 2 weeks on the latest item:
+
+```yetibot
+!jira worklog `firstjira` 2w deleted a lot of code 💾
+```
+
+## Transitions
+
+Transitions are Jira's workflow mechanism:
+
+> A Jira workflow is a set of statuses and transitions that an issue moves
+> through during its lifecycle, and typically represents a process within your
+> organization.
+>
+> [Working with workflows](https://confluence.atlassian.com/adminjiracloud/working-with-workflows-776636540.html)
+
+Yetibot can list available transitions for an issue and move an issue through
+transitions.
+
+```yetibot
+!jira transitions `firstjira`
+```
+
+```yetibot
+!jira transition `firstjira` in progress
+```
+
+Or apply a random transition:
+
+```yetibot
+!jira transition `firstjira` `firstjira | jira transitions | random`
+```
 
 ## Aliases
 
@@ -221,27 +297,11 @@ Then quickly create new issues for `yetibot` with:
 !yetitask do stuff, yeti ⚡️
 ```
 
-A common use is to hardcode the assignee like above as a fast way to create
+A common use case is to hardcode the assignee like above as a fast way to create
 issues for yourself. Want to quickly create a list of stuff? Try:
 
 ```yetibot
 !list fix the foo, deploy the bar, decomplect the baz | xargs yetitask
-```
-
-## Assigning issues
-
-Issues can be re-assigned using `jira update`:
-
-```yetibot
-!jira recent | head | jira parse | jira update %s -c `jira components | render {{name}} | random` | jira parse | jira show
-```
-
-## User search
-
-Search the users in JIRA with:
-
-```yetibot
-!jira users yeti
 ```
 
 ## Finally
