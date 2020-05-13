@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
   <head>
     <meta charset="utf-8"/>
-    <title>Yetibot: Guide: JIRA Basics</title>
+    <title>Yetibot: Guide: Jira Basics</title>
     <link rel="canonical" href="https://yetibot.com/blog/2020-04-27-guide-jira-basics">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="/css/main.css" rel="stylesheet" type="text/css" />
@@ -16,18 +16,18 @@
     
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://yetibot.com/blog/2020-04-27-guide-jira-basics" />
-    <meta property="og:title" content="Yetibot: Guide: JIRA Basics" />
+    <meta property="og:title" content="Yetibot: Guide: Jira Basics" />
     <meta property="og:description"
-      content="Working with JIRA" />
+      content="Working with Jira" />
     <meta property="og:image"
       content="https://yetibot.com/img/yetibot_logo.svg"
     />
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:domain" value="yetibot.com" />
-    <meta name="twitter:title" value="Yetibot: Guide: JIRA Basics" />
+    <meta name="twitter:title" value="Yetibot: Guide: Jira Basics" />
     <meta name="twitter:description"
-      value="Working with JIRA"
+      value="Working with Jira"
     />
     <meta name="twitter:image"
       content="https://yetibot.com/img/yetibot_logo.svg"
@@ -152,7 +152,7 @@
   <article class="page-title hero is-dark is-bold is-fullwidth">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title">Guide: JIRA Basics</h1>
+      <h1 class="title">Guide: Jira Basics</h1>
       <p class="subtitle">
         April 27, 2020
         
@@ -170,24 +170,24 @@
 
     <div class="main main-content columns">
       <div class="column is-two-thirds">
-        <p>In this <a href='/tags/guide'>guide</a> we cover basic ways of working with the <code>jira</code> command, including:</p><ul><li>creating issues</li><li>updating issues</li><li>assigning issues</li><li>commenting on issues</li><li>logging work on issues</li><li>aliases</li></ul><p>Also check out <a href='http://localhost:4040/user-guide#jira'>Yetibot's JIRA reference</a> for docs on its full capabilities.</p><h2 id="channel&#95;project">Channel project</h2><p>The first thing you'll want to do is set the JIRA project(s) for your channel. This tells Yetibot the default project to use when running <code>jira</code> commands in your channel, and allows it to auto-expand issues when you mention an issue key in conversation, without needing to trigger Yetibot manually.</p><p><img src="/img/screenshots/yetibot_jira_obs.png" alt="karma basic interface" /></p><p>Check current settings:</p><pre><code class="yetibot">!channel settings
+        <p>In this <a href='/tags/guide'>guide</a> we cover basic ways of working with the <code>jira</code> command, including:</p><ul><li>creating issues</li><li>updating issues</li><li>assigning issues</li><li>commenting on issues</li><li>logging work on issues</li><li>aliases</li></ul><p>Also check out <a href='http://localhost:4040/user-guide#jira'>Yetibot's Jira reference</a> for docs on its full capabilities.</p><h2 id="channel&#95;project">Channel project</h2><p>The first thing you'll want to do is set the Jira project(s) for your channel. This tells Yetibot the default project to use when running <code>jira</code> commands in your channel, and allows it to auto-expand issues when you mention an issue key in conversation, without needing to trigger Yetibot manually.</p><p><img src="/img/screenshots/yetibot_jira_obs.png" alt="karma basic interface" /></p><p>Check current settings:</p><pre><code class="yetibot">!channel settings
 </code></pre><p>And if <code>jira-project</code> is not set, set it with:</p><pre><code class="yetibot">!channel set jira-project YETIBOT
 </code></pre><p>Once <code>jira-project</code> is set we can run commands like <code>jira recent</code> to see all recent tasks for the configured project:</p><pre><code class="yetibot">!jira recent
-</code></pre><p>Make sure to set <code>jira-project</code> for every channel you're in. It can vary from channel to channel, and also supports multiple comma-separated projects. When multiple projects are specified, commands like <code>jira recent</code> or <code>jira create</code> will default to the first project, and the issue <a href='/user-guide#observers'>observer</a> that listens for words  that look like a JIRA issue key (as demonstrated in the screenshot above) will fire on all configured projects.</p><h2 id="create">Create</h2><p>Let's check the <code>jira create</code> docs:</p><pre><code class="yetibot">!help jira | grep jira create
-</code></pre><p>There are quite a few options, and which ones are required depend on your particular JIRA project configuration, but <code>summary</code> is always required, and <code>description</code> often is. Try it out:</p><pre><code class="yetibot">!jira create hello at `time +0` UTC!
+</code></pre><p>Make sure to set <code>jira-project</code> for every channel you're in. It can vary from channel to channel, and also supports multiple comma-separated projects. When multiple projects are specified, commands like <code>jira recent</code> or <code>jira create</code> will default to the first project, and the issue <a href='/user-guide#observers'>observer</a> that listens for words  that look like a Jira issue key (as demonstrated in the screenshot above) will fire on all configured projects.</p><h2 id="create">Create</h2><p>Let's check the <code>jira create</code> docs:</p><pre><code class="yetibot">!help jira | grep jira create
+</code></pre><p>There are quite a few options, and which ones are required depend on your particular Jira project configuration, but <code>summary</code> is always required, and <code>description</code> often is. Try it out:</p><pre><code class="yetibot">!jira create hello at `time +0` UTC!
 </code></pre><h2 id="recent&#95;issues">Recent issues</h2><p>We already saw how <code>jira recent</code> lists recent issues for the configured projects in a channel.</p><pre><code class="yetibot">!jira recent
-</code></pre><p>Internally, this uses JIRA's powerful <a href='https://confluence.atlassian.com/jirasoftwareserver/advanced-searching-939938733.html#Advancedsearching-ConstructingJQLqueries'>JQL support</a> to query for issues. With <code>YETIBOT</code> as the configured <code>jira-project</code>, the exact query would be:</p><pre><code>&#40;project in &#40;YETIBOT&#41;&#41; ORDER BY updatedDate
+</code></pre><p>Internally, this uses Jira's powerful <a href='https://confluence.atlassian.com/jirasoftwareserver/advanced-searching-939938733.html#Advancedsearching-ConstructingJQLqueries'>JQL support</a> to query for issues. With <code>YETIBOT</code> as the configured <code>jira-project</code>, the exact query would be:</p><pre><code>&#40;project in &#40;YETIBOT&#41;&#41; ORDER BY updatedDate
 </code></pre><p>This doesn't limit the issues to a certain age, but just returns the most recent page (default page size is 10) of issues.</p><h2 id="show">Show</h2><p>If we know an issue key, we can ask Yetibot to show all of its details:</p><pre><code class="yetibot">!jira show YETIBOT-1
 </code></pre><p>But what if we just want to show the latest issue without knowing its key? We can use a combination of commands with pipes, like:</p><pre><code class="yetibot">!jira recent | head | jira parse | jira show
 </code></pre><p>This works by evaluating commands from left to right, passing the value from one command to the next across the <code>|</code> "pipe" as input:</p><ol><li><code>jira recent</code> gets the list of recent issues</li><li><code>head</code> takes the first issue</li><li><code>jira parse</code> parses out just the issue key, e.g. <code>YETIBOT-123</code></li><li><code>jira show</code> shows the issue given the key</li></ol><p>We'll continue to use this pattern to work on the latest issue throughout the rest of this guide, so let's <a href='https://yetibot.com/user-guide#aliases'>alias</a> it:</p><pre><code class="yetibot">!alias firstjira = &quot;jira recent | head | jira parse&quot;
 </code></pre><pre><code class="yetibot">!firstjira
 </code></pre><h2 id="update">Update</h2><p>Yetibot can update issues:</p><pre><code class="yetibot">!help jira | grep jira update
 </code></pre><p>Let's update the description of the most recent issue then pipe it to `jira show`, which will show us the full description (unlike the short format).</p><pre><code class="yetibot">!firstjira | jira update %s -d This description was updated at `time +0` UTC | jira parse | jira show
-</code></pre><p><article class="message is-info"> <div class="message-header">   <p>💡</p> </div> <div class="message-body">   Notice how we used the <code>%s</code> symbol above. This instructs Yetibot to substitute   <code>%s</code> with the output from the previous command rather than the default   behavior of appending to the end. <a href='/user-guide#pipes'>Read more about Pipes</a>. </div> </article></p><p>You can run this multiple times, and notice the updated timestamp each time it's run.</p><h2 id="user&#95;search">User search</h2><p>Search the users in JIRA with:</p><pre><code class="yetibot">!jira users yeti
+</code></pre><p><article class="message is-info"> <div class="message-header">   <p>💡</p> </div> <div class="message-body">   Notice how we used the <code>%s</code> symbol above. This instructs Yetibot to substitute   <code>%s</code> with the output from the previous command rather than the default   behavior of appending to the end. <a href='/user-guide#pipes'>Read more about Pipes</a>. </div> </article></p><p>You can run this multiple times, and notice the updated timestamp each time it's run.</p><h2 id="user&#95;search">User search</h2><p>Search the users in Jira with:</p><pre><code class="yetibot">!jira users yeti
 </code></pre><h2 id="assigning&#95;issues">Assigning issues</h2><p>Issues can be re-assigned using <code>jira update</code>:</p><pre><code class="yetibot">!jira update `firstjira` -a yeti
-</code></pre><p>The assignee can be a partial match. Yetibot uses the search API to resolve the user.</p><h2 id="priority">Priority</h2><p>List all the priorities in JIRA:</p><pre><code class="yetibot">!jira priorities
+</code></pre><p>The assignee can be a partial match. Yetibot uses the search API to resolve the user.</p><h2 id="priority">Priority</h2><p>List all the priorities in Jira:</p><pre><code class="yetibot">!jira priorities
 </code></pre><p>When setting a priority in <code>jira create</code> or <code>jira update</code> use the name, or at least part of the name, and Yetibot will do its best to match to a known priority:</p><pre><code class="yetibot">!jira update `firstjira` -y med
-</code></pre><p><article class="message is-info"> <div class="message-header">   <p>💡</p> </div> <div class="message-body">   Notice the use of subexpressions using backticks above. This lets us embed the   result of an inner command (<code>firstjira</code>) into an outer command (<code>jira update</code>).   <a href='/user-guide#subexpressions'>Read more about Subexpressions</a>. </div> </article></p><h2 id="components">Components</h2><p>List components in JIRA with:</p><pre><code class="yetibot">!jira components
+</code></pre><p><article class="message is-info"> <div class="message-header">   <p>💡</p> </div> <div class="message-body">   Notice the use of subexpressions using backticks above. This lets us embed the   result of an inner command (<code>firstjira</code>) into an outer command (<code>jira update</code>).   <a href='/user-guide#subexpressions'>Read more about Subexpressions</a>. </div> </article></p><h2 id="components">Components</h2><p>List components in Jira with:</p><pre><code class="yetibot">!jira components
 </code></pre><p>And just like priorities, we can set the component of an issue:</p><pre><code class="yetibot">!jira update `firstjira` -c core | jira parse | jira show
 </code></pre><p>Or get crazy and set the component randomly:</p><pre><code class="yetibot">!jira update `firstjira` -c `jira components | render {{name}} | random` | jira parse | jira show
 </code></pre><p>Try running the above multiple times and watch the component change.</p><h2 id="comments">Comments</h2><p>You can comment on an issue with Yetibot, but the author will always be Yetibot itself, as it doesn't have permission to comment on other users' behalf:</p><pre><code class="yetibot">!help jira | grep jira comment
@@ -197,11 +197,11 @@
 </code></pre><h2 id="transitions">Transitions</h2><p>Transitions are Jira's workflow mechanism:</p><blockquote><p> A Jira workflow is a set of statuses and transitions that an issue moves  through during its lifecycle, and typically represents a process within your  organization. </p><p> <a href='https://confluence.atlassian.com/adminjiracloud/working-with-workflows-776636540.html'>Working with workflows</a> </p></blockquote><p>Yetibot can list available transitions for an issue and move an issue through transitions.</p><pre><code class="yetibot">!jira transitions `firstjira`
 </code></pre><pre><code class="yetibot">!jira transition `firstjira` in progress
 </code></pre><p>Or apply a random transition:</p><pre><code class="yetibot">!jira transition `firstjira` `firstjira | jira transitions | random`
-</code></pre><h2 id="aliases">Aliases</h2><p>We can use <a href='https://yetibot.com/user-guide#aliases'>aliases</a> to further simplify JIRA issue creation. For example, if we wanted a quick way to create new tasks assigned to Yetibot, we could alias it with:</p><pre><code class="yetibot">!alias yetitask = &quot;jira create $s -a yetibot&quot;
+</code></pre><h2 id="aliases">Aliases</h2><p>We can use <a href='https://yetibot.com/user-guide#aliases'>aliases</a> to further simplify Jira issue creation. For example, if we wanted a quick way to create new tasks assigned to Yetibot, we could alias it with:</p><pre><code class="yetibot">!alias yetitask = &quot;jira create $s -a yetibot&quot;
 </code></pre><p>Then quickly create new issues for <code>yetibot</code> with:</p><pre><code class="yetibot">!yetitask do stuff, yeti ⚡️
 </code></pre><p>A common use case is to hardcode the assignee like above as a fast way to create issues for yourself. Want to quickly create a list of stuff? Try:</p><pre><code class="yetibot">!list fix the foo, deploy the bar, decomplect the baz | xargs yetitask
-</code></pre><h2 id="finally">Finally</h2><p>I hope this guide has helped you increase your automation and Yetibot expression fluency. While this guide illustrated working with a single command, Yetibot is well-suited to be the glue between many systems in the communal context of the mighty <strong>channel</strong>. See [Guide: Google Sheets to JIRA issues](/2020-04-20-guide-google-sheets-to-jira) for one such reification of this idea along with more advanced <code>jira</code> usage.</p><p>If you feel like cleaning up after yourself, use this to delete all the issues you just created:</p><pre><code class="yetibot">!jira jql created &gt; -1h | xargs jira parse | xargs jira delete
-</code></pre><p>Question? Ideas for other guides? Post a comment below 🙏.</p>
+</code></pre><h2 id="finally">Finally</h2><p>I hope this guide has helped you increase your automation and Yetibot expression fluency. While this guide illustrated working with a single command, Yetibot is well-suited to be the glue between many systems in the communal context of the mighty <strong>channel</strong>. See <a href='/2020-04-20-guide-google-sheets-to-jira'>Guide: Google Sheets to Jira issues</a> for one such reification of this idea along with more advanced <code>jira</code> usage.</p><p>If you feel like cleaning up after yourself, use this to delete all the issues you just created:</p><pre><code class="yetibot">!jira jql created &gt; -1h | xargs jira parse | xargs jira delete
+</code></pre><p>🔥</p><p>Question? Ideas for other guides? Post a comment below 🙏.</p>
       </div>
 
       <div class="column toc">
@@ -262,7 +262,7 @@
     <script type="text/javascript">
       var disqus_config = function () {
         this.page.url = "https://yetibot.com/blog/2020-04-27-guide-jira-basics";
-        this.page.identifier = "Guide: JIRA Basics";
+        this.page.identifier = "Guide: Jira Basics";
       };
       (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -305,7 +305,7 @@
       </div>
     </footer>
 
-    <script src="/js/dist.js?q=13052020102314" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/dist.js?q=13052020102643" type="text/javascript" charset="utf-8"></script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <script src="/js/highlight.pack.js" type="text/javascript"></script>
