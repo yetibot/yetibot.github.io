@@ -1,8 +1,8 @@
-{:title "Guide: JIRA Basics"
+{:title "Guide: Jira Basics"
  :layout :post
  :toc true
  :author "@devth"
- :summary "Working with JIRA"
+ :summary "Working with Jira"
  :tags  ["guide" "2020" "jira"]}
 
 
@@ -17,12 +17,12 @@ command, including:
 - aliases
 
 Also check out
-[Yetibot's JIRA reference](http://localhost:4040/user-guide#jira)
+[Yetibot's Jira reference](http://localhost:4040/user-guide#jira)
 for docs on its full capabilities.
 
 ## Channel project
 
-The first thing you'll want to do is set the JIRA project(s) for your channel.
+The first thing you'll want to do is set the Jira project(s) for your channel.
 This tells Yetibot the default project to use when running `jira` commands in
 your channel, and allows it to auto-expand issues when you mention an issue key
 in conversation, without needing to trigger Yetibot manually.
@@ -52,7 +52,7 @@ Make sure to set `jira-project` for every channel you're in. It can vary from
 channel to channel, and also supports multiple comma-separated projects. When
 multiple projects are specified, commands like `jira recent` or `jira create`
 will default to the first project, and the issue
-[observer](/user-guide#observers) that listens for words  that look like a JIRA
+[observer](/user-guide#observers) that listens for words  that look like a Jira
 issue key (as demonstrated in the screenshot above) will fire on all configured
 projects.
 
@@ -65,7 +65,7 @@ Let's check the `jira create` docs:
 ```
 
 There are quite a few options, and which ones are required depend on your
-particular JIRA project configuration, but `summary` is always required, and
+particular Jira project configuration, but `summary` is always required, and
 `description` often is. Try it out:
 
 ```yetibot
@@ -81,7 +81,7 @@ in a channel.
 !jira recent
 ```
 
-Internally, this uses JIRA's powerful
+Internally, this uses Jira's powerful
 [JQL support](https://confluence.atlassian.com/jirasoftwareserver/advanced-searching-939938733.html#Advancedsearching-ConstructingJQLqueries)
 to query for issues. With `YETIBOT` as the configured `jira-project`, the exact
 query would be:
@@ -158,7 +158,7 @@ run.
 
 ## User search
 
-Search the users in JIRA with:
+Search the users in Jira with:
 
 ```yetibot
 !jira users yeti
@@ -177,7 +177,7 @@ user.
 
 ## Priority
 
-List all the priorities in JIRA:
+List all the priorities in Jira:
 
 ```yetibot
 !jira priorities
@@ -204,7 +204,7 @@ priority:
 
 ## Components
 
-List components in JIRA with:
+List components in Jira with:
 
 ```yetibot
 !jira components
@@ -284,7 +284,7 @@ Or apply a random transition:
 ## Aliases
 
 We can use [aliases](https://yetibot.com/user-guide#aliases) to further simplify
-JIRA issue creation. For example, if we wanted a quick way to create new tasks
+Jira issue creation. For example, if we wanted a quick way to create new tasks
 assigned to Yetibot, we could alias it with:
 
 ```yetibot
@@ -309,8 +309,8 @@ issues for yourself. Want to quickly create a list of stuff? Try:
 I hope this guide has helped you increase your automation and Yetibot expression
 fluency. While this guide illustrated working with a single command, Yetibot is
 well-suited to be the glue between many systems in the communal context of the
-mighty **channel**. See [Guide: Google Sheets to JIRA
-issues](/2020-04-20-guide-google-sheets-to-jira) for one such reification of
+mighty **channel**. See
+[Guide: Google Sheets to Jira issues](/2020-04-20-guide-google-sheets-to-jira) for one such reification of
 this idea along with more advanced `jira` usage.
 
 If you feel like cleaning up after yourself, use this to delete all the issues
@@ -319,5 +319,7 @@ you just created:
 ```yetibot
 !jira jql created > -1h | xargs jira parse | xargs jira delete
 ```
+
+🔥
 
 Question? Ideas for other guides? Post a comment below 🙏.
