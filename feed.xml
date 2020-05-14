@@ -12,7 +12,7 @@ https://yetibot.com/
 Docs and blog posts for Yetibot
 </description>
 <lastBuildDate>
-Wed, 13 May 2020 22:26:44 +0000
+Thu, 14 May 2020 18:01:21 +0000
 </lastBuildDate>
 <generator>
 clj-rss
@@ -40,7 +40,7 @@ Guide: Jira Basics
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This works by evaluating commands from left to right, passing the value from one command to the next across the &lt;code&gt;|&lt;/code&gt; &quot;pipe&quot; as input:&lt;/p&gt;&lt;ol&gt;&lt;li&gt;&lt;code&gt;jira recent&lt;/code&gt; gets the list of recent issues&lt;/li&gt;&lt;li&gt;&lt;code&gt;head&lt;/code&gt; takes the first issue&lt;/li&gt;&lt;li&gt;&lt;code&gt;jira parse&lt;/code&gt; parses out just the issue key, e.g. &lt;code&gt;YETIBOT-123&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;jira show&lt;/code&gt; shows the issue given the key&lt;/li&gt;&lt;/ol&gt;&lt;p&gt;We'll continue to use this pattern to work on the latest issue throughout the rest of this guide, so let's &lt;a href='https://yetibot.com/user-guide#aliases'&gt;alias&lt;/a&gt; it:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!alias firstjira = &amp;quot;jira recent | head | jira parse&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!firstjira
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;update&quot;&gt;Update&lt;/h2&gt;&lt;p&gt;Yetibot can update issues:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!help jira | grep jira update
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Let's update the description of the most recent issue then pipe it to `jira show`, which will show us the full description (unlike the short format).&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!firstjira | jira update %s -d This description was updated at `time +0` UTC | jira parse | jira show
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Let's update the description of the most recent issue then pipe it to &lt;code&gt;jira show&lt;/code&gt;, which will show us the full description (unlike the short format).&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!firstjira | jira update %s -d This description was updated at `time +0` UTC | jira parse | jira show
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;article class=&quot;message is-info&quot;&gt; &lt;div class=&quot;message-header&quot;&gt;   &lt;p&gt;💡&lt;/p&gt; &lt;/div&gt; &lt;div class=&quot;message-body&quot;&gt;   Notice how we used the &lt;code&gt;%s&lt;/code&gt; symbol above. This instructs Yetibot to substitute   &lt;code&gt;%s&lt;/code&gt; with the output from the previous command rather than the default   behavior of appending to the end. &lt;a href='/user-guide#pipes'&gt;Read more about Pipes&lt;/a&gt;. &lt;/div&gt; &lt;/article&gt;&lt;/p&gt;&lt;p&gt;You can run this multiple times, and notice the updated timestamp each time it's run.&lt;/p&gt;&lt;h2 id=&quot;user&amp;#95;search&quot;&gt;User search&lt;/h2&gt;&lt;p&gt;Search the users in Jira with:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!jira users yeti
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;assigning&amp;#95;issues&quot;&gt;Assigning issues&lt;/h2&gt;&lt;p&gt;Issues can be re-assigned using &lt;code&gt;jira update&lt;/code&gt;:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!jira update `firstjira` -a yeti
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The assignee can be a partial match. Yetibot uses the search API to resolve the user.&lt;/p&gt;&lt;h2 id=&quot;priority&quot;&gt;Priority&lt;/h2&gt;&lt;p&gt;List all the priorities in Jira:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!jira priorities

@@ -182,7 +182,7 @@
 </code></pre><p>This works by evaluating commands from left to right, passing the value from one command to the next across the <code>|</code> "pipe" as input:</p><ol><li><code>jira recent</code> gets the list of recent issues</li><li><code>head</code> takes the first issue</li><li><code>jira parse</code> parses out just the issue key, e.g. <code>YETIBOT-123</code></li><li><code>jira show</code> shows the issue given the key</li></ol><p>We'll continue to use this pattern to work on the latest issue throughout the rest of this guide, so let's <a href='https://yetibot.com/user-guide#aliases'>alias</a> it:</p><pre><code class="yetibot">!alias firstjira = &quot;jira recent | head | jira parse&quot;
 </code></pre><pre><code class="yetibot">!firstjira
 </code></pre><h2 id="update">Update</h2><p>Yetibot can update issues:</p><pre><code class="yetibot">!help jira | grep jira update
-</code></pre><p>Let's update the description of the most recent issue then pipe it to `jira show`, which will show us the full description (unlike the short format).</p><pre><code class="yetibot">!firstjira | jira update %s -d This description was updated at `time +0` UTC | jira parse | jira show
+</code></pre><p>Let's update the description of the most recent issue then pipe it to <code>jira show</code>, which will show us the full description (unlike the short format).</p><pre><code class="yetibot">!firstjira | jira update %s -d This description was updated at `time +0` UTC | jira parse | jira show
 </code></pre><p><article class="message is-info"> <div class="message-header">   <p>💡</p> </div> <div class="message-body">   Notice how we used the <code>%s</code> symbol above. This instructs Yetibot to substitute   <code>%s</code> with the output from the previous command rather than the default   behavior of appending to the end. <a href='/user-guide#pipes'>Read more about Pipes</a>. </div> </article></p><p>You can run this multiple times, and notice the updated timestamp each time it's run.</p><h2 id="user&#95;search">User search</h2><p>Search the users in Jira with:</p><pre><code class="yetibot">!jira users yeti
 </code></pre><h2 id="assigning&#95;issues">Assigning issues</h2><p>Issues can be re-assigned using <code>jira update</code>:</p><pre><code class="yetibot">!jira update `firstjira` -a yeti
 </code></pre><p>The assignee can be a partial match. Yetibot uses the search API to resolve the user.</p><h2 id="priority">Priority</h2><p>List all the priorities in Jira:</p><pre><code class="yetibot">!jira priorities
@@ -305,7 +305,7 @@
       </div>
     </footer>
 
-    <script src="/js/dist.js?q=13052020102643" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/dist.js?q=140520206120" type="text/javascript" charset="utf-8"></script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <script src="/js/highlight.pack.js" type="text/javascript"></script>
