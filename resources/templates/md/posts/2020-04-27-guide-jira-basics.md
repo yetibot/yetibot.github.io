@@ -307,7 +307,7 @@ issues for yourself. Want to quickly create a list of stuff? Try:
 ## Finally
 
 We hope this guide has helped you increase your Yetibot expression and
-automation fluency. While this guide illustrated working with a single command,
+automation fluency. While this guide illustrates working with a single command,
 Yetibot is well-suited to be the glue between many systems in the communal
 context of the mighty **channel**. See
 [Guide: Google Sheets to Jira issues](/2020-04-20-guide-google-sheets-to-jira)
