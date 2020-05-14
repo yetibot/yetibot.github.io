@@ -12,7 +12,7 @@ https://yetibot.com/
 Docs and blog posts for Yetibot
 </description>
 <lastBuildDate>
-Thu, 14 May 2020 18:07:57 +0000
+Thu, 14 May 2020 18:15:11 +0000
 </lastBuildDate>
 <generator>
 clj-rss
@@ -58,7 +58,7 @@ Guide: Jira Basics
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;aliases&quot;&gt;Aliases&lt;/h2&gt;&lt;p&gt;We can use &lt;a href='https://yetibot.com/user-guide#aliases'&gt;aliases&lt;/a&gt; to further simplify Jira issue creation. For example, if we wanted a quick way to create new tasks assigned to Yetibot, we could alias it with:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!alias yetitask = &amp;quot;jira create $s -a yetibot&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Then quickly create new issues for &lt;code&gt;yetibot&lt;/code&gt; with:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!yetitask do stuff, yeti ⚡️
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;A common use case is to hardcode the assignee like above as a fast way to create issues for yourself. Want to quickly create a list of stuff? Try:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!list fix the foo, deploy the bar, decomplect the baz | xargs yetitask
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;finally&quot;&gt;Finally&lt;/h2&gt;&lt;p&gt;We hope this guide has helped you increase your Yetibot expression and automation fluency. While this guide illustrated working with a single command, Yetibot is well-suited to be the glue between many systems in the communal context of the mighty &lt;strong&gt;channel&lt;/strong&gt;. See &lt;a href='/2020-04-20-guide-google-sheets-to-jira'&gt;Guide: Google Sheets to Jira issues&lt;/a&gt; for one such reification of this idea along with more advanced &lt;code&gt;jira&lt;/code&gt; usage.&lt;/p&gt;&lt;p&gt;If you feel like cleaning up after yourself, use this to delete all the issues you just created:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!jira jql created &amp;gt; -1h | xargs jira parse | xargs jira delete
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;finally&quot;&gt;Finally&lt;/h2&gt;&lt;p&gt;We hope this guide has helped you increase your Yetibot expression and automation fluency. While this guide illustrates working with a single command, Yetibot is well-suited to be the glue between many systems in the communal context of the mighty &lt;strong&gt;channel&lt;/strong&gt;. See &lt;a href='/2020-04-20-guide-google-sheets-to-jira'&gt;Guide: Google Sheets to Jira issues&lt;/a&gt; for one such reification of this idea along with more advanced &lt;code&gt;jira&lt;/code&gt; usage.&lt;/p&gt;&lt;p&gt;If you feel like cleaning up after yourself, use this to delete all the issues you just created:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;yetibot&quot;&gt;!jira jql created &amp;gt; -1h | xargs jira parse | xargs jira delete
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;🔥&lt;/p&gt;&lt;p&gt;Question? Ideas for other guides? Post a comment below 🙏.&lt;/p&gt;
 </description>
 <author>
