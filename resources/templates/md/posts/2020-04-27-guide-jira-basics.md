@@ -135,8 +135,8 @@ Yetibot can update issues:
 !help jira | grep jira update
 ```
 
-Let's update the description of the most recent issue then pipe it to `jira
-show`, which will show us the full description (unlike the short format).
+Let's update the description of the most recent issue then pipe it to `jira show`,
+which will show us the full description (unlike the short format).
 
 ```yetibot
 !firstjira | jira update %s -d This description was updated at `time +0` UTC | jira parse | jira show
