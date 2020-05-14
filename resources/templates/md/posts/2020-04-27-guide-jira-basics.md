@@ -153,7 +153,7 @@ which will show us the full description (unlike the short format).
 </div>
 </article>
 
-You can run this multiple times, and notice the updated timestamp each time it's
+We can run this multiple times, and notice the updated timestamp each time it's
 run.
 
 ## User search
@@ -226,7 +226,7 @@ Try running the above multiple times and watch the component change.
 
 ## Comments
 
-You can comment on an issue with Yetibot, but the author will always be Yetibot
+We can comment on an issue with Yetibot, but the author will always be Yetibot
 itself, as it doesn't have permission to comment on other users' behalf:
 
 ```yetibot
@@ -306,12 +306,12 @@ issues for yourself. Want to quickly create a list of stuff? Try:
 
 ## Finally
 
-I hope this guide has helped you increase your automation and Yetibot expression
-fluency. While this guide illustrated working with a single command, Yetibot is
-well-suited to be the glue between many systems in the communal context of the
-mighty **channel**. See
-[Guide: Google Sheets to Jira issues](/2020-04-20-guide-google-sheets-to-jira) for one such reification of
-this idea along with more advanced `jira` usage.
+We hope this guide has helped you increase your Yetibot expression and
+automation fluency. While this guide illustrated working with a single command,
+Yetibot is well-suited to be the glue between many systems in the communal
+context of the mighty **channel**. See
+[Guide: Google Sheets to Jira issues](/2020-04-20-guide-google-sheets-to-jira)
+for one such reification of this idea along with more advanced `jira` usage.
 
 If you feel like cleaning up after yourself, use this to delete all the issues
 you just created:
