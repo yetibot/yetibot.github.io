@@ -61,12 +61,12 @@ We intentionally excluded [a few commands](https://github.com/yetibot/yetibot.co
 from whitelists and blacklists as they are foundational or could be considered
 meta commands:
 
-1. `help` - this is a meta command that lets users know which commands are
-   available, and how each command works.
+1. `help` - meta command that lets users know which commands are available, and
+   how each command works.
 1. `alias` - aliases are all about composing or parameterizing other commands.
-1. `channel` - command for working with channel-specific settings
-1. `category` - a meta command for working with available commands according to
-   their category
+1. `channel` - command for working with channel-specific settings.
+1. `category` - meta command for working with available commands according to
+   their category.
 
 ## Customized fallback command
 
