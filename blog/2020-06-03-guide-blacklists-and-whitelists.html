@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
   <head>
     <meta charset="utf-8"/>
-    <title>Yetibot: Yetibot.com Launch</title>
-    <link rel="canonical" href="https://yetibot.com/blog/2018-03-24-launch">
+    <title>Yetibot: Guide: Blacklists and Whitelists</title>
+    <link rel="canonical" href="https://yetibot.com/blog/2020-06-03-guide-blacklists-and-whitelists">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="/css/main.css" rel="stylesheet" type="text/css" />
     <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
@@ -15,33 +15,33 @@
 
     
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://yetibot.com/blog/2018-03-24-launch" />
-    <meta property="og:title" content="Yetibot: Yetibot.com Launch" />
+    <meta property="og:url" content="https://yetibot.com/blog/2020-06-03-guide-blacklists-and-whitelists" />
+    <meta property="og:title" content="Yetibot: Guide: Blacklists and Whitelists" />
     <meta property="og:description"
-      content="Yeitbot is a powerful, expressive chatops platform written in Clojure." />
+      content="Locking down your Yeti with blacklists and whitelists" />
     <meta property="og:image"
       content="https://yetibot.com/img/yetibot_logo.svg"
     />
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:domain" value="yetibot.com" />
-    <meta name="twitter:title" value="Yetibot: Yetibot.com Launch" />
+    <meta name="twitter:title" value="Yetibot: Guide: Blacklists and Whitelists" />
     <meta name="twitter:description"
-      value="Yeitbot is a powerful, expressive chatops platform written in Clojure."
+      value="Locking down your Yeti with blacklists and whitelists"
     />
     <meta name="twitter:image"
       content="https://yetibot.com/img/yetibot_logo.svg"
     />
-    <meta name="twitter:url" value="https://yetibot.com/blog/2018-03-24-launch" />
+    <meta name="twitter:url" value="https://yetibot.com/blog/2020-06-03-guide-blacklists-and-whitelists" />
     
       <meta name="twitter:creator" value="@devth" />
     
     
     <meta name="twitter:label1" value="Date" />
-    <meta name="twitter:data1" value="March 24, 2018" />
+    <meta name="twitter:data1" value="June 3, 2020" />
     <meta name="twitter:label2" value="Tags" />
     <meta name="twitter:data2"
-      value="news "
+      value="ops guide 2020 "
     />
     
 
@@ -152,9 +152,9 @@
   <article class="page-title hero is-dark is-bold is-fullwidth">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title">Yetibot.com Launch</h1>
+      <h1 class="title">Guide: Blacklists and Whitelists</h1>
       <p class="subtitle">
-        March 24, 2018
+        June 3, 2020
         
           <span>by
             <a href="/authors/@devth">@devth</a>
@@ -170,20 +170,38 @@
 
     <div class="main main-content columns">
       <div class="column is-two-thirds">
-        <p>Yetibot finally has a site!</p><p>Check out the <a href='https://github.com/yetibot/yetibot.github.io'>source on GitHub</a> here if you're so inclined. It's powered by <a href='http://cryogenweb.org/'>Cryogen</a>, the Clojure-based static site generator.</p><p>One of the goals with launching the site was to have inline interactive Yetibot examples that uses the GraphQL API on the public Yetibot instance to evaluate! See the <a href='/user-guide'>User Guide</a> to check out the interactive examples in the docs.</p><p>The site and docs are pretty bare bones but we'll improve it over time.</p>
+        <p>Yetibot exposes a plethora of commands ranging from <code>weather</code> and <code>wolfram</code> lookups to <code>meme</code> generation to <code>stock</code> prices to simple text manipulation and much more. Some operators may not want to expose the full range of Yetibot capabilities to their users, whether for security, or simplicity, or other reasons.</p><p><figure>   <img src="/img/screenshots/help.png" alt="help" />   <figcaption><code>!help</code> on a Yetibot with many aliases and all commands enabled </figcaption> </figure></p><p>Now operators can intentionally expose any subset of Yetibot that they'd like via config. Thanks to <a href='https://github.com/gkspranger'>@gkspranger</a> for helping us work through this by providing lots of thoughtful feedback and feature requests! PRs that enabled these changes are:</p><ul><li><a href='https://github.com/yetibot/yetibot.core/pull/140'>Allow configurable fallback help text #140</a></li><li><a href='https://github.com/yetibot/yetibot.core/pull/138'>Exclude aliases from white and black lists #138</a></li><li><a href='https://github.com/yetibot/yetibot.core/pull/137'>Fallback to default command handling when a command is disabled #137</a></li><li><a href='https://github.com/yetibot/yetibot.core/pull/135'>Exclude help from white black lists #135</a></li><li><a href='https://github.com/yetibot/yetibot.core/pull/133'>Add command whitelist/blacklist support #133</a></li></ul><h2 id="configuration">Configuration</h2><p>When whitelist is configured, all commands are disabled except those present in the <code>whitelist</code> collection, plus any foundational commands. Example config:</p><pre><code class="clojure">:yetibot-command-whitelist-0 &quot;echo&quot;
+:yetibot-command-whitelist-1 &quot;list&quot;
+</code></pre><p><figure>   <img src="/img/screenshots/help-whitelist.png" alt="help" />   <figcaption><code>!help</code> on a Yetibot with a whitelist allowing only <code>echo</code> and <code>list</code></figcaption> </figure></p><p>When blacklist is configured, all commands are enabled except those present in the <code>blacklist</code> collection, plus any foundational commands. Example config:</p><pre><code class="clojure">:yetibot-command-blacklist-0 &quot;echo&quot;
+:yetibot-command-blacklist-1 &quot;list&quot;
+</code></pre><p><figure>   <img src="/img/screenshots/help-blacklist.png" alt="help" />   <figcaption><code>!help</code> on a Yetibot with a blacklist disabling <code>echo</code> and <code>list</code></figcaption> </figure></p><h2 id="foundational&#95;commands">Foundational commands</h2><p>We intentionally excluded <a href='https://github.com/yetibot/yetibot.core/blob/4a32ee3ea46c0aa1f5bb5ffe85057b9323ebc3ed/src/yetibot/core/util/command.clj#L40-L46'>a few commands</a> from whitelists and blacklists as they are foundational or could be considered meta commands:</p><ol><li><code>help</code> - this is a meta command that lets users know which commands are   available, and how each command works.</li><li><code>alias</code> - aliases are all about composing or parameterizing other commands.</li><li><code>channel</code> - command for working with channel-specific settings</li><li><code>category</code> - a meta command for working with available commands according to   their category</li></ol><h2 id="customized&#95;fallback&#95;command">Customized fallback command</h2><p>Related to curating the set of available commands, we can also configure the fallback command (i.e. what happens when a user tries to run a command that doesn't exist). This example sets it to an alias:</p><pre><code class="clojure">:yetibot-default-command &quot;custom&quot;
+</code></pre><p><figure>   <img src="/img/screenshots/help-custom.png" alt="help" />   <figcaption><code>!help</code> on a Yetibot with fallback set to a <code>custom</code> alias</figcaption> </figure></p><h2 id="customized&#95;fallback&#95;help&#95;docs">Customized fallback help docs</h2><p>In the previous section, notice the output of <code>!help</code> includes:</p><blockquote><p> ✅ Fallback commands are enabled, and the default command is <code>custom</code>. This is  triggered when a user enters a command that does not exist, and passes  whatever the user entered as args to the fallback command. </p></blockquote><p>This is the default snippet of help text for fallback commands, but this too is overridable:</p><pre><code class="clojure">:yetibot-command-fallback-help-text &quot;Welcome to Yetibot 👋&quot;
+</code></pre><p><figure>   <img src="/img/screenshots/help-custom-fallback.png" alt="help" />   <figcaption><code>!help</code> on a Yetibot with custom fallback help text</figcaption> </figure></p>
       </div>
 
       <div class="column toc">
-        
+        <ol class="content"><li><a href="#configuration">Configuration</a></li><li><a href="#foundational_commands">Foundational commands</a></li><li><a href="#customized_fallback_command">Customized fallback command</a></li><li><a href="#customized_fallback_help_docs">Customized fallback help docs</a></li></ol>
       </div>
 
     </div>
     
     <div id="post-tags">
       
-        <a href="/tags/news">
+        <a href="/tags/ops">
           <span class="tag is-medium is-dark">
-              news
+              ops
+          </span>
+        </a>
+      
+        <a href="/tags/guide">
+          <span class="tag is-medium is-dark">
+              guide
+          </span>
+        </a>
+      
+        <a href="/tags/2020">
+          <span class="tag is-medium is-dark">
+              2020
           </span>
         </a>
       
@@ -198,12 +216,12 @@
       <div id="prev-next">
 
         
-        <a class="button is-warning is-medium"
-          href="/blog/2019-01-03-yetibot-2019-roadmap">
-          ↞ Looking back at 2018 and forward for 2019
-        </a>
-        
 
+        
+        <a class="button is-warning is-medium"
+          class="right" href="/blog/2020-04-27-guide-jira-basics">
+          Guide: Jira Basics ↠
+        </a>
         
 
       </div>
@@ -218,8 +236,8 @@
     </div>
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = "https://yetibot.com/blog/2018-03-24-launch";
-        this.page.identifier = "Yetibot.com Launch";
+        this.page.url = "https://yetibot.com/blog/2020-06-03-guide-blacklists-and-whitelists";
+        this.page.identifier = "Guide: Blacklists and Whitelists";
       };
       (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
