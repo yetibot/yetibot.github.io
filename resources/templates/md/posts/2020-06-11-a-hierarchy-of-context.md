@@ -2,8 +2,12 @@
  :layout :post
  :toc true
  :author "@devth"
- :summary "Context is everything."
+ :summary "Mine, ours, theirs"
  :tags  ["guide" "2020" "ops" "config"]}
+
+```yetibot
+!complete context is
+```
 
 Context is everything. It acts as a constraining factor, letting us make
 assumptions, frames ideas, and is at the heart of every delightful UX and DX.
@@ -14,9 +18,14 @@ widest.
 ## Global
 
 When a message arrives, we can ignore everything about its origin, such as the
-channel it came from or user responsible for sending it. This is the 
-**global context**. When we configure Yetibot through the available means, we
-are setting the global context that Yeibot operates within.
+channel it came from or user responsible for sending it. This is the
+**global context**. It spans an entire Yetibot instance across all configured
+adapters.
+
+## Adapter
+
+Slightly more specific, when a message arrives we can look at the adapter that
+it originated from. This is the **adapter context**.
 
 ## Channel
 
@@ -91,4 +100,36 @@ This is interesting, because once a user sets their location, a command that
 utilizes the locations of all members in a channel would vary from channel to
 channel automatically, depending on who is present. When a user leaves or joins
 a channel, the context is updated accordingly.
+
+We can get that list of values using `our`:
+
+```yetibot
+!help our
+```
+
+```yetibot
+!our zip
+```
+
+### Stocks
+
+Use case: list stock prices.
+
+This time let's rely on `ours`.
+
+```yetibot
+!my stocks = aapl,goog,tsla
+```
+
+Now if another user specified:
+
+```yetibot
+```
+
+## Future
+
+In the future, as part of
+[The great configuration overhaul of 2020](https://github.com/yetibot/yetibot/projects/5),
+we may provide the ability to override immutable Yetibot configuration at
+runtime with mutable (i.e. stored in the database) config.
 
