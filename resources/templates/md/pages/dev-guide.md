@@ -579,11 +579,11 @@ for a full example.
 1. Using `command-execution-info`
 1. Mocking with Midje
 
-## Parsing command arguments
+## Parsing command options
 
-Fancy words go here for `parse-opts`. Blah Blah Blah.
+A Yetibot command can parse options, much like you would encounter using common CLI tools. This is made possible by using the `clojure.tools.cli` library and related `parse-opts` function.
 
-Here's an example command that would a `name` argument:
+Here's an example command that would parse a `name` option:
 
 ```clojure
 (ns mycompany.plugins.commands.hello
@@ -596,7 +596,7 @@ Here's an example command that would a `name` argument:
 (defn hello-cmd
   "hello # say hello
    
-   Personalize the hello to a name:
+   Personalize the hello:
    -n --name <name>"
   [{:keys [match]}]
   (let [{options :options} (parse-opts (split match #" ") cli-options)]
