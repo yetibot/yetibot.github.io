@@ -625,6 +625,21 @@ For a more elaborate example of using `parse-opts`, take a look at
 
 ## Working with the database
 
+Data schemas in Yetibot are designed to be idempotent. Because of this, we apply
+all schema migrations at startup, idempotently ensuring tables exist and columns
+are added. Because of this design, we can only accrete; it does not support
+column renames or deletions.
+
+Yetibot includes utilities in
+[`yetibot.core.db.util`](https://github.com/yetibot/yetibot.core/blob/master/src/yetibot/core/db/util.clj)
+that simplify working with the database in alignment with this idempotent design
+philosophy.
+
+As an example, take a look at any of namespaces under
+[`yetibot.core.db`](https://github.com/yetibot/yetibot.core/tree/master/src/yetibot/core/db),
+such as
+[`yetibot.core.db.history`](https://github.com/yetibot/yetibot.core/blob/master/src/yetibot/core/db/history.clj).
+
 ## Parser
 
 ## Load order
