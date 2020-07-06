@@ -765,6 +765,32 @@ effectual functions.
 All new tests should use Midje. Some old tests remain that still need to be
 ported.
 
+## List the contents of Yetibot JARs
+
+It can be useful to understand exactly what is in the Yetibot JARs. To list the
+contents, run a command like (you may need to change the path depending on which
+version of `yetibot.core` you have installed):
+
+```bash
+jar -tvf ~/.m2/repository/yetibot/core/20190830.212304.0be0d9e/core-20190830.212304.0be0d9e.jar
+```
+
+For example, we used this recently to debug why `index.html` was not included in
+the JAR:
+
+```bash
+jar -tvf ~/.m2/repository/yetibot/core/20190830.212304.0be0d9e/core-20190830.212304.0be0d9e.jar \
+  | grep index
+```
+
+To unzip the contents into a directory:
+
+```bash
+mkdir /tmp/yetibot.core
+cd $_
+jar -xvf ~/.m2/repository/yetibot/core/20190830.212304.0be0d9e/core-20190830.212304.0be0d9e.jar
+```
+
 ## 🤔
 
 <article class="message is-info">
