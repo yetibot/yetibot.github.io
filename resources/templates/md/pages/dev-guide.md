@@ -579,7 +579,66 @@ for a full example.
 1. Using `command-execution-info`
 1. Mocking with Midje
 
+## Parsing command options
+
+A Yetibot command can parse options, much like you would encounter using common CLI tools. This is made possible by using the `clojure.tools.cli` library and related `parse-opts` function.
+
+Here's an example command that would parse a `name` option:
+
+```clojure
+(ns mycompany.plugins.commands.hello
+  (:require [yetibot.core.hooks :refer [cmd-hook]]
+            [clojure.tools.cli :refer [parse-opts]]
+            [clojure.string :refer [split]]))
+
+(def cli-options [["-n" "--name NAME"]])
+
+(defn hello-cmd
+  "hello # say hello
+   
+   Personalize the hello:
+   -n --name <name>"
+  [{:keys [match]}]
+  (let [{options :options} (parse-opts (split match #" ") cli-options)]
+    (if (:name options)
+      ; enthusiastically say hello to the name
+      (str "Hello " (:name options) "!")
+      ; otherwise just greet
+      "Greetings.")))
+
+(cmd-hook #"hello"
+          _ hello-cmd)
+```
+
+An example invocation would look like:
+
+```
+!hello -n Bob
+Hello Bob!
+
+!hello
+Greetings.
+```
+
+For a more elaborate example of using `parse-opts`, take a look at
+[Yetibot's history command](https://github.com/yetibot/yetibot.core/blob/master/src/yetibot/core/commands/history.clj).
+
 ## Working with the database
+
+Data schemas in Yetibot are designed to be idempotent. Because of this, we apply
+all schema migrations at startup, idempotently ensuring tables exist and columns
+are added. Because of this design, we can only accrete; it does not support
+column renames or deletions.
+
+Yetibot includes utilities in
+[`yetibot.core.db.util`](https://github.com/yetibot/yetibot.core/blob/master/src/yetibot/core/db/util.clj)
+that simplify working with the database in alignment with this idempotent design
+philosophy.
+
+As an example, take a look at any of namespaces under
+[`yetibot.core.db`](https://github.com/yetibot/yetibot.core/tree/master/src/yetibot/core/db),
+such as
+[`yetibot.core.db.history`](https://github.com/yetibot/yetibot.core/blob/master/src/yetibot/core/db/history.clj).
 
 ## Parser
 
@@ -705,6 +764,32 @@ effectual functions.
 
 All new tests should use Midje. Some old tests remain that still need to be
 ported.
+
+## List the contents of Yetibot JARs
+
+It can be useful to understand exactly what is in the Yetibot JARs. To list the
+contents, run a command like (you may need to change the path depending on which
+version of `yetibot.core` you have installed):
+
+```bash
+jar -tvf ~/.m2/repository/yetibot/core/20190830.212304.0be0d9e/core-20190830.212304.0be0d9e.jar
+```
+
+For example, we used this recently to debug why `index.html` was not included in
+the JAR:
+
+```bash
+jar -tvf ~/.m2/repository/yetibot/core/20190830.212304.0be0d9e/core-20190830.212304.0be0d9e.jar \
+  | grep index
+```
+
+To unzip the contents into a directory:
+
+```bash
+mkdir /tmp/yetibot.core
+cd $_
+jar -xvf ~/.m2/repository/yetibot/core/20190830.212304.0be0d9e/core-20190830.212304.0be0d9e.jar
+```
 
 ## 🤔
 
