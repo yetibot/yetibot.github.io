@@ -623,6 +623,43 @@ Greetings.
 For a more elaborate example of using `parse-opts`, take a look at
 [Yetibot's history command](https://github.com/yetibot/yetibot.core/blob/master/src/yetibot/core/commands/history.clj).
 
+## Observing chat messages
+
+Yetibot can observe all chat messages in channels it's a member of, and react to them should they meet defined patterns. Typical use cases want to proactively "push" information to users, versus waiting to respond to a command's invocation. For example, an organization might want to proactively "push" a new URL for a commonly used Web site.
+
+Here's an example observer function:
+
+```clojure
+(ns mycompany.plugins.observers.example
+  (:require [yetibot.core.hooks :refer [obs-hook]]
+            [yetibot.core.chat :refer [chat-data-structure]]))
+
+(defn respond []
+  ;; the chat-data-structure function can best be thought of
+  ;; as a "send message" function, allowing for multiple responses
+  (chat-data-structure "The new URL for old.example.com is new.example.com"))
+
+;; observe all chat messages
+(obs-hook #{:message}
+          (fn [event-info]
+            ;; if the body of the message contains the URL "old.example.com",
+            ;; run "respond" function
+            (if-let [m (re-find #"old\.example\.com" (:body event-info))]
+              (respond))))
+```
+
+An example invocation might look like:
+
+```
+Frank: Jeff, I think the Web site you want is old.example.com
+Yetibot: The new URL for old.example.com is new.example.com
+```
+
+For a more elaborate example of using `obs-hook`, take a look at
+[Yetibot's karma observer](https://github.com/yetibot/yetibot.core/blob/master/src/yetibot/core/observers/karma.clj).
+
+Yetibot is prepackaged with the `!obs` command, which is the runtime equivalent to code-based observers. While very similar to code-based observers, they are user driven customizations that don't necessarily belong in the code base. You can learn more about them here: [User Guide: Observers](/user-guide#observers)
+
 ## Working with the database
 
 Data schemas in Yetibot are designed to be idempotent. Because of this, we apply
