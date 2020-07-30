@@ -9,7 +9,7 @@
     "if-is-image": "1.0.6",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "tocbot": "4.10.1",
+    "tocbot": "4.11.2",
     "snyk": "^1.316.1"
   },
   "devDependencies": {
