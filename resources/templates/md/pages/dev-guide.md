@@ -545,7 +545,7 @@ Use `raw all` to view all arguments.
 
 Yetibot has the ability to look ahead into the command pipeline and optionally
 consume subsequent commands from a command handler function. In relational
-algebra this is often referred to as pushing down an operation.
+algebra this is often referred to as pushing down an operation, common in RDBMS.
 
 Consider `history | random` as an example. The `history` command looks ahead at
 the next commands in the pipeline, sees that it's a command it knows how to
@@ -555,10 +555,10 @@ efficiency and instead handle itself.
 Imagine the default naive method Yetibot would execute if this were not the
 case:
 
-1. Load all history into a data structure
+1. Load all history for all time into memory
 1. Pass the data structure to `random` which calls `rand-nth` on the collection.
    According to the [public Yetibot dashboard](https://public.yetibot.com/) at
-   the time of writing we have 12,723 entries in the history table. This isn't
+   the time of writing we have 64,598 entries in the history table. This isn't
    that much but you can imagine how slow it'd be as the table continues to
    grow.
 
@@ -581,7 +581,9 @@ for a full example.
 
 ## Parsing command options
 
-A Yetibot command can parse options, much like you would encounter using common CLI tools. This is made possible by using the `clojure.tools.cli` library and related `parse-opts` function.
+A Yetibot command can parse options, much like you would encounter using common
+CLI tools. This is made possible by using the `clojure.tools.cli` library and
+related `parse-opts` function.
 
 Here's an example command that would parse a `name` option:
 
@@ -595,7 +597,7 @@ Here's an example command that would parse a `name` option:
 
 (defn hello-cmd
   "hello # say hello
-   
+
    Personalize the hello:
    -n --name <name>"
   [{:keys [match]}]
@@ -625,7 +627,11 @@ For a more elaborate example of using `parse-opts`, take a look at
 
 ## Observing chat messages
 
-Yetibot can observe all chat messages in channels it's a member of, and react to them should they meet defined patterns. Typical use cases want to proactively "push" information to users, versus waiting to respond to a command's invocation. For example, an organization might want to proactively "push" a new URL for a commonly used Web site.
+Yetibot can observe all chat messages in channels it's a member of, and react to
+them should they meet defined patterns. Typical use cases want to proactively
+"push" information to users, versus waiting to respond to a command's
+invocation. For example, an organization might want to proactively "push" a new
+URL for a commonly used Web site.
 
 Here's an example observer function:
 
@@ -658,7 +664,10 @@ Yetibot: The new URL for old.example.com is new.example.com
 For a more elaborate example of using `obs-hook`, take a look at
 [Yetibot's karma observer](https://github.com/yetibot/yetibot.core/blob/master/src/yetibot/core/observers/karma.clj).
 
-Yetibot is prepackaged with the `!obs` command, which is the runtime equivalent to code-based observers. While very similar to code-based observers, they are user driven customizations that don't necessarily belong in the code base. You can learn more about them here: [User Guide: Observers](/user-guide#observers)
+Yetibot is prepackaged with the `!obs` command, which is the runtime equivalent
+to code-based observers. While very similar to code-based observers, they are
+user driven customizations that don't necessarily belong in the code base. You
+can learn more about them here: [User Guide: Observers](/user-guide#observers)
 
 ## Working with the database
 
