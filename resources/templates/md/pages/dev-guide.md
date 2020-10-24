@@ -146,7 +146,7 @@ registers a command with its prefix and set of sub-commands.
 Here's an example command that adds 2 numbers:
 
 ```clojure
-(ns mycompany.plugins.commands.add
+(ns yetibot.commands.add
   (:require [yetibot.core.hooks :refer [cmd-hook]]))
 
 (defn add-cmd
@@ -174,18 +174,44 @@ And if we ask for help:
 add <number1> <number2> # Add two numbers
 ```
 
-In addition to loading its own internal commands, Yetibot will load all command
-namespaces matching:
-
-```clojure
-#"^.*plugins\.commands.*"
-```
-
-So in our example above, the `mycompany.plugins.commands.add` namespace would be
-matched by this pattern and loaded.
-
 For many more examples of various commands, take a look at
 [Yetibot's built in commands](https://github.com/yetibot/yetibot/tree/master/src/yetibot/commands).
+
+## Dynamic plugins
+
+Yetibot can load external plugins at runtime upon startup. This allows users to
+consume the [official Docker image](https://hub.docker.com/r/yetibot/yetibot) or
+[jar](https://clojars.org/yetibot) according to their preference while still
+consuming any combination of optional public or private plugins, as long as they
+are available on a jar repository. By default [Clojars](https://clojars.org/)
+and [Maven Central](https://mvnrepository.com/repos/central) are configured, but
+users can configure their own repositories, public or private.
+
+Yetibot will load all command namespaces matching:
+
+```clojure
+ ;; yetibot.commands.*
+ ;; yetibot.core.commands.*
+ ;; yetibot-pluginname.commands.*
+ #"^yetibot(\S*)\.(core\.)?commands.*"
+ ;; mycompany.plugins.commands.*
+ #"^.*plugins\.commands.*"
+```
+
+See [yetibot-kroki](https://github.com/yetibot/yetibot-kroki) for an example of
+a lightweight Yetibot plugin. Note that plugins should add
+[`yetibot/core`])(https://clojars.org/yetibot/core) as a `provided` dependency,
+like:
+
+```clojure
+  :profiles
+  {:provided {:dependencies [[yetibot/core "LATEST"]]}
+```
+
+See [yetibot-kroki's
+project.clj](https://github.com/yetibot/yetibot-kroki/blob/9d97f7c8e4afa702a15e149907d2c58accdc360e/project.clj#L20-L21)
+as an example.
+
 
 ## Testing yetibot.core changes in yetibot
 
