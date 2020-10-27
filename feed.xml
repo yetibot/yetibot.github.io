@@ -12,11 +12,36 @@ https://yetibot.com/
 Docs and blog posts for Yetibot
 </description>
 <lastBuildDate>
-Thu, 22 Oct 2020 00:12:02 +0000
+Tue, 27 Oct 2020 02:15:10 +0000
 </lastBuildDate>
 <generator>
 clj-rss
 </generator>
+<item>
+<guid>
+https://yetibot.com/blog/2020-10-24-first-class-plugins-are-here
+</guid>
+<link>
+https://yetibot.com/blog/2020-10-24-first-class-plugins-are-here
+</link>
+<title>
+First class plugins are here!
+</title>
+<description>
+&lt;p&gt;Since nearly the beginning of its existence, Yetibot has supported the notion of plugins by simply loading namespaces that looked like commands, e.g. &lt;code&gt;mycompany.plugins.commands.mycommand&lt;/code&gt;, but it was up to the user to get the plugin JAR on the classpath or source file included in the local source tree.&lt;/p&gt;&lt;p&gt;This was never ideal, for a few reasons:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;It meant the user needed to manage all the ops for their custom Yetibot,  including building (JARs or Docker images) or figuring out a way to deploy  from a source tree since the official JAR and Docker image were already baked.&lt;/li&gt;&lt;li&gt;The inconvenience prevented us from embracing a plugin ecosystem, instead  baking everything into either &lt;a href='https://github.com/yetibot/yetibot'&gt;yetibot&lt;/a&gt;  or &lt;a href='https://github.com/yetibot/core'&gt;yetibot/core&lt;/a&gt;.&lt;/li&gt;&lt;/ul&gt;&lt;h2 id=&quot;usage&quot;&gt;Usage&lt;/h2&gt;&lt;p&gt;Configure the plugins you want to use, and Yetibot will resolve and load them on start up:&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;clojure&quot;&gt;{:yetibot
+ {:plugins
+   {:kroki
+     {:artifact &amp;quot;yetibot/kroki&amp;quot;
+      :version &amp;quot;20201022.003832.0ae5bf7&amp;quot;}}}}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Beware that specifying a large number of plugins will increase Yetibot's start up time. This is the trade off between static (baking artifacts into an uberjar or Docker image) and dynamic (loading at runtime on startup).&lt;/p&gt;&lt;h2 id=&quot;release&amp;#95;automation&quot;&gt;Release automation&lt;/h2&gt;&lt;p&gt;Yetibot's official plugins (those under the &lt;a href='https://github.com/yetibot'&gt;Yetibot GitHub Org&lt;/a&gt;) are ultra simple to create and release because of the surrounding automation we constructed:&lt;/p&gt;&lt;ol&gt;&lt;li&gt;&lt;a href='https://github.com/yetibot/parent'&gt;yetibot/parent&lt;/a&gt; uses   &lt;a href='https://github.com/achin/lein-parent'&gt;lein-parent&lt;/a&gt; to specify common   configuration across all Yetibot plugins (see   &lt;a href='https://github.com/yetibot/yetibot-github/blob/499bc7e902658fdb2461f166af9a6a94a75bd4cb/project.clj#L6-L13'&gt;yetibot-github's &lt;code&gt;project.clj&lt;/code&gt;&lt;/a&gt;   for an example of what this looks like).&lt;/li&gt;&lt;li&gt;A new Leiningen plugin called   &lt;a href='https://github.com/devth/lein-inferv'&gt;lein-inferv&lt;/a&gt; allows us to infer   versions rather than specify them in code, which allows us to avoid commit   automation and noise to bump and snapshot versions. We already practiced this   in &lt;a href='https://github.com/yetibot/core'&gt;yetibot/core&lt;/a&gt; using   &lt;a href='https://github.com/arrdem/lein-git-version'&gt;lein-git-version&lt;/a&gt; but the new   plugin fully encodes our derived version schema and requires zero   configuration.&lt;/li&gt;&lt;li&gt;&lt;a href='https://github.com/yetibot/.github/blob/main/workflow-templates/release.yml'&gt;GitHub Organization workflows&lt;/a&gt;   let us define how to release plugins in a single place that all future   plugins can consume.&lt;/li&gt;&lt;/ol&gt;&lt;h2 id=&quot;how&amp;#95;to&amp;#95;contribute&amp;#95;a&amp;#95;new&amp;#95;module&quot;&gt;How to contribute a new module&lt;/h2&gt;&lt;p&gt;If you have an idea for a module and think it should belong under the Yetibot org as an official plugin, feel free to suggest it in the &lt;a href='https://slack.yetibot.com'&gt;#dev channel on Yetibot Slack&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Otherwise, anyone can build a module wherever they like, release it to an artifact repository and consume it via configuration.&lt;/p&gt;&lt;h2 id=&quot;&lt;a href='https://www.youtube.com/watch?v=MX0D4oZwCsA'&gt;What does it all mean?&lt;/a&gt;&quot;&gt;&lt;a href='https://www.youtube.com/watch?v=MX0D4oZwCsA'&gt;What does it all mean?&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Now that plugins are easy to build, release, and consume, we will move toward much smaller logically separated code bases. Over time we'll extract commands from &lt;code&gt;yetibot&lt;/code&gt; and &lt;code&gt;yetibot/core&lt;/code&gt; in to separate plugins. This will make features easier to work with, test in isolation, and release.&lt;/p&gt;&lt;p&gt;&lt;a href='https://github.com/yetibot/yetibot.core/pull/153'&gt;Here's the PR that enabled plugins&lt;/a&gt;. The change itself was quite small.&lt;/p&gt;&lt;p&gt;Check out the new &lt;a href='/dev-guide#dynamic_plugins'&gt;Dynamic plugins docs&lt;/a&gt;, and as always please give us feedback by leaving a comment below, chatting with us in &lt;a href='https://slack.yetibot.com'&gt;Slack&lt;/a&gt;, or opening a GitHub issue.&lt;/p&gt;
+</description>
+<author>
+@devth
+</author>
+<pubDate>
+Sat, 24 Oct 2020 00:00:00 +0000
+</pubDate>
+</item>
 <item>
 <guid>
 https://yetibot.com/blog/2020-06-03-guide-blacklists-and-whitelists

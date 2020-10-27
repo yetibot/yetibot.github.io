@@ -1,6 +1,6 @@
 /*
 Error: Undefined variable: "$background".
-        on line 1 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/elements/tag.sass
+        on line 1 of themes/devth/css/bulma/sass/elements/tag.sass
 
 1: $tag-background-color: $background !default
 2: $tag-color: $text !default
@@ -10,7 +10,7 @@ Error: Undefined variable: "$background".
 6: .tags
 
 Backtrace:
-/Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/elements/tag.sass:1
+themes/devth/css/bulma/sass/elements/tag.sass:1
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/script/tree/variable.rb:49:in `_perform'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/script/tree/node.rb:50:in `perform'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:478:in `visit_variable'
@@ -51,4 +51,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$background\".\A         on line 1 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/elements/tag.sass\A \A 1: $tag-background-color: $background !default\A 2: $tag-color: $text !default\A 3: $tag-radius: $radius !default\A 4: $tag-delete-margin: 1px !default\A 5: \A 6: .tags"; }
+  content: "Error: Undefined variable: \"$background\".\A         on line 1 of themes/devth/css/bulma/sass/elements/tag.sass\A \A 1: $tag-background-color: $background !default\A 2: $tag-color: $text !default\A 3: $tag-radius: $radius !default\A 4: $tag-delete-margin: 1px !default\A 5: \A 6: .tags"; }

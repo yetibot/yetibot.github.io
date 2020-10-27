@@ -1,6 +1,6 @@
 /*
 Error: Undefined variable: "$background".
-        on line 1 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/layout/footer.sass
+        on line 1 of themes/devth/css/bulma/sass/layout/footer.sass
 
 1: $footer-background-color: $background !default
 2: 
@@ -9,7 +9,7 @@ Error: Undefined variable: "$background".
 5:   padding: 3rem 1.5rem 6rem
 
 Backtrace:
-/Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/layout/footer.sass:1
+themes/devth/css/bulma/sass/layout/footer.sass:1
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/script/tree/variable.rb:49:in `_perform'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/script/tree/node.rb:50:in `perform'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:478:in `visit_variable'
@@ -50,4 +50,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$background\".\A         on line 1 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/layout/footer.sass\A \A 1: $footer-background-color: $background !default\A 2: \A 3: .footer\A 4:   background-color: $footer-background-color\A 5:   padding: 3rem 1.5rem 6rem"; }
+  content: "Error: Undefined variable: \"$background\".\A         on line 1 of themes/devth/css/bulma/sass/layout/footer.sass\A \A 1: $footer-background-color: $background !default\A 2: \A 3: .footer\A 4:   background-color: $footer-background-color\A 5:   padding: 3rem 1.5rem 6rem"; }

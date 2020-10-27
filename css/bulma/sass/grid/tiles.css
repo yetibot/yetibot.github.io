@@ -1,7 +1,7 @@
 /*
 Error: Undefined mixin 'tablet'.
-        on line 26 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/grid/tiles.sass, in `tablet'
-        from line 26 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/grid/tiles.sass
+        on line 26 of themes/devth/css/bulma/sass/grid/tiles.sass, in `tablet'
+        from line 26 of themes/devth/css/bulma/sass/grid/tiles.sass
 
 21:   &.is-vertical
 22:     flex-direction: column
@@ -16,8 +16,8 @@ Error: Undefined mixin 'tablet'.
 31:         flex: none
 
 Backtrace:
-/Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/grid/tiles.sass:26:in `tablet'
-/Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/grid/tiles.sass:26
+themes/devth/css/bulma/sass/grid/tiles.sass:26:in `tablet'
+themes/devth/css/bulma/sass/grid/tiles.sass:26
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:348:in `block in visit_mixin'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/stack.rb:98:in `block in with_mixin'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/stack.rb:135:in `with_frame'
@@ -71,4 +71,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined mixin 'tablet'.\A         on line 26 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/grid/tiles.sass, in `tablet'\A         from line 26 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/grid/tiles.sass\A \A 21:   &.is-vertical\A 22:     flex-direction: column\A 23:     & > .tile.is-child:not(:last-child)\A 24:       margin-bottom: 1.5rem !important\A 25:   // Responsiveness\A 26:   +tablet\A 27:     &:not(.is-child)\A 28:       display: flex\A 29:     @for $i from 1 through 12\A 30:       &.is-#{$i}\A 31:         flex: none"; }
+  content: "Error: Undefined mixin 'tablet'.\A         on line 26 of themes/devth/css/bulma/sass/grid/tiles.sass, in `tablet'\A         from line 26 of themes/devth/css/bulma/sass/grid/tiles.sass\A \A 21:   &.is-vertical\A 22:     flex-direction: column\A 23:     & > .tile.is-child:not(:last-child)\A 24:       margin-bottom: 1.5rem !important\A 25:   // Responsiveness\A 26:   +tablet\A 27:     &:not(.is-child)\A 28:       display: flex\A 29:     @for $i from 1 through 12\A 30:       &.is-#{$i}\A 31:         flex: none"; }
