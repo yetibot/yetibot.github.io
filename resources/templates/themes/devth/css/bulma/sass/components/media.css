@@ -1,6 +1,6 @@
 /*
 Error: Undefined variable: "$border".
-        on line 8 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/components/media.sass
+        on line 8 of themes/devth/css/bulma/sass/components/media.sass
 
 3:   display: flex
 4:   text-align: left
@@ -15,7 +15,7 @@ Error: Undefined variable: "$border".
 13:       margin-bottom: 0.5rem
 
 Backtrace:
-/Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/components/media.sass:8
+themes/devth/css/bulma/sass/components/media.sass:8
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/script/tree/variable.rb:49:in `_perform'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/script/tree/node.rb:50:in `perform'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/script/tree/funcall.rb:182:in `perform_arg'
@@ -90,4 +90,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$border\".\A         on line 8 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/components/media.sass\A \A 3:   display: flex\A 4:   text-align: left\A 5:   .content:not(:last-child)\A 6:     margin-bottom: 0.75rem\A 7:   .media\A 8:     border-top: 1px solid rgba($border, 0.5)\A 9:     display: flex\A 10:     padding-top: 0.75rem\A 11:     .content:not(:last-child),\A 12:     .control:not(:last-child)\A 13:       margin-bottom: 0.5rem"; }
+  content: "Error: Undefined variable: \"$border\".\A         on line 8 of themes/devth/css/bulma/sass/components/media.sass\A \A 3:   display: flex\A 4:   text-align: left\A 5:   .content:not(:last-child)\A 6:     margin-bottom: 0.75rem\A 7:   .media\A 8:     border-top: 1px solid rgba($border, 0.5)\A 9:     display: flex\A 10:     padding-top: 0.75rem\A 11:     .content:not(:last-child),\A 12:     .control:not(:last-child)\A 13:       margin-bottom: 0.5rem"; }

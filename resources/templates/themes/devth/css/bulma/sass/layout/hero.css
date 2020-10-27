@@ -1,6 +1,6 @@
 /*
 Error: Undefined variable: "$colors".
-        on line 14 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/layout/hero.sass
+        on line 14 of themes/devth/css/bulma/sass/layout/hero.sass
 
 9:     background: none
 10:   .tabs
@@ -15,7 +15,7 @@ Error: Undefined variable: "$colors".
 19:       color: $color-invert
 
 Backtrace:
-/Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/layout/hero.sass:14
+themes/devth/css/bulma/sass/layout/hero.sass:14
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/script/tree/variable.rb:49:in `_perform'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/script/tree/node.rb:50:in `perform'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:229:in `visit_each'
@@ -67,4 +67,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$colors\".\A         on line 14 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/layout/hero.sass\A \A 9:     background: none\A 10:   .tabs\A 11:     ul\A 12:       border-bottom: none\A 13:   // Colors\A 14:   @each $name, $pair in $colors\A 15:     $color: nth($pair, 1)\A 16:     $color-invert: nth($pair, 2)\A 17:     &.is-#{$name}\A 18:       background-color: $color\A 19:       color: $color-invert"; }
+  content: "Error: Undefined variable: \"$colors\".\A         on line 14 of themes/devth/css/bulma/sass/layout/hero.sass\A \A 9:     background: none\A 10:   .tabs\A 11:     ul\A 12:       border-bottom: none\A 13:   // Colors\A 14:   @each $name, $pair in $colors\A 15:     $color: nth($pair, 1)\A 16:     $color-invert: nth($pair, 2)\A 17:     &.is-#{$name}\A 18:       background-color: $color\A 19:       color: $color-invert"; }

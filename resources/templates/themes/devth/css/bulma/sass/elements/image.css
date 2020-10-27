@@ -1,6 +1,6 @@
 /*
 Error: Undefined variable: "$radius-rounded".
-        on line 11 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/elements/image.sass
+        on line 11 of themes/devth/css/bulma/sass/elements/image.sass
 
 6:   img
 7:     display: block
@@ -15,7 +15,7 @@ Error: Undefined variable: "$radius-rounded".
 16:   &.is-3by2,
 
 Backtrace:
-/Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/elements/image.sass:11
+themes/devth/css/bulma/sass/elements/image.sass:11
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/script/tree/variable.rb:49:in `_perform'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/script/tree/node.rb:50:in `perform'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:398:in `visit_prop'
@@ -89,4 +89,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$radius-rounded\".\A         on line 11 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/elements/image.sass\A \A 6:   img\A 7:     display: block\A 8:     height: auto\A 9:     width: 100%\A 10:     &.is-rounded\A 11:       border-radius: $radius-rounded\A 12:   // Ratio\A 13:   &.is-square,\A 14:   &.is-1by1,\A 15:   &.is-4by3,\A 16:   &.is-3by2,"; }
+  content: "Error: Undefined variable: \"$radius-rounded\".\A         on line 11 of themes/devth/css/bulma/sass/elements/image.sass\A \A 6:   img\A 7:     display: block\A 8:     height: auto\A 9:     width: 100%\A 10:     &.is-rounded\A 11:       border-radius: $radius-rounded\A 12:   // Ratio\A 13:   &.is-square,\A 14:   &.is-1by1,\A 15:   &.is-4by3,\A 16:   &.is-3by2,"; }

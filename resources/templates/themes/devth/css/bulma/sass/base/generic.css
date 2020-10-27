@@ -1,6 +1,6 @@
 /*
 Error: Undefined variable: "$white".
-        on line 1 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/base/generic.sass
+        on line 1 of themes/devth/css/bulma/sass/base/generic.sass
 
 1: $body-background-color: $white !default
 2: $body-size: 16px !default
@@ -10,7 +10,7 @@ Error: Undefined variable: "$white".
 6: $body-weight: $weight-normal !default
 
 Backtrace:
-/Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/base/generic.sass:1
+themes/devth/css/bulma/sass/base/generic.sass:1
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/script/tree/variable.rb:49:in `_perform'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/script/tree/node.rb:50:in `perform'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:478:in `visit_variable'
@@ -51,4 +51,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$white\".\A         on line 1 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/base/generic.sass\A \A 1: $body-background-color: $white !default\A 2: $body-size: 16px !default\A 3: $body-rendering: optimizeLegibility !default\A 4: $body-family: $family-primary !default\A 5: $body-color: $text !default\A 6: $body-weight: $weight-normal !default"; }
+  content: "Error: Undefined variable: \"$white\".\A         on line 1 of themes/devth/css/bulma/sass/base/generic.sass\A \A 1: $body-background-color: $white !default\A 2: $body-size: 16px !default\A 3: $body-rendering: optimizeLegibility !default\A 4: $body-family: $family-primary !default\A 5: $body-color: $text !default\A 6: $body-weight: $weight-normal !default"; }

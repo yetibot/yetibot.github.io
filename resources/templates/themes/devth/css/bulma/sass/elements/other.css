@@ -1,7 +1,7 @@
 /*
 Error: Undefined mixin 'block'.
-        on line 2 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/elements/other.sass, in `block'
-        from line 2 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/elements/other.sass
+        on line 2 of themes/devth/css/bulma/sass/elements/other.sass, in `block'
+        from line 2 of themes/devth/css/bulma/sass/elements/other.sass
 
 1: .block
 2:   +block
@@ -12,8 +12,8 @@ Error: Undefined mixin 'block'.
 7: .heading
 
 Backtrace:
-/Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/elements/other.sass:2:in `block'
-/Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/elements/other.sass:2
+themes/devth/css/bulma/sass/elements/other.sass:2:in `block'
+themes/devth/css/bulma/sass/elements/other.sass:2
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:348:in `block in visit_mixin'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/stack.rb:98:in `block in with_mixin'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/stack.rb:135:in `with_frame'
@@ -67,4 +67,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined mixin 'block'.\A         on line 2 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/elements/other.sass, in `block'\A         from line 2 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/elements/other.sass\A \A 1: .block\A 2:   +block\A 3: \A 4: .delete\A 5:   +delete\A 6: \A 7: .heading"; }
+  content: "Error: Undefined mixin 'block'.\A         on line 2 of themes/devth/css/bulma/sass/elements/other.sass, in `block'\A         from line 2 of themes/devth/css/bulma/sass/elements/other.sass\A \A 1: .block\A 2:   +block\A 3: \A 4: .delete\A 5:   +delete\A 6: \A 7: .heading"; }

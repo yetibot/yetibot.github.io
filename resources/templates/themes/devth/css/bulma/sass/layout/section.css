@@ -1,7 +1,7 @@
 /*
 Error: Undefined mixin 'desktop'.
-        on line 8 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/layout/section.sass, in `desktop'
-        from line 8 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/layout/section.sass
+        on line 8 of themes/devth/css/bulma/sass/layout/section.sass, in `desktop'
+        from line 8 of themes/devth/css/bulma/sass/layout/section.sass
 
 3: $section-padding-large: 18rem 1.5rem !default
 4: 
@@ -16,8 +16,8 @@ Error: Undefined mixin 'desktop'.
 13:       padding: $section-padding-large
 
 Backtrace:
-/Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/layout/section.sass:8:in `desktop'
-/Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/layout/section.sass:8
+themes/devth/css/bulma/sass/layout/section.sass:8:in `desktop'
+themes/devth/css/bulma/sass/layout/section.sass:8
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:348:in `block in visit_mixin'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/stack.rb:98:in `block in with_mixin'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/stack.rb:135:in `with_frame'
@@ -71,4 +71,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined mixin 'desktop'.\A         on line 8 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/layout/section.sass, in `desktop'\A         from line 8 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/layout/section.sass\A \A 3: $section-padding-large: 18rem 1.5rem !default\A 4: \A 5: .section\A 6:   padding: $section-padding\A 7:   // Responsiveness\A 8:   +desktop\A 9:     // Sizes\A 10:     &.is-medium\A 11:       padding: $section-padding-medium\A 12:     &.is-large\A 13:       padding: $section-padding-large"; }
+  content: "Error: Undefined mixin 'desktop'.\A         on line 8 of themes/devth/css/bulma/sass/layout/section.sass, in `desktop'\A         from line 8 of themes/devth/css/bulma/sass/layout/section.sass\A \A 3: $section-padding-large: 18rem 1.5rem !default\A 4: \A 5: .section\A 6:   padding: $section-padding\A 7:   // Responsiveness\A 8:   +desktop\A 9:     // Sizes\A 10:     &.is-medium\A 11:       padding: $section-padding-medium\A 12:     &.is-large\A 13:       padding: $section-padding-large"; }

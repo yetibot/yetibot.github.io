@@ -200,7 +200,7 @@ Yetibot will load all command namespaces matching:
 
 See [yetibot-kroki](https://github.com/yetibot/yetibot-kroki) for an example of
 a lightweight Yetibot plugin. Note that plugins should add
-[`yetibot/core`])(https://clojars.org/yetibot/core) as a `provided` dependency,
+[yetibot/core])(https://clojars.org/yetibot/core) as a `provided` dependency,
 like:
 
 ```clojure
@@ -208,33 +208,31 @@ like:
   {:provided {:dependencies [[yetibot/core "LATEST"]]}
 ```
 
-See [yetibot-kroki's
-project.clj](https://github.com/yetibot/yetibot-kroki/blob/9d97f7c8e4afa702a15e149907d2c58accdc360e/project.clj#L20-L21)
+See [yetibot-kroki's project.clj](https://github.com/yetibot/yetibot-kroki/blob/9d97f7c8e4afa702a15e149907d2c58accdc360e/project.clj#L20-L21)
 as an example.
 
+## Testing yetibot/core changes in yetibot
 
-## Testing yetibot.core changes in yetibot
-
-If you need to test out changes to `yetibot.core` in `yetibot`, this can be done
-by installing the `yetibot.core` SNAPSHOT locally and consuming it from
+If you need to test out changes to `yetibot/core` in `yetibot`, this can be done
+by installing the `yetibot/core` SNAPSHOT locally and consuming it from
 `yetibot`:
 
 ```bash
-[yetibot.core] $ lein install
+[yetibot/core] $ lein install
 Warning: specified :main without including it in :aot.
 Implicit AOT of :main will be removed in Leiningen 3.0.0.
 If you only need AOT for your uberjar, consider adding :aot :all into your
 :uberjar profile instead.
-Compiling yetibot.core.init
-Created /Users/thartman/oss/yetibot.core/target/yetibot.core-x.y.z-SNAPSHOT.jar
-Wrote /Users/thartman/oss/yetibot.core/pom.xml
+Compiling yetibot/core.init
+Created /Users/thartman/oss/yetibot/core/target/yetibot/core-x.y.z-SNAPSHOT.jar
+Wrote /Users/thartman/oss/yetibot/core/pom.xml
 Installed jar and pom into local repo.
 ```
 
-Now in `yetibot`'s `project.clj`, set the dependency of `yetibot.core` to:
+Now in `yetibot`'s `project.clj`, set the dependency of `yetibot/core` to:
 
 ```bash
-[yetibot.core "x.y.z-SNAPSHOT"]
+[yetibot/core "x.y.z-SNAPSHOT"]
 ```
 
 Of course you need to replace `x.y.z` with the actual version you're working on.

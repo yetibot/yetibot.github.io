@@ -1,6 +1,6 @@
 /*
 Error: Undefined variable: "$border".
-        on line 1 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/components/panel.sass
+        on line 1 of themes/devth/css/bulma/sass/components/panel.sass
 
 1: $panel-item-border: 1px solid $border !default
 2: 
@@ -10,7 +10,7 @@ Error: Undefined variable: "$border".
 6: $panel-heading-padding: 0.5em 0.75em !default
 
 Backtrace:
-/Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/components/panel.sass:1
+themes/devth/css/bulma/sass/components/panel.sass:1
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/script/tree/variable.rb:49:in `_perform'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/script/tree/node.rb:50:in `perform'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/script/tree/list_literal.rb:75:in `block in _perform'
@@ -55,4 +55,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$border\".\A         on line 1 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/components/panel.sass\A \A 1: $panel-item-border: 1px solid $border !default\A 2: \A 3: $panel-heading-background-color: $background !default\A 4: $panel-heading-color: $text-strong !default\A 5: $panel-heading-line-height: 1.25 !default\A 6: $panel-heading-padding: 0.5em 0.75em !default"; }
+  content: "Error: Undefined variable: \"$border\".\A         on line 1 of themes/devth/css/bulma/sass/components/panel.sass\A \A 1: $panel-item-border: 1px solid $border !default\A 2: \A 3: $panel-heading-background-color: $background !default\A 4: $panel-heading-color: $text-strong !default\A 5: $panel-heading-line-height: 1.25 !default\A 6: $panel-heading-padding: 0.5em 0.75em !default"; }

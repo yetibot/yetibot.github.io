@@ -1,7 +1,7 @@
 /*
 Error: Undefined mixin 'clearfix'.
-        on line 4 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/base/helpers.sass, in `clearfix'
-        from line 4 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/base/helpers.sass
+        on line 4 of themes/devth/css/bulma/sass/base/helpers.sass, in `clearfix'
+        from line 4 of themes/devth/css/bulma/sass/base/helpers.sass
 
 1: // Float
 2: 
@@ -14,8 +14,8 @@ Error: Undefined mixin 'clearfix'.
 9: .is-pulled-right
 
 Backtrace:
-/Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/base/helpers.sass:4:in `clearfix'
-/Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/base/helpers.sass:4
+themes/devth/css/bulma/sass/base/helpers.sass:4:in `clearfix'
+themes/devth/css/bulma/sass/base/helpers.sass:4
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:348:in `block in visit_mixin'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/stack.rb:98:in `block in with_mixin'
 /usr/local/lib/ruby/gems/2.7.0/gems/sass-3.7.4/lib/sass/stack.rb:135:in `with_frame'
@@ -69,4 +69,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined mixin 'clearfix'.\A         on line 4 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/base/helpers.sass, in `clearfix'\A         from line 4 of /Users/thartman/oss/yetibot.github.io/resources/templates/themes/devth/css/bulma/sass/base/helpers.sass\A \A 1: // Float\A 2: \A 3: .is-clearfix\A 4:   +clearfix\A 5: \A 6: .is-pulled-left\A 7:   float: left !important\A 8: \A 9: .is-pulled-right"; }
+  content: "Error: Undefined mixin 'clearfix'.\A         on line 4 of themes/devth/css/bulma/sass/base/helpers.sass, in `clearfix'\A         from line 4 of themes/devth/css/bulma/sass/base/helpers.sass\A \A 1: // Float\A 2: \A 3: .is-clearfix\A 4:   +clearfix\A 5: \A 6: .is-pulled-left\A 7:   float: left !important\A 8: \A 9: .is-pulled-right"; }
