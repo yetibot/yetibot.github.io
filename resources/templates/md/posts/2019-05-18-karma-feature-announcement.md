@@ -29,8 +29,7 @@ We like traditions so we stuck with that as the basic operation.
 
 ![karma basic interface](/img/screenshots/karma_basic_iface.png)
 
-But you can also use Slack's [Emoji
-Reactions](https://get.slack.help/hc/en-us/articles/206870317-Emoji-reactions)
+But you can also use Slack's [Emoji Reactions](https://get.slack.help/hc/en-us/articles/206870317-Emoji-reactions)
 to quickly cheer something; a quick nod of thanks.
 
 ![karma emoji reaction interface](/img/screenshots/karma_emoji_reaction_iface.png)
