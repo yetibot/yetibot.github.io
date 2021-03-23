@@ -10,7 +10,7 @@
     "react": "16.14.0",
     "react-dom": "16.14.0",
     "tocbot": "4.12.2",
-    "snyk": "^1.431.2"
+    "snyk": "^1.465.0"
   },
   "devDependencies": {
     "css-loader": "3.2.0",
