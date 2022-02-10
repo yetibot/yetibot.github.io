@@ -15,7 +15,7 @@
   "devDependencies": {
     "css-loader": "3.2.0",
     "husky": "3.0.9",
-    "node-sass": "4.13.1",
+    "node-sass": "7.0.0",
     "sass-loader": "8.0.0",
     "style-loader": "1.0.0",
     "watch": "1.0.2",
