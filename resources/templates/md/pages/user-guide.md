@@ -216,6 +216,52 @@ Meme gen was one of Yetibot's first features 😂.
 !http 420
 ```
 
+## AI Features 🤖
+
+Yetibot includes cutting-edge AI features powered by Google Gemini, allowing users to generate rich media and direct autonomous agents from the comfort of their chat channels.
+
+### Image Generation (banana)
+
+The `banana` command uses Google Gemini's advanced image generation models to turn natural language prompts into stunning visual art, memes, or conceptual designs.
+
+```yetibot
+!help banana
+```
+
+To generate an image, simply call the command with your prompt:
+
+```yetibot
+!banana a futuristic neon-lit server room with a giant friendly yeti coding on a holographic terminal
+```
+
+You can also use Unix pipes to pass dynamic values from other commands directly into `banana`:
+
+```yetibot
+!catfact | banana
+```
+
+### Autonomous AI Agent (agent)
+
+The `agent` command unleashes an autonomous, Gemini-powered development assistant that can execute multi-step engineering tasks, explain codebases, or run Git and GitHub CLI operations end-to-end.
+
+```yetibot
+!help agent
+```
+
+Use it to ask questions about your repository or explain system features:
+
+```yetibot
+!agent how does yetibot's cron feature work?
+```
+
+Or ask the agent to carry out complex development tasks:
+
+```yetibot
+!agent increase your timeout to 15 minutes and add a new custom command alias
+```
+
+The agent is fully integrated with Yetibot's runtime, letting you tap into powerful AI automation right from your chat workspace.
+
 ## Collection utilities
 
 Since Yetibot can return a collection as a response, it needs basic operations
