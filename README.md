@@ -1,6 +1,6 @@
 # yetibot.github.io
 
-[![Build Status](https://travis-ci.org/yetibot/yetibot.github.io.svg?branch=source)](https://travis-ci.org/yetibot/yetibot.github.io)
+[![Build Status](https://github.com/yetibot/yetibot.github.io/actions/workflows/deploy.yml/badge.svg?branch=source)](https://github.com/yetibot/yetibot.github.io/actions/workflows/deploy.yml)
 
 This is the static site generator source for
 [https://yetibot.com](https://yetibot.com).
@@ -15,7 +15,7 @@ It's built on [Cryogen](http://cryogenweb.org/).
   e.g.
 
   ```
-  gem install sass
+  npm install -g sass
   ```
 - [yarn or npm](https://yarnpkg.com/en/)
 
