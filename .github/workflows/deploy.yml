@@ -7,6 +7,12 @@ on:
   pull_request:
     branches:
       - source
+  repository_dispatch:
+    types: [yetibot-release-info]
+
+concurrency:
+  group: website-${{ github.event.pull_request.number || 'publish' }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 permissions:
   contents: write
@@ -14,6 +20,7 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -45,6 +52,18 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
+      - name: Test release publisher
+        run: python3 -m unittest discover -s test -v
+
+      - name: Preserve published release archives
+        run: |
+          git fetch --depth=1 origin master:refs/remotes/origin/published-release-data
+          python3 scripts/publish_releases.py restore --ref origin/published-release-data
+
+      - name: Publish bundled release metadata
+        if: github.event_name == 'repository_dispatch'
+        run: python3 scripts/publish_releases.py publish --event "$GITHUB_EVENT_PATH"
+
       - name: Build site
         run: lein run
 
@@ -52,14 +71,14 @@ jobs:
         run: cp CNAME resources/public/CNAME
 
       - name: Deploy to GitHub Pages
-        if: github.event_name == 'push' && github.ref == 'refs/heads/source'
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/source'
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: master
           folder: resources/public
 
       - name: Purge Cloudflare Cache
-        if: github.event_name == 'push' && github.ref == 'refs/heads/source'
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/source'
         env:
           CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE }}
           CLOUDFLARE_EMAIL: ${{ secrets.CLOUDFLARE_EMAIL }}
