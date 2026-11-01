@@ -84,9 +84,9 @@
   } ],
   "build" : {
     "app" : {
-      "version" : "20261101.012220.dc26486",
-      "revision" : "dc26486",
-      "commit_url" : "https://github.com/yetibot/yetibot/commit/dc26486"
+      "version" : "20261101.013357.5520cce",
+      "revision" : "5520cce",
+      "commit_url" : "https://github.com/yetibot/yetibot/commit/5520cce"
     },
     "core" : {
       "version" : "20261031.201727.2404ac0",
