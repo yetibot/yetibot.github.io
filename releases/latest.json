@@ -1,6 +1,15 @@
 {
   "schema_version" : 1,
   "changes" : [ {
+    "id" : "discord-thread-timing",
+    "date" : "2026-11-02",
+    "component" : "core",
+    "title" : "Run whole commands in Discord threads with shared elapsed timing",
+    "summary" : "Use thread <command> to run a whole expression, including pipes, in a thread on your message. Edits and confirmed reruns reuse it. Original caller permissions and channel settings remain in force; uncertain thread creation never runs or retries the command. Rich command replies, errors, media, files and working cards share a measured elapsed footer without duplicate AI timing. Slack and intermediate pipeline values are unchanged.",
+    "commands" : [ "thread echo hello | echo result: %s", "thread ai --provider zen Hello" ],
+    "requires" : [ "Discord server text channel and thread permissions" ],
+    "links" : [ ]
+  }, {
     "id" : "configured-zen-models",
     "date" : "2026-11-02",
     "component" : "app",
@@ -111,14 +120,14 @@
   } ],
   "build" : {
     "app" : {
-      "version" : "20261102.003445.c3ac2d9",
-      "revision" : "c3ac2d9",
-      "commit_url" : "https://github.com/yetibot/yetibot/commit/c3ac2d9"
+      "version" : "20261102.205515.04cc14e",
+      "revision" : "04cc14e",
+      "commit_url" : "https://github.com/yetibot/yetibot/commit/04cc14e"
     },
     "core" : {
-      "version" : "20261031.201727.2404ac0",
-      "revision" : "2404ac0",
-      "commit_url" : "https://github.com/yetibot/core/commit/2404ac0"
+      "version" : "20261102.204559.99f3205",
+      "revision" : "99f3205",
+      "commit_url" : "https://github.com/yetibot/core/commit/99f3205"
     }
   }
 }
