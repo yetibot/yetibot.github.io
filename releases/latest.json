@@ -5,7 +5,7 @@
     "date" : "2026-11-03",
     "component" : "app",
     "title" : "Browse tools and read complete formatted help",
-    "summary" : "AI tool lists show scannable one-sentence overviews rather than dumping provider manuals into listing rows. Inspect server/tool for complete descriptions and parameter help with paragraphs, code and punctuation preserved. Long output has Previous/Next pages, balanced code fences and a complete Markdown download for the requested view. Explore data shows a small reviewed snapshot of IDs and purpose summaries, with flat parameter names/types/required flags for a selected tool, never raw catalogs or schemas. Navigation reads frozen reviewed text/data without rediscovery, tool calls or inference; files, controls and the original elapsed caption stay. Existing metadata limits, visibility, redaction and structured pipeline data are preserved.",
+    "summary" : "Tool lists show one-sentence overviews; inspect server/tool for complete formatted descriptions and parameter help. Long output has Previous/Next pages, balanced code fences and a complete Markdown download. Explore data retains only IDs and short summaries, plus flat parameter names/types/required flags for a selected tool, never raw catalogs or schemas. Collection operations keep corresponding raw/reviewed metadata with selected or reordered values; the viewer follows the completed pipeline, not intermediate catalogs. Navigation reads frozen reviewed text/data without discovery, tool calls or inference and preserves files, controls and the original elapsed caption. Metadata bounds, visibility and redaction remain.",
     "commands" : [ "ai tools", "ai tools alpaca", "ai tools alpaca/get_stock_snapshot" ],
     "requires" : [ "Discord rich replies and retained reviewed public text" ],
     "links" : [ "https://github.com/yetibot/core/pull/336" ]
@@ -174,14 +174,14 @@
   } ],
   "build" : {
     "app" : {
-      "version" : "20261104.030555.5121144",
-      "revision" : "5121144",
-      "commit_url" : "https://github.com/yetibot/yetibot/commit/5121144"
+      "version" : "20261104.133916.1b6cce5",
+      "revision" : "1b6cce5",
+      "commit_url" : "https://github.com/yetibot/yetibot/commit/1b6cce5"
     },
     "core" : {
-      "version" : "20261104.004726.3d02a62",
-      "revision" : "3d02a62",
-      "commit_url" : "https://github.com/yetibot/core/commit/3d02a62"
+      "version" : "20261104.132931.d84b9c5",
+      "revision" : "d84b9c5",
+      "commit_url" : "https://github.com/yetibot/core/commit/d84b9c5"
     }
   }
 }
