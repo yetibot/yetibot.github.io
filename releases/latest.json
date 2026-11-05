@@ -1,6 +1,15 @@
 {
   "schema_version" : 1,
   "changes" : [ {
+    "id" : "weather-cron-alias-data",
+    "date" : "2026-11-05",
+    "component" : "app",
+    "title" : "Follow reply conversations, inspect weather and manage schedules",
+    "summary" : "Discord answers reply to their triggering command without pings. AI follow-ups read bounded same-channel reply ancestry, including visible V2 cards; unreadable chains fail before inference. Top-level zen gains conversation context but stays tool-free, while internal model calls remain stateless. Weather returns actual reviewed fields and explicit units for formatting suggestions. Cron supports current-channel list/get/create/update/delete with owner/admin writes, freshness and duplicate protection; no global controls or run-now. Scheduled commands cannot manage cron. Aliases/render preserve corresponding raw/reviewed data without publishing private fields.",
+    "commands" : [ "zen What about Calgary?", "grok Run weather, inspect its data, and suggest a one-line alias.", "grok List this channel's cron schedules." ],
+    "requires" : [ "Trusted chat request and an enabled native toolset" ],
+    "links" : [ ]
+  }, {
     "id" : "ai-tools-pagination",
     "date" : "2026-11-03",
     "component" : "app",
@@ -174,14 +183,14 @@
   } ],
   "build" : {
     "app" : {
-      "version" : "20261104.133916.1b6cce5",
-      "revision" : "1b6cce5",
-      "commit_url" : "https://github.com/yetibot/yetibot/commit/1b6cce5"
+      "version" : "20261105.213618.9d70d64",
+      "revision" : "9d70d64",
+      "commit_url" : "https://github.com/yetibot/yetibot/commit/9d70d64"
     },
     "core" : {
-      "version" : "20261104.132931.d84b9c5",
-      "revision" : "d84b9c5",
-      "commit_url" : "https://github.com/yetibot/core/commit/d84b9c5"
+      "version" : "20261105.213123.d8f9093",
+      "revision" : "d8f9093",
+      "commit_url" : "https://github.com/yetibot/core/commit/d8f9093"
     }
   }
 }
