@@ -1,6 +1,15 @@
 {
   "schema_version" : 1,
   "changes" : [ {
+    "id" : "ai-usage-ledger",
+    "date" : "2026-11-06",
+    "component" : "app",
+    "title" : "Report AI usage by month or custom timeframe",
+    "summary" : "Any trusted human can view bot-wide provider/model usage for the current UTC month, an explicit month or a custom inclusive-start/exclusive-end window. Cover supported text, streaming, tool rounds, delegated models, classifiers, media, legacy calls and Gemini CLI sessions. Running bots require a durable pending row before inference; final ledger failures preserve completed results and leave honest uncertainty without paid retries. Keep reported USD, partial estimates and unpriced usage separate, with rollout warnings, native CLI scope and frozen reviewed data. No historical caption scraping, new billing credentials or provider-account invoice claims.",
+    "commands" : [ "ai usage", "ai usage 2026-11", "ai usage 2026-11-01 2026-12-01" ],
+    "requires" : [ "Upgraded core/application with the PostgreSQL usage ledger", "Trusted human chat actor" ],
+    "links" : [ ]
+  }, {
     "id" : "ai-reply-routing-default-prices",
     "date" : "2026-11-05",
     "component" : "app",
@@ -192,14 +201,14 @@
   } ],
   "build" : {
     "app" : {
-      "version" : "20261106.000755.5c1d4d8",
-      "revision" : "5c1d4d8",
-      "commit_url" : "https://github.com/yetibot/yetibot/commit/5c1d4d8"
+      "version" : "20261106.163737.a8a0fc4",
+      "revision" : "a8a0fc4",
+      "commit_url" : "https://github.com/yetibot/yetibot/commit/a8a0fc4"
     },
     "core" : {
-      "version" : "20261105.234656.161f436",
-      "revision" : "161f436",
-      "commit_url" : "https://github.com/yetibot/core/commit/161f436"
+      "version" : "20261106.161315.b6234f6",
+      "revision" : "b6234f6",
+      "commit_url" : "https://github.com/yetibot/core/commit/b6234f6"
     }
   }
 }
