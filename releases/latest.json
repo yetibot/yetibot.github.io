@@ -1,6 +1,15 @@
 {
   "schema_version" : 1,
   "changes" : [ {
+    "id" : "prevent-invalid-ai-requests",
+    "date" : "2026-11-07",
+    "component" : "app",
+    "title" : "Skip models that cannot fit the generation budget",
+    "summary" : "Keep requested budgets unchanged. Native candidate pages exclude unknown or incompatible generation bounds; explicit incompatible choices fail before inference rather than silently shrinking the cap. Retain published Zen context and output limits as well as Cloudflare constraints, without treating defaults or token estimates as maxima or full input-fit proof. A provider can opt out of automatic discovery and background routing observations while keeping explicit access, credentials and the global default unchanged. No consumed request replay, paid fallback or automatic retry.",
+    "commands" : [ "ai", "grok", "cf", "zen" ],
+    "requires" : [ ],
+    "links" : [ "https://github.com/yetibot/yetibot/pull/1334" ]
+  }, {
     "id" : "actionable-tool-errors",
     "date" : "2026-11-07",
     "component" : "app",
@@ -246,9 +255,9 @@
   } ],
   "build" : {
     "app" : {
-      "version" : "20261107.173000.c633310",
-      "revision" : "c633310",
-      "commit_url" : "https://github.com/yetibot/yetibot/commit/c633310"
+      "version" : "20261107.202203.1239c11",
+      "revision" : "1239c11",
+      "commit_url" : "https://github.com/yetibot/yetibot/commit/1239c11"
     },
     "core" : {
       "version" : "20261107.160337.60bd0f0",
