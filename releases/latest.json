@@ -1,6 +1,15 @@
 {
   "schema_version" : 1,
   "changes" : [ {
+    "id" : "actionable-tool-errors",
+    "date" : "2026-11-07",
+    "component" : "app",
+    "title" : "Explain failed AI tool calls instead of hiding them behind success rows",
+    "summary" : "Keep safe diagnostics for model discovery as well as inference. Show the failed operation and model/provider with an authored reason such as authentication failure, denied access, unsupported generation parameter or request too large. Error details contains a bounded unsuccessful-call summary, not the successful rows that previously exhausted its snapshot budget. Explicitly mark unavailable reasons and omitted calls. Preserve independent answers, measured costs, policy, budgets and uncertainty stops; never expose raw exceptions or replay paid requests.",
+    "commands" : [ "ai", "grok" ],
+    "requires" : [ ],
+    "links" : [ "https://github.com/yetibot/yetibot/pull/1333" ]
+  }, {
     "id" : "error-details-tree-controls",
     "date" : "2026-11-07",
     "component" : "core",
@@ -237,9 +246,9 @@
   } ],
   "build" : {
     "app" : {
-      "version" : "20261107.161457.6359fae",
-      "revision" : "6359fae",
-      "commit_url" : "https://github.com/yetibot/yetibot/commit/6359fae"
+      "version" : "20261107.173000.c633310",
+      "revision" : "c633310",
+      "commit_url" : "https://github.com/yetibot/yetibot/commit/c633310"
     },
     "core" : {
       "version" : "20261107.160337.60bd0f0",
