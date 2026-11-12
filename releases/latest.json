@@ -255,14 +255,14 @@
   } ],
   "build" : {
     "app" : {
-      "version" : "20261112.150253.6db9c2b",
-      "revision" : "6db9c2b",
-      "commit_url" : "https://github.com/yetibot/yetibot/commit/6db9c2b"
+      "version" : "20261112.152704.2042a1c",
+      "revision" : "2042a1c",
+      "commit_url" : "https://github.com/yetibot/yetibot/commit/2042a1c"
     },
     "core" : {
-      "version" : "20261112.145848.4a1a9c6",
-      "revision" : "4a1a9c6",
-      "commit_url" : "https://github.com/yetibot/core/commit/4a1a9c6"
+      "version" : "20261112.152303.5b28e88",
+      "revision" : "5b28e88",
+      "commit_url" : "https://github.com/yetibot/core/commit/5b28e88"
     }
   }
 }
